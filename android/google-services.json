@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "361376967680",
+    "project_id": "serenity-pixel-dungeon",
+    "storage_bucket": "serenity-pixel-dungeon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361376967680:android:3c55d15c6af95b4a3a3ce5",
+        "android_client_info": {
+          "package_name": "com.seasluggames.serenitypixeldungeon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "361376967680-k1m3ft91mrih1ockmktd8uhtallgsal4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUJlSBf0w5LEP8MikSXdw6-JSQ44_uZ00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "361376967680-k1m3ft91mrih1ockmktd8uhtallgsal4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

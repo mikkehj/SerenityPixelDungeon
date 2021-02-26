@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SerenityPixelDungeon.iml" filepath="$PROJECT_DIR$/.idea/modules/SerenityPixelDungeon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SPD-classes/SerenityPixelDungeon.SPD-classes.iml" filepath="$PROJECT_DIR$/.idea/modules/SPD-classes/SerenityPixelDungeon.SPD-classes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android/SerenityPixelDungeon.android.iml" filepath="$PROJECT_DIR$/.idea/modules/android/SerenityPixelDungeon.android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/SerenityPixelDungeon.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/SerenityPixelDungeon.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/desktop/SerenityPixelDungeon.desktop.iml" filepath="$PROJECT_DIR$/.idea/modules/desktop/SerenityPixelDungeon.desktop.iml" />
+    </modules>
+  </component>
+</project>

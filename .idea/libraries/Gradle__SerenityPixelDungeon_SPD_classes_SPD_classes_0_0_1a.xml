@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: SerenityPixelDungeon.SPD-classes.SPD-classes-0.0.1a">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/SPD-classes/build/libs/SPD-classes-0.0.1a.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

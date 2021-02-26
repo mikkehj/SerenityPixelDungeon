@@ -1,0 +1,36 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.2'
+        classpath 'com.google.gms:google-services:4.3.5'
+    }
+}
+
+allprojects {
+
+    ext {
+        appName = 'Serenity Pixel Dungeon'
+        appPackageName = 'com.seasluggames.serenitypixeldungeon'
+
+        appVersionCode = 1
+        appVersionName = '0.0.1a'
+
+        appJavaCompatibility = JavaVersion.VERSION_1_8
+
+        appAndroidCompileSDK = 30
+        appAndroidMinSDK = 16
+        appAndroidTargetSDK = 30
+
+        gdxVersion = '1.9.10'
+    }
+    version = appVersionName
+
+    repositories {
+        google()
+        jcenter()
+    }
+
+}

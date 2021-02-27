@@ -123,7 +123,8 @@ public class WndGameInProgress extends Window {
 			protected void onClick() {
 				super.onClick();
 
-
+				//ADD INTERSTITIAL AD HERE
+				//ONCE AD CLOSED, RUN REST OF THE CODE
 				
 				GamesInProgress.curSlot = slot;
 				

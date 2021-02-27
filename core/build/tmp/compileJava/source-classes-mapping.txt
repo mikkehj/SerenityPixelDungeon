@@ -457,10 +457,8 @@ com/seasluggames/serenitypixeldungeon/SPDSettings.java
 com/seasluggames/serenitypixeldungeon/sprites/ItemSpriteSheet.java
  com.seasluggames.serenitypixeldungeon.sprites.ItemSpriteSheet
  com.seasluggames.serenitypixeldungeon.sprites.ItemSpriteSheet$Icons
-com/seasluggames/serenitypixeldungeon/actors/mobs/npcs/Shopkeeper.java
- com.seasluggames.serenitypixeldungeon.actors.mobs.npcs.Shopkeeper
- com.seasluggames.serenitypixeldungeon.actors.mobs.npcs.Shopkeeper$1
- com.seasluggames.serenitypixeldungeon.actors.mobs.npcs.Shopkeeper$2
+com/seasluggames/serenitypixeldungeon/items/wands/WandOfFireblast.java
+ com.seasluggames.serenitypixeldungeon.items.wands.WandOfFireblast
 com/seasluggames/serenitypixeldungeon/items/scrolls/ScrollOfRage.java
  com.seasluggames.serenitypixeldungeon.items.scrolls.ScrollOfRage
 com/seasluggames/serenitypixeldungeon/items/potions/elixirs/Elixir.java
@@ -773,14 +771,8 @@ com/seasluggames/serenitypixeldungeon/items/keys/GoldenKey.java
  com.seasluggames.serenitypixeldungeon.items.keys.GoldenKey
 com/seasluggames/serenitypixeldungeon/actors/blobs/Freezing.java
  com.seasluggames.serenitypixeldungeon.actors.blobs.Freezing
-com/seasluggames/serenitypixeldungeon/actors/hero/Hero.java
- com.seasluggames.serenitypixeldungeon.actors.hero.Hero
- com.seasluggames.serenitypixeldungeon.actors.hero.Hero$1
- com.seasluggames.serenitypixeldungeon.actors.hero.Hero$2
- com.seasluggames.serenitypixeldungeon.actors.hero.Hero$3
- com.seasluggames.serenitypixeldungeon.actors.hero.Hero$4
- com.seasluggames.serenitypixeldungeon.actors.hero.Hero$5
- com.seasluggames.serenitypixeldungeon.actors.hero.Hero$Doom
+com/seasluggames/serenitypixeldungeon/items/weapon/missiles/darts/BlindingDart.java
+ com.seasluggames.serenitypixeldungeon.items.weapon.missiles.darts.BlindingDart
 com/seasluggames/serenitypixeldungeon/items/armor/glyphs/Potential.java
  com.seasluggames.serenitypixeldungeon.items.armor.glyphs.Potential
 com/seasluggames/serenitypixeldungeon/actors/mobs/Necromancer.java
@@ -1443,13 +1435,8 @@ com/seasluggames/serenitypixeldungeon/items/food/StewedMeat.java
  com.seasluggames.serenitypixeldungeon.items.food.StewedMeat$oneMeat
  com.seasluggames.serenitypixeldungeon.items.food.StewedMeat$threeMeat
  com.seasluggames.serenitypixeldungeon.items.food.StewedMeat$twoMeat
-com/seasluggames/serenitypixeldungeon/windows/WndTradeItem.java
- com.seasluggames.serenitypixeldungeon.windows.WndTradeItem
- com.seasluggames.serenitypixeldungeon.windows.WndTradeItem$1
- com.seasluggames.serenitypixeldungeon.windows.WndTradeItem$2
- com.seasluggames.serenitypixeldungeon.windows.WndTradeItem$3
- com.seasluggames.serenitypixeldungeon.windows.WndTradeItem$4
- com.seasluggames.serenitypixeldungeon.windows.WndTradeItem$5
+com/seasluggames/serenitypixeldungeon/items/scrolls/exotic/ScrollOfConfusion.java
+ com.seasluggames.serenitypixeldungeon.items.scrolls.exotic.ScrollOfConfusion
 com/seasluggames/serenitypixeldungeon/items/rings/RingOfWealth.java
  com.seasluggames.serenitypixeldungeon.items.rings.RingOfWealth
  com.seasluggames.serenitypixeldungeon.items.rings.RingOfWealth$Wealth
@@ -2640,12 +2627,6 @@ com/seasluggames/serenitypixeldungeon/ui/BadgesList.java
  com.seasluggames.serenitypixeldungeon.ui.BadgesList$ListItem
 com/seasluggames/serenitypixeldungeon/actors/buffs/Healing.java
  com.seasluggames.serenitypixeldungeon.actors.buffs.Healing
-com/seasluggames/serenitypixeldungeon/items/scrolls/exotic/ScrollOfConfusion.java
- com.seasluggames.serenitypixeldungeon.items.scrolls.exotic.ScrollOfConfusion
-com/seasluggames/serenitypixeldungeon/items/wands/WandOfFireblast.java
- com.seasluggames.serenitypixeldungeon.items.wands.WandOfFireblast
-com/seasluggames/serenitypixeldungeon/items/weapon/missiles/darts/BlindingDart.java
- com.seasluggames.serenitypixeldungeon.items.weapon.missiles.darts.BlindingDart
 com/seasluggames/serenitypixeldungeon/windows/WndGameInProgress.java
  com.seasluggames.serenitypixeldungeon.windows.WndGameInProgress
  com.seasluggames.serenitypixeldungeon.windows.WndGameInProgress$1
@@ -2653,7 +2634,27 @@ com/seasluggames/serenitypixeldungeon/windows/WndGameInProgress.java
  com.seasluggames.serenitypixeldungeon.windows.WndGameInProgress$3
  com.seasluggames.serenitypixeldungeon.windows.WndGameInProgress$4
  com.seasluggames.serenitypixeldungeon.windows.WndGameInProgress$4$1
+com/seasluggames/serenitypixeldungeon/actors/mobs/npcs/Shopkeeper.java
+ com.seasluggames.serenitypixeldungeon.actors.mobs.npcs.Shopkeeper
+ com.seasluggames.serenitypixeldungeon.actors.mobs.npcs.Shopkeeper$1
+ com.seasluggames.serenitypixeldungeon.actors.mobs.npcs.Shopkeeper$2
 com/seasluggames/serenitypixeldungeon/scenes/StartScene.java
  com.seasluggames.serenitypixeldungeon.scenes.StartScene
  com.seasluggames.serenitypixeldungeon.scenes.StartScene$1
  com.seasluggames.serenitypixeldungeon.scenes.StartScene$SaveSlotButton
+com/seasluggames/serenitypixeldungeon/windows/WndTradeItem.java
+ com.seasluggames.serenitypixeldungeon.windows.WndTradeItem
+ com.seasluggames.serenitypixeldungeon.windows.WndTradeItem$1
+ com.seasluggames.serenitypixeldungeon.windows.WndTradeItem$2
+ com.seasluggames.serenitypixeldungeon.windows.WndTradeItem$3
+ com.seasluggames.serenitypixeldungeon.windows.WndTradeItem$4
+ com.seasluggames.serenitypixeldungeon.windows.WndTradeItem$5
+ com.seasluggames.serenitypixeldungeon.windows.WndTradeItem$6
+com/seasluggames/serenitypixeldungeon/actors/hero/Hero.java
+ com.seasluggames.serenitypixeldungeon.actors.hero.Hero
+ com.seasluggames.serenitypixeldungeon.actors.hero.Hero$1
+ com.seasluggames.serenitypixeldungeon.actors.hero.Hero$2
+ com.seasluggames.serenitypixeldungeon.actors.hero.Hero$3
+ com.seasluggames.serenitypixeldungeon.actors.hero.Hero$4
+ com.seasluggames.serenitypixeldungeon.actors.hero.Hero$5
+ com.seasluggames.serenitypixeldungeon.actors.hero.Hero$Doom

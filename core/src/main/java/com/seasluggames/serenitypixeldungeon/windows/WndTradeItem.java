@@ -114,6 +114,21 @@ public class WndTradeItem extends WndInfoItem {
 		btnBuy.enable( price <= Dungeon.gold );
 		add( btnBuy );
 
+		PurpleButton btnFree = new PurpleButton( Messages.get(this, "watch ad") ) {
+			@Override
+			protected void onClick() {
+				//ADD REWARDED AD HERE
+				//ON REWARDED, run free(heap)
+				hide();
+				free( heap );
+			}
+		};
+
+		btnFree.setRect( 0, pos + GAP, width, BTN_HEIGHT );
+		btnFree.enable( price > Dungeon.gold );
+		add( btnFree );
+
+		pos = btnFree.bottom();
 		pos = btnBuy.bottom();
 
 		final MasterThievesArmband.Thievery thievery = Dungeon.hero.buff(MasterThievesArmband.Thievery.class);
@@ -206,5 +221,11 @@ public class WndTradeItem extends WndInfoItem {
 		if (!item.doPickUp( Dungeon.hero )) {
 			Dungeon.level.drop( item, heap.pos ).sprite.drop();
 		}
+	}
+
+	private void free( Heap heap) {
+		Item item = heap.pickUp();
+		if (item == null) return;
+
 	}
 }

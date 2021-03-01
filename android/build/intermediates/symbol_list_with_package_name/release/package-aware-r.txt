@@ -174,6 +174,12 @@ mipmap ic_launcher1
 mipmap ic_launcher_background
 mipmap ic_launcher_foreground
 string common_google_play_services_unknown_issue
+string default_web_client_id
+string gcm_defaultSenderId
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
+string google_storage_bucket
 string offline_notification_text
 string offline_notification_title
 string offline_opt_in_confirm
@@ -181,6 +187,7 @@ string offline_opt_in_confirmation
 string offline_opt_in_decline
 string offline_opt_in_message
 string offline_opt_in_title
+string project_id
 string s1
 string s2
 string s3

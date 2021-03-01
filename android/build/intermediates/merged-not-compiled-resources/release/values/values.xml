@@ -87,6 +87,12 @@
     <integer name="google_play_services_version">12451000</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <string name="common_google_play_services_unknown_issue"><ns1:g id="app_name">%1$s</ns1:g> is having trouble with Google Play services. Please try again.</string>
+    <string name="default_web_client_id" translatable="false">361376967680-k1m3ft91mrih1ockmktd8uhtallgsal4.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">361376967680</string>
+    <string name="google_api_key" translatable="false">AIzaSyCUJlSBf0w5LEP8MikSXdw6-JSQ44_uZ00</string>
+    <string name="google_app_id" translatable="false">1:361376967680:android:3c55d15c6af95b4a3a3ce5</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCUJlSBf0w5LEP8MikSXdw6-JSQ44_uZ00</string>
+    <string name="google_storage_bucket" translatable="false">serenity-pixel-dungeon.appspot.com</string>
     <string description="Text of the notification which directs the user to the landing page of the ad. [CHAR_LIMIT=NONE]" name="offline_notification_text">
       Tap to open ad</string>
     <string description="Title of the notification which directs the user to the landing page of the ad. [CHAR_LIMIT=NONE]" name="offline_notification_title">
@@ -101,6 +107,7 @@
       We\'ll send you a notification with a link to the advertiser site.</string>
     <string description="Title of the dialog presented when an ad is clicked while offline. [CHAR_LIMIT=NONE]" name="offline_opt_in_title">
       Open ad when you\'re back online.</string>
+    <string name="project_id" translatable="false">serenity-pixel-dungeon</string>
     <string name="s1">Save image</string>
     <string name="s2">"Allow Ad to store image in Picture gallery?"</string>
     <string name="s3">Accept</string>

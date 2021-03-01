@@ -8,6 +8,10 @@ com/seasluggames/serenitypixeldungeon/android/AndroidPlatformSupport.java
  com.seasluggames.serenitypixeldungeon.android.AndroidPlatformSupport$5
 com/seasluggames/serenitypixeldungeon/android/AndroidGame.java
  com.seasluggames.serenitypixeldungeon.android.AndroidGame
+ com.seasluggames.serenitypixeldungeon.android.AndroidGame$1
+ com.seasluggames.serenitypixeldungeon.android.AndroidGame$2
+ com.seasluggames.serenitypixeldungeon.android.AndroidGame$3
+ com.seasluggames.serenitypixeldungeon.android.AndroidGame$4
 com/seasluggames/serenitypixeldungeon/android/AndroidLauncher.java
  com.seasluggames.serenitypixeldungeon.android.AndroidLauncher
 com/seasluggames/serenitypixeldungeon/android/BuildConfig.java

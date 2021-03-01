@@ -164,6 +164,11 @@
 -keep class com.google.android.gms.ads.AdActivity { <init>(); }
 -keep class com.google.android.gms.ads.AdService { <init>(); }
 -keep class com.google.android.gms.ads.MobileAdsInitProvider { <init>(); }
+-keep class com.google.android.gms.measurement.AppMeasurementJobService { <init>(); }
+-keep class com.google.android.gms.measurement.AppMeasurementReceiver { <init>(); }
+-keep class com.google.android.gms.measurement.AppMeasurementService { <init>(); }
+-keep class com.google.firebase.components.ComponentDiscoveryService { <init>(); }
+-keep class com.google.firebase.provider.FirebaseInitProvider { <init>(); }
 -keep class com.seasluggames.serenitypixeldungeon.android.AndroidBackupHandler { <init>(); }
 -keep class com.seasluggames.serenitypixeldungeon.android.AndroidGame { <init>(); }
 -keep class com.seasluggames.serenitypixeldungeon.android.AndroidLauncher { <init>(); }
@@ -171,7 +176,27 @@
 
 
 # End of content from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\build\intermediates\aapt_proguard_file\release\aapt_rules.txt
-# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\459c069d2345574a77a09a64dc4e229b\play-services-ads-19.7.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\7d23e03fc6537bd89e829ad4e5567d65\play-services-measurement-api-18.0.2\proguard.txt
+# Can be removed once we pull in a dependency on firebase-common that includes
+# https://github.com/firebase/firebase-android-sdk/pull/1472/commits/856f1ca1151cdd88679bbc778892f23dfa34fc06#diff-a2ed34b5a38b4c6c686b09e54865eb48
+-dontwarn com.google.auto.value.AutoValue
+-dontwarn com.google.auto.value.AutoValue$Builder
+
+# We keep all fields for every generated proto file as the runtime uses
+# reflection over them that ProGuard cannot detect. Without this keep
+# rule, fields may be removed that would cause runtime failures.
+-keepclassmembers class * extends com.google.android.gms.internal.measurement.zzhs {
+  <fields>;
+}
+
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\7d23e03fc6537bd89e829ad4e5567d65\play-services-measurement-api-18.0.2\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\00f367492ac152316c82177f95fdcc2d\firebase-common-19.5.0\proguard.txt
+-dontwarn com.google.firebase.platforminfo.KotlinDetector
+-dontwarn com.google.auto.value.AutoValue
+-dontwarn com.google.auto.value.AutoValue$Builder
+
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\00f367492ac152316c82177f95fdcc2d\firebase-common-19.5.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\64bcf7c9ef21802a2943a05e7c697325\play-services-ads-19.7.0\proguard.txt
 -keep public class com.google.android.gms.ads.internal.ClientApi {
   <init>();
 }
@@ -187,8 +212,26 @@
 -dontwarn com.google.android.gms.ads.internal.util.zzac
 
 
-# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\459c069d2345574a77a09a64dc4e229b\play-services-ads-19.7.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\4daec4ac9d8527f3ad18027a1611a50a\play-services-gass-19.7.0\proguard.txt
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\64bcf7c9ef21802a2943a05e7c697325\play-services-ads-19.7.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\6119e231ee3e82eb1225abd8ae79d28a\play-services-measurement-18.0.2\proguard.txt
+# We keep all fields for every generated proto file as the runtime uses
+# reflection over them that ProGuard cannot detect. Without this keep
+# rule, fields may be removed that would cause runtime failures.
+-keepclassmembers class * extends com.google.android.gms.internal.measurement.zzhs {
+  <fields>;
+}
+
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\6119e231ee3e82eb1225abd8ae79d28a\play-services-measurement-18.0.2\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\8dd4326c7d848b3c9c892c2be145968d\play-services-measurement-sdk-18.0.2\proguard.txt
+# We keep all fields for every generated proto file as the runtime uses
+# reflection over them that ProGuard cannot detect. Without this keep
+# rule, fields may be removed that would cause runtime failures.
+-keepclassmembers class * extends com.google.android.gms.internal.measurement.zzhs {
+  <fields>;
+}
+
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\8dd4326c7d848b3c9c892c2be145968d\play-services-measurement-sdk-18.0.2\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\b3ef23b65a7aaa42dce438f18f474c7b\play-services-gass-19.7.0\proguard.txt
 # We keep all fields for every generated proto file as the runtime uses
 # reflection over them that ProGuard cannot detect. Without this keep
 # rule, fields may be removed that would cause runtime failures.
@@ -196,8 +239,17 @@
   <fields>;
 }
 
-# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\4daec4ac9d8527f3ad18027a1611a50a\play-services-gass-19.7.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\640343210f7d74eeed4d9c63ae65d868\play-services-ads-lite-19.7.0\proguard.txt
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\b3ef23b65a7aaa42dce438f18f474c7b\play-services-gass-19.7.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\8652c047d669ebf4a4cb684054937bd3\play-services-measurement-impl-18.0.2\proguard.txt
+# We keep all fields for every generated proto file as the runtime uses
+# reflection over them that ProGuard cannot detect. Without this keep
+# rule, fields may be removed that would cause runtime failures.
+-keepclassmembers class * extends com.google.android.gms.internal.measurement.zzhs {
+  <fields>;
+}
+
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\8652c047d669ebf4a4cb684054937bd3\play-services-measurement-impl-18.0.2\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\65c12d2d5cb910335c0cd854ea49519d\play-services-ads-lite-19.7.0\proguard.txt
 # Keep implementations of the AdMob mediation adapter interfaces. Adapters for
 # third party ad networks implement these interfaces and are invoked by the
 # AdMob SDK via reflection.
@@ -242,26 +294,26 @@
   <fields>;
 }
 
-# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\640343210f7d74eeed4d9c63ae65d868\play-services-ads-lite-19.7.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\2d2b64f88521774a5f978fbd81f52e72\play-services-measurement-sdk-api-17.5.0\proguard.txt
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\65c12d2d5cb910335c0cd854ea49519d\play-services-ads-lite-19.7.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\11abe0ae7b9b4b378557964c3e926356\play-services-measurement-sdk-api-18.0.2\proguard.txt
 # We keep all fields for every generated proto file as the runtime uses
 # reflection over them that ProGuard cannot detect. Without this keep
 # rule, fields may be removed that would cause runtime failures.
--keepclassmembers class * extends com.google.android.gms.internal.measurement.zzhv {
+-keepclassmembers class * extends com.google.android.gms.internal.measurement.zzhs {
   <fields>;
 }
 
-# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\2d2b64f88521774a5f978fbd81f52e72\play-services-measurement-sdk-api-17.5.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\a5d696cc29fe19f8a85b9e297070fe76\play-services-measurement-base-17.5.0\proguard.txt
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\11abe0ae7b9b4b378557964c3e926356\play-services-measurement-sdk-api-18.0.2\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\4e23a3539d4ffe04fc286cc48162f502\play-services-measurement-base-18.0.2\proguard.txt
 # We keep all fields for every generated proto file as the runtime uses
 # reflection over them that ProGuard cannot detect. Without this keep
 # rule, fields may be removed that would cause runtime failures.
--keepclassmembers class * extends com.google.android.gms.internal.measurement.zzhv {
+-keepclassmembers class * extends com.google.android.gms.internal.measurement.zzhs {
   <fields>;
 }
 
-# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\a5d696cc29fe19f8a85b9e297070fe76\play-services-measurement-base-17.5.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\b70dbd54e6a1b426bff4343802d30171\play-services-basement-17.3.0\proguard.txt
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\4e23a3539d4ffe04fc286cc48162f502\play-services-measurement-base-18.0.2\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\9d7f35f575b66dbb848faad97184bf40\play-services-basement-17.3.0\proguard.txt
 # Proguard flags for consumers of the Google Play services SDK
 # https://developers.google.com/android/guides/setup#add_google_play_services_to_your_project
 
@@ -330,8 +382,8 @@
 -dontwarn javax.annotation.**
 -dontwarn org.checkerframework.**
 
-# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\b70dbd54e6a1b426bff4343802d30171\play-services-basement-17.3.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\15e024e6b4e83199ca6c619fafe7534c\work-runtime-2.1.0\proguard.txt
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\9d7f35f575b66dbb848faad97184bf40\play-services-basement-17.3.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\16a4e5ecce11e0c13ddcdd54d8ec57e7\work-runtime-2.1.0\proguard.txt
 -keep class * extends androidx.work.Worker
 -keep class * extends androidx.work.InputMerger
 # Keep all constructors on ListenableWorker, Worker (also marked with @Keep)
@@ -341,8 +393,8 @@
 # We need to keep WorkerParameters for the ListenableWorker constructor
 -keep class androidx.work.WorkerParameters
 
-# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\15e024e6b4e83199ca6c619fafe7534c\work-runtime-2.1.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\32215886f15bfa789c3e4aa34ce3af9b\coordinatorlayout-1.0.0\proguard.txt
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\16a4e5ecce11e0c13ddcdd54d8ec57e7\work-runtime-2.1.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\8401131c44759408cf1422185b9ef990\coordinatorlayout-1.0.0\proguard.txt
 # Copyright (C) 2016 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -366,25 +418,32 @@
 # Make sure we keep annotations for CoordinatorLayout's DefaultBehavior and ViewPager's DecorView
 -keepattributes *Annotation*
 
-# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\32215886f15bfa789c3e4aa34ce3af9b\coordinatorlayout-1.0.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\e1b57b4aedf7aa86dd1bc707cde1a38e\room-runtime-2.1.0\proguard.txt
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\8401131c44759408cf1422185b9ef990\coordinatorlayout-1.0.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\0dabab305382503b92a09cf1448b76b3\room-runtime-2.1.0\proguard.txt
 -keep class * extends androidx.room.RoomDatabase
 -dontwarn androidx.room.paging.**
 
-# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\e1b57b4aedf7aa86dd1bc707cde1a38e\room-runtime-2.1.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\1c0371682f7105e152bf2e6d9bf9ab18\core-1.2.0\proguard.txt
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\0dabab305382503b92a09cf1448b76b3\room-runtime-2.1.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\1bd4050be8a6335c8c85c753e5fd1cc5\core-1.2.0\proguard.txt
 # aapt2 is not (yet) keeping FQCNs defined in the appComponentFactory <application> attribute
 -keep class androidx.core.app.CoreComponentFactory
 
-# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\1c0371682f7105e152bf2e6d9bf9ab18\core-1.2.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\8610040705b729c7b8006bb2793e2262\versionedparcelable-1.1.0\proguard.txt
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\1bd4050be8a6335c8c85c753e5fd1cc5\core-1.2.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\ac88e8c8138fa47e4e1d1188126ffb57\versionedparcelable-1.1.0\proguard.txt
 -keep public class * implements androidx.versionedparcelable.VersionedParcelable
 -keep public class android.support.**Parcelizer { *; }
 -keep public class androidx.**Parcelizer { *; }
 -keep public class androidx.versionedparcelable.ParcelImpl
 
-# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\8610040705b729c7b8006bb2793e2262\versionedparcelable-1.1.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\b01428aa10b43c91eb6049f7f4e7a37b\lifecycle-runtime-2.0.0\proguard.txt
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\ac88e8c8138fa47e4e1d1188126ffb57\versionedparcelable-1.1.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\f57650df4d9c77f4afae962bec745bfb\firebase-components-16.1.0\proguard.txt
+-dontwarn com.google.firebase.components.Component$Instantiation
+-dontwarn com.google.firebase.components.Component$ComponentType
+
+-keep class * implements com.google.firebase.components.ComponentRegistrar
+
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\f57650df4d9c77f4afae962bec745bfb\firebase-components-16.1.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\4d01277b0e3f57f6322f452015f9d021\lifecycle-runtime-2.0.0\proguard.txt
 -keepattributes *Annotation*
 
 -keepclassmembers enum androidx.lifecycle.Lifecycle$Event {
@@ -401,8 +460,8 @@
 -keepclassmembers class ** {
     @androidx.lifecycle.OnLifecycleEvent *;
 }
-# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\b01428aa10b43c91eb6049f7f4e7a37b\lifecycle-runtime-2.0.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\758bc8d082c90955255adb175cdd2e4a\lifecycle-viewmodel-2.0.0\proguard.txt
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\4d01277b0e3f57f6322f452015f9d021\lifecycle-runtime-2.0.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\ba4c09a42a551c225e6f86eb65c2b4c2\lifecycle-viewmodel-2.0.0\proguard.txt
 -keepclassmembers,allowobfuscation class * extends androidx.lifecycle.ViewModel {
     <init>();
 }
@@ -411,8 +470,8 @@
     <init>(android.app.Application);
 }
 
-# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\758bc8d082c90955255adb175cdd2e4a\lifecycle-viewmodel-2.0.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\b400b6f84efd8169ecbca00797252761\rules\lib\META-INF\proguard\androidx-annotations.pro
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\ba4c09a42a551c225e6f86eb65c2b4c2\lifecycle-viewmodel-2.0.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\d9e0f1af81a1018e3fb26e05146ac2bf\rules\lib\META-INF\proguard\androidx-annotations.pro
 -keep,allowobfuscation @interface androidx.annotation.Keep
 -keep @androidx.annotation.Keep class * {*;}
 
@@ -428,7 +487,7 @@
     @androidx.annotation.Keep <init>(...);
 }
 
-# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\b400b6f84efd8169ecbca00797252761\rules\lib\META-INF\proguard\androidx-annotations.pro
+# End of content from C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\d9e0f1af81a1018e3fb26e05146ac2bf\rules\lib\META-INF\proguard\androidx-annotations.pro
 # The proguard configuration file for the following section is <unknown>
 -ignorewarnings
 # End of content from <unknown>

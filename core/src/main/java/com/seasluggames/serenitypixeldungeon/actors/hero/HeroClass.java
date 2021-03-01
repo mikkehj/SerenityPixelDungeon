@@ -108,8 +108,15 @@ public enum HeroClass {
 		if (!Challenges.isItemBlocked(i)) hero.belongings.armor = (ClothArmor)i;
 
 		i = new Food();
-		if (!Challenges.isItemBlocked(i)) i.collect();
 
+		if (!Challenges.isItemBlocked(i)) {
+			if (Badges.isUnlocked(Badges.Badge.FOOD_EATEN_4)) {
+				i.quantity(2).collect();
+			} else {
+				i.collect();
+			}
+		}
+		
 		new ScrollOfIdentify().identify();
 
 	}
@@ -212,6 +219,8 @@ public enum HeroClass {
 
 		new VelvetPouch().collect();
 		Dungeon.LimitedDrops.VELVET_POUCH.drop();
+
+
 
 		new PotionOfHealing().identify();
 		new ScrollOfUpgrade().identify();

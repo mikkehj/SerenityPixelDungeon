@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">361376967680-k1m3ft91mrih1ockmktd8uhtallgsal4.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">361376967680</string>
+    <string name="google_api_key" translatable="false">AIzaSyCUJlSBf0w5LEP8MikSXdw6-JSQ44_uZ00</string>
+    <string name="google_app_id" translatable="false">1:361376967680:android:3c55d15c6af95b4a3a3ce5</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCUJlSBf0w5LEP8MikSXdw6-JSQ44_uZ00</string>
+    <string name="google_storage_bucket" translatable="false">serenity-pixel-dungeon.appspot.com</string>
+    <string name="project_id" translatable="false">serenity-pixel-dungeon</string>
+</resources>

@@ -41,7 +41,7 @@ public enum HeroSubClass {
 	WARDEN( "warden" ),
 
 	PRIEST("prist"),
-	BISHOP("bishop");
+	MONK("monk");
 	
 	private String title;
 	

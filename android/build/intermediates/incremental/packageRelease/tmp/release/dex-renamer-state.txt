@@ -1,4 +1,4 @@
-#Sun Feb 28 23:56:44 CET 2021
+#Mon Mar 01 23:28:03 CET 2021
 base.0=C\:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

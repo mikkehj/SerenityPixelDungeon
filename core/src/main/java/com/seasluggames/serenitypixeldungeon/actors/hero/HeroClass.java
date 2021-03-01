@@ -59,8 +59,8 @@ public enum HeroClass {
 	WARRIOR( "warrior", HeroSubClass.BERSERKER, HeroSubClass.GLADIATOR ),
 	MAGE( "mage", HeroSubClass.BATTLEMAGE, HeroSubClass.WARLOCK ),
 	ROGUE( "rogue", HeroSubClass.ASSASSIN, HeroSubClass.FREERUNNER ),
-	HUNTRESS( "huntress", HeroSubClass.SNIPER, HeroSubClass.WARDEN );
-	//CLERIC("cleric", HeroSubClass.PRIEST, HeroSubClass.BISHOP);
+	HUNTRESS( "huntress", HeroSubClass.SNIPER, HeroSubClass.WARDEN ),
+	CLERIC("cleric", HeroSubClass.PRIEST, HeroSubClass.MONK);
 
 	private String title;
 	private HeroSubClass[] subClasses;
@@ -93,12 +93,11 @@ public enum HeroClass {
 			case HUNTRESS:
 				initHuntress( hero );
 				break;
-/*
+
 			case CLERIC:
 				initCleric( hero );
 				break;
 
- */
 		}
 
 	}
@@ -116,7 +115,7 @@ public enum HeroClass {
 				i.collect();
 			}
 		}
-		
+
 		new ScrollOfIdentify().identify();
 
 	}
@@ -131,6 +130,7 @@ public enum HeroClass {
 				return Badges.Badge.MASTERY_ROGUE;
 			case HUNTRESS:
 				return Badges.Badge.MASTERY_HUNTRESS;
+			case CLERIC:
 		}
 		return null;
 	}
@@ -190,7 +190,6 @@ public enum HeroClass {
 	}
 
 	private static void initHuntress( Hero hero ) {
-
 		(hero.belongings.weapon = new Gloves()).identify();
 		SpiritBow bow = new SpiritBow();
 		bow.identify().collect();
@@ -205,26 +204,21 @@ public enum HeroClass {
 	}
 
 	private static void initCleric( Hero hero ) {
-		MagesStaff staff;
+		(hero.belongings.weapon = new Gloves()).identify();
+		SpiritBow bow = new SpiritBow();
+		bow.identify().collect();
 
-		staff = new MagesStaff(new WandOfMagicMissile());
+		PotionOfHealing pot = new PotionOfHealing();
+		pot.collect();
 
-		(hero.belongings.weapon = staff).identify();
-		hero.belongings.weapon.activate(hero);
+		Dungeon.quickslot.setSlot(0, bow);
+		Dungeon.quickslot.setSlot(1, pot);
 
-		Dungeon.quickslot.setSlot(0, staff);
-
-		new ScrollHolder().collect();
-		Dungeon.LimitedDrops.SCROLL_HOLDER.drop();
-
-		new VelvetPouch().collect();
-		Dungeon.LimitedDrops.VELVET_POUCH.drop();
-
-
+		new PotionBandolier().collect();
+		Dungeon.LimitedDrops.POTION_BANDOLIER.drop();
 
 		new PotionOfHealing().identify();
 		new ScrollOfUpgrade().identify();
-		new PotionOfLiquidFlame().identify();
 	}
 
 	public String title() {
@@ -245,11 +239,9 @@ public enum HeroClass {
 				return Assets.Sprites.ROGUE;
 			case HUNTRESS:
 				return Assets.Sprites.HUNTRESS;
-				/*
 			case CLERIC:
-				return Assets.Sprites.HUNTRESS;
+				return Assets.Sprites.MAGE;
 
-				 */
 		}
 	}
 
@@ -263,11 +255,9 @@ public enum HeroClass {
 				return Assets.Splashes.ROGUE;
 			case HUNTRESS:
 				return Assets.Splashes.HUNTRESS;
-				/*
 			case CLERIC:
-				return Assets.Splashes.HUNTRESS;
+				return Assets.Splashes.MAGE;
 
-				 */
 		}
 	}
 	
@@ -305,7 +295,6 @@ public enum HeroClass {
 						Messages.get(HeroClass.class, "huntress_perk4"),
 						Messages.get(HeroClass.class, "huntress_perk5"),
 				};
-				/*
 			case CLERIC:
 				return new String[]{
 						Messages.get(HeroClass.class, "rogue_perk1"),
@@ -314,8 +303,6 @@ public enum HeroClass {
 						Messages.get(HeroClass.class, "rogue_perk4"),
 						Messages.get(HeroClass.class, "warrior_perk5"),
 				};
-
-				 */
 		}
 	}
 	
@@ -332,6 +319,8 @@ public enum HeroClass {
 				return Badges.isUnlocked(Badges.Badge.UNLOCK_ROGUE);
 			case HUNTRESS:
 				return Badges.isUnlocked(Badges.Badge.UNLOCK_HUNTRESS);
+			case CLERIC:
+				return Badges.isUnlocked(Badges.Badge.UNLOCK_CLERIC);
 		}
 	}
 	
@@ -345,6 +334,8 @@ public enum HeroClass {
 				return Messages.get(HeroClass.class, "rogue_unlock");
 			case HUNTRESS:
 				return Messages.get(HeroClass.class, "huntress_unlock");
+			case CLERIC:
+				return Messages.get(HeroClass.class, "cleric_unlock");
 		}
 	}
 

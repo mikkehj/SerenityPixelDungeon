@@ -376,6 +376,8 @@ public enum Talent {
 			case HUNTRESS:
 				Collections.addAll(tierTalents, NATURES_BOUNTY, SURVIVALISTS_INTUITION, FOLLOWUP_STRIKE, NATURES_AID);
 				break;
+			case CLERIC:
+				Collections.addAll(tierTalents, SUCKER_PUNCH, ARMSMASTERS_INTUITION, FOLLOWUP_STRIKE, CACHED_RATIONS);
 		}
 		for (Talent talent : tierTalents){
 			talents.get(0).put(talent, 0);
@@ -396,6 +398,8 @@ public enum Talent {
 			case HUNTRESS:
 				Collections.addAll(tierTalents, INVIGORATING_MEAL, RESTORED_NATURE, REJUVENATING_STEPS, HEIGHTENED_SENSES, DURABLE_PROJECTILES);
 				break;
+			case CLERIC:
+				Collections.addAll(tierTalents, IRON_STOMACH, INVIGORATING_MEAL, MYSTICAL_MEAL, ENERGIZING_MEAL, SILENT_STEPS);
 		}
 		for (Talent talent : tierTalents){
 			talents.get(1).put(talent, 0);

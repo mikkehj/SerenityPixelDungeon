@@ -1,3 +1,7 @@
+com/seasluggames/serenitypixeldungeon/android/AndroidLauncher.java
+ com.seasluggames.serenitypixeldungeon.android.AndroidLauncher
+com/seasluggames/serenitypixeldungeon/android/BuildConfig.java
+ com.seasluggames.serenitypixeldungeon.android.BuildConfig
 com/seasluggames/serenitypixeldungeon/android/AndroidPlatformSupport.java
  com.seasluggames.serenitypixeldungeon.android.AndroidPlatformSupport
  com.seasluggames.serenitypixeldungeon.android.AndroidPlatformSupport$1
@@ -12,10 +16,6 @@ com/seasluggames/serenitypixeldungeon/android/AndroidGame.java
  com.seasluggames.serenitypixeldungeon.android.AndroidGame$2
  com.seasluggames.serenitypixeldungeon.android.AndroidGame$3
  com.seasluggames.serenitypixeldungeon.android.AndroidGame$4
-com/seasluggames/serenitypixeldungeon/android/AndroidLauncher.java
- com.seasluggames.serenitypixeldungeon.android.AndroidLauncher
-com/seasluggames/serenitypixeldungeon/android/BuildConfig.java
- com.seasluggames.serenitypixeldungeon.android.BuildConfig
 com/seasluggames/serenitypixeldungeon/android/AndroidBackupHandler.java
  com.seasluggames.serenitypixeldungeon.android.AndroidBackupHandler
 com/seasluggames/serenitypixeldungeon/android/windows/WndAndroidTextInput.java

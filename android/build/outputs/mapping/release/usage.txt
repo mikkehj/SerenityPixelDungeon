@@ -3806,7 +3806,6 @@ com.seasluggames.serenitypixeldungeon.items.artifacts.TimekeepersHourglass$timeF
 androidx.core.app.ShareCompat
 com.google.firebase.measurement_impl.R
 com.seasluggames.serenitypixeldungeon.actors.hero.HeroClass:
-    private static void initCleric(com.seasluggames.serenitypixeldungeon.actors.hero.Hero)
     public com.seasluggames.serenitypixeldungeon.Badges$Badge masteryBadge()
     public java.lang.String[] perks()
     private static final java.lang.String CLASS
@@ -12608,6 +12607,7 @@ com.seasluggames.serenitypixeldungeon.Badges:
     public static void validateMageUnlock()
     public static void validateRogueUnlock()
     public static void validateHuntressUnlock()
+    public static void validateClericUnlock()
     public static void validateMasteryCombo(int)
     public static void validateVictory()
     public static void validateNoKilling()
@@ -15647,6 +15647,7 @@ com.seasluggames.serenitypixeldungeon.actors.hero.HeroClass:
     public static void initMage(com.seasluggames.serenitypixeldungeon.actors.hero.Hero)
     public static void initRogue(com.seasluggames.serenitypixeldungeon.actors.hero.Hero)
     public static void initHuntress(com.seasluggames.serenitypixeldungeon.actors.hero.Hero)
+    public static void initCleric(com.seasluggames.serenitypixeldungeon.actors.hero.Hero)
     public void initHero(com.seasluggames.serenitypixeldungeon.actors.hero.Hero)
     public com.seasluggames.serenitypixeldungeon.actors.hero.HeroSubClass[] subClasses()
     public java.lang.String unlockMsg()
@@ -17149,6 +17150,8 @@ com.google.android.gms.internal.ads.zzht:
     public final com.google.android.gms.internal.ads.zzht zzb(int,int)
     public final com.google.android.gms.internal.ads.zzht zza(com.google.android.gms.internal.ads.zzjo)
     public final com.google.android.gms.internal.ads.zzht zza(com.google.android.gms.internal.ads.zzmh)
+com.seasluggames.serenitypixeldungeon.scenes.AboutScene$SSGBlock$1:
+    public final synthetic com.seasluggames.serenitypixeldungeon.scenes.AboutScene$SSGBlock this$0
 com.google.android.gms.internal.measurement.zzju
 com.google.android.gms.internal.ads.zzdqq:
     public static synthetic com.google.android.gms.internal.ads.zzdqn zzaxd()
@@ -17735,7 +17738,6 @@ com.seasluggames.serenitypixeldungeon.actors.mobs.npcs.Ghost$Quest:
     public static boolean supportsFullScreen()
     public static boolean isDesktop()
     public static boolean hasHardKeyboard()
-    public static void openURI(java.lang.String)
     public static void log(java.lang.String,java.lang.String)
     public static void buildDistanceMap(java.util.Collection,com.watabou.utils.Graph$Node)
     public static boolean isMemberClass(java.lang.Class)
@@ -20659,6 +20661,8 @@ androidx.arch.core.internal.SafeIterableMap$IteratorWithAdditions:
     public void supportRemove(androidx.arch.core.internal.SafeIterableMap$Entry)
     public java.util.Map$Entry next()
 com.google.android.gms.ads.internal.util.zzbr
+com.seasluggames.serenitypixeldungeon.scenes.AboutScene$SSGBlock:
+    public void <init>(boolean,int,java.lang.String,com.watabou.noosa.Image,java.lang.String,java.lang.String,java.lang.String)
 com.google.android.gms.internal.ads.zzdsb:
     public final synthetic void zzaxk()
 androidx.work.impl.WorkDatabase_Impl$1:

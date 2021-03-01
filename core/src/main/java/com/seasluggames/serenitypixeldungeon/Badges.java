@@ -720,8 +720,10 @@ public class Badges {
 	}
 
 	public static void validateClericUnlock() {
-		if (!global.contains(Badge.UNLOCK_CLERIC)) {
-			displayBadge( Badge.UNLOCK_CLERIC );
+		if (!local.contains( Badge.UNLOCK_CLERIC )) {
+			Badge badge = Badge.UNLOCK_CLERIC;
+			local.add( badge );
+			displayBadge( badge );
 		}
 	}
 	

@@ -58,13 +58,13 @@ public class AboutScene extends PixelScene {
 
 		//*** Serenity Pixel Dungeon Credits ***
 
-		String ssgLink = "https://www.facebook.com/seasluggames";
+		String ssgLink = "https://www.seasluggames.com/";
 
 		SSGBlock ssg = new SSGBlock(true, Window.SSG_COLOR,
 				"Serenity Pixel Dungeon",
 				Icons.SSG.get(),
 				"Developed by: _Sea Slug Games_\nBased on Shattered Pixel Dungeon's open source",
-				"FB.com/SeaSlugGames",
+				"SeaSlugGames.com",
 				ssgLink);
 		ssg.setRect((w - fullWidth)/2f, 6, 120, 0);
 		content.add(ssg);
@@ -457,7 +457,7 @@ public class AboutScene extends PixelScene {
 				linkButton = new PointerArea(0, 0, 0, 0){
 					@Override
 					protected void onClick( PointerEvent event ) {
-						Badges.validateClericUnlock();
+						Badges.clericSecret();
 						DeviceCompat.openURI( linkUrl );
 					}
 				};

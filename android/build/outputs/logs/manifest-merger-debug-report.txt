@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 application
-INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:24:2-52:16
+INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:23:2-51:16
 MERGED from [com.google.firebase:firebase-ads:19.7.0] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\0ea05f64f780d5a114aea80d6e90f4df\firebase-ads-19.7.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-ads:19.7.0] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\0ea05f64f780d5a114aea80d6e90f4df\firebase-ads-19.7.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-analytics:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\5d7d31e23bc0527e59230d56c24a3c97\firebase-analytics-18.0.2\AndroidManifest.xml:7:5-20
@@ -44,45 +44,45 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Mi
 MERGED from [com.google.android.gms:play-services-ads-base:19.7.0] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\5550e1743f91769d7cd8f10234341c35\play-services-ads-base-19.7.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-ads-base:19.7.0] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\5550e1743f91769d7cd8f10234341c35\play-services-ads-base-19.7.0\AndroidManifest.xml:7:5-20
 	android:backupAgent
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:31:3-91
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:30:3-91
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.2.0] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\1bd4050be8a6335c8c85c753e5fd1cc5\core-1.2.0\AndroidManifest.xml:24:18-86
 	android:label
 		INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:26:3-29
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:25:3-29
 	android:resizeableActivity
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:28:3-36
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:27:3-36
 	android:icon
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:25:3-37
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:24:3-37
 	android:allowBackup
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:29:3-29
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:28:3-29
 	android:theme
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:27:3-56
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:26:3-56
 	android:fullBackupOnly
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:30:3-32
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:29:3-32
 activity#com.seasluggames.serenitypixeldungeon.android.AndroidLauncher
-INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:32:3-39:14
+INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:31:3-38:14
 	android:label
 		INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:33:4-30
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:32:4-30
 	android:name
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:34:4-80
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:33:4-80
 activity#com.seasluggames.serenitypixeldungeon.android.AndroidGame
-INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:40:3-45:14
+INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:39:3-44:14
 	android:screenOrientation
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:43:4-40
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:42:4-40
 	android:label
 		INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:41:4-30
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:40:4-30
 	android:configChanges
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:44:4-106
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:43:4-106
 	android:name
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:42:4-76
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:41:4-76
 manifest
-ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-54:12
+ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-53:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\65f8ea53190fac46b88fa3821a45fce4\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-ads:19.7.0] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\0ea05f64f780d5a114aea80d6e90f4df\firebase-ads-19.7.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-analytics:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\5d7d31e23bc0527e59230d56c24a3c97\firebase-analytics-18.0.2\AndroidManifest.xml:2:1-9:12
@@ -134,22 +134,22 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Mikael\.
 MERGED from [androidx.arch.core:core-runtime:2.0.1] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\a793e86ccf380f0572dfd65701590b00\core-runtime-2.0.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\f5b0130002f90a919629bc866468daf4\sqlite-framework-2.0.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\35599ba4777166908ed7c370a9e839f4\sqlite-2.0.1\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-54:12
+INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-53:12
 	package
 		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:3:2-57
 		INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-54:12
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-53:12
 		INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml
 	xmlns:dist
 		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:6:2-58
 	android:versionCode
 		INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-54:12
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:1-53:12
 		INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:2:11-69
@@ -204,15 +204,15 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.2] C:
 	android:name
 		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:13:19-61
 supports-screens
-ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:18:2-22:33
+ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:17:2-21:33
 	android:largeScreens
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:21:3-30
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:20:3-30
 	android:smallScreens
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:19:3-30
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:18:3-30
 	android:normalScreens
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:20:3-31
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:19:3-31
 	android:xlargeScreens
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:22:3-31
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:21:3-31
 uses-sdk
 INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml
@@ -332,21 +332,21 @@ INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDu
 		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:35:4-38:20
+ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:34:4-37:20
 action#android.intent.action.MAIN
-ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:36:5-57
+ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:35:5-57
 	android:name
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:36:13-54
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:35:13-54
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:37:5-65
+ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:36:5-65
 	android:name
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:37:15-62
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:36:15-62
 meta-data#com.google.android.gms.ads.APPLICATION_ID
-ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:48:3-50:60
+ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:47:3-49:60
 	android:value
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:50:4-58
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:49:4-58
 	android:name
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:49:4-60
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:48:4-60
 uses-permission#android.permission.WAKE_LOCK
 ADDED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\7d23e03fc6537bd89e829ad4e5567d65\play-services-measurement-api-18.0.2\AndroidManifest.xml:24:5-68
 MERGED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\6119e231ee3e82eb1225abd8ae79d28a\play-services-measurement-18.0.2\AndroidManifest.xml:25:5-68

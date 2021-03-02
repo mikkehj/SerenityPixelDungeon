@@ -165,28 +165,8 @@ uses-feature#0x00020000
 ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:9:2-50
 	android:glEsVersion
 		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:9:16-48
-uses-permission#android.permission.VIBRATE
-ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:11:2-63
-	android:name
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:11:19-60
-uses-permission#android.permission.INTERNET
-ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:12:2-64
-MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\7d23e03fc6537bd89e829ad4e5567d65\play-services-measurement-api-18.0.2\AndroidManifest.xml:22:5-67
-MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\7d23e03fc6537bd89e829ad4e5567d65\play-services-measurement-api-18.0.2\AndroidManifest.xml:22:5-67
-MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\cd9930948a19f05f8f8a9596a364ff03\firebase-installations-16.3.5\AndroidManifest.xml:11:5-67
-MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\cd9930948a19f05f8f8a9596a364ff03\firebase-installations-16.3.5\AndroidManifest.xml:11:5-67
-MERGED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\6119e231ee3e82eb1225abd8ae79d28a\play-services-measurement-18.0.2\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\6119e231ee3e82eb1225abd8ae79d28a\play-services-measurement-18.0.2\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\8652c047d669ebf4a4cb684054937bd3\play-services-measurement-impl-18.0.2\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\8652c047d669ebf4a4cb684054937bd3\play-services-measurement-impl-18.0.2\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\65c12d2d5cb910335c0cd854ea49519d\play-services-ads-lite-19.7.0\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\65c12d2d5cb910335c0cd854ea49519d\play-services-ads-lite-19.7.0\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\11abe0ae7b9b4b378557964c3e926356\play-services-measurement-sdk-api-18.0.2\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\11abe0ae7b9b4b378557964c3e926356\play-services-measurement-sdk-api-18.0.2\AndroidManifest.xml:23:5-67
-	android:name
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:12:19-61
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:13:2-76
+ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:11:2-76
 MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\7d23e03fc6537bd89e829ad4e5567d65\play-services-measurement-api-18.0.2\AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\7d23e03fc6537bd89e829ad4e5567d65\play-services-measurement-api-18.0.2\AndroidManifest.xml:23:5-79
 MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\cd9930948a19f05f8f8a9596a364ff03\firebase-installations-16.3.5\AndroidManifest.xml:10:5-79
@@ -202,7 +182,27 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.2] C:
 MERGED from [androidx.work:work-runtime:2.1.0] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\16a4e5ecce11e0c13ddcdd54d8ec57e7\work-runtime-2.1.0\AndroidManifest.xml:26:5-79
 MERGED from [androidx.work:work-runtime:2.1.0] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\16a4e5ecce11e0c13ddcdd54d8ec57e7\work-runtime-2.1.0\AndroidManifest.xml:26:5-79
 	android:name
-		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:13:19-73
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:11:19-73
+uses-permission#android.permission.VIBRATE
+ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:12:2-63
+	android:name
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:12:19-60
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:13:2-64
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\7d23e03fc6537bd89e829ad4e5567d65\play-services-measurement-api-18.0.2\AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\7d23e03fc6537bd89e829ad4e5567d65\play-services-measurement-api-18.0.2\AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\cd9930948a19f05f8f8a9596a364ff03\firebase-installations-16.3.5\AndroidManifest.xml:11:5-67
+MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\cd9930948a19f05f8f8a9596a364ff03\firebase-installations-16.3.5\AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\6119e231ee3e82eb1225abd8ae79d28a\play-services-measurement-18.0.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\6119e231ee3e82eb1225abd8ae79d28a\play-services-measurement-18.0.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\8652c047d669ebf4a4cb684054937bd3\play-services-measurement-impl-18.0.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\8652c047d669ebf4a4cb684054937bd3\play-services-measurement-impl-18.0.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\65c12d2d5cb910335c0cd854ea49519d\play-services-ads-lite-19.7.0\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\65c12d2d5cb910335c0cd854ea49519d\play-services-ads-lite-19.7.0\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\11abe0ae7b9b4b378557964c3e926356\play-services-measurement-sdk-api-18.0.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.2] C:\Users\Mikael\.gradle\caches\transforms-2\files-2.1\11abe0ae7b9b4b378557964c3e926356\play-services-measurement-sdk-api-18.0.2\AndroidManifest.xml:23:5-67
+	android:name
+		ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:13:19-61
 supports-screens
 ADDED from C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:17:2-21:33
 	android:largeScreens

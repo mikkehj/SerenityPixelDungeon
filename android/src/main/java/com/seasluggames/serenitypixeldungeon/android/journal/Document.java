@@ -50,7 +50,7 @@ public enum Document {
 	public boolean addPage( String page ) {
 		if (pages.containsKey(page) && !pages.get(page)){
 			pages.put(page, true);
-			Journal.saveNeeded = true;
+			Journal.saveGlobal();
 			return true;
 		}
 		return false;

@@ -281,7 +281,7 @@ public enum Catalog {
 		for (Catalog cat : values()) {
 			if (cat.seen.containsKey(itemClass) && !cat.seen.get(itemClass)) {
 				cat.seen.put(itemClass, true);
-				Journal.saveNeeded = true;
+				Journal.saveGlobal();
 			}
 		}
 		Badges.validateItemsIdentified();
@@ -342,7 +342,7 @@ public enum Catalog {
 			}
 			List<String> seenItems = new ArrayList<>();
 			if (bundle.contains("catalogs")) {
-				Journal.saveNeeded = true; //we want to overwrite with the newer storage format
+				Journal.saveGlobal(); //we want to overwrite with the newer storage format
 				seenItems = Arrays.asList(bundle.getStringArray("catalogs"));
 			}
 			

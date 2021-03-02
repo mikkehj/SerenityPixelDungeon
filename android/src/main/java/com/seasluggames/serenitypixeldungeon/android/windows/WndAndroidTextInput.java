@@ -41,13 +41,13 @@ import android.widget.TextView;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidGraphics;
-import com.seasluggames.serenitypixeldungeon.SPDSettings;
-import com.seasluggames.serenitypixeldungeon.SerenityPixelDungeon;
+import com.seasluggames.serenitypixeldungeon.android.SPDSettings;
+import com.seasluggames.serenitypixeldungeon.android.SPDMain;
 import com.seasluggames.serenitypixeldungeon.android.AndroidGame;
-import com.seasluggames.serenitypixeldungeon.scenes.PixelScene;
-import com.seasluggames.serenitypixeldungeon.ui.PurpleButton;
-import com.seasluggames.serenitypixeldungeon.ui.RenderedTextBlock;
-import com.seasluggames.serenitypixeldungeon.ui.Window;
+import com.seasluggames.serenitypixeldungeon.android.scenes.PixelScene;
+import com.seasluggames.serenitypixeldungeon.android.ui.PurpleButton;
+import com.seasluggames.serenitypixeldungeon.android.ui.RenderedTextBlock;
+import com.seasluggames.serenitypixeldungeon.android.ui.Window;
 import com.watabou.noosa.Game;
 
 //This class makes use of the android EditText component to handle text input
@@ -223,7 +223,7 @@ public class WndAndroidTextInput extends Window {
 					imm.hideSoftInputFromWindow(((AndroidGraphics)Gdx.app.getGraphics()).getView().getWindowToken(), 0);
 
 					//Soft keyboard sometimes triggers software buttons, so make sure to reassert immersive
-					SerenityPixelDungeon.updateSystemUI();
+					SPDMain.updateSystemUI();
 
 					textInput = null;
 				}

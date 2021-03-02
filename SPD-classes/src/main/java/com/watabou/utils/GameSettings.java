@@ -61,7 +61,7 @@ public class GameSettings {
 				return i;
 			}
 		} catch (ClassCastException e) {
-			//SerenityPixelDungeon.reportException(e);
+			//SPDMain.reportException(e);
 			put(key, defValue);
 			return defValue;
 		}
@@ -82,7 +82,7 @@ public class GameSettings {
 				return i;
 			}
 		} catch (ClassCastException e) {
-			//SerenityPixelDungeon.reportException(e);
+			//SPDMain.reportException(e);
 			put(key, defValue);
 			return defValue;
 		}
@@ -92,7 +92,7 @@ public class GameSettings {
 		try {
 			return get().getBoolean(key, defValue);
 		} catch (ClassCastException e) {
-			//SerenityPixelDungeon.reportException(e);
+			//SPDMain.reportException(e);
 			put(key, defValue);
 			return defValue;
 		}
@@ -112,7 +112,7 @@ public class GameSettings {
 				return s;
 			}
 		} catch (ClassCastException e) {
-			//SerenityPixelDungeon.reportException(e);
+			//SPDMain.reportException(e);
 			put(key, defValue);
 			return defValue;
 		}

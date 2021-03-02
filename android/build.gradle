@@ -5,7 +5,7 @@ android {
     compileSdkVersion appAndroidCompileSDK
     compileOptions.sourceCompatibility = compileOptions.targetCompatibility = appJavaCompatibility
 
-    sourceSets.main.assets.srcDirs = [new File(project(':core').projectDir, "/src/main/assets")]
+    sourceSets.main.assets.srcDirs = ["/src/main/assets"]
 
     defaultConfig {
         manifestPlaceholders = [appName:appName]
@@ -54,7 +54,7 @@ android {
 configurations { natives }
 
 dependencies {
-    implementation project(':core')
+    api project(':SPD-classes')
 
     implementation platform('com.google.firebase:firebase-bom:26.5.0')
     implementation 'com.google.firebase:firebase-analytics'

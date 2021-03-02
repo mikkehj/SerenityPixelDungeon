@@ -11,79 +11,17 @@
     <facet type="java-gradle" name="Java-Gradle">
       <configuration>
         <option name="BUILD_FOLDER_PATH" value="$MODULE_DIR$/../../../core/build" />
-        <option name="BUILDABLE" value="true" />
+        <option name="BUILDABLE" value="false" />
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager">
-    <output url="file://$MODULE_DIR$/../../../core/build/classes/java/main" />
-    <output-test url="file://$MODULE_DIR$/../../../core/build/classes/java/test" />
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../core">
-      <sourceFolder url="file://$MODULE_DIR$/../../../core/src/main/java" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/../../../core/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../../core/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="Gradle: SerenityPixelDungeon.core.core-0.0.1a" level="project" />
-    <orderEntry type="module" module-name="SerenityPixelDungeon.SPD-classes" />
-    <orderEntry type="module-library">
-      <library name="Gradle: com.badlogicgames.gdx:gdx:1.9.10">
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.10/79d9ad27bd5e3eb18c9ade61d3a27d7237695d53/gdx-1.9.10.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.10/37e7ec91522313dabc753c72196dd665ea4a9332/gdx-1.9.10-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library name="Gradle: com.badlogicgames.gdx:gdx-controllers:1.9.10">
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-controllers/1.9.10/b63b3ad62050405148be30ffd2e1946c13123cec/gdx-controllers-1.9.10.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-controllers/1.9.10/13c92028305649486a7936ee3ef0f27df436e395/gdx-controllers-1.9.10-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library name="Gradle: com.badlogicgames.gdx:gdx-freetype:1.9.10">
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-freetype/1.9.10/8853e4f08589a9feb4b851187909cfde8810e491/gdx-freetype-1.9.10.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-freetype/1.9.10/9aebbfa282735e9385d5c09a3a9f74152ee5a1dc/gdx-freetype-1.9.10-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.json:json:20170516" level="project" />
-    <orderEntry type="module-library" scope="TEST">
-      <library name="Gradle: com.badlogicgames.gdx:gdx-controllers:1.9.10">
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-controllers/1.9.10/b63b3ad62050405148be30ffd2e1946c13123cec/gdx-controllers-1.9.10.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-controllers/1.9.10/13c92028305649486a7936ee3ef0f27df436e395/gdx-controllers-1.9.10-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library name="Gradle: com.badlogicgames.gdx:gdx-freetype:1.9.10">
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-freetype/1.9.10/8853e4f08589a9feb4b851187909cfde8810e491/gdx-freetype-1.9.10.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-freetype/1.9.10/9aebbfa282735e9385d5c09a3a9f74152ee5a1dc/gdx-freetype-1.9.10-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="library" scope="TEST" name="Gradle: org.json:json:20170516" level="project" />
   </component>
 </module>

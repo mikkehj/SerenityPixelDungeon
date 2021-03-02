@@ -31,9 +31,7 @@ import android.app.backup.BackupDataOutput;
 import android.app.backup.FullBackupDataOutput;
 import android.os.ParcelFileDescriptor;
 
-import com.seasluggames.serenitypixeldungeon.Badges;
-import com.seasluggames.serenitypixeldungeon.Rankings;
-import com.seasluggames.serenitypixeldungeon.journal.Journal;
+import com.seasluggames.serenitypixeldungeon.android.journal.Journal;
 
 import java.io.File;
 

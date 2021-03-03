@@ -1461,10 +1461,6 @@ com/seasluggames/serenitypixeldungeon/android/sprites/RipperSprite.java
  com.seasluggames.serenitypixeldungeon.android.sprites.RipperSprite
 com/seasluggames/serenitypixeldungeon/android/AndroidGame.java
  com.seasluggames.serenitypixeldungeon.android.AndroidGame
- com.seasluggames.serenitypixeldungeon.android.AndroidGame$1
- com.seasluggames.serenitypixeldungeon.android.AndroidGame$2
- com.seasluggames.serenitypixeldungeon.android.AndroidGame$3
- com.seasluggames.serenitypixeldungeon.android.AndroidGame$4
 com/seasluggames/serenitypixeldungeon/android/items/wands/WandOfRegrowth.java
  com.seasluggames.serenitypixeldungeon.android.items.wands.WandOfRegrowth
  com.seasluggames.serenitypixeldungeon.android.items.wands.WandOfRegrowth$Dewcatcher
@@ -2183,6 +2179,8 @@ com/seasluggames/serenitypixeldungeon/android/plants/Earthroot.java
  com.seasluggames.serenitypixeldungeon.android.plants.Earthroot$Seed
 com/seasluggames/serenitypixeldungeon/android/AndroidLauncher.java
  com.seasluggames.serenitypixeldungeon.android.AndroidLauncher
+ com.seasluggames.serenitypixeldungeon.android.AndroidLauncher$1
+ com.seasluggames.serenitypixeldungeon.android.AndroidLauncher$2
 com/seasluggames/serenitypixeldungeon/android/windows/WndWandmaker.java
  com.seasluggames.serenitypixeldungeon.android.windows.WndWandmaker
  com.seasluggames.serenitypixeldungeon.android.windows.WndWandmaker$1

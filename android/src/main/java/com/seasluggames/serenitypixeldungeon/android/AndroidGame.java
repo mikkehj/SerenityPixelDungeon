@@ -24,88 +24,25 @@
 
 package com.seasluggames.serenitypixeldungeon.android;
 
-import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.Display;
 
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.OnUserEarnedRewardListener;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.google.android.gms.ads.interstitial.InterstitialAd;
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
-import com.google.android.gms.ads.rewarded.RewardItem;
-import com.google.android.gms.ads.rewarded.RewardedAd;
-import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.watabou.noosa.Game;
 import com.watabou.utils.FileUtils;
-
-import androidx.annotation.NonNull;
 
 public class AndroidGame extends AndroidApplication {
 	
 	public static AndroidApplication instance;
-	
 	private static AndroidPlatformSupport support;
-
-	private InterstitialAd mInterstitialAd;
-	private RewardedAd mRewardedAd;
-	private final String TAG = "AndroidGame";
 	
 	@Override
 	protected void onCreate (Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		MobileAds.initialize(this, new OnInitializationCompleteListener() {
-			@Override
-			public void onInitializationComplete(InitializationStatus initializationStatus) {
-			}
-		});
-
-		AdRequest adRequest = new AdRequest.Builder().build();
-
-		RewardedAd.load(this, "ca-app-pub-3940256099942544/5224354917",
-				adRequest, new RewardedAdLoadCallback(){
-					@Override
-					public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-						// Handle the error.
-						Log.d(TAG, loadAdError.getMessage());
-						mRewardedAd = null;
-					}
-
-					@Override
-					public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
-						mRewardedAd = rewardedAd;
-						Log.d(TAG, "onAdFailedToLoad");
-					}
-				});
-
-		InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712",
-				adRequest, new InterstitialAdLoadCallback(){
-					@Override
-					public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-						// Handle the error.
-						Log.d(TAG, loadAdError.getMessage());
-						mInterstitialAd = null;
-					}
-
-					public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-						mInterstitialAd = interstitialAd;
-						Log.d(TAG, "onAdFailedToLoad");
-					}
-				});
-
 
 		//there are some things we only need to set up on first launch
 		if (instance == null) {
@@ -193,40 +130,5 @@ public class AndroidGame extends AndroidApplication {
 		support.updateSystemUI();
 	}
 
-	private AdSize getFullWidthAdaptiveSize() {
-		Display display = getWindowManager().getDefaultDisplay();
-		DisplayMetrics outMetrics = new DisplayMetrics();
-		display.getMetrics(outMetrics);
 
-		float widthPixels = outMetrics.widthPixels;
-		float density = outMetrics.density;
-
-		int adWidth = (int) (widthPixels / density);
-		return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
-	}
-
-	public void showRewardedAd() {
-		if (mRewardedAd != null) {
-			Activity activityContext = AndroidGame.this;
-			mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
-				@Override
-				public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
-					// Handle the reward.
-					Log.d("TAG", "The user earned the reward.");
-					int rewardAmount = rewardItem.getAmount();
-					String rewardType = rewardItem.getType();
-				}
-			});
-		} else {
-			Log.d("TAG", "The rewarded ad wasn't ready yet.");
-		}
-	}
-
-	public void showInterstitialAd() {
-		if (mInterstitialAd != null) {
-			mInterstitialAd.show(this);
-		} else {
-			Log.d("TAG", "The interstitial wasn't loaded yet.");
-		}
-	}
 }

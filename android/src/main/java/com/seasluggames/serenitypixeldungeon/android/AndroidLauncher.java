@@ -29,19 +29,58 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
 import android.view.Gravity;
 import android.widget.TextView;
 
 import com.badlogic.gdx.graphics.g2d.freetype.FreeType;
 import com.badlogic.gdx.utils.GdxNativesLoader;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+
+import androidx.annotation.NonNull;
 
 public class AndroidLauncher extends Activity {
+
+	private InterstitialAd mInterstitialAd;
+	private final String TAG = "AndroidGame";
 	
 	@SuppressLint("SetTextI18n")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
+		MobileAds.initialize(this, new OnInitializationCompleteListener() {
+			@Override
+			public void onInitializationComplete(InitializationStatus initializationStatus) {
+			}
+		});
+
+		AdRequest adRequest = new AdRequest.Builder().build();
+
+		InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712",
+				adRequest, new InterstitialAdLoadCallback(){
+					@Override
+					public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+						// Handle the error.
+						Log.d(TAG, loadAdError.getMessage());
+						mInterstitialAd = null;
+					}
+
+					public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+						mInterstitialAd = interstitialAd;
+						Log.d(TAG, "onAdFailedToLoad");
+					}
+				});
+
 		try {
 			GdxNativesLoader.load();
 			FreeType.initFreeType();
@@ -61,6 +100,26 @@ public class AndroidLauncher extends Activity {
 			text.setGravity(Gravity.CENTER_VERTICAL);
 			text.setPadding(10, 10, 10, 10);
 			setContentView(text);
+		}
+	}
+
+	private AdSize getFullWidthAdaptiveSize() {
+		Display display = getWindowManager().getDefaultDisplay();
+		DisplayMetrics outMetrics = new DisplayMetrics();
+		display.getMetrics(outMetrics);
+
+		float widthPixels = outMetrics.widthPixels;
+		float density = outMetrics.density;
+
+		int adWidth = (int) (widthPixels / density);
+		return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
+	}
+
+	public void showInterstitialAd() {
+		if (mInterstitialAd != null) {
+			mInterstitialAd.show(this);
+		} else {
+			Log.d("TAG", "The interstitial wasn't loaded yet.");
 		}
 	}
 }

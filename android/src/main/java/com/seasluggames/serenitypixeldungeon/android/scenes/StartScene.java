@@ -21,6 +21,7 @@
 
 package com.seasluggames.serenitypixeldungeon.android.scenes;
 
+import com.seasluggames.serenitypixeldungeon.android.AndroidLauncher;
 import com.seasluggames.serenitypixeldungeon.android.GamesInProgress;
 import com.seasluggames.serenitypixeldungeon.android.SPDMain;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.HeroSubClass;
@@ -46,6 +47,8 @@ public class StartScene extends PixelScene {
 	
 	private static final int SLOT_WIDTH = 120;
 	private static final int SLOT_HEIGHT = 30;
+
+	private static AndroidLauncher a;
 	
 	@Override
 	public void create() {
@@ -256,6 +259,7 @@ public class StartScene extends PixelScene {
 		
 		@Override
 		protected void onClick() {
+			a.showInterstitialAd();
 			if (newGame) {
 				GamesInProgress.selectedClass = null;
 				GamesInProgress.curSlot = slot;

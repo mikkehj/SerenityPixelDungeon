@@ -61,12 +61,14 @@ import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Vulnerable;
 import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Weakness;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.HeroSubClass;
+import com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent;
 import com.seasluggames.serenitypixeldungeon.android.actors.mobs.Elemental;
 import com.seasluggames.serenitypixeldungeon.android.items.Heap;
 import com.seasluggames.serenitypixeldungeon.android.items.armor.glyphs.AntiMagic;
 import com.seasluggames.serenitypixeldungeon.android.items.armor.glyphs.Potential;
 import com.seasluggames.serenitypixeldungeon.android.items.rings.RingOfElements;
 import com.seasluggames.serenitypixeldungeon.android.items.scrolls.ScrollOfRetribution;
+import com.seasluggames.serenitypixeldungeon.android.items.scrolls.ScrollOfTeleportation;
 import com.seasluggames.serenitypixeldungeon.android.items.scrolls.exotic.ScrollOfPsionicBlast;
 import com.seasluggames.serenitypixeldungeon.android.items.stones.StoneOfAggression;
 import com.seasluggames.serenitypixeldungeon.android.items.wands.WandOfFireblast;
@@ -94,14 +96,14 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 public abstract class Char extends Actor {
-	
+
 	public int pos = 0;
-	
+
 	public CharSprite sprite;
-	
+
 	public int HT;
 	public int HP;
-	
+
 	protected float baseSpeed	= 1;
 	protected PathFinder.Path path;
 
@@ -109,7 +111,7 @@ public abstract class Char extends Actor {
 	public boolean rooted		= false;
 	public boolean flying		= false;
 	public int invisible		= 0;
-	
+
 	//these are relative to the hero
 	public enum Alignment{
 		ENEMY,
@@ -117,13 +119,13 @@ public abstract class Char extends Actor {
 		ALLY
 	}
 	public Alignment alignment;
-	
+
 	public int viewDistance	= 8;
-	
+
 	public boolean[] fieldOfView = null;
-	
+
 	private HashSet<Buff> buffs = new HashSet<>();
-	
+
 	@Override
 	protected boolean act() {
 		if (fieldOfView == null || fieldOfView.length != Dungeon.level.length()){
@@ -154,9 +156,17 @@ public abstract class Char extends Actor {
 	}
 
 	public boolean canInteract(Char c){
-		return Dungeon.level.adjacent( pos, c.pos );
+		if (Dungeon.level.adjacent( pos, c.pos )){
+			return true;
+		} else if (c instanceof Hero
+				&& alignment == Alignment.ALLY
+				&& Dungeon.level.distance(pos, c.pos) <= 3*Dungeon.hero.pointsInTalent(Talent.ALLY_WARP)){
+			return true;
+		} else {
+			return false;
+		}
 	}
-	
+
 	//swaps places by default
 	public boolean interact(Char c){
 
@@ -173,26 +183,34 @@ public abstract class Char extends Actor {
 
 		//can't swap into a space without room
 		if (properties().contains(Property.LARGE) && !Dungeon.level.openSpace[c.pos]
-			|| c.properties().contains(Property.LARGE) && !Dungeon.level.openSpace[pos]){
+				|| c.properties().contains(Property.LARGE) && !Dungeon.level.openSpace[pos]){
 			return true;
 		}
-		
+
 		int curPos = pos;
-		
+
+		//warp instantly with allies in this case
+		if (Dungeon.hero.hasTalent(Talent.ALLY_WARP)){
+			ScrollOfTeleportation.appear(this, Dungeon.hero.pos);
+			ScrollOfTeleportation.appear(Dungeon.hero, curPos);
+			Dungeon.observe();
+			return true;
+		}
+
 		moveSprite( pos, Dungeon.hero.pos );
 		move( Dungeon.hero.pos );
-		
+
 		Dungeon.hero.sprite.move( Dungeon.hero.pos, curPos );
 		Dungeon.hero.move( curPos );
-		
+
 		Dungeon.hero.spend( 1 / Dungeon.hero.speed() );
 		Dungeon.hero.busy();
-		
+
 		return true;
 	}
-	
+
 	protected boolean moveSprite( int from, int to ) {
-		
+
 		if (sprite.isVisible() && (Dungeon.level.heroFOV[from] || Dungeon.level.heroFOV[to])) {
 			sprite.move( from, to );
 			return true;
@@ -210,44 +228,44 @@ public abstract class Char extends Actor {
 	public boolean blockSound( float pitch ) {
 		return false;
 	}
-	
+
 	protected static final String POS       = "pos";
 	protected static final String TAG_HP    = "HP";
 	protected static final String TAG_HT    = "HT";
 	protected static final String TAG_SHLD  = "SHLD";
 	protected static final String BUFFS	    = "buffs";
-	
+
 	@Override
 	public void storeInBundle( Bundle bundle ) {
-		
+
 		super.storeInBundle( bundle );
-		
+
 		bundle.put( POS, pos );
 		bundle.put( TAG_HP, HP );
 		bundle.put( TAG_HT, HT );
 		bundle.put( BUFFS, buffs );
 	}
-	
+
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
-		
+
 		super.restoreFromBundle( bundle );
-		
+
 		pos = bundle.getInt( POS );
 		HP = bundle.getInt( TAG_HP );
 		HT = bundle.getInt( TAG_HT );
-		
+
 		for (Bundlable b : bundle.getCollection( BUFFS )) {
 			if (b != null) {
 				((Buff)b).attachTo( this );
 			}
 		}
 	}
-	
+
 	public boolean attack( Char enemy ) {
 
 		if (enemy == null) return false;
-		
+
 		boolean visibleFight = Dungeon.level.heroFOV[pos] || Dungeon.level.heroFOV[enemy.pos];
 
 		if (enemy.isInvulnerable(getClass())) {
@@ -261,9 +279,9 @@ public abstract class Char extends Actor {
 			return false;
 
 		} else if (hit( this, enemy, false )) {
-			
+
 			int dr = enemy.drRoll();
-			
+
 			if (this instanceof Hero){
 				Hero h = (Hero)this;
 				if (h.belongings.weapon instanceof MissileWeapon
@@ -272,24 +290,27 @@ public abstract class Char extends Actor {
 					dr = 0;
 				}
 			}
-			
+
 			int dmg;
 			Preparation prep = buff(Preparation.class);
 			if (prep != null){
 				dmg = prep.damageRoll(this);
+				if (this == Dungeon.hero && Dungeon.hero.hasTalent(Talent.BOUNTY_HUNTER)) {
+					Buff.affect(Dungeon.hero, Talent.BountyHunterTracker.class, 0.0f);
+				}
 			} else {
 				dmg = damageRoll();
 			}
-			
+
 			int effectiveDamage = enemy.defenseProc( this, dmg );
 			effectiveDamage = Math.max( effectiveDamage - dr, 0 );
-			
+
 			if ( enemy.buff( Vulnerable.class ) != null){
 				effectiveDamage *= 1.33f;
 			}
-			
+
 			effectiveDamage = attackProc( enemy, effectiveDamage );
-			
+
 			if (visibleFight) {
 				if (effectiveDamage > 0 || !enemy.blockSound(Random.Float(0.96f, 1.05f))) {
 					hitSound(Random.Float(0.87f, 1.15f));
@@ -323,23 +344,23 @@ public abstract class Char extends Actor {
 
 			if (!enemy.isAlive() && visibleFight) {
 				if (enemy == Dungeon.hero) {
-					
+
 					if (this == Dungeon.hero) {
 						return true;
 					}
 
 					Dungeon.fail( getClass() );
 					GLog.n( Messages.capitalize(Messages.get(Char.class, "kill", name())) );
-					
+
 				} else if (this == Dungeon.hero) {
 					GLog.i( Messages.capitalize(Messages.get(Char.class, "defeat", enemy.name())) );
 				}
 			}
-			
+
 			return true;
-			
+
 		} else {
-			
+
 			if (visibleFight) {
 				String defense = enemy.defenseVerb();
 				enemy.sprite.showStatus( CharSprite.NEUTRAL, defense );
@@ -347,9 +368,9 @@ public abstract class Char extends Actor {
 				//TODO enemy.defenseSound? currently miss plays for monks/crab even when they parry
 				Sample.INSTANCE.play(Assets.Sounds.MISS);
 			}
-			
+
 			return false;
-			
+
 		}
 	}
 
@@ -374,40 +395,40 @@ public abstract class Char extends Actor {
 		for (ChampionEnemy buff : attacker.buffs(ChampionEnemy.class)){
 			acuRoll *= buff.evasionAndAccuracyFactor();
 		}
-		
+
 		float defRoll = Random.Float( defStat );
 		if (defender.buff(Bless.class) != null) defRoll *= 1.25f;
 		if (defender.buff(  Hex.class) != null) defRoll *= 0.8f;
 		for (ChampionEnemy buff : defender.buffs(ChampionEnemy.class)){
 			defRoll *= buff.evasionAndAccuracyFactor();
 		}
-		
+
 		return (magic ? acuRoll * 2 : acuRoll) >= defRoll;
 	}
-	
+
 	public int attackSkill( Char target ) {
 		return 0;
 	}
-	
+
 	public int defenseSkill( Char enemy ) {
 		return 0;
 	}
-	
+
 	public String defenseVerb() {
 		return Messages.get(this, "def_verb");
 	}
-	
+
 	public int drRoll() {
 		return 0;
 	}
-	
+
 	public int damageRoll() {
 		return 1;
 	}
-	
+
 	//TODO it would be nice to have a pre-armor and post-armor proc.
 	// atm attack is always post-armor and defence is already pre-armor
-	
+
 	public int attackProc( Char enemy, int damage ) {
 		if ( buff(Weakness.class) != null ){
 			damage *= 0.67f;
@@ -418,11 +439,11 @@ public abstract class Char extends Actor {
 		}
 		return damage;
 	}
-	
+
 	public int defenseProc( Char enemy, int damage ) {
 		return damage;
 	}
-	
+
 	public float speed() {
 		float speed = baseSpeed;
 		if ( buff( Cripple.class ) != null ) speed /= 2f;
@@ -431,16 +452,16 @@ public abstract class Char extends Actor {
 		if ( buff( Haste.class ) != null) speed *= 3f;
 		return speed;
 	}
-	
+
 	//used so that buffs(Shieldbuff.class) isn't called every time unnecessarily
 	private int cachedShield = 0;
 	public boolean needsShieldUpdate = true;
-	
+
 	public int shielding(){
 		if (!needsShieldUpdate){
 			return cachedShield;
 		}
-		
+
 		cachedShield = 0;
 		for (ShieldBuff s : buffs(ShieldBuff.class)){
 			cachedShield += s.shielding();
@@ -448,9 +469,9 @@ public abstract class Char extends Actor {
 		needsShieldUpdate = false;
 		return cachedShield;
 	}
-	
+
 	public void damage( int dmg, Object src ) {
-		
+
 		if (!isAlive() || dmg < 0) {
 			return;
 		}
@@ -499,20 +520,20 @@ public abstract class Char extends Actor {
 		if (this.buff(Doom.class) != null && !isImmune(Doom.class)){
 			dmg *= 2;
 		}
-		
+
 		Class<?> srcClass = src.getClass();
 		if (isImmune( srcClass )) {
 			dmg = 0;
 		} else {
 			dmg = Math.round( dmg * resist( srcClass ));
 		}
-		
+
 		//TODO improve this when I have proper damage source logic
 		if (AntiMagic.RESISTS.contains(src.getClass()) && buff(ArcaneArmor.class) != null){
 			dmg -= Random.NormalIntRange(0, buff(ArcaneArmor.class).level());
 			if (dmg < 0) dmg = 0;
 		}
-		
+
 		if (buff( Paralysis.class ) != null) {
 			buff( Paralysis.class ).processDamage(dmg);
 		}
@@ -527,7 +548,7 @@ public abstract class Char extends Actor {
 		}
 		shielded -= dmg;
 		HP -= dmg;
-		
+
 		if (sprite != null) {
 			sprite.showStatus(HP > HT / 2 ?
 							CharSprite.WARNING :
@@ -541,7 +562,7 @@ public abstract class Char extends Actor {
 			die( src );
 		}
 	}
-	
+
 	public void destroy() {
 		HP = 0;
 		Actor.remove( this );
@@ -558,19 +579,19 @@ public abstract class Char extends Actor {
 			}
 		}
 	}
-	
+
 	public void die( Object src ) {
 		destroy();
 		if (src != Chasm.class) sprite.die();
 	}
-	
+
 	public boolean isAlive() {
 		return HP > 0;
 	}
-	
+
 	@Override
 	protected void spend( float time ) {
-		
+
 		float timeScale = 1f;
 		if (buff( Slow.class ) != null) {
 			timeScale *= 0.5f;
@@ -581,14 +602,14 @@ public abstract class Char extends Actor {
 		if (buff( Speed.class ) != null) {
 			timeScale *= 2.0f;
 		}
-		
+
 		super.spend( time / timeScale );
 	}
-	
+
 	public synchronized HashSet<Buff> buffs() {
 		return new HashSet<>(buffs);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	//returns all buffs assignable from the given buff class
 	public synchronized <T extends Buff> HashSet<T> buffs( Class<T> c ) {
@@ -623,9 +644,9 @@ public abstract class Char extends Actor {
 	}
 
 	public synchronized void add( Buff buff ) {
-		
+
 		buffs.add( buff );
-		Actor.add( buff );
+		if (Actor.chars().contains(this)) Actor.add( buff );
 
 		if (sprite != null && buff.announced)
 			switch(buff.type){
@@ -641,37 +662,37 @@ public abstract class Char extends Actor {
 			}
 
 	}
-	
+
 	public synchronized void remove( Buff buff ) {
-		
+
 		buffs.remove( buff );
 		Actor.remove( buff );
 
 	}
-	
+
 	public synchronized void remove( Class<? extends Buff> buffClass ) {
 		for (Buff buff : buffs( buffClass )) {
 			remove( buff );
 		}
 	}
-	
+
 	@Override
 	protected synchronized void onRemove() {
 		for (Buff buff : buffs.toArray(new Buff[buffs.size()])) {
 			buff.detach();
 		}
 	}
-	
+
 	public synchronized void updateSpriteState() {
 		for (Buff buff:buffs) {
 			buff.fx( true );
 		}
 	}
-	
+
 	public float stealth() {
 		return 0;
 	}
-	
+
 	public void move( int step ) {
 
 		if (Dungeon.level.adjacent( step, pos ) && buff( Vertigo.class ) != null) {
@@ -692,34 +713,34 @@ public abstract class Char extends Actor {
 		}
 
 		pos = step;
-		
+
 		if (this != Dungeon.hero) {
 			sprite.visible = Dungeon.level.heroFOV[pos];
 		}
-		
+
 		Dungeon.level.occupyCell(this );
 	}
-	
+
 	public int distance( Char other ) {
 		return Dungeon.level.distance( pos, other.pos );
 	}
-	
+
 	public void onMotionComplete() {
 		//Does nothing by default
 		//The main actor thread already accounts for motion,
 		// so calling next() here isn't necessary (see Actor.process)
 	}
-	
+
 	public void onAttackComplete() {
 		next();
 	}
-	
+
 	public void onOperateComplete() {
 		next();
 	}
-	
+
 	protected final HashSet<Class> resistances = new HashSet<>();
-	
+
 	//returns percent effectiveness after resistances
 	//TODO currently resistances reduce effectiveness by a static 50%, and do not stack.
 	public float resist( Class effect ){
@@ -730,7 +751,7 @@ public abstract class Char extends Actor {
 		for (Buff b : buffs()){
 			resists.addAll(b.resistances());
 		}
-		
+
 		float result = 1f;
 		for (Class c : resists){
 			if (c.isAssignableFrom(effect)){
@@ -739,9 +760,9 @@ public abstract class Char extends Actor {
 		}
 		return result * RingOfElements.resist(this, effect);
 	}
-	
+
 	protected final HashSet<Class> immunities = new HashSet<>();
-	
+
 	public boolean isImmune(Class effect ){
 		HashSet<Class> immunes = new HashSet<>(immunities);
 		for (Property p : properties()){
@@ -750,7 +771,7 @@ public abstract class Char extends Actor {
 		for (Buff b : buffs()){
 			immunes.addAll(b.immunities());
 		}
-		
+
 		for (Class c : immunes){
 			if (c.isAssignableFrom(effect)){
 				return true;
@@ -795,23 +816,23 @@ public abstract class Char extends Actor {
 				new HashSet<Class>()),
 		LARGE,
 		IMMOVABLE;
-		
+
 		private HashSet<Class> resistances;
 		private HashSet<Class> immunities;
-		
+
 		Property(){
 			this(new HashSet<Class>(), new HashSet<Class>());
 		}
-		
+
 		Property( HashSet<Class> resistances, HashSet<Class> immunities){
 			this.resistances = resistances;
 			this.immunities = immunities;
 		}
-		
+
 		public HashSet<Class> resistances(){
 			return new HashSet<>(resistances);
 		}
-		
+
 		public HashSet<Class> immunities(){
 			return new HashSet<>(immunities);
 		}

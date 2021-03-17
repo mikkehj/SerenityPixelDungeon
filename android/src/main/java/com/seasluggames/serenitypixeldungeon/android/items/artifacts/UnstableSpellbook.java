@@ -27,6 +27,7 @@ import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Blindness;
 import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Buff;
 import com.seasluggames.serenitypixeldungeon.android.actors.buffs.LockedFloor;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero;
+import com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent;
 import com.seasluggames.serenitypixeldungeon.android.effects.particles.ElmoParticle;
 import com.seasluggames.serenitypixeldungeon.android.items.Generator;
 import com.seasluggames.serenitypixeldungeon.android.items.Item;
@@ -121,13 +122,13 @@ public class UnstableSpellbook extends Artifact {
 				} while (scroll == null
 						//reduce the frequency of these scrolls by half
 						||((scroll instanceof ScrollOfIdentify ||
-							scroll instanceof ScrollOfRemoveCurse ||
-							scroll instanceof ScrollOfMagicMapping) && Random.Int(2) == 0)
+						scroll instanceof ScrollOfRemoveCurse ||
+						scroll instanceof ScrollOfMagicMapping) && Random.Int(2) == 0)
 						//don't roll teleportation scrolls on boss floors
 						|| (scroll instanceof ScrollOfTeleportation && Dungeon.bossLevel())
 						//cannot roll transmutation
 						|| (scroll instanceof ScrollOfTransmutation));
-				
+
 				scroll.anonymize();
 				curItem = scroll;
 				curUser = hero;
@@ -151,11 +152,13 @@ public class UnstableSpellbook extends Artifact {
 								Scroll scroll = Reflection.newInstance(ExoticScroll.regToExo.get(fScroll.getClass()));
 								charge--;
 								scroll.doRead();
+								Talent.onArtifactUsed(Dungeon.hero);
 							} else {
 								fScroll.doRead();
+								Talent.onArtifactUsed(Dungeon.hero);
 							}
 						}
-						
+
 						@Override
 						public void onBackPressed() {
 							//do nothing
@@ -163,6 +166,7 @@ public class UnstableSpellbook extends Artifact {
 					});
 				} else {
 					scroll.doRead();
+					Talent.onArtifactUsed(Dungeon.hero);
 				}
 				updateQuickslot();
 			}
@@ -210,11 +214,11 @@ public class UnstableSpellbook extends Artifact {
 	protected ArtifactBuff passiveBuff() {
 		return new bookRecharge();
 	}
-	
+
 	@Override
-	public void charge(Hero target) {
+	public void charge(Hero target, float amount) {
 		if (charge < chargeCap){
-			partialCharge += 0.1f;
+			partialCharge += 0.1f*amount;
 			if (partialCharge >= 1){
 				partialCharge--;
 				charge++;
@@ -242,7 +246,7 @@ public class UnstableSpellbook extends Artifact {
 			if (cursed) {
 				desc += "\n\n" + Messages.get(this, "desc_cursed");
 			}
-			
+
 			if (level() < levelCap && scrolls.size() > 0) {
 				desc += "\n\n" + Messages.get(this, "desc_index");
 				desc += "\n" + "_" + Messages.get(scrolls.get(0), "name") + "_";
@@ -250,7 +254,7 @@ public class UnstableSpellbook extends Artifact {
 					desc += "\n" + "_" + Messages.get(scrolls.get(1), "name") + "_";
 			}
 		}
-		
+
 		if (level() > 0) {
 			desc += "\n\n" + Messages.get(this, "desc_empowered");
 		}

@@ -21,6 +21,7 @@
 
 package com.seasluggames.serenitypixeldungeon.android.scenes;
 
+import com.seasluggames.serenitypixeldungeon.android.AndroidLauncher;
 import com.seasluggames.serenitypixeldungeon.android.Assets;
 import com.seasluggames.serenitypixeldungeon.android.Chrome;
 import com.seasluggames.serenitypixeldungeon.android.GamesInProgress;
@@ -91,6 +92,8 @@ public class TitleScene extends PixelScene {
         StyledButton btnPlay = new StyledButton(GREY_TR, Messages.get(this, "enter")) {
             @Override
             protected void onClick() {
+                AndroidLauncher.runOnUI(() -> AndroidLauncher.showInterstitialAd());
+
                 if (GamesInProgress.checkAll().size() == 0) {
                     GamesInProgress.selectedClass = null;
                     GamesInProgress.curSlot = 1;

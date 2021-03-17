@@ -59,7 +59,7 @@ public class HornOfPlenty extends Artifact {
 
 		defaultAction = AC_EAT;
 	}
-	
+
 	private int storedFoodEnergy = 0;
 
 	public static final String AC_EAT = "EAT";
@@ -101,6 +101,7 @@ public class HornOfPlenty extends Artifact {
 				Statistics.foodEaten++;
 
 				charge -= chargesToUse;
+				Talent.onArtifactUsed(hero);
 
 				hero.sprite.operate(hero.pos);
 				hero.busy();
@@ -140,29 +141,29 @@ public class HornOfPlenty extends Artifact {
 	protected ArtifactBuff passiveBuff() {
 		return new hornRecharge();
 	}
-	
+
 	@Override
-	public void charge(Hero target) {
+	public void charge(Hero target, float amount) {
 		if (charge < chargeCap){
-			partialCharge += 0.25f;
+			partialCharge += 0.25f*amount;
 			if (partialCharge >= 1){
 				partialCharge--;
 				charge++;
-				
+
 				if (charge == chargeCap){
 					GLog.p( Messages.get(HornOfPlenty.class, "full") );
 					partialCharge = 0;
 				}
-				
+
 				if (charge >= 15)       image = ItemSpriteSheet.ARTIFACT_HORN4;
 				else if (charge >= 10)  image = ItemSpriteSheet.ARTIFACT_HORN3;
 				else if (charge >= 5)   image = ItemSpriteSheet.ARTIFACT_HORN2;
-				
+
 				updateQuickslot();
 			}
 		}
 	}
-	
+
 	@Override
 	public String desc() {
 		String desc = super.desc();
@@ -191,10 +192,10 @@ public class HornOfPlenty extends Artifact {
 		chargeCap = 10 + level();
 		return this;
 	}
-	
+
 	public void gainFoodValue( Food food ){
 		if (level() >= 10) return;
-		
+
 		storedFoodEnergy += food.energy;
 		if (storedFoodEnergy >= Hunger.HUNGRY){
 			int upgrades = storedFoodEnergy / (int)Hunger.HUNGRY;
@@ -211,20 +212,20 @@ public class HornOfPlenty extends Artifact {
 			GLog.i( Messages.get(this, "feed") );
 		}
 	}
-	
+
 	private static final String STORED = "stored";
-	
+
 	@Override
 	public void storeInBundle(Bundle bundle) {
 		super.storeInBundle(bundle);
 		bundle.put( STORED, storedFoodEnergy );
 	}
-	
+
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
 		storedFoodEnergy = bundle.getInt(STORED);
-		
+
 		if (charge >= 15)       image = ItemSpriteSheet.ARTIFACT_HORN4;
 		else if (charge >= 10)  image = ItemSpriteSheet.ARTIFACT_HORN3;
 		else if (charge >= 5)   image = ItemSpriteSheet.ARTIFACT_HORN2;
@@ -234,7 +235,7 @@ public class HornOfPlenty extends Artifact {
 
 		public void gainCharge(float levelPortion) {
 			if (cursed) return;
-			
+
 			if (charge < chargeCap) {
 
 				//generates 0.25x max hunger value every hero level, +0.125x max value per horn level

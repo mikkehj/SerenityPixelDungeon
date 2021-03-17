@@ -24,6 +24,8 @@ com/seasluggames/serenitypixeldungeon/android/actors/mobs/Ghoul.java
 com/seasluggames/serenitypixeldungeon/android/scenes/RankingsScene.java
  com.seasluggames.serenitypixeldungeon.android.scenes.RankingsScene
  com.seasluggames.serenitypixeldungeon.android.scenes.RankingsScene$Record
+com/seasluggames/serenitypixeldungeon/android/items/weapon/melee/Handwraps.java
+ com.seasluggames.serenitypixeldungeon.android.items.weapon.melee.Handwraps
 com/seasluggames/serenitypixeldungeon/android/levels/rooms/secret/SecretHoneypotRoom.java
  com.seasluggames.serenitypixeldungeon.android.levels.rooms.secret.SecretHoneypotRoom
 com/seasluggames/serenitypixeldungeon/android/Rankings.java
@@ -463,6 +465,8 @@ com/seasluggames/serenitypixeldungeon/android/items/weapon/missiles/darts/Adrena
  com.seasluggames.serenitypixeldungeon.android.items.weapon.missiles.darts.AdrenalineDart
 com/seasluggames/serenitypixeldungeon/android/actors/blobs/WellWater.java
  com.seasluggames.serenitypixeldungeon.android.actors.blobs.WellWater
+com/seasluggames/serenitypixeldungeon/android/actors/buffs/ScrollEmpower.java
+ com.seasluggames.serenitypixeldungeon.android.actors.buffs.ScrollEmpower
 com/seasluggames/serenitypixeldungeon/android/levels/rooms/sewerboss/DiamondGooRoom.java
  com.seasluggames.serenitypixeldungeon.android.levels.rooms.sewerboss.DiamondGooRoom
 com/seasluggames/serenitypixeldungeon/android/items/weapon/missiles/darts/IncendiaryDart.java
@@ -582,6 +586,8 @@ com/seasluggames/serenitypixeldungeon/android/sprites/GooSprite.java
  com.seasluggames.serenitypixeldungeon.android.sprites.GooSprite$GooParticle$1
 com/seasluggames/serenitypixeldungeon/android/levels/builders/RegularBuilder.java
  com.seasluggames.serenitypixeldungeon.android.levels.builders.RegularBuilder
+com/seasluggames/serenitypixeldungeon/android/actors/buffs/HoldFast.java
+ com.seasluggames.serenitypixeldungeon.android.actors.buffs.HoldFast
 com/seasluggames/serenitypixeldungeon/android/plants/Plant.java
  com.seasluggames.serenitypixeldungeon.android.plants.Plant
  com.seasluggames.serenitypixeldungeon.android.plants.Plant$Seed
@@ -889,17 +895,6 @@ com/seasluggames/serenitypixeldungeon/android/items/wands/WandOfMagicMissile.jav
  com.seasluggames.serenitypixeldungeon.android.items.wands.WandOfMagicMissile$MagicCharge
 com/seasluggames/serenitypixeldungeon/android/levels/rooms/standard/PlatformRoom.java
  com.seasluggames.serenitypixeldungeon.android.levels.rooms.standard.PlatformRoom
-com/seasluggames/serenitypixeldungeon/android/windows/WndKeyBindings.java
- com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings
- com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$1
- com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$2
- com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$3
- com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$4
- com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$BindingItem
- com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$WndChangeBinding
- com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$WndChangeBinding$1
- com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$WndChangeBinding$2
- com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$WndChangeBinding$3
 com/seasluggames/serenitypixeldungeon/android/effects/particles/SnowParticle.java
  com.seasluggames.serenitypixeldungeon.android.effects.particles.SnowParticle
  com.seasluggames.serenitypixeldungeon.android.effects.particles.SnowParticle$1
@@ -1305,12 +1300,15 @@ com/seasluggames/serenitypixeldungeon/android/actors/buffs/Sleep.java
 com/seasluggames/serenitypixeldungeon/android/actors/hero/Talent.java
  com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent
  com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent$1
+ com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent$BountyHunterTracker
  com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent$CachedRationsDropped
+ com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent$EmpoweredStrikeTracker
  com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent$FollowupStrikeTracker
  com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent$ImprovisedProjectileCooldown
  com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent$LethalMomentumTracker
  com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent$NatureBerriesAvailable
  com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent$RejuvenatingStepsCooldown
+ com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent$SeerShotCooldown
  com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent$SuckerPunchTracker
  com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent$WandPreservationCounter
  com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent$WarriorFoodImmunity
@@ -1618,6 +1616,8 @@ com/seasluggames/serenitypixeldungeon/android/items/wands/WandOfTransfusion.java
  com.seasluggames.serenitypixeldungeon.android.items.wands.WandOfTransfusion
 com/seasluggames/serenitypixeldungeon/android/levels/builders/Builder.java
  com.seasluggames.serenitypixeldungeon.android.levels.builders.Builder
+com/seasluggames/serenitypixeldungeon/android/actors/buffs/EnhancedRings.java
+ com.seasluggames.serenitypixeldungeon.android.actors.buffs.EnhancedRings
 com/seasluggames/serenitypixeldungeon/android/levels/traps/DisintegrationTrap.java
  com.seasluggames.serenitypixeldungeon.android.levels.traps.DisintegrationTrap
 com/seasluggames/serenitypixeldungeon/android/actors/mobs/RotLasher.java
@@ -1915,7 +1915,6 @@ com/seasluggames/serenitypixeldungeon/android/actors/buffs/WellFed.java
  com.seasluggames.serenitypixeldungeon.android.actors.buffs.WellFed
 com/seasluggames/serenitypixeldungeon/android/items/ArmorKit.java
  com.seasluggames.serenitypixeldungeon.android.items.ArmorKit
- com.seasluggames.serenitypixeldungeon.android.items.ArmorKit$1
 com/seasluggames/serenitypixeldungeon/android/items/weapon/enchantments/Lucky.java
  com.seasluggames.serenitypixeldungeon.android.items.weapon.enchantments.Lucky
  com.seasluggames.serenitypixeldungeon.android.items.weapon.enchantments.Lucky$LuckProc
@@ -2065,6 +2064,8 @@ com/seasluggames/serenitypixeldungeon/android/scenes/HeroSelectScene.java
  com.seasluggames.serenitypixeldungeon.android.scenes.HeroSelectScene$WndHeroInfo$2
  com.seasluggames.serenitypixeldungeon.android.scenes.HeroSelectScene$WndHeroInfo$3
  com.seasluggames.serenitypixeldungeon.android.scenes.HeroSelectScene$WndHeroInfo$4
+ com.seasluggames.serenitypixeldungeon.android.scenes.HeroSelectScene$WndHeroInfo$5
+ com.seasluggames.serenitypixeldungeon.android.scenes.HeroSelectScene$WndHeroInfo$6
 com/seasluggames/serenitypixeldungeon/android/levels/RegularLevel.java
  com.seasluggames.serenitypixeldungeon.android.levels.RegularLevel
 com/seasluggames/serenitypixeldungeon/android/ui/Banner.java
@@ -2097,7 +2098,6 @@ com/seasluggames/serenitypixeldungeon/android/windows/WndSettings.java
  com.seasluggames.serenitypixeldungeon.android.windows.WndSettings$UITab$6
  com.seasluggames.serenitypixeldungeon.android.windows.WndSettings$UITab$7
  com.seasluggames.serenitypixeldungeon.android.windows.WndSettings$UITab$7$1
- com.seasluggames.serenitypixeldungeon.android.windows.WndSettings$UITab$8
 com/seasluggames/serenitypixeldungeon/android/windows/WndTradeItem.java
  com.seasluggames.serenitypixeldungeon.android.windows.WndTradeItem
  com.seasluggames.serenitypixeldungeon.android.windows.WndTradeItem$1
@@ -2181,6 +2181,7 @@ com/seasluggames/serenitypixeldungeon/android/AndroidLauncher.java
  com.seasluggames.serenitypixeldungeon.android.AndroidLauncher
  com.seasluggames.serenitypixeldungeon.android.AndroidLauncher$1
  com.seasluggames.serenitypixeldungeon.android.AndroidLauncher$2
+ com.seasluggames.serenitypixeldungeon.android.AndroidLauncher$3
 com/seasluggames/serenitypixeldungeon/android/windows/WndWandmaker.java
  com.seasluggames.serenitypixeldungeon.android.windows.WndWandmaker
  com.seasluggames.serenitypixeldungeon.android.windows.WndWandmaker$1
@@ -2536,6 +2537,8 @@ com/seasluggames/serenitypixeldungeon/android/items/bags/Bag.java
  com.seasluggames.serenitypixeldungeon.android.items.bags.Bag$ItemIterator
 com/seasluggames/serenitypixeldungeon/android/levels/traps/DisarmingTrap.java
  com.seasluggames.serenitypixeldungeon.android.levels.traps.DisarmingTrap
+com/seasluggames/serenitypixeldungeon/android/actors/buffs/RevealedArea.java
+ com.seasluggames.serenitypixeldungeon.android.actors.buffs.RevealedArea
 com/seasluggames/serenitypixeldungeon/android/items/bombs/WoollyBomb.java
  com.seasluggames.serenitypixeldungeon.android.items.bombs.WoollyBomb
 com/seasluggames/serenitypixeldungeon/android/items/armor/ClassArmor.java

@@ -25,14 +25,17 @@ import com.seasluggames.serenitypixeldungeon.android.Assets;
 import com.seasluggames.serenitypixeldungeon.android.Badges;
 import com.seasluggames.serenitypixeldungeon.android.Challenges;
 import com.seasluggames.serenitypixeldungeon.android.Dungeon;
+import com.seasluggames.serenitypixeldungeon.android.items.Ankh;
 import com.seasluggames.serenitypixeldungeon.android.items.BrokenSeal;
 import com.seasluggames.serenitypixeldungeon.android.items.Item;
+import com.seasluggames.serenitypixeldungeon.android.items.TomeOfMastery;
 import com.seasluggames.serenitypixeldungeon.android.items.armor.ClothArmor;
 import com.seasluggames.serenitypixeldungeon.android.items.artifacts.CloakOfShadows;
 import com.seasluggames.serenitypixeldungeon.android.items.bags.PotionBandolier;
 import com.seasluggames.serenitypixeldungeon.android.items.bags.ScrollHolder;
 import com.seasluggames.serenitypixeldungeon.android.items.bags.VelvetPouch;
 import com.seasluggames.serenitypixeldungeon.android.items.food.Food;
+import com.seasluggames.serenitypixeldungeon.android.items.potions.PotionOfExperience;
 import com.seasluggames.serenitypixeldungeon.android.items.potions.PotionOfHealing;
 import com.seasluggames.serenitypixeldungeon.android.items.potions.PotionOfInvisibility;
 import com.seasluggames.serenitypixeldungeon.android.items.potions.PotionOfLiquidFlame;
@@ -46,6 +49,7 @@ import com.seasluggames.serenitypixeldungeon.android.items.wands.WandOfMagicMiss
 import com.seasluggames.serenitypixeldungeon.android.items.weapon.SpiritBow;
 import com.seasluggames.serenitypixeldungeon.android.items.weapon.melee.Dagger;
 import com.seasluggames.serenitypixeldungeon.android.items.weapon.melee.Gloves;
+import com.seasluggames.serenitypixeldungeon.android.items.weapon.melee.Handwraps;
 import com.seasluggames.serenitypixeldungeon.android.items.weapon.melee.MagesStaff;
 import com.seasluggames.serenitypixeldungeon.android.items.weapon.melee.WornShortsword;
 import com.seasluggames.serenitypixeldungeon.android.items.weapon.missiles.ThrowingKnife;
@@ -131,6 +135,7 @@ public enum HeroClass {
 			case HUNTRESS:
 				return Badges.Badge.MASTERY_HUNTRESS;
 			case CLERIC:
+				return Badges.Badge.MASTERY_CLERIC;
 		}
 		return null;
 	}
@@ -204,15 +209,26 @@ public enum HeroClass {
 	}
 
 	private static void initCleric( Hero hero ) {
-		(hero.belongings.weapon = new Gloves()).identify();
+		(hero.belongings.weapon = new Handwraps()).identify();
 		SpiritBow bow = new SpiritBow();
 		bow.identify().collect();
 
 		PotionOfHealing pot = new PotionOfHealing();
 		pot.collect();
 
+		Ankh ankh = new Ankh();
+		ankh.collect();
+
+
+		TomeOfMastery tome = new TomeOfMastery();
+		tome.collect();
+
+		PotionOfExperience xpot = new PotionOfExperience();
+		xpot.quantity(50).collect();
+
+
 		Dungeon.quickslot.setSlot(0, bow);
-		Dungeon.quickslot.setSlot(1, pot);
+		Dungeon.quickslot.setSlot(3, pot);
 
 		new PotionBandolier().collect();
 		Dungeon.LimitedDrops.POTION_BANDOLIER.drop();
@@ -256,7 +272,7 @@ public enum HeroClass {
 			case HUNTRESS:
 				return Assets.Splashes.HUNTRESS;
 			case CLERIC:
-				return Assets.Splashes.MAGE;
+				return Assets.Splashes.CLERIC;
 
 		}
 	}

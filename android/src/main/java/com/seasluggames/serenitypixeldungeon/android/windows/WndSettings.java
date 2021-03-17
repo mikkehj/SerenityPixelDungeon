@@ -198,22 +198,6 @@ public class WndSettings extends WndTabbed {
                 add(optScale);
             }
 
-
-			/*
-			if (!DeviceCompat.isDesktop()) {
-				btnOrientation = new PurpleButton(PixelScene.landscape() ?
-						Messages.get(this, "portrait")
-						: Messages.get(this, "landscape")) {
-					@Override
-					protected void onClick() {
-						SPDSettings.landscape(!PixelScene.landscape());
-					}
-				};
-				add(btnOrientation);
-			}
-
-			 */
-
             sep2 = new ColorBlock(1, 1, 0xFF000000);
             add(sep2);
 
@@ -414,21 +398,6 @@ public class WndSettings extends WndTabbed {
             chkFont.checked(SPDSettings.systemFont());
             add(chkFont);
 
-            if (DeviceCompat.hasHardKeyboard()) {
-
-                sep3 = new ColorBlock(1, 1, 0xFF000000);
-                add(sep3);
-
-                btnKeyBindings = new PurpleButton(Messages.get(this, "key_bindings")) {
-                    @Override
-                    protected void onClick() {
-                        super.onClick();
-                        SPDMain.scene().addToFront(new WndKeyBindings());
-                    }
-                };
-
-                add(btnKeyBindings);
-            }
         }
 
         @Override

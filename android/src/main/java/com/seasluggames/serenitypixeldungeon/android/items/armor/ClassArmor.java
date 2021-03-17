@@ -33,154 +33,158 @@ import java.util.ArrayList;
 
 abstract public class ClassArmor extends Armor {
 
-	private static final String AC_SPECIAL = "SPECIAL";
-	
-	{
-		levelKnown = true;
-		cursedKnown = true;
-		defaultAction = AC_SPECIAL;
+    private static final String AC_SPECIAL = "SPECIAL";
 
-		bones = false;
-	}
+    {
+        levelKnown = true;
+        cursedKnown = true;
+        defaultAction = AC_SPECIAL;
 
-	private int armorTier;
+        bones = false;
+    }
 
-	protected float charge = 0;
-	
-	public ClassArmor() {
-		super( 6 );
-	}
-	
-	public static ClassArmor upgrade ( Hero owner, Armor armor ) {
-		
-		ClassArmor classArmor = null;
-		
-		switch (owner.heroClass) {
-		case WARRIOR:
-			classArmor = new WarriorArmor();
-			BrokenSeal seal = armor.checkSeal();
-			if (seal != null) {
-				classArmor.affixSeal(seal);
-			}
-			break;
-		case ROGUE:
-			classArmor = new RogueArmor();
-			break;
-		case MAGE:
-			classArmor = new MageArmor();
-			break;
-		case HUNTRESS:
-			classArmor = new HuntressArmor();
-			break;
-		}
-		
-		classArmor.level(armor.level() - (armor.curseInfusionBonus ? 1 : 0));
-		classArmor.armorTier = armor.tier;
-		classArmor.augment = armor.augment;
-		classArmor.inscribe( armor.glyph );
-		classArmor.cursed = armor.cursed;
-		classArmor.curseInfusionBonus = armor.curseInfusionBonus;
-		classArmor.identify();
+    private int armorTier;
 
-		classArmor.charge = 0;
-		if (owner.lvl > 18){
-			classArmor.charge += (owner.lvl-18)*25;
-			if (classArmor.charge > 100) classArmor.charge = 100;
-		}
-		
-		return classArmor;
-	}
+    protected float charge = 0;
 
-	private static final String ARMOR_TIER	= "armortier";
-	private static final String CHARGE	    = "charge";
+    public ClassArmor() {
+        super(6);
+    }
 
-	@Override
-	public void storeInBundle( Bundle bundle ) {
-		super.storeInBundle( bundle );
-		bundle.put( ARMOR_TIER, armorTier );
-		bundle.put( CHARGE, charge );
-	}
+    public static ClassArmor upgrade(Hero owner, Armor armor) {
 
-	@Override
-	public void restoreFromBundle( Bundle bundle ) {
-		super.restoreFromBundle( bundle );
-		armorTier = bundle.getInt( ARMOR_TIER );
-		charge = bundle.getFloat(CHARGE);
-	}
-	
-	@Override
-	public ArrayList<String> actions( Hero hero ) {
-		ArrayList<String> actions = super.actions( hero );
-		if (hero.HP >= 3 && isEquipped( hero )) {
-			actions.add( AC_SPECIAL );
-		}
-		return actions;
-	}
+        ClassArmor classArmor = null;
 
-	@Override
-	public String status() {
-		return Messages.format( "%.0f%%", charge );
-	}
+        switch (owner.heroClass) {
+            case WARRIOR:
+                classArmor = new WarriorArmor();
+                BrokenSeal seal = armor.checkSeal();
+                if (seal != null) {
+                    classArmor.affixSeal(seal);
+                }
+                break;
+            case ROGUE:
+                classArmor = new RogueArmor();
+                break;
+            case MAGE:
+                classArmor = new MageArmor();
+                break;
+            case HUNTRESS:
+                classArmor = new HuntressArmor();
+                break;
+            case CLERIC:
+            	// CLERIC NEEDS OWN ARMOR
+                classArmor = new RogueArmor();
+                break;
+        }
 
-	@Override
-	public void execute( Hero hero, String action ) {
+        classArmor.level(armor.level() - (armor.curseInfusionBonus ? 1 : 0));
+        classArmor.armorTier = armor.tier;
+        classArmor.augment = armor.augment;
+        classArmor.inscribe(armor.glyph);
+        classArmor.cursed = armor.cursed;
+        classArmor.curseInfusionBonus = armor.curseInfusionBonus;
+        classArmor.identify();
 
-		super.execute( hero, action );
+        classArmor.charge = 0;
+        if (owner.lvl > 18) {
+            classArmor.charge += (owner.lvl - 18) * 25;
+            if (classArmor.charge > 100) classArmor.charge = 100;
+        }
 
-		if (action.equals(AC_SPECIAL)) {
-			
-			if (!isEquipped( hero )) {
-				GLog.w( Messages.get(this, "not_equipped") );
-			} else if (charge < 35) {
-				GLog.w( Messages.get(this, "low_charge") );
-			} else  {
-				curUser = hero;
-				doSpecial();
-			}
-			
-		}
-	}
+        return classArmor;
+    }
 
-	@Override
-	public void onHeroGainExp(float levelPercent, Hero hero) {
-		super.onHeroGainExp(levelPercent, hero);
-		charge += 50 * levelPercent;
-		if (charge > 100) charge = 100;
-		updateQuickslot();
-	}
+    private static final String ARMOR_TIER = "armortier";
+    private static final String CHARGE = "charge";
 
-	abstract public void doSpecial();
+    @Override
+    public void storeInBundle(Bundle bundle) {
+        super.storeInBundle(bundle);
+        bundle.put(ARMOR_TIER, armorTier);
+        bundle.put(CHARGE, charge);
+    }
 
-	@Override
-	public int STRReq(int lvl) {
-		lvl = Math.max(0, lvl);
+    @Override
+    public void restoreFromBundle(Bundle bundle) {
+        super.restoreFromBundle(bundle);
+        armorTier = bundle.getInt(ARMOR_TIER);
+        charge = bundle.getFloat(CHARGE);
+    }
 
-		//strength req decreases at +1,+3,+6,+10,etc.
-		return (8 + Math.round(armorTier * 2)) - (int)(Math.sqrt(8 * lvl + 1) - 1)/2;
-	}
+    @Override
+    public ArrayList<String> actions(Hero hero) {
+        ArrayList<String> actions = super.actions(hero);
+        if (hero.HP >= 3 && isEquipped(hero)) {
+            actions.add(AC_SPECIAL);
+        }
+        return actions;
+    }
 
-	@Override
-	public int DRMax(int lvl){
-		if (Dungeon.isChallenged(Challenges.NO_ARMOR)){
-			return 1 + armorTier + lvl + augment.defenseFactor(lvl);
-		}
+    @Override
+    public String status() {
+        return Messages.format("%.0f%%", charge);
+    }
 
-		int max = armorTier * (2 + lvl) + augment.defenseFactor(lvl);
-		if (lvl > max){
-			return ((lvl - max)+1)/2;
-		} else {
-			return max;
-		}
-	}
-	
-	@Override
-	public boolean isIdentified() {
-		return true;
-	}
-	
-	@Override
-	public int value() {
-		return 0;
-	}
+    @Override
+    public void execute(Hero hero, String action) {
+
+        super.execute(hero, action);
+
+        if (action.equals(AC_SPECIAL)) {
+
+            if (!isEquipped(hero)) {
+                GLog.w(Messages.get(this, "not_equipped"));
+            } else if (charge < 35) {
+                GLog.w(Messages.get(this, "low_charge"));
+            } else {
+                curUser = hero;
+                doSpecial();
+            }
+
+        }
+    }
+
+    @Override
+    public void onHeroGainExp(float levelPercent, Hero hero) {
+        super.onHeroGainExp(levelPercent, hero);
+        charge += 50 * levelPercent;
+        if (charge > 100) charge = 100;
+        updateQuickslot();
+    }
+
+    abstract public void doSpecial();
+
+    @Override
+    public int STRReq(int lvl) {
+        lvl = Math.max(0, lvl);
+
+        //strength req decreases at +1,+3,+6,+10,etc.
+        return (8 + Math.round(armorTier * 2)) - (int) (Math.sqrt(8 * lvl + 1) - 1) / 2;
+    }
+
+    @Override
+    public int DRMax(int lvl) {
+        if (Dungeon.isChallenged(Challenges.NO_ARMOR)) {
+            return 1 + armorTier + lvl + augment.defenseFactor(lvl);
+        }
+
+        int max = armorTier * (2 + lvl) + augment.defenseFactor(lvl);
+        if (lvl > max) {
+            return ((lvl - max) + 1) / 2;
+        } else {
+            return max;
+        }
+    }
+
+    @Override
+    public boolean isIdentified() {
+        return true;
+    }
+
+    @Override
+    public int value() {
+        return 0;
+    }
 
 }

@@ -21,6 +21,7 @@
 
 package com.seasluggames.serenitypixeldungeon.android.windows;
 
+import com.seasluggames.serenitypixeldungeon.android.AndroidLauncher;
 import com.seasluggames.serenitypixeldungeon.android.Dungeon;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero;
 import com.seasluggames.serenitypixeldungeon.android.actors.mobs.Mob;
@@ -112,24 +113,31 @@ public class WndTradeItem extends WndInfoItem {
 		};
 		btnBuy.setRect( 0, pos + GAP, width, BTN_HEIGHT );
 		btnBuy.enable( price <= Dungeon.gold );
-		add( btnBuy );
 
-		PurpleButton btnFree = new PurpleButton( Messages.get(this, "watch ad") ) {
+		PurpleButton btnFree = new PurpleButton( Messages.get(this, "free_gold") ) {
 			@Override
 			protected void onClick() {
-				//ADD REWARDED AD HERE
-				//ON REWARDED, run free(heap)
+				AndroidLauncher.runOnUI(() -> AndroidLauncher.showRewardedAd());
 				hide();
-				free( heap );
 			}
 		};
 
 		btnFree.setRect( 0, pos + GAP, width, BTN_HEIGHT );
-		btnFree.enable( price > Dungeon.gold );
-		add( btnFree );
+		btnFree.enable( !AndroidLauncher.watchedAD );
 
-		pos = btnFree.bottom();
-		pos = btnBuy.bottom();
+		if (price <= Dungeon.gold) {
+			add( btnBuy );
+			pos = btnBuy.bottom();
+		} else {
+			if (!AndroidLauncher.watchedAD) {
+				add( btnFree );
+				pos = btnFree.bottom();
+			} else {
+				add( btnBuy );
+				pos = btnBuy.bottom();
+			}
+
+		}
 
 		final MasterThievesArmband.Thievery thievery = Dungeon.hero.buff(MasterThievesArmband.Thievery.class);
 		if (thievery != null && !thievery.isCursed()) {
@@ -157,7 +165,7 @@ public class WndTradeItem extends WndInfoItem {
 					}
 				}
 			};
-			btnSteal.setRect(0, pos + 1, width, BTN_HEIGHT);
+			btnSteal.setRect(0, pos + 2, width, BTN_HEIGHT);
 			add(btnSteal);
 
 			pos = btnSteal.bottom();
@@ -221,11 +229,5 @@ public class WndTradeItem extends WndInfoItem {
 		if (!item.doPickUp( Dungeon.hero )) {
 			Dungeon.level.drop( item, heap.pos ).sprite.drop();
 		}
-	}
-
-	private void free( Heap heap) {
-		Item item = heap.pickUp();
-		if (item == null) return;
-
 	}
 }

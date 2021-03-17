@@ -39,8 +39,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             dependencies {
-                implementation 'com.google.firebase:firebase-ads:19.7.0'
-                implementation 'com.google.android.gms:play-services-ads:19.7.0'
+                implementation 'com.google.firebase:firebase-ads:19.6.0'
+                implementation 'com.google.android.gms:play-services-basement:17.6.0'
             }
         }
     }

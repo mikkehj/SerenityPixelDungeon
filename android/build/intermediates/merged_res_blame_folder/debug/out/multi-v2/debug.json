@@ -1,6 +1,21 @@
 {
     "logs": [
         {
+            "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-en-rIN_values-en-rIN.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-te_values-te.arsc.flat",
             "map": [
                 {
@@ -21,7 +36,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-te\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-te\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -57,21 +72,6 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-en-rIN_values-en-rIN.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\values-en-rIN\\values-en-rIN.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-en-rXC_values-en-rXC.arsc.flat",
             "map": [
                 {
@@ -87,66 +87,10 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-cs_values-cs.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\values-cs\\values-cs.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "17",
-                        "startColumns": "4",
-                        "startOffsets": "1745",
-                        "endColumns": "100",
-                        "endOffsets": "1841"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-cs\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "201",
-                        "endOffsets": "448"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "201",
-                        "endOffsets": "302"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-cs\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "199,306,452,532,667,753,879,997,1069,1181,1247,1314,1400,1507",
-                        "endColumns": "106,145,79,134,85,125,117,71,111,65,66,85,106,73",
-                        "endOffsets": "305,451,531,666,752,878,996,1068,1180,1246,1313,1399,1506,1580"
-                    },
-                    "to": {
-                        "startLines": "3,4,5,6,7,8,9,10,11,12,13,14,15,16",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "307,418,568,652,791,881,1011,1133,1209,1325,1395,1466,1556,1667",
-                        "endColumns": "110,149,83,138,89,129,121,75,115,69,70,89,110,77",
-                        "endOffsets": "413,563,647,786,876,1006,1128,1204,1320,1390,1461,1551,1662,1740"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-ca_values-ca.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-ca\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-ca\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -199,6 +143,62 @@
             ]
         },
         {
+            "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-cs_values-cs.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\values-cs\\values-cs.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "17",
+                        "startColumns": "4",
+                        "startOffsets": "1745",
+                        "endColumns": "100",
+                        "endOffsets": "1841"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-cs\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "201",
+                        "endOffsets": "448"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "201",
+                        "endOffsets": "302"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-cs\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "199,306,452,532,667,753,879,997,1069,1181,1247,1314,1400,1507",
+                        "endColumns": "106,145,79,134,85,125,117,71,111,65,66,85,106,73",
+                        "endOffsets": "305,451,531,666,752,878,996,1068,1180,1246,1313,1399,1506,1580"
+                    },
+                    "to": {
+                        "startLines": "3,4,5,6,7,8,9,10,11,12,13,14,15,16",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "307,418,568,652,791,881,1011,1133,1209,1325,1395,1466,1556,1667",
+                        "endColumns": "110,149,83,138,89,129,121,75,115,69,70,89,110,77",
+                        "endOffsets": "413,563,647,786,876,1006,1128,1204,1320,1390,1461,1551,1662,1740"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-ms_values-ms.arsc.flat",
             "map": [
                 {
@@ -219,7 +219,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-ms\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-ms\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -258,6 +258,23 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-hr_values-hr.arsc.flat",
             "map": [
                 {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-hr\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "190",
+                        "endOffsets": "437"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "190",
+                        "endOffsets": "291"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-hr\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
@@ -290,23 +307,6 @@
                         "endColumns": "100",
                         "endOffsets": "1865"
                     }
-                },
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-hr\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "190",
-                        "endOffsets": "437"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "190",
-                        "endOffsets": "291"
-                    }
                 }
             ]
         },
@@ -314,7 +314,7 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-hi_values-hi.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-hi\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-hi\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -370,7 +370,7 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-ka_values-ka.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-ka\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-ka\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -426,23 +426,6 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-be_values-be.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-be\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "204",
-                        "endOffsets": "451"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "204",
-                        "endOffsets": "305"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-be\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
@@ -457,6 +440,23 @@
                         "startOffsets": "310,425,573,657,818,910,1054,1188,1265,1383,1452,1522,1611,1717",
                         "endColumns": "114,147,83,160,91,143,133,76,117,68,69,88,105,77",
                         "endOffsets": "420,568,652,813,905,1049,1183,1260,1378,1447,1517,1606,1712,1790"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-be\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "204",
+                        "endOffsets": "451"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "204",
+                        "endOffsets": "305"
                     }
                 },
                 {
@@ -482,7 +482,7 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-ky_values-ky.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-ky\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-ky\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -538,6 +538,23 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-da_values-da.arsc.flat",
             "map": [
                 {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-da\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "185",
+                        "endOffsets": "432"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "185",
+                        "endOffsets": "286"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-da\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
@@ -552,23 +569,6 @@
                         "startOffsets": "291,401,532,616,759,848,996,1112,1184,1300,1370,1437,1523,1644",
                         "endColumns": "109,130,83,142,88,147,115,71,115,69,66,85,120,72",
                         "endOffsets": "396,527,611,754,843,991,1107,1179,1295,1365,1432,1518,1639,1712"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-da\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "185",
-                        "endOffsets": "432"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "185",
-                        "endOffsets": "286"
                     }
                 },
                 {
@@ -594,6 +594,23 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-sr_values-sr.arsc.flat",
             "map": [
                 {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-sr\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "188",
+                        "endOffsets": "435"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "188",
+                        "endOffsets": "289"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-sr\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
@@ -608,23 +625,6 @@
                         "startOffsets": "294,412,553,642,783,874,1011,1131,1204,1328,1398,1465,1556,1678",
                         "endColumns": "117,140,88,140,90,136,119,72,123,69,66,90,121,73",
                         "endOffsets": "407,548,637,778,869,1006,1126,1199,1323,1393,1460,1551,1673,1747"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-sr\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "188",
-                        "endOffsets": "435"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "188",
-                        "endOffsets": "289"
                     }
                 },
                 {
@@ -665,6 +665,23 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-tr_values-tr.arsc.flat",
             "map": [
                 {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-tr\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "205",
+                        "endOffsets": "452"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "205",
+                        "endOffsets": "306"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-tr\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
@@ -679,23 +696,6 @@
                         "startOffsets": "311,422,570,657,817,904,1059,1185,1258,1383,1453,1521,1607,1727",
                         "endColumns": "110,147,86,159,86,154,125,72,124,69,67,85,119,73",
                         "endOffsets": "417,565,652,812,899,1054,1180,1253,1378,1448,1516,1602,1722,1796"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-tr\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "205",
-                        "endOffsets": "452"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "205",
-                        "endOffsets": "306"
                     }
                 },
                 {
@@ -738,7 +738,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-es\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-es\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -777,23 +777,6 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-ml_values-ml.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-ml\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "218",
-                        "endOffsets": "465"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "218",
-                        "endOffsets": "319"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-ml\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
@@ -826,6 +809,23 @@
                         "endColumns": "100",
                         "endOffsets": "1924"
                     }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-ml\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "218",
+                        "endOffsets": "465"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "218",
+                        "endOffsets": "319"
+                    }
                 }
             ]
         },
@@ -833,7 +833,7 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-kn_values-kn.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-kn\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-kn\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -923,7 +923,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-tl\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-tl\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -979,7 +979,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-fi\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-fi\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -1001,6 +1001,23 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-fr_values-fr.arsc.flat",
             "map": [
                 {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-fr\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "223",
+                        "endOffsets": "470"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "223",
+                        "endOffsets": "324"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-fr\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
@@ -1015,23 +1032,6 @@
                         "startOffsets": "329,444,618,702,886,978,1144,1291,1372,1501,1571,1640,1730,1845",
                         "endColumns": "114,173,83,183,91,165,146,80,128,69,68,89,114,73",
                         "endOffsets": "439,613,697,881,973,1139,1286,1367,1496,1566,1635,1725,1840,1914"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-fr\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "223",
-                        "endOffsets": "470"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "223",
-                        "endOffsets": "324"
                     }
                 },
                 {
@@ -1074,7 +1074,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-sk\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-sk\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -1113,7 +1113,7 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-zh-rHK_values-zh-rHK.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-zh-rHK\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-zh-rHK\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -1203,7 +1203,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-es-rUS\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-es-rUS\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -1242,7 +1242,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-lo\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-lo\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -1298,23 +1298,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-ar\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "188",
-                        "endOffsets": "435"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "188",
-                        "endOffsets": "289"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-ar\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
@@ -1330,29 +1313,29 @@
                         "endColumns": "101,133,86,147,90,145,118,70,112,65,64,81,106,73",
                         "endOffsets": "391,525,612,760,851,997,1116,1187,1300,1366,1431,1513,1620,1694"
                     }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-ar\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "188",
+                        "endOffsets": "435"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "188",
+                        "endOffsets": "289"
+                    }
                 }
             ]
         },
         {
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-zh-rTW_values-zh-rTW.arsc.flat",
             "map": [
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-zh-rTW\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "161",
-                        "endOffsets": "412"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "161",
-                        "endOffsets": "262"
-                    }
-                },
                 {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "from": {
@@ -1386,6 +1369,23 @@
                         "endColumns": "92,97,83,107,87,102,95,64,78,63,63,67,74,65",
                         "endOffsets": "355,453,537,645,733,836,932,997,1076,1140,1204,1272,1347,1413"
                     }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-zh-rTW\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "161",
+                        "endOffsets": "412"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "161",
+                        "endOffsets": "262"
+                    }
                 }
             ]
         },
@@ -1393,7 +1393,7 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-eu_values-eu.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-eu\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-eu\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -1449,7 +1449,7 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-in_values-in.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-in\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-in\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -1505,7 +1505,7 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-or_values-or.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-or\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-or\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -1610,7 +1610,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-si\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-si\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -1649,7 +1649,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-pa\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-pa\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -1688,23 +1688,6 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-sw_values-sw.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-sw\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "204",
-                        "endOffsets": "451"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "204",
-                        "endOffsets": "305"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\values-sw\\values-sw.xml",
                     "from": {
                         "startLines": "2",
@@ -1719,6 +1702,23 @@
                         "startOffsets": "1756",
                         "endColumns": "100",
                         "endOffsets": "1852"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-sw\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "204",
+                        "endOffsets": "451"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "204",
+                        "endOffsets": "305"
                     }
                 },
                 {
@@ -1778,7 +1778,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-lv\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-lv\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -1817,7 +1817,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-is\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-is\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -1890,7 +1890,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-uz\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-uz\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -1946,7 +1946,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-pt-rPT\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-pt-rPT\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -1967,6 +1967,23 @@
         {
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-km_values-km.arsc.flat",
             "map": [
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-km\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "207",
+                        "endOffsets": "454"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "207",
+                        "endOffsets": "308"
+                    }
+                },
                 {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-km\\values.xml",
                     "from": {
@@ -1999,23 +2016,6 @@
                         "startOffsets": "1877",
                         "endColumns": "100",
                         "endOffsets": "1973"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-km\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "207",
-                        "endOffsets": "454"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "207",
-                        "endOffsets": "308"
                     }
                 }
             ]
@@ -2058,7 +2058,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-en-rGB\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-en-rGB\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -2079,23 +2079,6 @@
         {
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-gu_values-gu.arsc.flat",
             "map": [
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-gu\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "205",
-                        "endOffsets": "452"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "205",
-                        "endOffsets": "306"
-                    }
-                },
                 {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\values-gu\\values-gu.xml",
                     "from": {
@@ -2129,6 +2112,23 @@
                         "endColumns": "110,131,84,151,89,145,124,69,119,69,66,82,108,78",
                         "endOffsets": "417,549,634,786,876,1022,1147,1217,1337,1407,1474,1557,1666,1745"
                     }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-gu\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "205",
+                        "endOffsets": "452"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "205",
+                        "endOffsets": "306"
+                    }
                 }
             ]
         },
@@ -2153,6 +2153,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-sq\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "187",
+                        "endOffsets": "434"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "187",
+                        "endOffsets": "288"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\values-sq\\values-sq.xml",
                     "from": {
                         "startLines": "2",
@@ -2168,46 +2185,12 @@
                         "endColumns": "100",
                         "endOffsets": "1863"
                     }
-                },
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-sq\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "187",
-                        "endOffsets": "434"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "187",
-                        "endOffsets": "288"
-                    }
                 }
             ]
         },
         {
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-lt_values-lt.arsc.flat",
             "map": [
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-lt\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "217",
-                        "endOffsets": "464"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "217",
-                        "endOffsets": "318"
-                    }
-                },
                 {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\values-lt\\values-lt.xml",
                     "from": {
@@ -2240,6 +2223,23 @@
                         "startOffsets": "323,446,591,678,816,906,1048,1172,1249,1366,1435,1504,1592,1698",
                         "endColumns": "122,144,86,137,89,141,123,76,116,68,68,87,105,81",
                         "endOffsets": "441,586,673,811,901,1043,1167,1244,1361,1430,1499,1587,1693,1775"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-lt\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "217",
+                        "endOffsets": "464"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "217",
+                        "endOffsets": "318"
                     }
                 }
             ]
@@ -2282,7 +2282,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-gl\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-gl\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -2321,7 +2321,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-pl\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-pl\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -2360,7 +2360,7 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-am_values-am.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-am\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-am\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -2450,7 +2450,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-zu\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-zu\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -2472,23 +2472,6 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-vi_values-vi.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-vi\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "194",
-                        "endOffsets": "441"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "194",
-                        "endOffsets": "295"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-vi\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
@@ -2503,6 +2486,23 @@
                         "startOffsets": "300,405,541,625,790,878,1051,1176,1249,1366,1437,1506,1584,1682",
                         "endColumns": "104,135,83,164,87,172,124,72,116,70,68,77,97,81",
                         "endOffsets": "400,536,620,785,873,1046,1171,1244,1361,1432,1501,1579,1677,1759"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-vi\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "194",
+                        "endOffsets": "441"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "194",
+                        "endOffsets": "295"
                     }
                 },
                 {
@@ -2560,7 +2560,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-hu\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-hu\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -2616,7 +2616,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-mk\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-mk\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -2655,7 +2655,7 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-fr-rCA_values-fr-rCA.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-fr-rCA\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-fr-rCA\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -2728,6 +2728,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-af\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "201",
+                        "endOffsets": "448"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "201",
+                        "endOffsets": "302"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\values-af\\values-af.xml",
                     "from": {
                         "startLines": "2",
@@ -2742,23 +2759,6 @@
                         "startOffsets": "1800",
                         "endColumns": "100",
                         "endOffsets": "1896"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-af\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "201",
-                        "endOffsets": "448"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "201",
-                        "endOffsets": "302"
                     }
                 }
             ]
@@ -2800,7 +2800,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-ne\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-ne\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -2839,7 +2839,7 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-ru_values-ru.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-ru\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-ru\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -2929,7 +2929,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-zh-rCN\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-zh-rCN\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -2951,7 +2951,7 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-ko_values-ko.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-ko\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-ko\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -3007,7 +3007,7 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-my_values-my.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-my\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-my\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -3097,7 +3097,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-fa\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-fa\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -3119,6 +3119,23 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-uk_values-uk.arsc.flat",
             "map": [
                 {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-uk\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "204",
+                        "endOffsets": "451"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "204",
+                        "endOffsets": "305"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-uk\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
@@ -3133,23 +3150,6 @@
                         "startOffsets": "310,429,570,654,805,898,1038,1167,1247,1360,1430,1501,1587,1695",
                         "endColumns": "118,140,83,150,92,139,128,79,112,69,70,85,107,79",
                         "endOffsets": "424,565,649,800,893,1033,1162,1242,1355,1425,1496,1582,1690,1770"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-uk\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "204",
-                        "endOffsets": "451"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "204",
-                        "endOffsets": "305"
                     }
                 },
                 {
@@ -3175,23 +3175,6 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-mr_values-mr.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-mr\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "201",
-                        "endOffsets": "448"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "201",
-                        "endOffsets": "302"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\values-mr\\values-mr.xml",
                     "from": {
                         "startLines": "2",
@@ -3206,6 +3189,23 @@
                         "startOffsets": "1767",
                         "endColumns": "100",
                         "endOffsets": "1863"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-mr\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "201",
+                        "endOffsets": "448"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "201",
+                        "endOffsets": "302"
                     }
                 },
                 {
@@ -3231,6 +3231,23 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-mn_values-mn.arsc.flat",
             "map": [
                 {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-mn\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "208",
+                        "endOffsets": "455"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "208",
+                        "endOffsets": "309"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-mn\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
@@ -3245,23 +3262,6 @@
                         "startOffsets": "314,428,552,636,776,862,1016,1137,1212,1325,1396,1467,1554,1664",
                         "endColumns": "113,123,83,139,85,153,120,74,112,70,70,86,109,69",
                         "endOffsets": "423,547,631,771,857,1011,1132,1207,1320,1391,1462,1549,1659,1729"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-mn\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "208",
-                        "endOffsets": "455"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "208",
-                        "endOffsets": "309"
                     }
                 },
                 {
@@ -3321,7 +3321,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-nl\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-nl\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -3360,6 +3360,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-bg\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "196",
+                        "endOffsets": "443"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "196",
+                        "endOffsets": "297"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\values-bg\\values-bg.xml",
                     "from": {
                         "startLines": "2",
@@ -3374,23 +3391,6 @@
                         "startOffsets": "1805",
                         "endColumns": "100",
                         "endOffsets": "1901"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-bg\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "196",
-                        "endOffsets": "443"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "196",
-                        "endOffsets": "297"
                     }
                 }
             ]
@@ -3526,7 +3526,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "4,7",
                         "startColumns": "0,0",
@@ -3565,7 +3565,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-nb\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-nb\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -3604,7 +3604,7 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-ja_values-ja.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-ja\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-ja\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -3677,7 +3677,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-sl\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-sl\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -3733,7 +3733,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-hy\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-hy\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -3789,7 +3789,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-ur\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-ur\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -3828,23 +3828,6 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-as_values-as.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-as\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "184",
-                        "endOffsets": "431"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "184",
-                        "endOffsets": "285"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-as\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
@@ -3859,6 +3842,23 @@
                         "startOffsets": "290,396,529,618,756,850,997,1116,1188,1306,1379,1457,1550,1675",
                         "endColumns": "105,132,88,137,93,146,118,71,117,72,77,92,124,77",
                         "endOffsets": "391,524,613,751,845,992,1111,1183,1301,1374,1452,1545,1670,1748"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-as\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "184",
+                        "endOffsets": "431"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "184",
+                        "endOffsets": "285"
                     }
                 },
                 {
@@ -3918,7 +3918,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-et\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-et\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -3974,7 +3974,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-el\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-el\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -4013,7 +4013,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-ta\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-ta\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -4067,23 +4067,6 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-iw_values-iw.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-iw\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "176",
-                        "endOffsets": "423"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "176",
-                        "endOffsets": "277"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-iw\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
@@ -4098,6 +4081,23 @@
                         "startOffsets": "282,395,526,613,747,836,953,1076,1151,1258,1323,1388,1465,1562",
                         "endColumns": "112,130,86,133,88,116,122,74,106,64,64,76,96,72",
                         "endOffsets": "390,521,608,742,831,948,1071,1146,1253,1318,1383,1460,1557,1630"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-iw\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "176",
+                        "endOffsets": "423"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "176",
+                        "endOffsets": "277"
                     }
                 },
                 {
@@ -4140,7 +4140,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-ro\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-ro\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -4179,23 +4179,6 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-th_values-th.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-th\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "187",
-                        "endOffsets": "434"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "187",
-                        "endOffsets": "288"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-th\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
@@ -4210,6 +4193,23 @@
                         "startOffsets": "293,395,513,599,737,828,972,1082,1155,1260,1328,1396,1478,1577",
                         "endColumns": "101,117,85,137,90,143,109,72,104,67,67,81,98,71",
                         "endOffsets": "390,508,594,732,823,967,1077,1150,1255,1323,1391,1473,1572,1644"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-th\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "187",
+                        "endOffsets": "434"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "187",
+                        "endOffsets": "288"
                     }
                 },
                 {
@@ -4235,6 +4235,23 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-it_values-it.arsc.flat",
             "map": [
                 {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-it\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "194",
+                        "endOffsets": "441"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "194",
+                        "endOffsets": "295"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\values-it\\values-it.xml",
                     "from": {
                         "startLines": "2",
@@ -4249,23 +4266,6 @@
                         "startOffsets": "1787",
                         "endColumns": "100",
                         "endOffsets": "1883"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-it\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "194",
-                        "endOffsets": "441"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "194",
-                        "endOffsets": "295"
                     }
                 },
                 {
@@ -4290,23 +4290,6 @@
         {
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-b+sr+Latn_values-b+sr+Latn.arsc.flat",
             "map": [
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-b+sr+Latn\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "254",
-                        "endColumns": "188",
-                        "endOffsets": "442"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "188",
-                        "endOffsets": "289"
-                    }
-                },
                 {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-b+sr+Latn\\values.xml",
                     "from": {
@@ -4340,29 +4323,29 @@
                         "endColumns": "100",
                         "endOffsets": "1853"
                     }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-b+sr+Latn\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "254",
+                        "endColumns": "188",
+                        "endOffsets": "442"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "188",
+                        "endOffsets": "289"
+                    }
                 }
             ]
         },
         {
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-az_values-az.arsc.flat",
             "map": [
-                {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-az\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "220",
-                        "endOffsets": "467"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "220",
-                        "endOffsets": "321"
-                    }
-                },
                 {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-az\\values.xml",
                     "from": {
@@ -4378,6 +4361,23 @@
                         "startOffsets": "326,437,570,654,795,891,1031,1147,1228,1354,1426,1497,1581,1695",
                         "endColumns": "110,132,83,140,95,139,115,80,125,71,70,83,113,73",
                         "endOffsets": "432,565,649,790,886,1026,1142,1223,1349,1421,1492,1576,1690,1764"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-az\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "220",
+                        "endOffsets": "467"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "220",
+                        "endOffsets": "321"
                     }
                 },
                 {
@@ -4420,7 +4420,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-pt-rBR\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-pt-rBR\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -4491,23 +4491,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-bn\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "210",
-                        "endOffsets": "457"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "210",
-                        "endOffsets": "311"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-bn\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
@@ -4523,6 +4506,23 @@
                         "endColumns": "114,130,87,131,87,136,130,72,118,71,78,89,119,81",
                         "endOffsets": "426,557,645,777,865,1002,1133,1206,1325,1397,1476,1566,1686,1768"
                     }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-bn\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "210",
+                        "endOffsets": "457"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "210",
+                        "endOffsets": "311"
+                    }
                 }
             ]
         },
@@ -4530,7 +4530,7 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-de_values-de.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-de\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-de\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -4586,23 +4586,6 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-bs_values-bs.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-bs\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "199",
-                        "endOffsets": "446"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "199",
-                        "endOffsets": "300"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\64bcf7c9ef21802a2943a05e7c697325\\play-services-ads-19.7.0\\res\\values-bs\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
@@ -4617,6 +4600,23 @@
                         "startOffsets": "305,417,554,641,786,877,1024,1145,1219,1342,1412,1479,1571,1690",
                         "endColumns": "111,136,86,144,90,146,120,73,122,69,66,91,118,73",
                         "endOffsets": "412,549,636,781,872,1019,1140,1214,1337,1407,1474,1566,1685,1759"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-bs\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "199",
+                        "endOffsets": "446"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "199",
+                        "endOffsets": "300"
                     }
                 },
                 {
@@ -4659,7 +4659,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-kk\\values.xml",
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-kk\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -4698,23 +4698,6 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\values-sv_values-sv.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-sv\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "206",
-                        "endOffsets": "453"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "206",
-                        "endOffsets": "307"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\values-sv\\values-sv.xml",
                     "from": {
                         "startLines": "2",
@@ -4746,6 +4729,23 @@
                         "startOffsets": "312,425,556,640,780,870,1015,1132,1203,1320,1389,1463,1547,1661",
                         "endColumns": "112,130,83,139,89,144,116,70,116,68,73,83,113,71",
                         "endOffsets": "420,551,635,775,865,1010,1127,1198,1315,1384,1458,1542,1656,1728"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-sv\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "206",
+                        "endOffsets": "453"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "206",
+                        "endOffsets": "307"
                     }
                 }
             ]

@@ -23,6 +23,7 @@ package com.seasluggames.serenitypixeldungeon.android.items.artifacts;
 
 import com.seasluggames.serenitypixeldungeon.android.Dungeon;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero;
+import com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent;
 import com.seasluggames.serenitypixeldungeon.android.items.rings.RingOfEnergy;
 import com.seasluggames.serenitypixeldungeon.android.messages.Messages;
 import com.seasluggames.serenitypixeldungeon.android.sprites.ItemSpriteSheet;
@@ -44,13 +45,11 @@ public class MasterThievesArmband extends Artifact {
 	protected ArtifactBuff passiveBuff() {
 		return new Thievery();
 	}
-	
+
 	@Override
-	public void charge(Hero target) {
-		if (charge < chargeCap){
-			charge += 10;
-			updateQuickslot();
-		}
+	public void charge(Hero target, float amount) {
+		charge += Math.round(10*amount);
+		updateQuickslot();
 	}
 
 	@Override
@@ -64,7 +63,7 @@ public class MasterThievesArmband extends Artifact {
 				desc += "\n\n" + Messages.get(this, "desc_worn");
 			}
 		}
-		
+
 
 		return desc;
 	}
@@ -81,22 +80,22 @@ public class MasterThievesArmband extends Artifact {
 			charge *= 0.95;
 			super.detach();
 		}
-		
+
 		@Override
 		public boolean act() {
 			if (cursed) {
-				
+
 				if (Dungeon.gold > 0 && Random.Int(6) == 0){
 					Dungeon.gold--;
 				}
-				
+
 				spend(TICK);
 				return true;
 			} else {
 				return super.act();
 			}
 		}
-		
+
 		public boolean steal(int value){
 			if (value <= charge){
 				charge -= value;
@@ -114,6 +113,7 @@ public class MasterThievesArmband extends Artifact {
 					exp += value;
 				}
 			}
+			Talent.onArtifactUsed(Dungeon.hero);
 			while(exp >= (250 + 50*level()) && level() < levelCap) {
 				exp -= (250 + 50*level());
 				upgrade();
@@ -122,9 +122,9 @@ public class MasterThievesArmband extends Artifact {
 		}
 
 		public float stealChance(int value){
-				//get lvl*50 gold or lvl*3.33% item value of free charge, whichever is less.
-				int chargeBonus = Math.min(level()*50, (value*level())/30);
-				return (((float)charge + chargeBonus)/value);
+			//get lvl*50 gold or lvl*3.33% item value of free charge, whichever is less.
+			int chargeBonus = Math.min(level()*50, (value*level())/30);
+			return (((float)charge + chargeBonus)/value);
 		}
 	}
 }

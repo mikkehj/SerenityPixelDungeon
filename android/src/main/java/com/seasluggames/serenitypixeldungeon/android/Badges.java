@@ -50,6 +50,7 @@ public class Badges {
         MASTERY_MAGE,
         MASTERY_ROGUE,
         MASTERY_HUNTRESS,
+        MASTERY_CLERIC,
 
         //bronze
         UNLOCK_MAGE(1),
@@ -98,6 +99,7 @@ public class Badges {
         BOSS_SLAIN_1_MAGE,
         BOSS_SLAIN_1_ROGUE,
         BOSS_SLAIN_1_HUNTRESS,
+        BOSS_SLAIN_1_CLERIC,
         BOSS_SLAIN_1_ALL_CLASSES(53, true),
         GAMES_PLAYED_1(54, true),
 
@@ -131,6 +133,8 @@ public class Badges {
         BOSS_SLAIN_3_ASSASSIN,
         BOSS_SLAIN_3_SNIPER,
         BOSS_SLAIN_3_WARDEN,
+        BOSS_SLAIN_3_PRIEST,
+        BOSS_SLAIN_3_MONK,
         BOSS_SLAIN_3_ALL_SUBCLASSES(80, true),
         GAMES_PLAYED_2(81, true),
 
@@ -141,6 +145,7 @@ public class Badges {
         VICTORY_MAGE,
         VICTORY_ROGUE,
         VICTORY_HUNTRESS,
+        VICTORY_CLERIC,
         VICTORY_ALL_CLASSES(98, true),
         GAMES_PLAYED_3(99, true),
         CHAMPION_1(100),
@@ -599,6 +604,9 @@ public class Badges {
                     case HUNTRESS:
                         badge = Badge.BOSS_SLAIN_1_HUNTRESS;
                         break;
+                    case CLERIC:
+                        badge = Badge.BOSS_SLAIN_1_CLERIC;
+                        break;
                 }
                 local.add(badge);
                 if (!global.contains(badge)) {
@@ -609,7 +617,9 @@ public class Badges {
                 if (global.contains(Badge.BOSS_SLAIN_1_WARRIOR) &&
                         global.contains(Badge.BOSS_SLAIN_1_MAGE) &&
                         global.contains(Badge.BOSS_SLAIN_1_ROGUE) &&
-                        global.contains(Badge.BOSS_SLAIN_1_HUNTRESS)) {
+                        global.contains(Badge.BOSS_SLAIN_1_HUNTRESS) &&
+                        global.contains(Badge.BOSS_SLAIN_1_CLERIC)
+                ) {
 
                     badge = Badge.BOSS_SLAIN_1_ALL_CLASSES;
                     if (!global.contains(badge)) {
@@ -644,6 +654,12 @@ public class Badges {
                     case WARDEN:
                         badge = Badge.BOSS_SLAIN_3_WARDEN;
                         break;
+                    case PRIEST:
+                        badge = Badge.BOSS_SLAIN_3_PRIEST;
+                        break;
+                    case MONK:
+                        badge = Badge.BOSS_SLAIN_3_MONK;
+                        break;
                     default:
                         return;
                 }
@@ -660,7 +676,9 @@ public class Badges {
                         global.contains(Badge.BOSS_SLAIN_3_FREERUNNER) &&
                         global.contains(Badge.BOSS_SLAIN_3_ASSASSIN) &&
                         global.contains(Badge.BOSS_SLAIN_3_SNIPER) &&
-                        global.contains(Badge.BOSS_SLAIN_3_WARDEN)) {
+                        global.contains(Badge.BOSS_SLAIN_3_WARDEN) &&
+                        global.contains(Badge.BOSS_SLAIN_3_PRIEST) &&
+                        global.contains(Badge.BOSS_SLAIN_3_MONK)) {
 
                     badge = Badge.BOSS_SLAIN_3_ALL_SUBCLASSES;
                     if (!global.contains(badge)) {
@@ -688,6 +706,9 @@ public class Badges {
                 break;
             case HUNTRESS:
                 badge = Badge.MASTERY_HUNTRESS;
+                break;
+            case CLERIC:
+                badge = Badge.MASTERY_CLERIC;
                 break;
         }
 

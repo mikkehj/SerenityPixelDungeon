@@ -187,7 +187,7 @@ public class Hero extends Char {
 	public Hero() {
 		super();
 
-		HP = HT = 20;
+		HP = HT = 25;
 		STR = STARTING_STR;
 		
 		belongings = new Belongings( this );
@@ -197,8 +197,20 @@ public class Hero extends Char {
 	
 	public void updateHT( boolean boostHP ){
 		int curHT = HT;
-		
-		HT = 20 + 5*(lvl-1) + HTBoost;
+
+		if (hasTalent(Talent.STRONG_FAITH)){
+			switch (pointsInTalent(Talent.STRONG_FAITH)) {
+				case 1:
+					HT = 25 + 6*(lvl-1) + HTBoost;
+					break;
+				case 2:
+					HT = 25 + 7*(lvl-1) + HTBoost;
+					break;
+			}
+		} else {
+			HT = 25 + 5*(lvl-1) + HTBoost;
+		}
+
 		float multiplier = RingOfMight.HTMultiplier(this);
 		HT = Math.round(multiplier * HT);
 		
@@ -1398,8 +1410,12 @@ public class Hero extends Char {
 	}
 	
 	public void earnExp( int exp, Class source ) {
-		
-		this.exp += exp;
+
+		if (hasTalent(Talent.DIVINE_TOUCH)){
+			this.exp += (exp + pointsInTalent(Talent.DIVINE_TOUCH));
+		} else {
+			this.exp += exp;
+		}
 		float percent = exp/(float)maxExp();
 
 		EtherealChains.chainsRecharge chains = buff(EtherealChains.chainsRecharge.class);
@@ -1450,7 +1466,19 @@ public class Hero extends Char {
 			
 			if (sprite != null) {
 				GLog.newLine();
-				GLog.p( Messages.get(this, "new_level") );
+				if (hasTalent(Talent.STRONG_FAITH)){
+					switch (pointsInTalent(Talent.STRONG_FAITH)) {
+						case 1:
+							GLog.p( Messages.get(this, "new_level_sf1") );
+							break;
+						case 2:
+							GLog.p( Messages.get(this, "new_level_sf2") );
+							break;
+					}
+				} else {
+					GLog.p( Messages.get(this, "new_level") );
+				}
+
 				sprite.showStatus( CharSprite.POSITIVE, Messages.get(Hero.class, "level_up") );
 				Sample.INSTANCE.play( Assets.Sounds.LEVELUP );
 				if (lvl < Talent.tierLevelThresholds[Talent.MAX_TALENT_TIERS+1]){

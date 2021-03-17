@@ -21,7 +21,6 @@
 
 package com.seasluggames.serenitypixeldungeon.android.actors.buffs;
 
-import com.seasluggames.serenitypixeldungeon.android.actors.hero.Belongings;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero;
 import com.seasluggames.serenitypixeldungeon.android.items.artifacts.Artifact;
 import com.seasluggames.serenitypixeldungeon.android.items.artifacts.HornOfPlenty;
@@ -38,52 +37,49 @@ public class ArtifactRecharge extends Buff {
 		type = buffType.POSITIVE;
 	}
 
-	private int left;
+	private float left;
 	public boolean ignoreHornOfPlenty;
-	
+
 	@Override
 	public boolean act() {
-		
-		if (target instanceof Hero){
-			Belongings b = ((Hero) target).belongings;
-			
-			if (b.artifact instanceof Artifact){
-				if (!(b.artifact instanceof HornOfPlenty) || !ignoreHornOfPlenty) {
-					((Artifact) b.artifact).charge((Hero) target);
-				}
-			}
-			if (b.misc instanceof Artifact){
-				if (!(b.misc instanceof HornOfPlenty) || !ignoreHornOfPlenty) {
-					((Artifact) b.misc).charge((Hero) target);
+
+		if (target instanceof Hero) {
+			float chargeAmount = Math.min(1, left);
+			for (Buff b : target.buffs()) {
+				if (b instanceof Artifact.ArtifactBuff) {
+					if (b instanceof HornOfPlenty.hornRecharge && ignoreHornOfPlenty){
+						continue;
+					}
+					((Artifact.ArtifactBuff) b).charge((Hero) target, chargeAmount);
 				}
 			}
 		}
-		
+
 		left--;
 		if (left <= 0){
 			detach();
 		} else {
 			spend(TICK);
 		}
-		
+
 		return true;
 	}
-	
-	public ArtifactRecharge set( int amount ){
-		left = amount;
+
+	public ArtifactRecharge set( float amount ){
+		if (left < amount) left = amount;
 		return this;
 	}
-	
-	public ArtifactRecharge prolong( int amount ){
+
+	public ArtifactRecharge prolong( float amount ){
 		left += amount;
 		return this;
 	}
-	
+
 	@Override
 	public int icon() {
 		return BuffIndicator.RECHARGING;
 	}
-	
+
 	@Override
 	public void tintIcon(Image icon) {
 		icon.hardlight(0, 1f, 0);
@@ -98,26 +94,26 @@ public class ArtifactRecharge extends Buff {
 	public String toString() {
 		return Messages.get(this, "name");
 	}
-	
+
 	@Override
 	public String desc() {
 		return Messages.get(this, "desc", dispTurns(left+1));
 	}
-	
+
 	private static final String LEFT = "left";
 	private static final String IGNORE_HORN = "ignore_horn";
-	
+
 	@Override
 	public void storeInBundle(Bundle bundle) {
 		super.storeInBundle(bundle);
 		bundle.put( LEFT, left );
 		bundle.put( IGNORE_HORN, ignoreHornOfPlenty );
 	}
-	
+
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
-		left = bundle.getInt(LEFT);
+		left = bundle.getFloat(LEFT);
 		ignoreHornOfPlenty = bundle.getBoolean(IGNORE_HORN);
 	}
 }

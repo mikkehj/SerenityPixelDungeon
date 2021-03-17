@@ -58,10 +58,10 @@ public class LloydsBeacon extends Artifact {
 	public static final String AC_ZAP       = "ZAP";
 	public static final String AC_SET		= "SET";
 	public static final String AC_RETURN	= "RETURN";
-	
+
 	public int returnDepth	= -1;
 	public int returnPos;
-	
+
 	{
 		image = ItemSpriteSheet.ARTIFACT_BEACON;
 
@@ -73,10 +73,10 @@ public class LloydsBeacon extends Artifact {
 		defaultAction = AC_ZAP;
 		usesTargeting = true;
 	}
-	
+
 	private static final String DEPTH	= "depth";
 	private static final String POS		= "pos";
-	
+
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
@@ -85,14 +85,14 @@ public class LloydsBeacon extends Artifact {
 			bundle.put( POS, returnPos );
 		}
 	}
-	
+
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle(bundle);
 		returnDepth	= bundle.getInt( DEPTH );
 		returnPos	= bundle.getInt( POS );
 	}
-	
+
 	@Override
 	public ArrayList<String> actions( Hero hero ) {
 		ArrayList<String> actions = super.actions( hero );
@@ -103,20 +103,20 @@ public class LloydsBeacon extends Artifact {
 		}
 		return actions;
 	}
-	
+
 	@Override
 	public void execute( Hero hero, String action ) {
 
 		super.execute( hero, action );
 
 		if (action == AC_SET || action == AC_RETURN) {
-			
+
 			if (Dungeon.bossLevel()) {
 				hero.spend( LloydsBeacon.TIME_TO_USE );
 				GLog.w( Messages.get(this, "preventing") );
 				return;
 			}
-			
+
 			for (int i = 0; i < PathFinder.NEIGHBOURS8.length; i++) {
 				Char ch = Actor.findChar(hero.pos + PathFinder.NEIGHBOURS8[i]);
 				if (ch != null && ch.alignment == Char.Alignment.ENEMY) {
@@ -144,20 +144,20 @@ public class LloydsBeacon extends Artifact {
 			}
 
 		} else if (action == AC_SET) {
-			
+
 			returnDepth = Dungeon.depth;
 			returnPos = hero.pos;
-			
+
 			hero.spend( LloydsBeacon.TIME_TO_USE );
 			hero.busy();
-			
+
 			hero.sprite.operate( hero.pos );
 			Sample.INSTANCE.play( Assets.Sounds.BEACON );
-			
+
 			GLog.i( Messages.get(this, "return") );
-			
+
 		} else if (action == AC_RETURN) {
-			
+
 			if (returnDepth == Dungeon.depth) {
 				ScrollOfTeleportation.appear( hero, returnPos );
 				for(Mob m : Dungeon.level.mobs){
@@ -187,8 +187,8 @@ public class LloydsBeacon extends Artifact {
 				InterlevelScene.returnPos = returnPos;
 				Game.switchScene( InterlevelScene.class );
 			}
-			
-			
+
+
 		}
 	}
 
@@ -276,11 +276,11 @@ public class LloydsBeacon extends Artifact {
 	protected ArtifactBuff passiveBuff() {
 		return new beaconRecharge();
 	}
-	
+
 	@Override
-	public void charge(Hero target) {
+	public void charge(Hero target, float amount) {
 		if (charge < chargeCap){
-			partialCharge += 0.25f;
+			partialCharge += 0.25f*amount;
 			if (partialCharge >= 1){
 				partialCharge--;
 				charge++;
@@ -305,9 +305,9 @@ public class LloydsBeacon extends Artifact {
 		}
 		return desc;
 	}
-	
+
 	private static final Glowing WHITE = new Glowing( 0xFFFFFF );
-	
+
 	@Override
 	public Glowing glowing() {
 		return returnDepth != -1 ? WHITE : null;

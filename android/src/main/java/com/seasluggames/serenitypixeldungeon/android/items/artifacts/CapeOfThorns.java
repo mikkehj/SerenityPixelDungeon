@@ -48,18 +48,18 @@ public class CapeOfThorns extends Artifact {
 	protected ArtifactBuff passiveBuff() {
 		return new Thorns();
 	}
-	
+
 	@Override
-	public void charge(Hero target) {
+	public void charge(Hero target, float amount) {
 		if (cooldown == 0) {
-			charge += 4;
+			charge += Math.round(4*amount);
 			updateQuickslot();
 		}
 		if (charge >= chargeCap){
 			target.buff(Thorns.class).proc(0, null, null);
 		}
 	}
-	
+
 	@Override
 	public String desc() {
 		String desc = Messages.get(this, "desc");
@@ -122,7 +122,7 @@ public class CapeOfThorns extends Artifact {
 
 		@Override
 		public String toString() {
-				return Messages.get(this, "name");
+			return Messages.get(this, "name");
 		}
 
 		@Override

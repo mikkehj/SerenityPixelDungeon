@@ -67,16 +67,16 @@ public class ChaliceOfBlood extends Artifact {
 			if (damage > hero.HP*0.75) {
 
 				GameScene.show(
-					new WndOptions(Messages.titleCase(Messages.get(this, "name")),
-							Messages.get(this, "prick_warn"),
-							Messages.get(this, "yes"),
-							Messages.get(this, "no")) {
-						@Override
-						protected void onSelect(int index) {
-							if (index == 0)
-								prick(Dungeon.hero);
+						new WndOptions(Messages.titleCase(Messages.get(this, "name")),
+								Messages.get(this, "prick_warn"),
+								Messages.get(this, "yes"),
+								Messages.get(this, "no")) {
+							@Override
+							protected void onSelect(int index) {
+								if (index == 0)
+									prick(Dungeon.hero);
+							}
 						}
-					}
 				);
 
 			} else {
@@ -141,12 +141,16 @@ public class ChaliceOfBlood extends Artifact {
 	protected ArtifactBuff passiveBuff() {
 		return new chaliceRegen();
 	}
-	
+
 	@Override
-	public void charge(Hero target) {
-		target.HP = Math.min( target.HT, target.HP + 1 + Dungeon.depth/5);
+	public void charge(Hero target, float amount) {
+		//grants 5 turns of healing up-front
+		float healDelay = 10f - level()*0.9f;
+		healDelay /= amount;
+		//effectively 1HP at lvl 0-5, 2HP lvl 6-8, 3HP lvl 9, and 5HP lvl 10.
+		target.HP = Math.min( target.HT, target.HP + (int)Math.ceil(5/healDelay));
 	}
-	
+
 	@Override
 	public String desc() {
 		String desc = super.desc();

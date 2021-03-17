@@ -24,12 +24,12 @@
         "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\debug\\res\\mipmap-hdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher1.png.flat",
-        "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\debug\\res\\mipmap-xhdpi\\ic_launcher1.png"
-    },
-    {
         "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\debug\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher1.png.flat",
+        "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\debug\\res\\mipmap-xhdpi\\ic_launcher1.png"
     },
     {
         "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
@@ -56,6 +56,10 @@
         "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\debug\\res\\mipmap-xxhdpi\\ic_launcher1.png"
     },
     {
+        "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_foreground1.png.flat",
+        "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground1.png"
+    },
+    {
         "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
         "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\debug\\res\\mipmap-xhdpi\\ic_launcher_foreground.png"
     },
@@ -66,6 +70,10 @@
     {
         "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-ldpi_ic_launcher.png.flat",
         "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\debug\\res\\mipmap-ldpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-ldpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\main\\res\\mipmap-ldpi\\ic_launcher_foreground.png"
     },
     {
         "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_background.png.flat",
@@ -90,5 +98,9 @@
     {
         "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\debug\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_foreground1.png.flat",
+        "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground1.png"
     }
 ]

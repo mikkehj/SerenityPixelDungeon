@@ -63,7 +63,7 @@ public class AboutScene extends PixelScene {
 		SSGBlock ssg = new SSGBlock(true, Window.SSG_COLOR,
 				"Serenity Pixel Dungeon",
 				Icons.SSG.get(),
-				"Developed by: _Sea Slug Games_\nBased on Shattered Pixel Dungeon's open source",
+				"Developed by: _Mikael Hjønnevåg_\nBased on Shattered Pixel Dungeon's open source",
 				"SeaSlugGames.com",
 				ssgLink);
 		ssg.setRect((w - fullWidth)/2f, 6, 120, 0);
@@ -184,7 +184,7 @@ public class AboutScene extends PixelScene {
 		content.add(arcnor);
 
 		CreditsBlock purigro = new CreditsBlock(false, GDX_COLOR,
-				"Serenity GDX Help:",
+				"Shaattered GDX Help:",
 				Icons.PURIGRO.get(),
 				"Kevin MacMartin",
 				"github.com/prurigro",
@@ -192,22 +192,8 @@ public class AboutScene extends PixelScene {
 		purigro.setRect(arcnor.right()+2, arcnor.top(), colWidth/2f, 0);
 		content.add(purigro);
 
-		//*** Transifex Credits ***
 
-		CreditsBlock transifex = new CreditsBlock(true,
-				Window.TITLE_COLOR,
-				null,
-				null,
-				"SerenityPD is community-translated via _Transifex_! Thank you so much to all of Serenity's volunteer translators!",
-				"www.transifex.com/shattered-pixel/",
-				"https://www.transifex.com/shattered-pixel/shattered-pixel-dungeon/");
-		transifex.setRect((Camera.main.width - colWidth)/2f, purigro.bottom() + 8, colWidth, 0);
-		content.add(transifex);
-
-		addLine(transifex.top() - 4, content);
-
-		addLine(transifex.bottom() + 4, content);
-
+		addLine(purigro.bottom() + 4, content);
 		//*** Freesound Credits ***
 
 		CreditsBlock freesound = new CreditsBlock(true,
@@ -238,7 +224,7 @@ public class AboutScene extends PixelScene {
 				"_Lemon,Squeeze,Squishy,Fruit.wav_ by _Filipe Chagas_",
 				"www.freesound.org",
 				"https://www.freesound.org");
-		freesound.setRect(transifex.left()-10, transifex.bottom() + 8, colWidth+20, 0);
+		freesound.setRect(arcnor.left()-10, arcnor.bottom() + 8, colWidth+20, 0);
 		content.add(freesound);
 
 		content.setSize( fullWidth, freesound.bottom()+10 );

@@ -90,8 +90,10 @@ public class Artifact extends KindofMisc {
 	public boolean doUnequip( Hero hero, boolean collect, boolean single ) {
 		if (super.doUnequip( hero, collect, single )) {
 
-			passiveBuff.detach();
-			passiveBuff = null;
+			if (passiveBuff != null) {
+				passiveBuff.detach();
+				passiveBuff = null;
+			}
 
 			if (activeBuff != null){
 				activeBuff.detach();
@@ -137,19 +139,19 @@ public class Artifact extends KindofMisc {
 	public String info() {
 		if (cursed && cursedKnown && !isEquipped( Dungeon.hero )) {
 			return desc() + "\n\n" + Messages.get(Artifact.class, "curse_known");
-			
+
 		} else if (!isIdentified() && cursedKnown && !isEquipped( Dungeon.hero)) {
 			return desc()+ "\n\n" + Messages.get(Artifact.class, "not_cursed");
-			
+
 		} else {
 			return desc();
-			
+
 		}
 	}
 
 	@Override
 	public String status() {
-		
+
 		//if the artifact isn't IDed, or is cursed, don't display anything
 		if (!isIdentified() || cursed){
 			return null;
@@ -179,7 +181,7 @@ public class Artifact extends KindofMisc {
 	@Override
 	public Item random() {
 		//always +0
-		
+
 		//30% chance to be cursed
 		if (Random.Float() < 0.3f) {
 			cursed = true;
@@ -207,8 +209,8 @@ public class Artifact extends KindofMisc {
 	}
 
 	protected ArtifactBuff activeBuff() {return null; }
-	
-	public void charge(Hero target){
+
+	public void charge(Hero target, float amount){
 		//do nothing by default;
 	}
 
@@ -222,8 +224,12 @@ public class Artifact extends KindofMisc {
 			return cursed;
 		}
 
+		public void charge(Hero target, float amount){
+			Artifact.this.charge(target, amount);
+		}
+
 	}
-	
+
 	private static final String EXP = "exp";
 	private static final String CHARGE = "charge";
 	private static final String PARTIALCHARGE = "partialcharge";

@@ -21,20 +21,16 @@
 
 package com.seasluggames.serenitypixeldungeon.android.scenes;
 
-import com.seasluggames.serenitypixeldungeon.android.actors.hero.HeroClass;
-import com.seasluggames.serenitypixeldungeon.android.actors.hero.HeroSubClass;
-import com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent;
 import com.seasluggames.serenitypixeldungeon.android.Badges;
 import com.seasluggames.serenitypixeldungeon.android.Chrome;
 import com.seasluggames.serenitypixeldungeon.android.Dungeon;
 import com.seasluggames.serenitypixeldungeon.android.GamesInProgress;
 import com.seasluggames.serenitypixeldungeon.android.Rankings;
-import com.seasluggames.serenitypixeldungeon.android.SPDSettings;
 import com.seasluggames.serenitypixeldungeon.android.SPDMain;
-import com.seasluggames.serenitypixeldungeon.android.scenes.InterlevelScene;
-import com.seasluggames.serenitypixeldungeon.android.scenes.IntroScene;
-import com.seasluggames.serenitypixeldungeon.android.scenes.PixelScene;
-import com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene;
+import com.seasluggames.serenitypixeldungeon.android.SPDSettings;
+import com.seasluggames.serenitypixeldungeon.android.actors.hero.HeroClass;
+import com.seasluggames.serenitypixeldungeon.android.actors.hero.HeroSubClass;
+import com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent;
 import com.seasluggames.serenitypixeldungeon.android.journal.Journal;
 import com.seasluggames.serenitypixeldungeon.android.messages.Messages;
 import com.seasluggames.serenitypixeldungeon.android.sprites.ItemSprite;
@@ -43,6 +39,7 @@ import com.seasluggames.serenitypixeldungeon.android.ui.ActionIndicator;
 import com.seasluggames.serenitypixeldungeon.android.ui.ExitButton;
 import com.seasluggames.serenitypixeldungeon.android.ui.IconButton;
 import com.seasluggames.serenitypixeldungeon.android.ui.Icons;
+import com.seasluggames.serenitypixeldungeon.android.ui.PurpleButton;
 import com.seasluggames.serenitypixeldungeon.android.ui.RenderedTextBlock;
 import com.seasluggames.serenitypixeldungeon.android.ui.StyledButton;
 import com.seasluggames.serenitypixeldungeon.android.ui.TalentsPane;
@@ -337,11 +334,15 @@ public class HeroSelectScene extends PixelScene {
 		private RenderedTextBlock info;
 
 		private TalentsPane talents;
+		private PurpleButton firstSub;
+		private PurpleButton secondSub;
 
 		private int WIDTH = 120;
 		private int HEIGHT = 120;
 		private int MARGIN = 2;
 		private int INFO_WIDTH = WIDTH - MARGIN*2;
+
+		private static boolean secondSubclass = false;
 
 		public WndHeroInfo( HeroClass cl ){
 
@@ -354,8 +355,45 @@ public class HeroSelectScene extends PixelScene {
 
 			ArrayList<LinkedHashMap<Talent, Integer>> talentList = new ArrayList<>();
 			Talent.initClassTalents(cl, talentList);
+			Talent.initSubclassTalents(cl.subClasses()[secondSubclass ? 1 : 0], talentList);
 			talents = new TalentsPane(false, talentList);
 			add(talents);
+
+			firstSub = new PurpleButton(Messages.titleCase(cl.subClasses()[0].title()), 7){
+				@Override
+				protected void onClick() {
+					super.onClick();
+					if (secondSubclass){
+						secondSubclass = false;
+						hide();
+						WndHeroInfo newWindow = new WndHeroInfo(cl);
+						newWindow.talents.scrollTo(0, talents.content().camera.scroll.y);
+						newWindow.select(2);
+						SPDMain.scene().addToFront(newWindow);
+					}
+				}
+			};
+			if (!secondSubclass) firstSub.textColor(Window.TITLE_COLOR);
+			firstSub.setSize(40, firstSub.reqHeight()+2);
+			add(firstSub);
+
+			secondSub = new PurpleButton(Messages.titleCase(cl.subClasses()[1].title()), 7){
+				@Override
+				protected void onClick() {
+					super.onClick();
+					if (!secondSubclass){
+						secondSubclass = true;
+						hide();
+						WndHeroInfo newWindow = new WndHeroInfo(cl);
+						newWindow.talents.scrollTo(0, talents.content().camera.scroll.y);
+						newWindow.select(2);
+						SPDMain.scene().addToFront(newWindow);
+					}
+				}
+			};
+			if (secondSubclass) secondSub.textColor(Window.TITLE_COLOR);
+			secondSub.setSize(40, secondSub.reqHeight()+2);
+			add(secondSub);
 
 			Tab tab;
 			Image[] tabIcons;
@@ -419,6 +457,8 @@ public class HeroSelectScene extends PixelScene {
 						info.text(Messages.get(WndHeroInfo.class, "talents_desc"), INFO_WIDTH);
 					}
 					talents.visible = talents.active = value;
+					firstSub.visible = firstSub.active = value;
+					secondSub.visible = secondSub.active = value;
 				}
 			};
 			add(tab);
@@ -439,6 +479,7 @@ public class HeroSelectScene extends PixelScene {
 			};
 			add(tab);
 
+			resize(WIDTH, HEIGHT);
 			select(0);
 
 		}
@@ -449,14 +490,13 @@ public class HeroSelectScene extends PixelScene {
 
 			title.setPos((WIDTH-title.width())/2, MARGIN);
 			info.setPos(MARGIN, title.bottom()+2*MARGIN);
-			talents.setRect(0, info.bottom()+2*MARGIN, WIDTH, 100);
 
-			if (talents.visible) {
-				resize(WIDTH, (int) talents.bottom());
-				talents.setRect(0, info.bottom()+2*MARGIN, WIDTH, 100);
-			} else {
-				resize(WIDTH, (int) info.bottom() + 2*MARGIN);
-			}
+			firstSub.setPos((title.left() - firstSub.width())/2, 0);
+			secondSub.setPos(title.right() + (WIDTH - title.right() - secondSub.width())/2, 0);
+
+			talents.setRect(0, info.bottom()+MARGIN, WIDTH, HEIGHT - (info.bottom()+MARGIN));
+
+			resize(WIDTH, Math.max(HEIGHT, (int)info.bottom()));
 
 			layoutTabs();
 

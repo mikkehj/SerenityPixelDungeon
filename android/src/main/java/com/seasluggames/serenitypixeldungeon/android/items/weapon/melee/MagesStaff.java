@@ -25,12 +25,14 @@ import com.seasluggames.serenitypixeldungeon.android.Assets;
 import com.seasluggames.serenitypixeldungeon.android.Badges;
 import com.seasluggames.serenitypixeldungeon.android.Dungeon;
 import com.seasluggames.serenitypixeldungeon.android.actors.Char;
+import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Barrier;
 import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Buff;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.HeroSubClass;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent;
 import com.seasluggames.serenitypixeldungeon.android.effects.particles.ElmoParticle;
 import com.seasluggames.serenitypixeldungeon.android.items.Item;
+import com.seasluggames.serenitypixeldungeon.android.items.artifacts.Artifact;
 import com.seasluggames.serenitypixeldungeon.android.items.bags.Bag;
 import com.seasluggames.serenitypixeldungeon.android.items.scrolls.ScrollOfRecharging;
 import com.seasluggames.serenitypixeldungeon.android.items.wands.Wand;
@@ -146,6 +148,22 @@ public class MagesStaff extends MeleeWeapon {
 
 	@Override
 	public int proc(Char attacker, Char defender, int damage) {
+		if (attacker.buff(Talent.EmpoweredStrikeTracker.class) != null){
+			attacker.buff(Talent.EmpoweredStrikeTracker.class).detach();
+			damage = Math.round( damage * (1f + Dungeon.hero.pointsInTalent(Talent.EMPOWERED_STRIKE)/5f));
+		}
+
+		if (wand.curCharges >= wand.maxCharges && attacker instanceof Hero && Random.Int(5) < ((Hero) attacker).pointsInTalent(Talent.EXCESS_CHARGE)){
+			Buff.affect(attacker, Barrier.class).setShield(buffedLvl()*2);
+		}
+
+		if (attacker instanceof Hero && ((Hero) attacker).hasTalent(Talent.MYSTICAL_CHARGE)){
+			Hero hero = (Hero) attacker;
+			for (Buff b : hero.buffs()){
+				if (b instanceof Artifact.ArtifactBuff) ((Artifact.ArtifactBuff) b).charge(hero, hero.pointsInTalent(Talent.MYSTICAL_CHARGE)/2f);
+			}
+		}
+
 		if (wand != null &&
 				attacker instanceof Hero && ((Hero)attacker).subClass == HeroSubClass.BATTLEMAGE) {
 			if (wand.curCharges < wand.maxCharges) wand.partialCharge += 0.5f;
@@ -209,7 +227,7 @@ public class MagesStaff extends MeleeWeapon {
 
 		//if the staff's level is being overridden by the wand, preserve 1 upgrade
 		if (wand.level() >= this.level() && this.level() > (curseInfusionBonus ? 1 : 0)) targetLevel++;
-		
+
 		level(targetLevel);
 		this.wand = wand;
 		updateWand(false);
@@ -225,7 +243,7 @@ public class MagesStaff extends MeleeWeapon {
 			Dungeon.quickslot.setSlot( slot, this );
 			updateQuickslot();
 		}
-		
+
 		Badges.validateItemLevelAquired(this);
 
 		return this;
@@ -262,7 +280,7 @@ public class MagesStaff extends MeleeWeapon {
 
 		return this;
 	}
-	
+
 	public void updateWand(boolean levelled){
 		if (wand != null) {
 			int curCharges = wand.curCharges;
@@ -295,7 +313,13 @@ public class MagesStaff extends MeleeWeapon {
 		String info = super.info();
 
 		if (wand != null){
-			info += "\n\n" + Messages.get(this, "has_wand", Messages.get(wand, "name")) + " " + wand.statsDesc();
+			info += "\n\n" + Messages.get(this, "has_wand", Messages.get(wand, "name"));
+			if (!cursed || !cursedKnown)    info += " " + wand.statsDesc();
+			else                            info += " " + Messages.get(this, "cursed_wand");
+
+			if (Dungeon.hero.subClass == HeroSubClass.BATTLEMAGE){
+				info += "\n\n" + Messages.get(wand, "bmage_desc");
+			}
 		}
 
 		return info;
@@ -332,7 +356,7 @@ public class MagesStaff extends MeleeWeapon {
 	public int value() {
 		return 0;
 	}
-	
+
 	@Override
 	public Weapon enchant(Enchantment ench) {
 		if (curseInfusionBonus && (ench == null || !ench.curse())){
@@ -341,7 +365,7 @@ public class MagesStaff extends MeleeWeapon {
 		}
 		return super.enchant(ench);
 	}
-	
+
 	private final WndBag.Listener itemSelector = new WndBag.Listener() {
 		@Override
 		public void onSelect( final Item item ) {
@@ -358,15 +382,29 @@ public class MagesStaff extends MeleeWeapon {
 				if (wand == null){
 					applyWand((Wand)item);
 				} else {
-					final int newLevel =
-							item.level() >= level() ?
-									level() > 0 ?
-										item.level() + 1
-										: item.level()
-									: level();
+					int newLevel;
+					if (item.level() >= level()){
+						if (level() > 0)    newLevel = item.level() + 1;
+						else                newLevel = item.level();
+					} else {
+						newLevel = level();
+					}
+
+					String bodyText = Messages.get(MagesStaff.class, "imbue_desc", newLevel);
+					int preservesLeft = Dungeon.hero.hasTalent(Talent.WAND_PRESERVATION) ? 3 : 0;
+					if (Dungeon.hero.buff(Talent.WandPreservationCounter.class) != null){
+						preservesLeft -= Dungeon.hero.buff(Talent.WandPreservationCounter.class).count();
+					}
+					if (preservesLeft > 0){
+						int preserveChance = Dungeon.hero.pointsInTalent(Talent.WAND_PRESERVATION) == 1 ? 67 : 100;
+						bodyText += "\n\n" + Messages.get(MagesStaff.class, "imbue_talent", preserveChance, preservesLeft);
+					} else {
+						bodyText += "\n\n" + Messages.get(MagesStaff.class, "imbue_lost");
+					}
+
 					GameScene.show(
 							new WndOptions("",
-									Messages.get(MagesStaff.class, "warning", newLevel),
+									bodyText,
 									Messages.get(MagesStaff.class, "yes"),
 									Messages.get(MagesStaff.class, "no")) {
 								@Override

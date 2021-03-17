@@ -37,17 +37,17 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
 
 public class WildEnergy extends TargetedSpell {
-	
+
 	{
 		image = ItemSpriteSheet.WILD_ENERGY;
 	}
-	
+
 	//we rely on cursedWand to do fx instead
 	@Override
 	protected void fx(Ballistica bolt, Callback callback) {
 		affectTarget(bolt, curUser);
 	}
-	
+
 	@Override
 	protected void affectTarget(Ballistica bolt, final Hero hero) {
 		CursedWand.cursedZap(this, hero, bolt, new Callback() {
@@ -58,38 +58,37 @@ public class WildEnergy extends TargetedSpell {
 				ScrollOfRecharging.charge(hero);
 
 				hero.belongings.charge(1f);
-				for (int i = 0; i < 4; i++){
-					if (hero.belongings.artifact instanceof Artifact)   ((Artifact) hero.belongings.artifact).charge(hero);
-					if (hero.belongings.misc instanceof Artifact)       ((Artifact) hero.belongings.misc).charge(hero);
+				for (Buff b : hero.buffs()){
+					if (b instanceof Artifact.ArtifactBuff) ((Artifact.ArtifactBuff) b).charge(hero, 4);
 				}
 
 				Buff.affect(hero, Recharging.class, 8f);
 				Buff.affect(hero, ArtifactRecharge.class).prolong( 8 ).ignoreHornOfPlenty = false;
-				
+
 				detach( curUser.belongings.backpack );
 				updateQuickslot();
 				curUser.spendAndNext( 1f );
 			}
 		});
 	}
-	
+
 	@Override
 	public int value() {
 		//prices of ingredients, divided by output quantity
 		return Math.round(quantity * ((50 + 100) / 5f));
 	}
-	
+
 	public static class Recipe extends com.seasluggames.serenitypixeldungeon.android.items.Recipe.SimpleRecipe {
-		
+
 		{
 			inputs =  new Class[]{ScrollOfMysticalEnergy.class, MetalShard.class};
 			inQuantity = new int[]{1, 1};
-			
+
 			cost = 8;
-			
+
 			output = WildEnergy.class;
 			outQuantity = 5;
 		}
-		
+
 	}
 }

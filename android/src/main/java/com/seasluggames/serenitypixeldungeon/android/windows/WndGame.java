@@ -21,6 +21,7 @@
 
 package com.seasluggames.serenitypixeldungeon.android.windows;
 
+import com.seasluggames.serenitypixeldungeon.android.AndroidLauncher;
 import com.seasluggames.serenitypixeldungeon.android.Dungeon;
 import com.seasluggames.serenitypixeldungeon.android.GamesInProgress;
 import com.seasluggames.serenitypixeldungeon.android.SPDMain;
@@ -77,6 +78,8 @@ public class WndGame extends Window {
 			addButton( curBtn = new PurpleButton( Messages.get(this, "start") ) {
 				@Override
 				protected void onClick() {
+					AndroidLauncher.runOnUI(() -> AndroidLauncher.showInterstitialAd());
+
 					InterlevelScene.noStory = true;
 					GamesInProgress.selectedClass = Dungeon.hero.heroClass;
 					GamesInProgress.curSlot = GamesInProgress.firstEmpty();

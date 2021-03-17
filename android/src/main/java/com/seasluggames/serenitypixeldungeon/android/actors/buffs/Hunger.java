@@ -24,6 +24,7 @@ package com.seasluggames.serenitypixeldungeon.android.actors.buffs;
 import com.seasluggames.serenitypixeldungeon.android.Badges;
 import com.seasluggames.serenitypixeldungeon.android.Dungeon;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero;
+import com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent;
 import com.seasluggames.serenitypixeldungeon.android.items.artifacts.Artifact;
 import com.seasluggames.serenitypixeldungeon.android.items.artifacts.HornOfPlenty;
 import com.seasluggames.serenitypixeldungeon.android.messages.Messages;
@@ -33,166 +34,177 @@ import com.watabou.utils.Bundle;
 
 public class Hunger extends Buff implements Hero.Doom {
 
-	private static final float STEP	= 10f;
+    private static final float STEP = 10f;
 
-	public static final float HUNGRY	= 300f;
-	public static final float STARVING	= 450f;
+    public static float HUNGRY = 40f; //300 Shattered 450 Serenity
+    public static float STARVING = 60f; //450 Shattered 600 Serenity
 
-	private float level;
-	private float partialDamage;
+    private float level;
+    private float partialDamage;
 
-	private static final String LEVEL			= "level";
-	private static final String PARTIALDAMAGE 	= "partialDamage";
+    private static final String LEVEL = "level";
+    private static final String PARTIALDAMAGE = "partialDamage";
 
-	@Override
-	public void storeInBundle( Bundle bundle ) {
-		super.storeInBundle(bundle);
-		bundle.put( LEVEL, level );
-		bundle.put( PARTIALDAMAGE, partialDamage );
-	}
+    @Override
+    public void storeInBundle(Bundle bundle) {
+        super.storeInBundle(bundle);
+        bundle.put(LEVEL, level);
+        bundle.put(PARTIALDAMAGE, partialDamage);
+    }
 
-	@Override
-	public void restoreFromBundle( Bundle bundle ) {
-		super.restoreFromBundle( bundle );
-		level = bundle.getFloat( LEVEL );
-		partialDamage = bundle.getFloat(PARTIALDAMAGE);
-	}
+    @Override
+    public void restoreFromBundle(Bundle bundle) {
+        super.restoreFromBundle(bundle);
+        level = bundle.getFloat(LEVEL);
+        partialDamage = bundle.getFloat(PARTIALDAMAGE);
+    }
 
-	@Override
-	public boolean act() {
+    @Override
+    public boolean act() {
 
-		if (Dungeon.level.locked || target.buff(WellFed.class) != null){
-			spend(STEP);
-			return true;
-		}
+        if (Dungeon.level.locked || target.buff(WellFed.class) != null) {
+            spend(STEP);
 
-		if (target.isAlive() && target instanceof Hero) {
+            return true;
+        }
 
-			Hero hero = (Hero)target;
+        if (target.isAlive() && target instanceof Hero) {
 
-			if (isStarving()) {
+            Hero hero = (Hero) target;
 
-				partialDamage += STEP * target.HT/1000f;
+            if (isStarving()) {
 
-				if (partialDamage > 1){
-					target.damage( (int)partialDamage, this);
-					partialDamage -= (int)partialDamage;
-				}
-				
-			} else {
+                partialDamage += STEP * target.HT / 1000f;
 
-				float newLevel = level + STEP;
-				if (newLevel >= STARVING) {
+                if (partialDamage > 1) {
+                    target.damage((int) partialDamage, this);
+                    partialDamage -= (int) partialDamage;
+                }
 
-					GLog.n( Messages.get(this, "onstarving") );
-					hero.resting = false;
-					hero.damage( 1, this );
+            } else {
 
-					hero.interrupt();
+                float newLevel = level + STEP;
+                if (Dungeon.hero.hasTalent(Talent.MANTRA)) {
+                    switch (Dungeon.hero.pointsInTalent(Talent.MANTRA)) {
+                        case 1:
+                            newLevel = level + (STEP - 1f);
+                            break;
+                        case 2:
+                            newLevel = level + (STEP - 3f);
+                            break;
+                    }
+                } else {
+                    newLevel = level + STEP;
+                }
+                if (newLevel >= STARVING) {
 
-				} else if (newLevel >= HUNGRY && level < HUNGRY) {
+                    GLog.n(Messages.get(this, "onstarving"));
+                    hero.resting = false;
+                    hero.damage(1, this);
 
-					GLog.w( Messages.get(this, "onhungry") );
+                    hero.interrupt();
 
-				}
-				level = newLevel;
+                } else if (newLevel >= HUNGRY && level < HUNGRY) {
 
-			}
-			
-			spend( target.buff( Shadows.class ) == null ? STEP : STEP * 1.5f );
+                    GLog.w(Messages.get(this, "onhungry"));
 
-		} else {
+                }
+                level = newLevel;
 
-			diactivate();
+            }
 
-		}
+            spend(target.buff(Shadows.class) == null ? STEP : STEP * 1.5f);
 
-		return true;
-	}
+        } else {
 
-	public void satisfy( float energy ) {
+            deactivate();
 
-		Artifact.ArtifactBuff buff = target.buff( HornOfPlenty.hornRecharge.class );
-		if (buff != null && buff.isCursed()){
-			energy *= 0.67f;
-			GLog.n( Messages.get(this, "cursedhorn") );
-		}
+        }
 
-		affectHunger( energy, false );
-	}
+        return true;
+    }
 
-	public void affectHunger(float energy ){
-		affectHunger( energy, false );
-	}
+    public void satisfy(float energy) {
 
-	public void affectHunger(float energy, boolean overrideLimits ) {
+        Artifact.ArtifactBuff buff = target.buff(HornOfPlenty.hornRecharge.class);
+        if (buff != null && buff.isCursed()) {
+            energy *= 0.67f;
+            GLog.n(Messages.get(this, "cursedhorn"));
+        }
 
-		if (energy < 0 && target.buff(WellFed.class) != null){
-			target.buff(WellFed.class).left += energy;
-			BuffIndicator.refreshHero();
-			return;
-		}
+        affectHunger(energy, false);
+    }
 
-		level -= energy;
-		if (level < 0 && !overrideLimits) {
-			level = 0;
-		} else if (level > STARVING) {
-			float excess = level - STARVING;
-			level = STARVING;
-			partialDamage += excess * (target.HT/1000f);
-		}
+    public void affectHunger(float energy) {
+        affectHunger(energy, false);
+    }
 
-		BuffIndicator.refreshHero();
-	}
+    public void affectHunger(float energy, boolean overrideLimits) {
+        if (energy < 0 && target.buff(WellFed.class) != null) {
+            target.buff(WellFed.class).left += energy;
+            BuffIndicator.refreshHero();
+            return;
+        }
 
-	public boolean isStarving() {
-		return level >= STARVING;
-	}
+        level -= energy;
+        if (level < 0 && !overrideLimits) {
+            level = 0;
+        } else if (level > STARVING) {
+            float excess = level - STARVING;
+            level = STARVING;
+            partialDamage += excess * (target.HT / 1000f);
+        }
 
-	public int hunger() {
-		return (int)Math.ceil(level);
-	}
+        BuffIndicator.refreshHero();
+    }
 
-	@Override
-	public int icon() {
-		if (level < HUNGRY) {
-			return BuffIndicator.NONE;
-		} else if (level < STARVING) {
-			return BuffIndicator.HUNGER;
-		} else {
-			return BuffIndicator.STARVATION;
-		}
-	}
+    public boolean isStarving() {
+        return level >= STARVING;
+    }
 
-	@Override
-	public String toString() {
-		if (level < STARVING) {
-			return Messages.get(this, "hungry");
-		} else {
-			return Messages.get(this, "starving");
-		}
-	}
+    public int hunger() {
+        return (int) Math.ceil(level);
+    }
 
-	@Override
-	public String desc() {
-		String result;
-		if (level < STARVING) {
-			result = Messages.get(this, "desc_intro_hungry");
-		} else {
-			result = Messages.get(this, "desc_intro_starving");
-		}
+    @Override
+    public int icon() {
+        if (level < HUNGRY) {
+            return BuffIndicator.NONE;
+        } else if (level < STARVING) {
+            return BuffIndicator.HUNGER;
+        } else {
+            return BuffIndicator.STARVATION;
+        }
+    }
 
-		result += Messages.get(this, "desc");
+    @Override
+    public String toString() {
+        if (level < STARVING) {
+            return Messages.get(this, "hungry");
+        } else {
+            return Messages.get(this, "starving");
+        }
+    }
 
-		return result;
-	}
+    @Override
+    public String desc() {
+        String result;
+        if (level < STARVING) {
+            result = Messages.get(this, "desc_intro_hungry");
+        } else {
+            result = Messages.get(this, "desc_intro_starving");
+        }
 
-	@Override
-	public void onDeath() {
+        result += Messages.get(this, "desc");
 
-		Badges.validateDeathFromHunger();
+        return result;
+    }
 
-		Dungeon.fail( getClass() );
-		GLog.n( Messages.get(this, "ondeath") );
-	}
+    @Override
+    public void onDeath() {
+        Badges.validateDeathFromHunger();
+
+        Dungeon.fail(getClass());
+        GLog.n(Messages.get(this, "ondeath"));
+    }
 }

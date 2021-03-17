@@ -122,9 +122,6 @@ public class WndGameInProgress extends Window {
 			@Override
 			protected void onClick() {
 				super.onClick();
-
-				//ADD INTERSTITIAL AD HERE
-				//ONCE AD CLOSED, RUN REST OF THE CODE
 				
 				GamesInProgress.curSlot = slot;
 				

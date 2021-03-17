@@ -16,12 +16,16 @@
         "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\release\\mipmap-ldpi_ic_launcher1.png.flat",
-        "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\main\\res\\mipmap-ldpi\\ic_launcher1.png"
+        "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\release\\mipmap-hdpi_ic_launcher_foreground1.png.flat",
+        "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground1.png"
     },
     {
         "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
         "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\release\\mipmap-ldpi_ic_launcher1.png.flat",
+        "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\main\\res\\mipmap-ldpi\\ic_launcher1.png"
     },
     {
         "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\release\\mipmap-hdpi_ic_launcher_background.png.flat",
@@ -128,6 +132,10 @@
         "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\layout-v16\\notification_template_custom_big.xml"
     },
     {
+        "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\release\\mipmap-ldpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\main\\res\\mipmap-ldpi\\ic_launcher_foreground.png"
+    },
+    {
         "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
         "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
     },
@@ -214,6 +222,10 @@
     {
         "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
         "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\release\\mipmap-xxxhdpi_ic_launcher_foreground1.png.flat",
+        "source": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground1.png"
     },
     {
         "merged": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\res\\merged\\release\\drawable-v21_notification_action_background.xml.flat",

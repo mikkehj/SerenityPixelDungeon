@@ -4,23 +4,6 @@
             "outputFile": "C:\\Users\\Mikael\\Documents\\.Android Studio Projects\\SerenityPixelDungeon\\android\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-zh-rTW\\values-zh-rTW.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\9d7f35f575b66dbb848faad97184bf40\\play-services-basement-17.3.0\\res\\values-zh-rTW\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "161",
-                        "endOffsets": "412"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "105",
-                        "endColumns": "161",
-                        "endOffsets": "262"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\1bd4050be8a6335c8c85c753e5fd1cc5\\core-1.2.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "from": {
                         "startLines": "2",
@@ -52,6 +35,23 @@
                         "startOffsets": "267,360,458,542,650,738,841,937,1002,1081,1145,1209,1277,1352",
                         "endColumns": "92,97,83,107,87,102,95,64,78,63,63,67,74,65",
                         "endOffsets": "355,453,537,645,733,836,932,997,1076,1140,1204,1272,1347,1413"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Mikael\\.gradle\\caches\\transforms-2\\files-2.1\\4ae52a6212b3162107988a5774a7c23c\\play-services-basement-17.6.0\\res\\values-zh-rTW\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "161",
+                        "endOffsets": "412"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "161",
+                        "endOffsets": "262"
                     }
                 }
             ]

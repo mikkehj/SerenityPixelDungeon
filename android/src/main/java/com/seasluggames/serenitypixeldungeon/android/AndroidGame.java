@@ -38,7 +38,10 @@ import com.watabou.utils.FileUtils;
 public class AndroidGame extends AndroidApplication {
 	
 	public static AndroidApplication instance;
+	
 	private static AndroidPlatformSupport support;
+
+
 	
 	@Override
 	protected void onCreate (Bundle savedInstanceState) {
@@ -129,6 +132,4 @@ public class AndroidGame extends AndroidApplication {
 		super.onMultiWindowModeChanged(isInMultiWindowMode);
 		support.updateSystemUI();
 	}
-
-
 }

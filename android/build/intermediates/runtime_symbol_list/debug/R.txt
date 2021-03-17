@@ -172,6 +172,7 @@ int mipmap ic_launcher 0x7f090000
 int mipmap ic_launcher1 0x7f090001
 int mipmap ic_launcher_background 0x7f090002
 int mipmap ic_launcher_foreground 0x7f090003
+int mipmap ic_launcher_foreground1 0x7f090004
 int string common_google_play_services_unknown_issue 0x7f0a0000
 int string default_web_client_id 0x7f0a0001
 int string gcm_defaultSenderId 0x7f0a0002

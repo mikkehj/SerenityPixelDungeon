@@ -28,6 +28,7 @@ import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Buff;
 import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Hunger;
 import com.seasluggames.serenitypixeldungeon.android.actors.buffs.LockedFloor;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero;
+import com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent;
 import com.seasluggames.serenitypixeldungeon.android.actors.mobs.Mob;
 import com.seasluggames.serenitypixeldungeon.android.items.Item;
 import com.seasluggames.serenitypixeldungeon.android.items.rings.RingOfEnergy;
@@ -100,6 +101,7 @@ public class TimekeepersHourglass extends Artifact {
 									Sample.INSTANCE.play(Assets.Sounds.TELEPORT);
 
 									activeBuff = new timeStasis();
+									Talent.onArtifactUsed(Dungeon.hero);
 									activeBuff.attachTo(Dungeon.hero);
 								} else if (index == 1) {
 									GLog.i( Messages.get(TimekeepersHourglass.class, "onfreeze") );
@@ -107,6 +109,7 @@ public class TimekeepersHourglass extends Artifact {
 									Sample.INSTANCE.play(Assets.Sounds.TELEPORT);
 
 									activeBuff = new timeFreeze();
+									Talent.onArtifactUsed(Dungeon.hero);
 									activeBuff.attachTo(Dungeon.hero);
 									((timeFreeze)activeBuff).processTime(0f);
 								}
@@ -139,11 +142,11 @@ public class TimekeepersHourglass extends Artifact {
 	protected ArtifactBuff passiveBuff() {
 		return new hourglassRecharge();
 	}
-	
+
 	@Override
-	public void charge(Hero target) {
+	public void charge(Hero target, float amount) {
 		if (charge < chargeCap){
-			partialCharge += 0.25f;
+			partialCharge += 0.25f*amount;
 			if (partialCharge >= 1){
 				partialCharge--;
 				charge++;
@@ -240,7 +243,7 @@ public class TimekeepersHourglass extends Artifact {
 	}
 
 	public class timeStasis extends ArtifactBuff {
-		
+
 		{
 			type = buffType.POSITIVE;
 		}
@@ -297,7 +300,7 @@ public class TimekeepersHourglass extends Artifact {
 	}
 
 	public class timeFreeze extends ArtifactBuff {
-		
+
 		{
 			type = buffType.POSITIVE;
 		}

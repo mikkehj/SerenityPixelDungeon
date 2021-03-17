@@ -47,10 +47,10 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class WndHero extends WndTabbed {
-	
+
 	private static final int WIDTH		= 120;
-	private static final int HEIGHT		= 100;
-	
+	private static final int HEIGHT		= 120;
+
 	private StatsTab stats;
 	private TalentsTab talents;
 	private BuffsTab buffs;
@@ -58,11 +58,11 @@ public class WndHero extends WndTabbed {
 	public static int lastIdx = 0;
 
 	public WndHero() {
-		
+
 		super();
-		
+
 		resize( WIDTH, HEIGHT );
-		
+
 		stats = new StatsTab();
 		add( stats );
 
@@ -74,7 +74,7 @@ public class WndHero extends WndTabbed {
 		add( buffs );
 		buffs.setRect(0, 0, WIDTH, HEIGHT);
 		buffs.setupList();
-		
+
 		add( new LabeledTab( Messages.get(this, "stats") ) {
 			protected void select( boolean value ) {
 				super.select( value );
@@ -99,18 +99,22 @@ public class WndHero extends WndTabbed {
 		} );
 
 		layoutTabs();
-		
+
+		talents.setRect(0, 0, WIDTH, HEIGHT);
+		talents.pane.scrollTo(0, talents.pane.content().height() - talents.pane.height());
+		talents.layout();
+
 		select( lastIdx );
 	}
 
 	private class StatsTab extends Group {
-		
+
 		private static final int GAP = 6;
-		
+
 		private float pos;
-		
+
 		public StatsTab() {
-			
+
 			Hero hero = Dungeon.hero;
 
 			IconTitle title = new IconTitle();
@@ -139,23 +143,23 @@ public class WndHero extends WndTabbed {
 		}
 
 		private void statSlot( String label, String value ) {
-			
+
 			RenderedTextBlock txt = PixelScene.renderTextBlock( label, 8 );
 			txt.setPos(0, pos);
 			add( txt );
-			
+
 			txt = PixelScene.renderTextBlock( value, 8 );
 			txt.setPos(WIDTH * 0.6f, pos);
 			PixelScene.align(txt);
 			add( txt );
-			
+
 			pos += GAP + txt.height();
 		}
-		
+
 		private void statSlot( String label, int value ) {
 			statSlot( label, Integer.toString( value ) );
 		}
-		
+
 		public float height() {
 			return pos;
 		}
@@ -179,14 +183,14 @@ public class WndHero extends WndTabbed {
 		}
 
 	}
-	
+
 	private class BuffsTab extends Component {
-		
+
 		private static final int GAP = 2;
 
 		private SmartTexture icons;
 		private TextureFilm film;
-		
+
 		private float pos;
 		private ScrollPane buffList;
 		private ArrayList<BuffSlot> slots = new ArrayList<>();
@@ -211,13 +215,13 @@ public class WndHero extends WndTabbed {
 			};
 			add(buffList);
 		}
-		
+
 		@Override
 		protected void layout() {
 			super.layout();
 			buffList.setRect(0, 0, width, height);
 		}
-		
+
 		private void setupList() {
 			Component content = buffList.content();
 			for (Buff buff : Dungeon.hero.buffs()) {
@@ -270,7 +274,7 @@ public class WndHero extends WndTabbed {
 						this.y + (icon.height - txt.height()) / 2
 				);
 			}
-			
+
 			protected boolean onClick ( float x, float y ) {
 				if (inside( x, y )) {
 					GameScene.show(new WndInfoBuff(buff));

@@ -24,6 +24,7 @@ package com.seasluggames.serenitypixeldungeon.android.items.weapon;
 import com.seasluggames.serenitypixeldungeon.android.Badges;
 import com.seasluggames.serenitypixeldungeon.android.Dungeon;
 import com.seasluggames.serenitypixeldungeon.android.actors.Char;
+import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Berserk;
 import com.seasluggames.serenitypixeldungeon.android.actors.buffs.MagicImmune;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent;
@@ -89,23 +90,23 @@ abstract public class Weapon extends KindOfWeapon {
 			return dly * delayFactor;
 		}
 	}
-	
+
 	public Augment augment = Augment.NONE;
-	
+
 	private static final int USES_TO_ID = 20;
 	private float usesLeftToID = USES_TO_ID;
 	private float availableUsesToID = USES_TO_ID/2f;
-	
+
 	public Enchantment enchantment;
 	public boolean curseInfusionBonus = false;
-	
+
 	@Override
 	public int proc( Char attacker, Char defender, int damage ) {
-		
+
 		if (enchantment != null && attacker.buff(MagicImmune.class) == null) {
 			damage = enchantment.proc( this, attacker, defender, damage );
 		}
-		
+
 		if (!levelKnown && attacker == Dungeon.hero) {
 			float uses = Math.min( availableUsesToID, Talent.itemIDSpeedFactor(Dungeon.hero, this) );
 			availableUsesToID -= uses;
@@ -119,7 +120,7 @@ abstract public class Weapon extends KindOfWeapon {
 
 		return damage;
 	}
-	
+
 	public void onHeroGainExp( float levelPercent, Hero hero ){
 		levelPercent *= Talent.itemIDSpeedFactor(hero, this);
 		if (!levelKnown && isEquipped(hero) && availableUsesToID <= USES_TO_ID/2f) {
@@ -127,7 +128,7 @@ abstract public class Weapon extends KindOfWeapon {
 			availableUsesToID = Math.min(USES_TO_ID/2f, availableUsesToID + levelPercent * USES_TO_ID);
 		}
 	}
-	
+
 	private static final String USES_LEFT_TO_ID = "uses_left_to_id";
 	private static final String AVAILABLE_USES  = "available_uses";
 	private static final String ENCHANTMENT	    = "enchantment";
@@ -143,7 +144,7 @@ abstract public class Weapon extends KindOfWeapon {
 		bundle.put( CURSE_INFUSION_BONUS, curseInfusionBonus );
 		bundle.put( AUGMENT, augment );
 	}
-	
+
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
@@ -154,19 +155,19 @@ abstract public class Weapon extends KindOfWeapon {
 
 		augment = bundle.getEnum(AUGMENT, Augment.class);
 	}
-	
+
 	@Override
 	public void reset() {
 		super.reset();
 		usesLeftToID = USES_TO_ID;
 		availableUsesToID = USES_TO_ID/2f;
 	}
-	
+
 	@Override
 	public float accuracyFactor( Char owner ) {
-		
+
 		int encumbrance = 0;
-		
+
 		if( owner instanceof Hero ){
 			encumbrance = STRReq() - ((Hero)owner).STR();
 		}
@@ -178,7 +179,7 @@ abstract public class Weapon extends KindOfWeapon {
 
 		return encumbrance > 0 ? (float)(ACC / Math.pow( 1.5, encumbrance )) : ACC;
 	}
-	
+
 	@Override
 	public float speedFactor( Char owner ) {
 
@@ -204,12 +205,23 @@ abstract public class Weapon extends KindOfWeapon {
 	}
 
 	public abstract int STRReq(int lvl);
-	
+
+	protected static int STRReq(int tier, int lvl){
+		lvl = Math.max(0, lvl);
+
+		//strength req decreases at +1,+3,+6,+10,etc.
+		int req = (8 + tier * 2) - (int)(Math.sqrt(8 * lvl + 1) - 1)/2;
+
+		if (Dungeon.hero.pointsInTalent(Talent.STRONGMAN) >= 2) req--;
+
+		return req;
+	}
+
 	@Override
 	public int level() {
 		return super.level() + (curseInfusionBonus ? 1 : 0);
 	}
-	
+
 	//overrides as other things can equip these
 	@Override
 	public int buffedLvl() {
@@ -219,12 +231,12 @@ abstract public class Weapon extends KindOfWeapon {
 			return level();
 		}
 	}
-	
+
 	@Override
 	public Item upgrade() {
 		return upgrade(false);
 	}
-	
+
 	public Item upgrade(boolean enchant ) {
 
 		if (enchant){
@@ -238,17 +250,17 @@ abstract public class Weapon extends KindOfWeapon {
 				enchant(null);
 			}
 		}
-		
+
 		cursed = false;
-		
+
 		return super.upgrade();
 	}
-	
+
 	@Override
 	public String name() {
 		return enchantment != null && (cursedKnown || !enchantment.curse()) ? enchantment.name( super.name() ) : super.name();
 	}
-	
+
 	@Override
 	public Item random() {
 		//+0: 75% (3/4)
@@ -262,7 +274,7 @@ abstract public class Weapon extends KindOfWeapon {
 			}
 		}
 		level(n);
-		
+
 		//30% chance to be cursed
 		//10% chance to be enchanted
 		float effectRoll = Random.Float();
@@ -275,7 +287,7 @@ abstract public class Weapon extends KindOfWeapon {
 
 		return this;
 	}
-	
+
 	public Weapon enchant( Enchantment ench ) {
 		if (ench == null || !ench.curse()) curseInfusionBonus = false;
 		enchantment = ench;
@@ -294,7 +306,7 @@ abstract public class Weapon extends KindOfWeapon {
 	public boolean hasEnchant(Class<?extends Enchantment> type, Char owner) {
 		return enchantment != null && enchantment.getClass() == type && owner.buff(MagicImmune.class) == null;
 	}
-	
+
 	//these are not used to process specific enchant effects, so magic immune doesn't affect them
 	public boolean hasGoodEnchant(){
 		return enchantment != null && !enchantment.curse();
@@ -310,30 +322,41 @@ abstract public class Weapon extends KindOfWeapon {
 	}
 
 	public static abstract class Enchantment implements Bundlable {
-		
+
 		private static final Class<?>[] common = new Class<?>[]{
 				Blazing.class, Chilling.class, Kinetic.class, Shocking.class};
-		
+
 		private static final Class<?>[] uncommon = new Class<?>[]{
 				Blocking.class, Blooming.class, Elastic.class,
 				Lucky.class, Projecting.class, Unstable.class};
-		
+
 		private static final Class<?>[] rare = new Class<?>[]{
 				Corrupting.class, Grim.class, Vampiric.class};
-		
+
 		private static final float[] typeChances = new float[]{
 				50, //12.5% each
 				40, //6.67% each
 				10  //3.33% each
 		};
-		
+
 		private static final Class<?>[] curses = new Class<?>[]{
 				Annoying.class, Displacing.class, Exhausting.class, Fragile.class,
 				Sacrificial.class, Wayward.class, Polarized.class, Friendly.class
 		};
-		
-			
+
+
 		public abstract int proc( Weapon weapon, Char attacker, Char defender, int damage );
+
+		protected float procChanceMultiplier( Char attacker ){
+			float multi = 1f;
+			if (attacker instanceof Hero && ((Hero) attacker).hasTalent(Talent.ENRAGED_CATALYST)){
+				Berserk rage = attacker.buff(Berserk.class);
+				if (rage != null) {
+					multi += (rage.rageAmount() / 6f) * ((Hero) attacker).pointsInTalent(Talent.ENRAGED_CATALYST);
+				}
+			}
+			return multi;
+		}
 
 		public String name() {
 			if (!curse())
@@ -361,9 +384,9 @@ abstract public class Weapon extends KindOfWeapon {
 		@Override
 		public void storeInBundle( Bundle bundle ) {
 		}
-		
+
 		public abstract ItemSprite.Glowing glowing();
-		
+
 		@SuppressWarnings("unchecked")
 		public static Enchantment random( Class<? extends Enchantment> ... toIgnore ) {
 			switch(Random.chances(typeChances)){
@@ -375,7 +398,7 @@ abstract public class Weapon extends KindOfWeapon {
 					return randomRare( toIgnore );
 			}
 		}
-		
+
 		@SuppressWarnings("unchecked")
 		public static Enchantment randomCommon( Class<? extends Enchantment> ... toIgnore ) {
 			ArrayList<Class<?>> enchants = new ArrayList<>(Arrays.asList(common));
@@ -386,7 +409,7 @@ abstract public class Weapon extends KindOfWeapon {
 				return (Enchantment) Reflection.newInstance(Random.element(enchants));
 			}
 		}
-		
+
 		@SuppressWarnings("unchecked")
 		public static Enchantment randomUncommon( Class<? extends Enchantment> ... toIgnore ) {
 			ArrayList<Class<?>> enchants = new ArrayList<>(Arrays.asList(uncommon));
@@ -397,7 +420,7 @@ abstract public class Weapon extends KindOfWeapon {
 				return (Enchantment) Reflection.newInstance(Random.element(enchants));
 			}
 		}
-		
+
 		@SuppressWarnings("unchecked")
 		public static Enchantment randomRare( Class<? extends Enchantment> ... toIgnore ) {
 			ArrayList<Class<?>> enchants = new ArrayList<>(Arrays.asList(rare));
@@ -419,6 +442,6 @@ abstract public class Weapon extends KindOfWeapon {
 				return (Enchantment) Reflection.newInstance(Random.element(enchants));
 			}
 		}
-		
+
 	}
 }

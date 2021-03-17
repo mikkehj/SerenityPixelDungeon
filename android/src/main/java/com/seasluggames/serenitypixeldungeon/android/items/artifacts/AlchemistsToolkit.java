@@ -23,6 +23,7 @@ package com.seasluggames.serenitypixeldungeon.android.items.artifacts;
 
 import com.seasluggames.serenitypixeldungeon.android.Dungeon;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero;
+import com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent;
 import com.seasluggames.serenitypixeldungeon.android.items.Item;
 import com.seasluggames.serenitypixeldungeon.android.items.Recipe;
 import com.seasluggames.serenitypixeldungeon.android.items.rings.RingOfEnergy;
@@ -44,16 +45,16 @@ public class AlchemistsToolkit extends Artifact {
 		defaultAction = AC_BREW;
 
 		levelCap = 10;
-		
+
 		charge = 0;
 		partialCharge = 0;
 		chargeCap = 100;
 	}
 
 	public static final String AC_BREW = "BREW";
-	
+
 	protected WndBag.Mode mode = WndBag.Mode.POTION;
-	
+
 	private boolean alchemyReady = false;
 
 	@Override
@@ -75,11 +76,11 @@ public class AlchemistsToolkit extends Artifact {
 			else if (!alchemyReady)                                         GLog.i( Messages.get(this, "not_ready") );
 			else if (hero.visibleEnemies() > hero.mindVisionEnemies.size()) GLog.i( Messages.get(this, "enemy_near") );
 			else {
-				
+
 				AlchemyScene.setProvider(hero.buff(kitEnergy.class));
 				Game.switchScene(AlchemyScene.class);
 			}
-			
+
 		}
 	}
 
@@ -87,11 +88,11 @@ public class AlchemistsToolkit extends Artifact {
 	protected ArtifactBuff passiveBuff() {
 		return new kitEnergy();
 	}
-	
+
 	@Override
-	public void charge(Hero target) {
+	public void charge(Hero target, float amount) {
 		if (charge < chargeCap){
-			partialCharge += 0.5f;
+			partialCharge += 0.5f*amount;
 			if (partialCharge >= 1){
 				partialCharge--;
 				charge++;
@@ -99,9 +100,9 @@ public class AlchemistsToolkit extends Artifact {
 			}
 		}
 	}
-	
+
 	public void absorbEnergy( int energy ){
-		
+
 		exp += energy;
 		while (exp >= 10 && level() < levelCap){
 			upgrade();
@@ -112,13 +113,13 @@ public class AlchemistsToolkit extends Artifact {
 			energy -= exp;
 			exp = 0;
 		}
-		
+
 		partialCharge += energy/3f;
 		while (partialCharge >= 1){
-			
+
 			partialCharge -= 1;
 			charge++;
-			
+
 			if (charge >= chargeCap){
 				charge = chargeCap;
 				partialCharge = 0;
@@ -126,7 +127,7 @@ public class AlchemistsToolkit extends Artifact {
 			}
 		}
 		updateQuickslot();
-		
+
 	}
 
 	@Override
@@ -138,10 +139,10 @@ public class AlchemistsToolkit extends Artifact {
 			else if (!alchemyReady) result += "\n\n" + Messages.get(this, "desc_warming");
 			else                    result += "\n\n" + Messages.get(this, "desc_hint");
 		}
-		
+
 		return result;
 	}
-	
+
 	@Override
 	public boolean doEquip(Hero hero) {
 		if (super.doEquip(hero)){
@@ -151,30 +152,30 @@ public class AlchemistsToolkit extends Artifact {
 			return false;
 		}
 	}
-	
+
 	private static final String READY = "ready";
-	
+
 	@Override
 	public void storeInBundle(Bundle bundle) {
 		super.storeInBundle(bundle);
 		bundle.put(READY, alchemyReady);
 	}
-	
+
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
 		alchemyReady = bundle.getBoolean(READY);
 	}
-	
+
 	public class kitEnergy extends ArtifactBuff implements AlchemyScene.AlchemyProvider {
-		
+
 		public void gainCharge(float levelPortion) {
 			alchemyReady = true;
-			
+
 			if (cursed) return;
-			
+
 			if (charge < chargeCap) {
-				
+
 				//generates 2 energy every hero level, +0.1 energy per toolkit level
 				//to a max of 12 energy per hero level
 				//This means that energy absorbed into the kit is recovered in 6.67 hero levels (as 33% of input energy is kept)
@@ -183,65 +184,66 @@ public class AlchemistsToolkit extends Artifact {
 				float chargeGain = (2 + (1f * effectiveLevel)) * levelPortion;
 				chargeGain *= RingOfEnergy.artifactChargeMultiplier(target);
 				partialCharge += chargeGain;
-				
+
 				//charge is in increments of 1/10 max hunger value.
 				while (partialCharge >= 1) {
 					charge++;
 					partialCharge -= 1;
-					
+
 					if (charge == chargeCap){
 						GLog.p( Messages.get(AlchemistsToolkit.class, "full") );
 						partialCharge = 0;
 					}
-					
+
 					updateQuickslot();
 				}
 			} else
 				partialCharge = 0;
 		}
-		
+
 		@Override
 		public int getEnergy() {
 			return charge;
 		}
-		
+
 		@Override
 		public void spendEnergy(int reduction) {
 			charge = Math.max(0, charge - reduction);
+			Talent.onArtifactUsed(Dungeon.hero);
 		}
 	}
-	
+
 	public static class upgradeKit extends Recipe {
-		
+
 		@Override
 		public boolean testIngredients(ArrayList<Item> ingredients) {
 			return ingredients.get(0) instanceof AlchemistsToolkit
 					&& !AlchemyScene.providerIsToolkit();
 		}
-		
+
 		private static int lastCost;
-		
+
 		@Override
 		public int cost(ArrayList<Item> ingredients) {
 			return lastCost = Math.max(1, AlchemyScene.availableEnergy());
 		}
-		
+
 		@Override
 		public Item brew(ArrayList<Item> ingredients) {
 			AlchemistsToolkit existing = (AlchemistsToolkit) ingredients.get(0);
-			
+
 			existing.absorbEnergy(lastCost);
-			
+
 			return existing;
 		}
-		
+
 		@Override
 		public Item sampleOutput(ArrayList<Item> ingredients) {
 			AlchemistsToolkit sample = new AlchemistsToolkit();
 			sample.identify();
-			
+
 			AlchemistsToolkit existing = (AlchemistsToolkit) ingredients.get(0);
-			
+
 			sample.charge = existing.charge;
 			sample.partialCharge = existing.partialCharge;
 			sample.exp = existing.exp;

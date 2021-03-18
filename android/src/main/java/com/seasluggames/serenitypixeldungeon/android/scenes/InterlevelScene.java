@@ -64,7 +64,7 @@ public class InterlevelScene extends PixelScene {
 	private static float fadeTime;
 	
 	public enum Mode {
-		DESCEND, ASCEND, CONTINUE, RESURRECT, RETURN, FALL, RESET, NONE
+		DESCEND, ASCEND, CONTINUE, RESURRECT, RESURRECTBLESSING, RETURN, FALL, RESET, NONE
 	}
 	public static Mode mode;
 	
@@ -216,6 +216,9 @@ public class InterlevelScene extends PixelScene {
 								break;
 							case RESURRECT:
 								resurrect();
+								break;
+							case RESURRECTBLESSING:
+								resurrectBlessing();
 								break;
 							case RETURN:
 								returnTo();
@@ -395,6 +398,21 @@ public class InterlevelScene extends PixelScene {
 		
 		Mob.holdAllies( Dungeon.level );
 		
+		if (Dungeon.level.locked) {
+			Dungeon.hero.resurrect( Dungeon.depth );
+			Dungeon.depth--;
+			Level level = Dungeon.newLevel();
+			Dungeon.switchLevel( level, level.entrance );
+		} else {
+			Dungeon.hero.resurrect( -1 );
+			Dungeon.resetLevel();
+		}
+	}
+
+	private void resurrectBlessing() throws IOException {
+
+		Mob.holdAllies( Dungeon.level );
+
 		if (Dungeon.level.locked) {
 			Dungeon.hero.resurrect( Dungeon.depth );
 			Dungeon.depth--;

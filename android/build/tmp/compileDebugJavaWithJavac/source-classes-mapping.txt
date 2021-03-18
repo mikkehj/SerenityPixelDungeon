@@ -502,6 +502,10 @@ com/seasluggames/serenitypixeldungeon/android/actors/mobs/Spinner.java
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.Spinner$Fleeing
 com/seasluggames/serenitypixeldungeon/android/actors/mobs/Bandit.java
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.Bandit
+com/seasluggames/serenitypixeldungeon/android/items/armor/ClericArmor.java
+ com.seasluggames.serenitypixeldungeon.android.items.armor.ClericArmor
+ com.seasluggames.serenitypixeldungeon.android.items.armor.ClericArmor$1
+ com.seasluggames.serenitypixeldungeon.android.items.armor.ClericArmor$1$1
 com/seasluggames/serenitypixeldungeon/android/ui/ScrollPane.java
  com.seasluggames.serenitypixeldungeon.android.ui.ScrollPane
  com.seasluggames.serenitypixeldungeon.android.ui.ScrollPane$PointerController

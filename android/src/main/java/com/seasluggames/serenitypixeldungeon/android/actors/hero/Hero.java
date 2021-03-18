@@ -432,6 +432,36 @@ public class Hero extends Char {
 	public int defenseSkill( Char enemy ) {
 		
 		float evasion = defenseSkill;
+
+		if (hasTalent(Talent.BLESSING_OF_DEXTERITY)) {
+			switch (pointsInTalent(Talent.BLESSING_OF_DEXTERITY)) {
+				case 1:
+					evasion = defenseSkill + 2;
+					break;
+				case 2:
+					evasion = defenseSkill + 4;
+					break;
+				default:
+					evasion = defenseSkill;
+					break;
+			}
+		}
+
+		if (hasTalent(Talent.BLESSING_OF_LUCK)) {
+			int chance = Random.NormalIntRange(1, 100);
+			switch (pointsInTalent(Talent.BLESSING_OF_LUCK)) {
+				case 1:
+					if (chance >= 95) {
+						evasion = 10000;
+					}
+					break;
+				case 2:
+					if (chance >= 90) {
+						evasion = 10000;
+					}
+					break;
+			}
+		}
 		
 		evasion *= RingOfEvasion.evasionMultiplier( this );
 		
@@ -507,6 +537,17 @@ public class Hero extends Char {
 		if (momentum != null){
 			((HeroSprite)sprite).sprint( 1f + 0.05f*momentum.stacks());
 			speed *= momentum.speedMultiplier();
+		}
+
+		if (hasTalent(Talent.BLESSING_OF_WIND)) {
+			switch (pointsInTalent(Talent.BLESSING_OF_WIND)) {
+				case 1:
+					((HeroSprite)sprite).sprint(1);
+					break;
+				case 2:
+					((HeroSprite)sprite).sprint(2);
+					break;
+			}
 		}
 		
 		return speed;
@@ -1598,9 +1639,31 @@ public class Hero extends Char {
 		super.die( cause );
 
 		if (ankh == null) {
-			
-			reallyDie( cause );
-			
+			if (hasTalent(Talent.BLESSING_OF_LIFE)) {
+				int chance = Random.NormalIntRange(1, 100);
+				switch (pointsInTalent(Talent.BLESSING_OF_LIFE)) {
+					case 1:
+						if (chance <= 5) { //5% proc
+							InterlevelScene.mode = InterlevelScene.Mode.RESURRECTBLESSING;
+							Game.switchScene( InterlevelScene.class );
+							return;
+						} else {
+							reallyDie( cause );
+						}
+						break;
+					case 2:
+						if (chance <= 10) { //10% proc
+							InterlevelScene.mode = InterlevelScene.Mode.RESURRECTBLESSING;
+							Game.switchScene( InterlevelScene.class );
+							return;
+						} else {
+							reallyDie( cause );
+						}
+						break;
+				}
+			} else {
+				reallyDie( cause );
+			}
 		} else {
 			
 			Dungeon.deleteGame( GamesInProgress.curSlot, false );

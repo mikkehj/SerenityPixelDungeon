@@ -118,7 +118,7 @@ public enum Talent {
 	//Cleric T1
 	HEALING_MEAL(97), STRONG_FAITH(97), DIVINE_TOUCH(97), MANTRA(97),
 	//Cleric T2
-	CLERIC_5(97), CLERIC_6(97), CLERIC_7(97), CLERIC_8(97),  CLERIC_9(97),
+	BLESSING_OF_DEXTERITY(97), BLESSING_OF_WIND(97), BLESSING_OF_LIFE(97), BLESSING_OF_LUCK(97),  BLESSING_OF_WEALTH(97),
 	//Cleric T3
 	CLERIC_10(97, 3), CLERIC_11(97, 3),
 	//Priest T3
@@ -359,24 +359,28 @@ public enum Talent {
 		}
 
 		if (hero.pointsInTalent(POWER_BLESSING) > 0) {
-			int chance = 0;
+			int chance = Random.NormalIntRange(1, 100);
 			Item pot = new PotionOfStrength();
 
 			switch (hero.pointsInTalent(POWER_BLESSING)) {
 				case 1:
-					chance = Random.NormalIntRange(1, 100);
+					if (chance >= 90) {
+						pot.identify();
+						pot.collect();
+					}
 					break;
 				case 2:
-					chance = Random.NormalIntRange(10, 100);
+					if (chance >= 80) {
+						pot.identify();
+						pot.collect();
+					}
 					break;
 				case 3:
-					chance = Random.NormalIntRange(30, 100);
+					if (chance >= 70) {
+						pot.identify();
+						pot.collect();
+					}
 					break;
-			}
-
-			if (chance >= 90) {
-				pot.identify();
-				pot.collect();
 			}
 		}
 	}
@@ -481,7 +485,7 @@ public enum Talent {
 				Collections.addAll(tierTalents, INVIGORATING_MEAL, RESTORED_NATURE, REJUVENATING_STEPS, HEIGHTENED_SENSES, DURABLE_PROJECTILES);
 				break;
 			case CLERIC:
-				Collections.addAll(tierTalents, SILENT_STEPS, HEIGHTENED_SENSES, ARCANE_VISION, HEIGHTENED_SENSES, DURABLE_PROJECTILES);
+				Collections.addAll(tierTalents, BLESSING_OF_DEXTERITY, BLESSING_OF_WIND, BLESSING_OF_LIFE, BLESSING_OF_LUCK, BLESSING_OF_WEALTH);
 				break;
 		}
 		for (Talent talent : tierTalents){

@@ -755,6 +755,11 @@ public abstract class Mob extends Char {
 			Dungeon.level.drop(new Gold(10 * Dungeon.hero.pointsInTalent(Talent.BOUNTY_HUNTER)), pos).sprite.drop();
 		}
 
+		//blessing of wealth talent
+		if (Dungeon.hero.hasTalent(Talent.BLESSING_OF_WEALTH)) {
+			Dungeon.level.drop(new Gold(5 * Dungeon.hero.pointsInTalent(Talent.BLESSING_OF_WEALTH)), pos).sprite.drop();
+		}
+
 	}
 
 	protected Object loot = null;

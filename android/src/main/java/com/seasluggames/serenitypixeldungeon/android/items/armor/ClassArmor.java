@@ -77,7 +77,7 @@ abstract public class ClassArmor extends Armor {
                 break;
             case CLERIC:
             	// CLERIC NEEDS OWN ARMOR
-                classArmor = new RogueArmor();
+                classArmor = new ClericArmor();
                 break;
         }
 

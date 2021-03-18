@@ -122,7 +122,7 @@ public enum Talent {
 	//Cleric T3
 	CLERIC_10(97, 3), CLERIC_11(97, 3),
 	//Priest T3
-	HOLY_BLESSING(97, 3), PRIEST_2(97, 3), PRIEST_3(97, 3),
+	HOLY_BLESSING(97, 3), REJUVENATING_UPGRADE(97, 3), PRIEST_3(97, 3),
 	//Monk T3
 	POWER_BLESSING(97, 3), MONK_2(97, 3), MONK_3(97, 3);
 
@@ -331,6 +331,10 @@ public enum Talent {
 				ScrollOfRecharging.charge( Dungeon.hero );
 				SpellSprite.show( hero, SpellSprite.CHARGE );
 			}
+		}
+
+		if (hero.hasTalent(REJUVENATING_UPGRADE)) {
+			hero.HP += hero.pointsInTalent(Talent.REJUVENATING_UPGRADE) * 10;
 		}
 	}
 

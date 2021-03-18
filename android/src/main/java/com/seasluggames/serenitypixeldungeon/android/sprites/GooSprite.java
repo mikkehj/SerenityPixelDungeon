@@ -31,6 +31,7 @@ import com.seasluggames.serenitypixeldungeon.android.effects.CellEmitter;
 import com.seasluggames.serenitypixeldungeon.android.effects.particles.ElmoParticle;
 import com.seasluggames.serenitypixeldungeon.android.utils.BArray;
 import com.watabou.noosa.TextureFilm;
+import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.particles.Emitter;
 import com.watabou.noosa.particles.Emitter.Factory;
 import com.watabou.noosa.particles.PixelParticle;
@@ -41,7 +42,7 @@ import com.watabou.utils.Random;
 import java.util.ArrayList;
 
 public class GooSprite extends MobSprite {
-	
+
 	private Animation pump;
 	private Animation pumpAttack;
 
@@ -50,17 +51,17 @@ public class GooSprite extends MobSprite {
 
 	public GooSprite() {
 		super();
-		
+
 		texture( Assets.Sprites.GOO );
-		
+
 		TextureFilm frames = new TextureFilm( texture, 20, 14 );
-		
+
 		idle = new Animation( 10, true );
 		idle.frames( frames, 2, 1, 0, 0, 1 );
-		
+
 		run = new Animation( 15, true );
 		run.frames( frames, 3, 2, 1, 2 );
-		
+
 		pump = new Animation( 20, true );
 		pump.frames( frames, 4, 3, 2, 1, 0 );
 
@@ -69,10 +70,10 @@ public class GooSprite extends MobSprite {
 
 		attack = new Animation( 10, false );
 		attack.frames( frames, 8, 9, 10 );
-		
+
 		die = new Animation( 10, false );
 		die.frames( frames, 5, 6, 7 );
-		
+
 		play(idle);
 
 		spray = centerEmitter();
@@ -90,12 +91,10 @@ public class GooSprite extends MobSprite {
 
 	public void pumpUp( int warnDist ) {
 		if (warnDist == 0){
-			for (Emitter e : pumpUpEmitters){
-				e.on = false;
-			}
-			pumpUpEmitters.clear();
+			clearEmitters();
 		} else {
 			play(pump);
+			Sample.INSTANCE.play( Assets.Sounds.CHARGEUP, 1f, warnDist == 1 ? 0.8f : 1f );
 			PathFinder.buildDistanceMap(ch.pos, BArray.not(Dungeon.level.solid, null), 2);
 			for (int i = 0; i < PathFinder.distance.length; i++) {
 				if (PathFinder.distance[i] <= warnDist) {
@@ -107,15 +106,27 @@ public class GooSprite extends MobSprite {
 		}
 	}
 
+	public void clearEmitters(){
+		for (Emitter e : pumpUpEmitters){
+			e.on = false;
+		}
+		pumpUpEmitters.clear();
+	}
+
+	public void triggerEmitters(){
+		for (Emitter e : pumpUpEmitters){
+			e.burst(ElmoParticle.FACTORY, 10);
+		}
+		Sample.INSTANCE.play( Assets.Sounds.BURNING );
+		pumpUpEmitters.clear();
+	}
+
 	public void pumpAttack() { play(pumpAttack); }
 
 	@Override
 	public void play(Animation anim) {
 		if (anim != pump && anim != pumpAttack){
-			for (Emitter e : pumpUpEmitters){
-				e.on = false;
-			}
-			pumpUpEmitters.clear();
+			clearEmitters();
 		}
 		super.play(anim);
 	}
@@ -180,10 +191,7 @@ public class GooSprite extends MobSprite {
 
 		if (anim == pumpAttack) {
 
-			for (Emitter e : pumpUpEmitters){
-				e.burst(ElmoParticle.FACTORY, 10);
-			}
-			pumpUpEmitters.clear();
+			triggerEmitters();
 
 			idle();
 			ch.onAttackComplete();

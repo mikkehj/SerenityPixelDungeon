@@ -24,7 +24,6 @@
 
 package com.seasluggames.serenitypixeldungeon.android.actors.mobs;
 
-import com.seasluggames.serenitypixeldungeon.android.Assets;
 import com.seasluggames.serenitypixeldungeon.android.Badges;
 import com.seasluggames.serenitypixeldungeon.android.Dungeon;
 import com.seasluggames.serenitypixeldungeon.android.actors.Actor;
@@ -43,7 +42,6 @@ import com.seasluggames.serenitypixeldungeon.android.sprites.GooSprite;
 import com.seasluggames.serenitypixeldungeon.android.ui.BossHealthBar;
 import com.seasluggames.serenitypixeldungeon.android.utils.GLog;
 import com.watabou.noosa.Camera;
-import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
@@ -69,7 +67,6 @@ public class Goo extends Mob {
 		int max = (HP*2 <= HT) ? 12 : 8;
 		if (pumpedUp > 0) {
 			pumpedUp = 0;
-			Sample.INSTANCE.play( Assets.Sounds.BURNING );
 			return Random.NormalIntRange( min*3, max*3 );
 		} else {
 			return Random.NormalIntRange( min, max );
@@ -98,14 +95,16 @@ public class Goo extends Mob {
 	public boolean act() {
 
 		if (Dungeon.level.water[pos] && HP < HT) {
-			sprite.emitter().burst( Speck.factory( Speck.HEALING ), 1 );
+			if (Dungeon.level.heroFOV[pos] ){
+				sprite.emitter().burst( Speck.factory( Speck.HEALING ), 1 );
+			}
 			if (HP*2 == HT) {
 				BossHealthBar.bleed(false);
 				((GooSprite)sprite).spray(false);
 			}
 			HP++;
 		}
-		
+
 		if (state != SLEEPING){
 			Dungeon.level.seal();
 		}
@@ -147,7 +146,6 @@ public class Goo extends Mob {
 		if (pumpedUp == 1) {
 			((GooSprite)sprite).pumpUp( 2 );
 			pumpedUp++;
-			Sample.INSTANCE.play( Assets.Sounds.CHARGEUP );
 
 			spend( attackDelay() );
 
@@ -164,6 +162,7 @@ public class Goo extends Mob {
 				}
 			} else {
 				attack( enemy );
+				((GooSprite)sprite).triggerEmitters();
 			}
 
 			spend( attackDelay() );
@@ -179,7 +178,6 @@ public class Goo extends Mob {
 			if (Dungeon.level.heroFOV[pos]) {
 				sprite.showStatus( CharSprite.NEGATIVE, Messages.get(this, "!!!") );
 				GLog.n( Messages.get(this, "pumpup") );
-				Sample.INSTANCE.play( Assets.Sounds.CHARGEUP, 1f, 0.8f );
 			}
 
 			spend( attackDelay() );
@@ -223,14 +221,14 @@ public class Goo extends Mob {
 
 	@Override
 	public void die( Object cause ) {
-		
+
 		super.die( cause );
-		
+
 		Dungeon.level.unseal();
-		
+
 		GameScene.bossSlain();
 		Dungeon.level.drop( new SkeletonKey( Dungeon.depth ), pos ).sprite.drop();
-		
+
 		//60% chance of 2 blobs, 30% chance of 3, 10% chance for 4. Average of 2.5
 		int blobs = Random.chances(new float[]{0, 0, 6, 3, 1});
 		for (int i = 0; i < blobs; i++){
@@ -240,12 +238,12 @@ public class Goo extends Mob {
 			} while (!Dungeon.level.passable[pos + ofs]);
 			Dungeon.level.drop( new GooBlob(), pos + ofs ).sprite.drop( pos );
 		}
-		
+
 		Badges.validateBossSlain();
-		
+
 		yell( Messages.get(this, "defeated") );
 	}
-	
+
 	@Override
 	public void notice() {
 		super.notice();
@@ -280,5 +278,5 @@ public class Goo extends Mob {
 		if ((HP*2 <= HT)) BossHealthBar.bleed(true);
 
 	}
-	
+
 }

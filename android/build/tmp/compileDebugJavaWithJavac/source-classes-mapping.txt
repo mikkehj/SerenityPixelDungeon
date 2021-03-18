@@ -2323,10 +2323,15 @@ com/seasluggames/serenitypixeldungeon/android/actors/buffs/Combo.java
  com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo
  com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo$1
  com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo$2
- com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo$2$1
- com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo$2$2
  com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo$3
- com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo$finisherType
+ com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo$3$1
+ com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo$3$1$1
+ com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo$3$2
+ com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo$4
+ com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo$ComboMove
+ com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo$ParryTracker
+ com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo$RiposteTracker
+ com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo$RiposteTracker$1
 com/seasluggames/serenitypixeldungeon/android/actors/blobs/SmokeScreen.java
  com.seasluggames.serenitypixeldungeon.android.actors.blobs.SmokeScreen
 com/seasluggames/serenitypixeldungeon/android/actors/mobs/Necromancer.java
@@ -2403,6 +2408,10 @@ com/seasluggames/serenitypixeldungeon/android/utils/GLog.java
 com/seasluggames/serenitypixeldungeon/android/plants/BlandfruitBush.java
  com.seasluggames.serenitypixeldungeon.android.plants.BlandfruitBush
  com.seasluggames.serenitypixeldungeon.android.plants.BlandfruitBush$Seed
+com/seasluggames/serenitypixeldungeon/android/windows/WndCombo.java
+ com.seasluggames.serenitypixeldungeon.android.windows.WndCombo
+ com.seasluggames.serenitypixeldungeon.android.windows.WndCombo$1
+ com.seasluggames.serenitypixeldungeon.android.windows.WndCombo$2
 com/seasluggames/serenitypixeldungeon/android/items/scrolls/exotic/ScrollOfPassage.java
  com.seasluggames.serenitypixeldungeon.android.items.scrolls.exotic.ScrollOfPassage
 com/seasluggames/serenitypixeldungeon/android/levels/rooms/secret/SecretLarderRoom.java

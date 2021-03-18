@@ -25,10 +25,10 @@
 package com.seasluggames.serenitypixeldungeon.android.items;
 
 import com.seasluggames.serenitypixeldungeon.android.Assets;
+import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Barrier;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero;
-import com.seasluggames.serenitypixeldungeon.android.effects.Speck;
+import com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent;
 import com.seasluggames.serenitypixeldungeon.android.messages.Messages;
-import com.seasluggames.serenitypixeldungeon.android.sprites.CharSprite;
 import com.seasluggames.serenitypixeldungeon.android.sprites.ItemSpriteSheet;
 import com.seasluggames.serenitypixeldungeon.android.utils.GLog;
 import com.watabou.noosa.audio.Sample;
@@ -88,32 +88,35 @@ public class DewVial extends Item {
 		if (action.equals( AC_DRINK )) {
 
 			if (volume > 0) {
-				
+
 				float missingHealthPercent = 1f - (hero.HP / (float)hero.HT);
-				
+
+				int curShield = 0;
+				if (hero.buff(Barrier.class) != null) curShield = hero.buff(Barrier.class).shielding();
+				int maxShield = Math.round(hero.HT *0.2f*hero.pointsInTalent(Talent.SHIELDING_DEW));
+				if (hero.hasTalent(Talent.SHIELDING_DEW)){
+					float missingShieldPercent = 1f - (curShield / (float)maxShield);
+					missingShieldPercent *= 0.2f*hero.pointsInTalent(Talent.SHIELDING_DEW);
+					if (missingShieldPercent > 0){
+						missingHealthPercent += missingShieldPercent;
+					}
+				}
+
 				//trimming off 0.01 drops helps with floating point errors
 				int dropsNeeded = (int)Math.ceil((missingHealthPercent / 0.05f) - 0.01f);
 				dropsNeeded = (int)GameMath.gate(1, dropsNeeded, volume);
-				
-				//20 drops for a full heal normally
-				int heal = Math.round( hero.HT * 0.05f * dropsNeeded );
-				
-				int effect = Math.min( hero.HT - hero.HP, heal );
-				if (effect > 0) {
-					hero.HP += effect;
-					hero.sprite.emitter().burst( Speck.factory( Speck.HEALING ), 1 + dropsNeeded/5 );
-					hero.sprite.showStatus( CharSprite.POSITIVE, Messages.get(this, "value", effect) );
+
+				if (Dewdrop.consumeDew(dropsNeeded, hero)){
+					volume -= dropsNeeded;
+
+					hero.spend(TIME_TO_DRINK);
+					hero.busy();
+
+					Sample.INSTANCE.play(Assets.Sounds.DRINK);
+					hero.sprite.operate(hero.pos);
+
+					updateQuickslot();
 				}
-
-				volume -= dropsNeeded;
-
-				hero.spend( TIME_TO_DRINK );
-				hero.busy();
-
-				Sample.INSTANCE.play( Assets.Sounds.DRINK );
-				hero.sprite.operate( hero.pos );
-
-				updateQuickslot();
 
 
 			} else {

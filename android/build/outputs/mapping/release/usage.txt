@@ -1054,6 +1054,7 @@ com.badlogic.gdx.utils.ObjectMap$Values
 com.badlogic.gdx.math.Interpolation$13
 com.watabou.utils.DeviceCompat:
     public void <init>()
+    public static boolean hasHardKeyboard()
     public static boolean legacyDevice()
 androidx.legacy.coreui.R$integer
 androidx.core.view.inputmethod.InputContentInfoCompat$InputContentInfoCompatImpl
@@ -1466,6 +1467,7 @@ com.seasluggames.serenitypixeldungeon.android.levels.NewPrisonBossLevel:
     private static final int ENTRANCE_POS
 com.watabou.input.GameAction:
     public static int totalActions()
+    public int code()
 com.google.android.gms.ads.mediation.MediationConfiguration:
     public com.google.android.gms.ads.AdFormat getFormat()
     public android.os.Bundle getServerParameters()
@@ -1955,12 +1957,6 @@ com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer
 com.badlogic.gdx.scenes.scene2d.ui.ProgressBar
 com.badlogic.gdx.graphics.g3d.particles.influencers.DynamicsModifier$FaceDirection
 com.google.android.gms.common.util.GmsVersion
-com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings:
-    private static final int WIDTH
-    private static final int BTN_HEIGHT
-    private static final int COL1_CENTER
-    private static final int COL2_CENTER
-    private static final int COL3_CENTER
 com.badlogic.gdx.scenes.scene2d.ui.Tooltip
 com.google.android.gms.ads.MediaAspectRatio
 com.badlogic.gdx.scenes.scene2d.ui.TextTooltip
@@ -2147,6 +2143,8 @@ androidx.core.content.FileProvider$SimplePathStrategy
 com.google.android.gms.common.internal.constants.ListAppsActivityContract
 com.watabou.input.KeyBindings:
     public void <init>()
+    public static java.util.ArrayList getBoundKeysForAction(com.watabou.input.GameAction)
+    public static java.lang.String getKeyName(int)
 com.google.android.gms.internal.ads.zzxn:
     public final void stopLoading()
     public final void zzkf()
@@ -4292,6 +4290,7 @@ com.badlogic.gdx.backends.android.AndroidInput:
     public float getPitch()
     public float getRoll()
     public com.badlogic.gdx.InputProcessor getInputProcessor()
+    public boolean isPeripheralAvailable(com.badlogic.gdx.Input$Peripheral)
     public com.badlogic.gdx.Input$Orientation getNativeOrientation()
     public void setCursorCatched(boolean)
     public boolean isCursorCatched()
@@ -4837,6 +4836,7 @@ androidx.core.widget.AutoSizeableTextView
 com.google.firebase.heartbeatinfo.HeartBeatInfo:
     public abstract com.google.android.gms.tasks.Task storeHeartBeatInfo(java.lang.String)
     public abstract com.google.android.gms.tasks.Task getAndClearStoredHeartBeatInfo()
+com.badlogic.gdx.Input$Peripheral
 androidx.browser.browseractions.BrowserActionsIntent
 com.watabou.utils.Random:
     public void <init>()
@@ -5491,166 +5491,7 @@ androidx.core.app.BundleCompat:
     private void <init>()
     public static android.os.IBinder getBinder(android.os.Bundle,java.lang.String)
 com.badlogic.gdx.Game
-com.badlogic.gdx.Input$Keys:
-    public void <init>()
-    public static int valueOf(java.lang.String)
-    private static void initializeKeyNames()
-    public static final int ANY_KEY
-    public static final int NUM_0
-    public static final int NUM_1
-    public static final int NUM_2
-    public static final int NUM_3
-    public static final int NUM_4
-    public static final int NUM_5
-    public static final int NUM_6
-    public static final int NUM_7
-    public static final int NUM_8
-    public static final int NUM_9
-    public static final int A
-    public static final int ALT_LEFT
-    public static final int ALT_RIGHT
-    public static final int APOSTROPHE
-    public static final int AT
-    public static final int B
-    public static final int BACK
-    public static final int BACKSLASH
-    public static final int C
-    public static final int CALL
-    public static final int CAMERA
-    public static final int CLEAR
-    public static final int COMMA
-    public static final int D
-    public static final int DEL
-    public static final int BACKSPACE
-    public static final int FORWARD_DEL
-    public static final int DPAD_CENTER
-    public static final int DPAD_DOWN
-    public static final int DPAD_LEFT
-    public static final int DPAD_RIGHT
-    public static final int DPAD_UP
-    public static final int CENTER
-    public static final int DOWN
-    public static final int LEFT
-    public static final int RIGHT
-    public static final int UP
-    public static final int E
-    public static final int ENDCALL
-    public static final int ENTER
-    public static final int ENVELOPE
-    public static final int EQUALS
-    public static final int EXPLORER
-    public static final int F
-    public static final int FOCUS
-    public static final int G
-    public static final int GRAVE
-    public static final int H
-    public static final int HEADSETHOOK
-    public static final int HOME
-    public static final int I
-    public static final int J
-    public static final int K
-    public static final int L
-    public static final int LEFT_BRACKET
-    public static final int M
-    public static final int MEDIA_FAST_FORWARD
-    public static final int MEDIA_NEXT
-    public static final int MEDIA_PLAY_PAUSE
-    public static final int MEDIA_PREVIOUS
-    public static final int MEDIA_REWIND
-    public static final int MEDIA_STOP
-    public static final int MENU
-    public static final int MINUS
-    public static final int MUTE
-    public static final int N
-    public static final int NOTIFICATION
-    public static final int NUM
-    public static final int O
-    public static final int P
-    public static final int PERIOD
-    public static final int PLUS
-    public static final int POUND
-    public static final int POWER
-    public static final int Q
-    public static final int R
-    public static final int RIGHT_BRACKET
-    public static final int S
-    public static final int SEARCH
-    public static final int SEMICOLON
-    public static final int SHIFT_LEFT
-    public static final int SHIFT_RIGHT
-    public static final int SLASH
-    public static final int SOFT_LEFT
-    public static final int SOFT_RIGHT
-    public static final int SPACE
-    public static final int STAR
-    public static final int SYM
-    public static final int T
-    public static final int TAB
-    public static final int U
-    public static final int UNKNOWN
-    public static final int V
-    public static final int VOLUME_DOWN
-    public static final int VOLUME_UP
-    public static final int W
-    public static final int X
-    public static final int Y
-    public static final int Z
-    public static final int META_ALT_LEFT_ON
-    public static final int META_ALT_ON
-    public static final int META_ALT_RIGHT_ON
-    public static final int META_SHIFT_LEFT_ON
-    public static final int META_SHIFT_ON
-    public static final int META_SHIFT_RIGHT_ON
-    public static final int META_SYM_ON
-    public static final int CONTROL_LEFT
-    public static final int CONTROL_RIGHT
-    public static final int ESCAPE
-    public static final int END
-    public static final int INSERT
-    public static final int PAGE_UP
-    public static final int PAGE_DOWN
-    public static final int PICTSYMBOLS
-    public static final int SWITCH_CHARSET
-    public static final int BUTTON_CIRCLE
-    public static final int BUTTON_A
-    public static final int BUTTON_B
-    public static final int BUTTON_C
-    public static final int BUTTON_X
-    public static final int BUTTON_Y
-    public static final int BUTTON_Z
-    public static final int BUTTON_L1
-    public static final int BUTTON_R1
-    public static final int BUTTON_L2
-    public static final int BUTTON_R2
-    public static final int BUTTON_THUMBL
-    public static final int BUTTON_THUMBR
-    public static final int BUTTON_START
-    public static final int BUTTON_SELECT
-    public static final int BUTTON_MODE
-    public static final int NUMPAD_0
-    public static final int NUMPAD_1
-    public static final int NUMPAD_2
-    public static final int NUMPAD_3
-    public static final int NUMPAD_4
-    public static final int NUMPAD_5
-    public static final int NUMPAD_6
-    public static final int NUMPAD_7
-    public static final int NUMPAD_8
-    public static final int NUMPAD_9
-    public static final int COLON
-    public static final int F1
-    public static final int F2
-    public static final int F3
-    public static final int F4
-    public static final int F5
-    public static final int F6
-    public static final int F7
-    public static final int F8
-    public static final int F9
-    public static final int F10
-    public static final int F11
-    public static final int F12
-    private static com.badlogic.gdx.utils.ObjectIntMap keyNames
+com.badlogic.gdx.Input$Keys
 androidx.core.app.NavUtils
 androidx.core.graphics.ColorUtils
 com.badlogic.gdx.scenes.scene2d.ui.Dialog$1
@@ -5986,8 +5827,6 @@ com.badlogic.gdx.backends.android.AndroidApplication:
     public synthetic bridge com.badlogic.gdx.Input getInput()
 com.seasluggames.serenitypixeldungeon.android.actors.buffs.Hunger:
     private static final float STEP
-    public static final float HUNGRY
-    public static final float STARVING
     private static final java.lang.String LEVEL
     private static final java.lang.String PARTIALDAMAGE
 com.seasluggames.serenitypixeldungeon.android.sprites.FistSprite:
@@ -7280,6 +7119,7 @@ androidx.core.R$id:
 com.badlogic.gdx.backends.android.AndroidGraphicsLiveWallpaper
 androidx.fragment.app.BackStackState
 com.seasluggames.serenitypixeldungeon.android.SPDAction:
+    public static void saveBindings()
     private static final java.lang.String BINDINGS_FILE
 com.badlogic.gdx.graphics.g3d.particles.emitters.Emitter
 com.seasluggames.serenitypixeldungeon.android.effects.Chains:
@@ -9265,8 +9105,8 @@ androidx.work.OneTimeWorkRequest:
     public static androidx.work.OneTimeWorkRequest from(java.lang.Class)
     public static java.util.List from(java.util.List)
 com.badlogic.gdx.scenes.scene2d.ui.SelectBox$SelectBoxList$3
-androidx.slidingpanelayout.widget.SlidingPaneLayout$LayoutParams
 androidx.customview.widget.ViewDragHelper$1
+androidx.slidingpanelayout.widget.SlidingPaneLayout$LayoutParams
 com.badlogic.gdx.graphics.g3d.Environment
 com.badlogic.gdx.math.CatmullRomSpline
 androidx.lifecycle.MethodCallsLogger:
@@ -9667,6 +9507,7 @@ com.badlogic.gdx.Input:
     public abstract boolean isCatchMenuKey()
     public abstract boolean isCatchKey(int)
     public abstract com.badlogic.gdx.InputProcessor getInputProcessor()
+    public abstract boolean isPeripheralAvailable(com.badlogic.gdx.Input$Peripheral)
     public abstract int getRotation()
     public abstract com.badlogic.gdx.Input$Orientation getNativeOrientation()
     public abstract void setCursorCatched(boolean)
@@ -9847,12 +9688,6 @@ com.seasluggames.serenitypixeldungeon.android.levels.OldHallsBossLevel:
     private static final java.lang.String ENTERED
     private static final java.lang.String DROPPED
 com.badlogic.gdx.backends.android.AndroidLiveWallpaperService$AndroidWallpaperEngine
-com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$BindingItem:
-    private static final int HEIGHT
-    private static final int CHANGED
-    private static final int DEFAULT
-    private static final int UNBOUND
-    private static final int UNBOUND_CHANGED
 com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$3
 androidx.print.PrintHelper
 com.badlogic.gdx.graphics.g3d.particles.influencers.DynamicsModifier$Strength
@@ -11411,8 +11246,6 @@ com.badlogic.gdx.graphics.Texture$TextureFilter:
     public int getGLEnum()
 com.seasluggames.serenitypixeldungeon.android.scenes.StartScene$SaveSlotButton:
     public void <init>()
-com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$WndChangeBinding$1:
-    public final synthetic com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings val$this$0
 com.seasluggames.serenitypixeldungeon.android.tiles.DungeonTilemap$1:
     public final synthetic com.seasluggames.serenitypixeldungeon.android.tiles.DungeonTilemap this$0
 com.google.android.gms.internal.ads.zzefn:
@@ -12336,8 +12169,6 @@ com.seasluggames.serenitypixeldungeon.android.AndroidPlatformSupport$1:
 com.google.android.gms.internal.ads.zzcud:
     public final com.google.android.gms.internal.ads.zzeqo zzewf
 com.google.android.gms.common.internal.zzx
-com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$WndChangeBinding$2:
-    public final synthetic com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings val$this$0
 com.google.android.gms.internal.ads.zzado:
     public static com.google.android.gms.internal.ads.zzacx zzdej
 com.google.firebase.installations.local.PersistedInstallationEntry:
@@ -13241,7 +13072,7 @@ com.seasluggames.serenitypixeldungeon.android.levels.NewPrisonBossLevel:
     public static int E
     public static int C
 com.watabou.input.GameAction:
-    public int code()
+    public static java.util.ArrayList allActions()
     public java.lang.String name()
 com.google.android.gms.internal.ads.zzayo:
     public static java.util.ArrayList zzah(android.content.Context)
@@ -13888,10 +13719,6 @@ com.google.android.gms.internal.ads.zzcf$zzc:
     public final void zzd(com.google.android.gms.internal.ads.zzejr)
 com.google.android.gms.internal.ads.zzafw:
     public static com.google.android.gms.internal.ads.zzafx zzu(android.os.IBinder)
-com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings:
-    public static synthetic java.util.ArrayList access$000(com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings)
-    public static synthetic java.util.LinkedHashMap access$202(com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings,java.util.LinkedHashMap)
-    public static synthetic java.util.LinkedHashMap access$200(com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings)
 com.google.android.gms.internal.ads.zzdoo:
     public final com.google.android.gms.internal.ads.zzdol zzhmi
 androidx.room.RoomDatabase$Callback:
@@ -14151,8 +13978,10 @@ androidx.work.impl.WorkDatabase_Impl:
 com.google.android.gms.internal.ads.zzdww
 androidx.browser.customtabs.CustomTabsClient$2$4
 com.watabou.input.KeyBindings:
+    public static java.util.LinkedHashMap getAllBindings()
+    public static void setAllBindings(java.util.LinkedHashMap)
     public static void addHardBinding(int,com.watabou.input.GameAction)
-    public static java.util.ArrayList getBoundKeysForAction(com.watabou.input.GameAction)
+    public static boolean acceptUnbound
 androidx.core.app.AppOpsManagerCompat
 androidx.work.impl.model.WorkSpecDao_Impl$2:
     public final synthetic androidx.work.impl.model.WorkSpecDao_Impl this$0
@@ -16165,16 +15994,17 @@ com.badlogic.gdx.backends.android.AndroidInput:
     public void vibrate(int)
     public void registerSensorListeners()
     public void unregisterSensorListeners()
-    public boolean isPeripheralAvailable(com.badlogic.gdx.Input$Peripheral)
     public int getRotation()
     public void onPause()
     public void onResume()
+    public final boolean hasMultitouch
     public boolean gyroscopeAvailable
     public java.lang.String text
     public com.badlogic.gdx.Input$TextInputListener textListener
     public android.os.Handler handle
     public int sleepTime
     public boolean rotationVectorAvailable
+    public boolean keyboardAvailable
     public float azimuth
     public float pitch
     public float roll
@@ -16254,7 +16084,6 @@ com.seasluggames.serenitypixeldungeon.android.actors.mobs.npcs.Ghost$Quest:
     public static varargs int interpolate(float,int[])
     public static boolean supportsFullScreen()
     public static boolean isDesktop()
-    public static boolean hasHardKeyboard()
     public static void log(java.lang.String,java.lang.String)
     public static void buildDistanceMap(java.util.Collection,com.watabou.utils.Graph$Node)
     public static boolean isMemberClass(java.lang.Class)
@@ -16468,7 +16297,7 @@ com.seasluggames.serenitypixeldungeon.android.actors.Actor:
     public static void add(com.seasluggames.serenitypixeldungeon.android.actors.Actor)
     public static synchronized java.util.HashSet all()
     public void spendToWhole()
-    public void diactivate()
+    public void deactivate()
 com.seasluggames.serenitypixeldungeon.android.items.wands.Wand$Charger:
     public static void access$000(com.seasluggames.serenitypixeldungeon.android.items.wands.Wand$Charger,float)
     public com.seasluggames.serenitypixeldungeon.android.items.wands.Wand wand()
@@ -16585,8 +16414,6 @@ com.google.android.gms.internal.ads.zzect:
     public final synthetic com.google.android.gms.internal.ads.zzecr zzidf
 com.google.firebase.components.ComponentRuntime$Builder$$Lambda$1:
     public static com.google.firebase.inject.Provider lambdaFactory$(com.google.firebase.components.ComponentRegistrar)
-com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$WndChangeBinding$3:
-    public final synthetic com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings val$this$0
 com.google.android.gms.internal.ads.zzckw:
     public final java.util.Map zzaqx()
     public final void zzaqw()
@@ -16725,7 +16552,6 @@ com.seasluggames.serenitypixeldungeon.android.windows.WndSadGhost$RewardButton$1
     public final synthetic com.seasluggames.serenitypixeldungeon.android.windows.WndSadGhost val$this$0
 com.google.firebase.platforminfo.LibraryVersionComponent
 com.google.android.gms.common.util.Base64Utils
-com.badlogic.gdx.Input$Peripheral
 com.watabou.utils.Random:
     public static synchronized void pushGenerator()
     public static long Long(long)
@@ -17640,7 +17466,6 @@ com.google.android.gms.internal.ads.zzbig$zza:
     public abstract com.google.android.gms.internal.ads.zzaxb zzaga()
     public abstract com.google.android.gms.internal.ads.zzarz zzagb()
     public abstract com.google.android.gms.internal.ads.zzacv zzagc()
-com.badlogic.gdx.Input$Keys
 androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory:
     public androidx.sqlite.db.SupportSQLiteOpenHelper create(androidx.sqlite.db.SupportSQLiteOpenHelper$Configuration)
 com.google.android.gms.internal.ads.zzejg:
@@ -18198,8 +18023,11 @@ com.badlogic.gdx.backends.android.AndroidApplication:
     public boolean useImmersiveMode
     public boolean hideStatusBar
 com.seasluggames.serenitypixeldungeon.android.actors.buffs.Hunger:
+    public static void <clinit>()
     public void affectHunger(float)
     public int hunger()
+    public static float HUNGRY
+    public static float STARVING
 com.google.android.gms.internal.ads.zzpr
 com.google.android.gms.internal.ads.zzcxw:
     public static synthetic com.google.android.gms.internal.ads.zzblv zza(com.google.android.gms.internal.ads.zzcxw)
@@ -18370,8 +18198,6 @@ com.google.android.gms.internal.ads.zzdof:
     public final synchronized void zzd(com.google.android.gms.internal.ads.zzdzw)
 com.badlogic.gdx.files.FileHandle$1
 com.google.android.gms.internal.ads.zzbuc
-com.seasluggames.serenitypixeldungeon.android.windows.WndSettings$UITab$8:
-    public final synthetic com.seasluggames.serenitypixeldungeon.android.windows.WndSettings$UITab this$0
 com.google.android.gms.internal.ads.zzk:
     public abstract com.google.android.gms.internal.ads.zzn zzb(java.lang.String)
     public abstract void zza(java.lang.String,com.google.android.gms.internal.ads.zzn)
@@ -19558,6 +19384,9 @@ com.google.android.gms.internal.ads.zzjp:
     public final int zzaom
 com.seasluggames.serenitypixeldungeon.android.ui.BuffIndicator$1:
     public final synthetic com.seasluggames.serenitypixeldungeon.android.ui.BuffIndicator this$0
+com.seasluggames.serenitypixeldungeon.android.windows.WndSettings$UITab:
+    public com.watabou.noosa.ColorBlock sep3
+    public com.seasluggames.serenitypixeldungeon.android.ui.PurpleButton btnKeyBindings
 com.google.android.gms.internal.ads.zzctj:
     public final com.google.android.gms.internal.ads.zzctf zzguj
 com.badlogic.gdx.graphics.g2d.PixmapPacker:
@@ -20176,8 +20005,8 @@ com.google.android.gms.internal.ads.zzcim:
     public final synchronized void zza(java.lang.String,com.google.android.gms.internal.ads.zzapk)
     public final synchronized com.google.android.gms.internal.ads.zzcij zzgd(java.lang.String)
 com.seasluggames.serenitypixeldungeon.android.SPDAction:
+    public static java.util.LinkedHashMap getDefaults()
     public static void loadBindings()
-    public static void saveBindings()
 com.badlogic.gdx.utils.ObjectMap$Entries:
     public com.badlogic.gdx.utils.ObjectMap$Entries iterator()
 androidx.versionedparcelable.ParcelImpl$1:
@@ -22813,7 +22642,6 @@ com.badlogic.gdx.Input:
     public abstract void vibrate(int)
     public abstract void setCatchKey(int,boolean)
     public abstract void setInputProcessor(com.badlogic.gdx.InputProcessor)
-    public abstract boolean isPeripheralAvailable(com.badlogic.gdx.Input$Peripheral)
 com.google.android.gms.ads.doubleclick.PublisherAdView:
     public final com.google.android.gms.internal.ads.zzzm zzaea
 com.google.android.gms.internal.ads.zzczg:
@@ -23023,12 +22851,6 @@ com.google.android.gms.internal.ads.zzdjv:
     public final void zzb()
 com.google.android.gms.internal.ads.zzche:
     public static java.lang.Runnable zze(com.google.android.gms.internal.ads.zzbeb)
-com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$BindingItem:
-    public static boolean access$100(com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$BindingItem,float,float)
-    public static synthetic com.watabou.input.GameAction access$300(com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$BindingItem)
-    public static synthetic int access$500(com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$BindingItem)
-    public static synthetic int access$600(com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$BindingItem)
-    public final boolean onClick(float,float)
 com.google.android.gms.internal.ads.zzeav:
     public final java.lang.Object zzm(com.google.android.gms.internal.ads.zzejr)
     public final java.lang.Object zza(com.google.android.gms.internal.ads.zzemo)
@@ -24121,7 +23943,6 @@ androidx.core.app.ActivityManagerCompat:
     public static int backoffPolicyToInt(androidx.work.BackoffPolicy)
     public static int networkTypeToInt(androidx.work.NetworkType)
     public static byte[] contentUriTriggersToByteArray(androidx.work.ContentUriTriggers)
-    public static java.lang.String toString(int)
     public static com.badlogic.gdx.backends.android.AndroidInput newAndroidInput(com.badlogic.gdx.Application,android.content.Context,java.lang.Object,com.badlogic.gdx.backends.android.AndroidApplicationConfiguration)
     public static int floatToIntBits(float)
     public static int floatToRawIntBits(float)
@@ -25167,9 +24988,6 @@ com.google.android.gms.ads.AdRequest:
 com.seasluggames.serenitypixeldungeon.android.scenes.AlchemyScene$ItemButton:
     public void onClick()
     public boolean onLongClick()
-com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$WndChangeBinding:
-    public static synthetic int access$400(com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$WndChangeBinding)
-    public static synthetic com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$BindingItem access$700(com.seasluggames.serenitypixeldungeon.android.windows.WndKeyBindings$WndChangeBinding)
 com.google.android.gms.internal.ads.zzbry:
     public static com.google.android.gms.internal.ads.zzbry zzh(com.google.android.gms.internal.ads.zzeqo)
 com.google.android.gms.internal.ads.zzadv:

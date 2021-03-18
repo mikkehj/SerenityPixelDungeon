@@ -52,8 +52,8 @@ import androidx.annotation.NonNull;
 
 public class AndroidLauncher extends Activity {
 
-    public static RewardedAd mRewardedAd;
-    private static InterstitialAd mInterstitialAd;
+    public static RewardedAd myThat;
+    private static InterstitialAd myThis;
 
     private final String TAG = "AndroidGame";
     public static Handler UIHandler;
@@ -77,48 +77,6 @@ public class AndroidLauncher extends Activity {
         admobActivity = this;
 
         /*
-        // V19.7.0
-
-
-        MobileAds.initialize(this, initializationStatus -> {
-        });
-
-        AdRequest adRequest = new AdRequest.Builder().build();
-
-        InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712",
-                adRequest, new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error.
-                        Log.d(TAG, loadAdError.getMessage());
-                        mInterstitialAd = null;
-                    }
-
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        mInterstitialAd = interstitialAd;
-                        Log.d(TAG, "onAdFailedToLoad");
-                    }
-                });
-
-        RewardedAd.load(this, "ca-app-pub-3940256099942544/5224354917",
-                adRequest, new RewardedAdLoadCallback() {
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error.
-                        Log.d(TAG, loadAdError.getMessage());
-                        mRewardedAd = null;
-                    }
-
-                    @Override
-                    public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
-                        mRewardedAd = rewardedAd;
-                        Log.d(TAG, "onAdFailedToLoad");
-                    }
-                });
-
-         */
-
-        /*
         // TEST ID
         MobileAds.initialize(this,
                 "ca-app-pub-3940256099942544~3347511713");
@@ -127,32 +85,32 @@ public class AndroidLauncher extends Activity {
         MobileAds.initialize(this,
                 "ca-app-pub-8412258401353384~2614412636");
 
-        mInterstitialAd = new InterstitialAd(this);
+        myThis = new InterstitialAd(this);
         /*
         // TEST ID
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        myThis.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
 
          */
-        mInterstitialAd.setAdUnitId("ca-app-pub-8412258401353384/4072347428");
-        reloadInterstitialAd();
+        myThis.setAdUnitId("ca-app-pub-8412258401353384/4072347428");
+        reloadThis();
 
-        mInterstitialAd.setAdListener(new AdListener() {
+        myThis.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
-                reloadInterstitialAd();
+                reloadThis();
             }
         });
 
         /*
         // TEST ID
-        mRewardedAd = new RewardedAd(this,
+        myThat = new RewardedAd(this,
                 "ca-app-pub-3940256099942544/5224354917");
 
          */
-        mRewardedAd = new RewardedAd(this,
+        myThat = new RewardedAd(this,
                 "ca-app-pub-8412258401353384/2891127693");
 
-        reloadRewardedAd();
+        reloadThat();
 
         try {
             GdxNativesLoader.load();
@@ -176,17 +134,14 @@ public class AndroidLauncher extends Activity {
         }
     }
 
-    public static void reloadInterstitialAd() {
-        if (!mInterstitialAd.isLoaded()) {
-            mInterstitialAd.loadAd(new AdRequest.Builder().build());
-        } else {
-            Log.d("TAG", "ad is already loaded");
+    public static void reloadThis() {
+        if (!myThis.isLoaded()) {
+            myThis.loadAd(new AdRequest.Builder().build());
         }
-
     }
 
-    public static void reloadRewardedAd() {
-        if (!mRewardedAd.isLoaded()) {
+    public static void reloadThat() {
+        if (!myThat.isLoaded()) {
             RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
                 @Override
                 public void onRewardedAdLoaded() {
@@ -196,80 +151,47 @@ public class AndroidLauncher extends Activity {
                 public void onRewardedAdFailedToLoad(LoadAdError adError) {
                 }
             };
-            Log.d("TAG", "Loading new ad");
-            mRewardedAd.loadAd(new AdRequest.Builder().build(), adLoadCallback);
-        } else {
-            Log.d("TAG", "ad is already loaded");
-        }
-
-    }
-
-    public static void showInterstitialAd() {
-        /*
-        //V19.7.0
-
-        if (mInterstitialAd != null) {
-            mInterstitialAd.show(admobActivity);
-            Log.d("TAG", "Showing ad");
-        } else {
-            Log.d("TAG", "The interstitial wasn't loaded yet.");
-        }
-
-         */
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-            reloadInterstitialAd();
-        } else {
-            reloadInterstitialAd();
-            Log.d("TAG", "Loading new ad");
+            myThat.loadAd(new AdRequest.Builder().build(), adLoadCallback);
         }
     }
 
-    public static void showRewardedAd() {
-        /*
-        //V19.7
-        if (mRewardedAd != null) {
-
-            mRewardedAd.show(admobActivity, rewardItem -> {
-                // Handle the reward.
-                Log.d("TAG", "The user earned the reward.");
-                int rewardAmount = rewardItem.getAmount();
-
-            });
+    public static void doThis() {
+        if (myThis.isLoaded()) {
+            myThis.show();
+            reloadThis();
         } else {
-            Log.d("TAG", "The rewarded ad wasn't ready yet.");
+            reloadThis();
         }
+    }
 
-         */
-        if (mRewardedAd.isLoaded()) {
+    public static void doThat() {
+        if (myThat.isLoaded()) {
             RewardedAdCallback adCallback = new RewardedAdCallback() {
                 @Override
                 public void onRewardedAdOpened() {
-                    reloadRewardedAd();
+                    reloadThat();
                 }
 
                 @Override
                 public void onRewardedAdClosed() {
-                    reloadRewardedAd();
+                    reloadThat();
                 }
 
                 @Override
                 public void onUserEarnedReward(@NonNull RewardItem reward) {
                     Dungeon.gold += 1000;
                     watchedAD = true;
-                    reloadRewardedAd();
+                    reloadThat();
                 }
 
                 @Override
                 public void onRewardedAdFailedToShow(AdError adError) {
-                    // Ad failed to display.
-                    reloadRewardedAd();
+                    reloadThat();
                 }
             };
-            mRewardedAd.show(admobActivity, adCallback);
+            myThat.show(admobActivity, adCallback);
         } else {
-            reloadRewardedAd();
-            Log.d("TAG", "The rewarded ad wasn't loaded yet.");
+            reloadThat();
         }
     }
 }

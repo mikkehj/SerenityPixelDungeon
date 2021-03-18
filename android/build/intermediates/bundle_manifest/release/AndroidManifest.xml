@@ -4,8 +4,8 @@
     package="com.seasluggames.serenitypixeldungeon"
     android:installLocation="auto"
     android:targetSandboxVersion="2"
-    android:versionCode="3"
-    android:versionName="0.0.3a" >
+    android:versionCode="4"
+    android:versionName="0.0.4a" >
 
     <uses-sdk
         android:minSdkVersion="16"

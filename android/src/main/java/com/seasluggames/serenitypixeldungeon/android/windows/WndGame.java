@@ -78,7 +78,7 @@ public class WndGame extends Window {
 			addButton( curBtn = new PurpleButton( Messages.get(this, "start") ) {
 				@Override
 				protected void onClick() {
-					AndroidLauncher.runOnUI(() -> AndroidLauncher.showInterstitialAd());
+					AndroidLauncher.runOnUI(() -> AndroidLauncher.doThis());
 
 					InterlevelScene.noStory = true;
 					GamesInProgress.selectedClass = Dungeon.hero.heroClass;

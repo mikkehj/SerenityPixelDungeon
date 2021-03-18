@@ -28,14 +28,12 @@ import com.seasluggames.serenitypixeldungeon.android.Dungeon;
 import com.seasluggames.serenitypixeldungeon.android.items.Ankh;
 import com.seasluggames.serenitypixeldungeon.android.items.BrokenSeal;
 import com.seasluggames.serenitypixeldungeon.android.items.Item;
-import com.seasluggames.serenitypixeldungeon.android.items.TomeOfMastery;
 import com.seasluggames.serenitypixeldungeon.android.items.armor.ClothArmor;
 import com.seasluggames.serenitypixeldungeon.android.items.artifacts.CloakOfShadows;
 import com.seasluggames.serenitypixeldungeon.android.items.bags.PotionBandolier;
 import com.seasluggames.serenitypixeldungeon.android.items.bags.ScrollHolder;
 import com.seasluggames.serenitypixeldungeon.android.items.bags.VelvetPouch;
 import com.seasluggames.serenitypixeldungeon.android.items.food.Food;
-import com.seasluggames.serenitypixeldungeon.android.items.potions.PotionOfExperience;
 import com.seasluggames.serenitypixeldungeon.android.items.potions.PotionOfHealing;
 import com.seasluggames.serenitypixeldungeon.android.items.potions.PotionOfInvisibility;
 import com.seasluggames.serenitypixeldungeon.android.items.potions.PotionOfLiquidFlame;
@@ -219,13 +217,13 @@ public enum HeroClass {
 		Ankh ankh = new Ankh();
 		ankh.collect();
 
-
+/*
 		TomeOfMastery tome = new TomeOfMastery();
 		tome.collect();
 
 		PotionOfExperience xpot = new PotionOfExperience();
 		xpot.quantity(50).collect();
-
+ */
 
 		Dungeon.quickslot.setSlot(0, bow);
 		Dungeon.quickslot.setSlot(3, pot);

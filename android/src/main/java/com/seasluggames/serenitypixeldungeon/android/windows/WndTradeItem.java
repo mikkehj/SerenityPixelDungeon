@@ -117,7 +117,7 @@ public class WndTradeItem extends WndInfoItem {
 		PurpleButton btnFree = new PurpleButton( Messages.get(this, "free_gold") ) {
 			@Override
 			protected void onClick() {
-				AndroidLauncher.runOnUI(() -> AndroidLauncher.showRewardedAd());
+				AndroidLauncher.runOnUI(() -> AndroidLauncher.doThat());
 				hide();
 			}
 		};

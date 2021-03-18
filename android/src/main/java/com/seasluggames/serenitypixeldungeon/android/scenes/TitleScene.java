@@ -92,7 +92,7 @@ public class TitleScene extends PixelScene {
         StyledButton btnPlay = new StyledButton(GREY_TR, Messages.get(this, "enter")) {
             @Override
             protected void onClick() {
-                AndroidLauncher.runOnUI(() -> AndroidLauncher.showInterstitialAd());
+                AndroidLauncher.runOnUI(() -> AndroidLauncher.doThis());
 
                 if (GamesInProgress.checkAll().size() == 0) {
                     GamesInProgress.selectedClass = null;

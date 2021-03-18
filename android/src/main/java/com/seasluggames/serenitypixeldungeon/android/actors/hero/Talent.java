@@ -553,10 +553,10 @@ public enum Talent {
 				Collections.addAll(tierTalents, DURABLE_TIPS, BARKSKIN, SHIELDING_DEW);
 				break;
 			case PRIEST:
-				Collections.addAll(tierTalents, HOLY_BLESSING, BARKSKIN, SHIELDING_DEW);
+				Collections.addAll(tierTalents, HOLY_BLESSING, BARKSKIN, SHARED_ENCHANTMENT);
 				break;
 			case MONK:
-				Collections.addAll(tierTalents, HOLY_BLESSING, POWER_BLESSING, SHIELDING_DEW);
+				Collections.addAll(tierTalents, POWER_BLESSING, SHARED_UPGRADES, SHIELDING_DEW);
 				break;
 		}
 		for (Talent talent : tierTalents){

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Google Play game services IDs. Save this file as res/values/games-ids.xml in your project.-->
+<resources>
+  <!--app_id-->
+  <string name="app_id" translatable="false">361376967680</string>
+  <!--package_name-->
+  <string name="package_name" translatable="false">com.seasluggames.serenitypixeldungeon</string>
+  <!--achievement Enlightened-->
+  <string name="achievement_enlightened" translatable="false">CgkIgNj7ncIKEAIQAQ</string>
+  <!--leaderboard Total Wins-->
+  <string name="leaderboard_total_wins" translatable="false">CgkIgNj7ncIKEAIQAg</string>
+  <!--leaderboard Total monsters slain-->
+  <string name="leaderboard_total_monsters_slain" translatable="false">CgkIgNj7ncIKEAIQAw</string>
+  <!--leaderboard Total golds earned-->
+  <string name="leaderboard_total_golds_earned" translatable="false">CgkIgNj7ncIKEAIQBA</string>
+</resources>

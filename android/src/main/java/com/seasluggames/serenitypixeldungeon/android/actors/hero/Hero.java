@@ -536,7 +536,7 @@ public class Hero extends Char {
 		
 		Momentum momentum = buff(Momentum.class);
 		if (momentum != null){
-			((HeroSprite)sprite).sprint( 1f + 0.05f*momentum.stacks());
+			((HeroSprite)sprite).sprint( 1f + 0.05f*momentum.momentumstacks());
 			speed *= momentum.speedMultiplier();
 		}
 
@@ -894,37 +894,37 @@ public class Hero extends Char {
 			return false;
 		}
 	}
-	
+
 	private boolean actOpenChest( HeroAction.OpenChest action ) {
 		int dst = action.dst;
 		if (Dungeon.level.adjacent( pos, dst ) || pos == dst) {
-			
+
 			Heap heap = Dungeon.level.heaps.get( dst );
 			if (heap != null && (heap.type != Type.HEAP && heap.type != Type.FOR_SALE)) {
-				
+
 				if ((heap.type == Type.LOCKED_CHEST && Notes.keyCount(new GoldenKey(Dungeon.depth)) < 1)
-					|| (heap.type == Type.CRYSTAL_CHEST && Notes.keyCount(new CrystalKey(Dungeon.depth)) < 1)){
+						|| (heap.type == Type.CRYSTAL_CHEST && Notes.keyCount(new CrystalKey(Dungeon.depth)) < 1)){
 
-						GLog.w( Messages.get(this, "locked_chest") );
-						ready();
-						return false;
+					GLog.w( Messages.get(this, "locked_chest") );
+					ready();
+					return false;
 
 				}
-				
+
 				switch (heap.type) {
-				case TOMB:
-					Sample.INSTANCE.play( Assets.Sounds.TOMB );
-					Camera.main.shake( 1, 0.5f );
-					break;
-				case SKELETON:
-				case REMAINS:
-					break;
-				default:
-					Sample.INSTANCE.play( Assets.Sounds.UNLOCK );
+					case TOMB:
+						Sample.INSTANCE.play( Assets.Sounds.TOMB );
+						Camera.main.shake( 1, 0.5f );
+						break;
+					case SKELETON:
+					case REMAINS:
+						break;
+					default:
+						Sample.INSTANCE.play( Assets.Sounds.UNLOCK );
 				}
-				
+
 				sprite.operate( dst );
-				
+
 			} else {
 				ready();
 			}

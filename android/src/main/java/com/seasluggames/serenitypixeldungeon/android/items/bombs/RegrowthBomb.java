@@ -45,31 +45,31 @@ import com.watabou.utils.Random;
 import java.util.ArrayList;
 
 public class RegrowthBomb extends Bomb {
-	
+
 	{
 		image = ItemSpriteSheet.REGROWTH_BOMB;
 	}
-	
+
 	@Override
 	public boolean explodesDestructively() {
 		return false;
 	}
-	
+
 	@Override
 	public void explode(int cell) {
 		super.explode(cell);
-		
+
 		if (Dungeon.level.heroFOV[cell]) {
 			Splash.at(cell, 0x00FF00, 30);
 		}
-		
+
 		ArrayList<Integer> plantCandidates = new ArrayList<>();
-		
+
 		PathFinder.buildDistanceMap( cell, BArray.not( Dungeon.level.solid, null ), 2 );
 		for (int i = 0; i < PathFinder.distance.length; i++) {
 			if (PathFinder.distance[i] < Integer.MAX_VALUE) {
 				Char ch = Actor.findChar(i);
-				int t = Dungeon.level.map[cell];
+				int t = Dungeon.level.map[i];
 				if (ch != null){
 					if (ch.alignment == Dungeon.hero.alignment) {
 						//same as a healing potion
@@ -78,7 +78,7 @@ public class RegrowthBomb extends Bomb {
 					}
 				} else if ((t == Terrain.EMPTY || t == Terrain.EMPTY_DECO || t == Terrain.EMBERS
 						|| t == Terrain.GRASS || t == Terrain.FURROWED_GRASS || t == Terrain.HIGH_GRASS)
-						&& Dungeon.level.plants.get(cell) == null){
+						&& Dungeon.level.plants.get(i) == null){
 					plantCandidates.add(i);
 				}
 				GameScene.add( Blob.seed( i, 10, Regrowth.class ) );
@@ -94,7 +94,7 @@ public class RegrowthBomb extends Bomb {
 				plantCandidates.remove(plantPos);
 			}
 		}
-		
+
 		Integer plantPos = Random.element(plantCandidates);
 		if (plantPos != null){
 			Plant.Seed plant;
@@ -112,7 +112,7 @@ public class RegrowthBomb extends Bomb {
 			Dungeon.level.plant( plant, plantPos);
 		}
 	}
-	
+
 	@Override
 	public int value() {
 		//prices of ingredients

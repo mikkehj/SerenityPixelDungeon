@@ -49,22 +49,22 @@ public class Dart extends MissileWeapon {
 		image = ItemSpriteSheet.DART;
 		hitSound = Assets.Sounds.HIT_ARROW;
 		hitSoundPitch = 1.3f;
-		
+
 		tier = 1;
-		
+
 		//infinite, even with penalties
 		baseUses = 1000;
 	}
-	
+
 	protected static final String AC_TIP = "TIP";
-	
+
 	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions( hero );
 		actions.add( AC_TIP );
 		return actions;
 	}
-	
+
 	@Override
 	public void execute(Hero hero, String action) {
 		super.execute(hero, action);
@@ -72,7 +72,7 @@ public class Dart extends MissileWeapon {
 			GameScene.selectItem(itemSelector, WndBag.Mode.SEED, Messages.get(this, "prompt"));
 		}
 	}
-	
+
 	@Override
 	public int min(int lvl) {
 		if (bow != null){
@@ -94,9 +94,9 @@ public class Dart extends MissileWeapon {
 					2*lvl;  //scaling unchanged
 		}
 	}
-	
+
 	private static Crossbow bow;
-	
+
 	private void updateCrossbow(){
 		if (Dungeon.hero.belongings.weapon instanceof Crossbow){
 			bow = (Crossbow) Dungeon.hero.belongings.weapon;
@@ -104,7 +104,11 @@ public class Dart extends MissileWeapon {
 			bow = null;
 		}
 	}
-	
+
+	public boolean crossbowHasEnchant( Char owner ){
+		return bow != null && bow.enchantment != null && owner.buff(MagicImmune.class) == null;
+	}
+
 	@Override
 	public boolean hasEnchant(Class<? extends Enchantment> type, Char owner) {
 		if (bow != null && bow.hasEnchant(type, owner)){
@@ -113,17 +117,16 @@ public class Dart extends MissileWeapon {
 			return super.hasEnchant(type, owner);
 		}
 	}
-	
+
 	@Override
 	public int proc(Char attacker, Char defender, int damage) {
-		if (bow != null && bow.enchantment != null && attacker.buff(MagicImmune.class) == null){
-			level(bow.level());
-			damage = bow.enchantment.proc(this, attacker, defender, damage);
-			level(0);
+		if (bow != null){
+			damage = bow.proc(attacker, defender, damage);
 		}
+
 		return super.proc(attacker, defender, damage);
 	}
-	
+
 	@Override
 	protected void onThrow(int cell) {
 		updateCrossbow();
@@ -139,37 +142,37 @@ public class Dart extends MissileWeapon {
 			super.throwSound();
 		}
 	}
-	
+
 	@Override
 	public String info() {
 		updateCrossbow();
 		return super.info();
 	}
-	
+
 	@Override
 	public boolean isUpgradable() {
 		return false;
 	}
-	
+
 	@Override
 	public int value() {
 		return super.value()/2; //half normal value
 	}
-	
+
 	private final WndBag.Listener itemSelector = new WndBag.Listener() {
-		
+
 		@Override
 		public void onSelect(final Item item) {
-			
+
 			if (item == null) return;
-			
+
 			final int maxToTip = Math.min(curItem.quantity(), item.quantity()*2);
 			final int maxSeedsToUse = (maxToTip+1)/2;
-			
+
 			final int singleSeedDarts;
-			
+
 			final String[] options;
-			
+
 			if (curItem.quantity() == 1){
 				singleSeedDarts = 1;
 				options = new String[]{
@@ -188,57 +191,57 @@ public class Dart extends MissileWeapon {
 							Messages.get(Dart.class, "tip_cancel")};
 				}
 			}
-			
+
 			TippedDart tipResult = TippedDart.getTipped((Plant.Seed) item, 1);
-			
+
 			GameScene.show(new WndOptions(Messages.get(Dart.class, "tip_title"),
 					Messages.get(Dart.class, "tip_desc", tipResult.name()) + "\n\n" + tipResult.desc(),
 					options){
-				
+
 				@Override
 				protected void onSelect(int index) {
 					super.onSelect(index);
-					
+
 					if (index == 0 && options.length == 3){
 						if (item.quantity() <= maxSeedsToUse){
 							item.detachAll( curUser.belongings.backpack );
 						} else {
 							item.quantity(item.quantity() - maxSeedsToUse);
 						}
-						
+
 						if (maxToTip < curItem.quantity()){
 							curItem.quantity(curItem.quantity() - maxToTip);
 						} else {
 							curItem.detachAll(curUser.belongings.backpack);
 						}
-						
+
 						TippedDart newDart = TippedDart.getTipped((Plant.Seed) item, maxToTip);
 						if (!newDart.collect()) Dungeon.level.drop(newDart, curUser.pos).sprite.drop();
-						
+
 						curUser.spend( 1f );
 						curUser.busy();
 						curUser.sprite.operate(curUser.pos);
-						
+
 					} else if ((index == 1 && options.length == 3) || (index == 0 && options.length == 2)){
 						item.detach( curUser.belongings.backpack );
-						
+
 						if (curItem.quantity() <= singleSeedDarts){
 							curItem.detachAll( curUser.belongings.backpack );
 						} else {
 							curItem.quantity(curItem.quantity() - singleSeedDarts);
 						}
-						
+
 						TippedDart newDart = TippedDart.getTipped((Plant.Seed) item, singleSeedDarts);
 						if (!newDart.collect()) Dungeon.level.drop(newDart, curUser.pos).sprite.drop();
-						
+
 						curUser.spend( 1f );
 						curUser.busy();
 						curUser.sprite.operate(curUser.pos);
 					}
 				}
 			});
-			
+
 		}
-		
+
 	};
 }

@@ -29,6 +29,8 @@ import com.seasluggames.serenitypixeldungeon.android.actors.Actor;
 import com.seasluggames.serenitypixeldungeon.android.actors.Char;
 import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Buff;
 import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Corruption;
+import com.seasluggames.serenitypixeldungeon.android.actors.buffs.MagicImmune;
+import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Momentum;
 import com.seasluggames.serenitypixeldungeon.android.actors.buffs.PinCushion;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent;
@@ -36,8 +38,10 @@ import com.seasluggames.serenitypixeldungeon.android.items.Item;
 import com.seasluggames.serenitypixeldungeon.android.items.bags.Bag;
 import com.seasluggames.serenitypixeldungeon.android.items.bags.MagicalHolster;
 import com.seasluggames.serenitypixeldungeon.android.items.rings.RingOfSharpshooting;
+import com.seasluggames.serenitypixeldungeon.android.items.weapon.SpiritBow;
 import com.seasluggames.serenitypixeldungeon.android.items.weapon.Weapon;
 import com.seasluggames.serenitypixeldungeon.android.items.weapon.enchantments.Projecting;
+import com.seasluggames.serenitypixeldungeon.android.items.weapon.missiles.darts.Dart;
 import com.seasluggames.serenitypixeldungeon.android.messages.Messages;
 import com.seasluggames.serenitypixeldungeon.android.utils.GLog;
 import com.watabou.utils.Bundle;
@@ -50,54 +54,52 @@ abstract public class MissileWeapon extends Weapon {
 	{
 		stackable = true;
 		levelKnown = true;
-		
+
 		bones = true;
 
 		defaultAction = AC_THROW;
 		usesTargeting = true;
 	}
-	
+
 	protected boolean sticky = true;
-	
+
 	protected static final float MAX_DURABILITY = 100;
 	protected float durability = MAX_DURABILITY;
 	protected float baseUses = 10;
-	
+
 	public boolean holster;
-	
+
 	//used to reduce durability from the source weapon stack, rather than the one being thrown.
 	protected MissileWeapon parent;
-	
+
 	public int tier;
-	
+
 	@Override
 	public int min() {
 		return Math.max(0, min( buffedLvl() + RingOfSharpshooting.levelDamageBonus(Dungeon.hero) ));
 	}
-	
+
 	@Override
 	public int min(int lvl) {
 		return  2 * tier +                      //base
 				(tier == 1 ? lvl : 2*lvl);      //level scaling
 	}
-	
+
 	@Override
 	public int max() {
 		return Math.max(0, max( buffedLvl() + RingOfSharpshooting.levelDamageBonus(Dungeon.hero) ));
 	}
-	
+
 	@Override
 	public int max(int lvl) {
 		return  5 * tier +                      //base
 				(tier == 1 ? 2*lvl : tier*lvl); //level scaling
 	}
-	
+
 	public int STRReq(int lvl){
-		lvl = Math.max(0, lvl);
-		//strength req decreases at +1,+3,+6,+10,etc.
-		return (7 + tier * 2) - (int)(Math.sqrt(8 * lvl + 1) - 1)/2;
+		return STRReq(tier, lvl) - 1; //1 less str than normal for their tier
 	}
-	
+
 	@Override
 	//FIXME some logic here assumes the items are in the player's inventory. Might need to adjust
 	public Item upgrade() {
@@ -106,9 +108,9 @@ abstract public class MissileWeapon extends Weapon {
 			if (quantity > 1) {
 				MissileWeapon upgraded = (MissileWeapon) split(1);
 				upgraded.parent = null;
-				
+
 				upgraded = (MissileWeapon) upgraded.upgrade();
-				
+
 				//try to put the upgraded into inventory, if it didn't already merge
 				if (upgraded.quantity() == 1 && !upgraded.collect()) {
 					Dungeon.level.drop(upgraded, Dungeon.hero.pos);
@@ -117,7 +119,7 @@ abstract public class MissileWeapon extends Weapon {
 				return upgraded;
 			} else {
 				super.upgrade();
-				
+
 				Item similar = Dungeon.hero.belongings.getSimilar(this);
 				if (similar != null){
 					detach(Dungeon.hero.belongings.backpack);
@@ -126,7 +128,7 @@ abstract public class MissileWeapon extends Weapon {
 				updateQuickslot();
 				return this;
 			}
-			
+
 		} else {
 			return super.upgrade();
 		}
@@ -138,21 +140,42 @@ abstract public class MissileWeapon extends Weapon {
 		actions.remove( AC_EQUIP );
 		return actions;
 	}
-	
+
 	@Override
 	public boolean collect(Bag container) {
 		if (container instanceof MagicalHolster) holster = true;
 		return super.collect(container);
 	}
-	
+
 	@Override
 	public int throwPos(Hero user, int dst) {
-		if (hasEnchant(Projecting.class, user)
-				&& !Dungeon.level.solid[dst] && Dungeon.level.distance(user.pos, dst) <= 4){
+
+		boolean projecting = hasEnchant(Projecting.class, user);
+		if (!projecting && Random.Int(3) < user.pointsInTalent(Talent.SHARED_ENCHANTMENT)){
+			if (this instanceof Dart && ((Dart) this).crossbowHasEnchant(Dungeon.hero)){
+				//do nothing
+			} else {
+				SpiritBow bow = Dungeon.hero.belongings.getItem(SpiritBow.class);
+				if (bow != null && bow.hasEnchant(Projecting.class, user)) {
+					projecting = true;
+				}
+			}
+		}
+
+		if (projecting && !Dungeon.level.solid[dst] && Dungeon.level.distance(user.pos, dst) <= 4){
 			return dst;
 		} else {
 			return super.throwPos(user, dst);
 		}
+	}
+
+	@Override
+	public float accuracyFactor(Char owner) {
+		float accFactor = super.accuracyFactor(owner);
+		if (owner instanceof Hero && owner.buff(Momentum.class) != null && owner.buff(Momentum.class).freerunning()){
+			accFactor *= 1f + 0.2f*((Hero) owner).pointsInTalent(Talent.PROJECTILE_MOMENTUM);
+		}
+		return accFactor;
 	}
 
 	@Override
@@ -165,23 +188,39 @@ abstract public class MissileWeapon extends Weapon {
 	protected void onThrow( int cell ) {
 		Char enemy = Actor.findChar( cell );
 		if (enemy == null || enemy == curUser) {
-				parent = null;
-				super.onThrow( cell );
+			parent = null;
+			super.onThrow( cell );
 		} else {
 			if (!curUser.shoot( enemy, this )) {
 				rangedMiss( cell );
 			} else {
-				
+
 				rangedHit( enemy, cell );
 
 			}
 		}
 	}
-	
+
+	@Override
+	public int proc(Char attacker, Char defender, int damage) {
+		if (attacker == Dungeon.hero && Random.Int(3) < Dungeon.hero.pointsInTalent(Talent.SHARED_ENCHANTMENT)){
+			if (this instanceof Dart && ((Dart) this).crossbowHasEnchant(Dungeon.hero)){
+				//do nothing
+			} else {
+				SpiritBow bow = Dungeon.hero.belongings.getItem(SpiritBow.class);
+				if (bow != null && bow.enchantment != null && Dungeon.hero.buff(MagicImmune.class) == null) {
+					damage = bow.enchantment.proc(this, attacker, defender, damage);
+				}
+			}
+		}
+
+		return super.proc(attacker, defender, damage);
+	}
+
 	@Override
 	public Item random() {
 		if (!stackable) return this;
-		
+
 		//2: 66.67% (2/3)
 		//3: 26.67% (4/15)
 		//4: 6.67%  (1/15)
@@ -194,12 +233,12 @@ abstract public class MissileWeapon extends Weapon {
 		}
 		return this;
 	}
-	
+
 	@Override
 	public float castDelay(Char user, int dst) {
 		return speedFactor( user );
 	}
-	
+
 	protected void rangedHit( Char enemy, int cell ){
 		decrementDurability();
 		if (durability > 0){
@@ -214,12 +253,12 @@ abstract public class MissileWeapon extends Weapon {
 			Dungeon.level.drop( this, cell ).sprite.drop();
 		}
 	}
-	
+
 	protected void rangedMiss( int cell ) {
 		parent = null;
 		super.onThrow(cell);
 	}
-	
+
 	protected float durabilityPerUse(){
 		float usages = baseUses * (float)(Math.pow(3, level()));
 
@@ -230,16 +269,18 @@ abstract public class MissileWeapon extends Weapon {
 		if (holster) {
 			usages *= MagicalHolster.HOLSTER_DURABILITY_FACTOR;
 		}
-		
+
 		usages *= RingOfSharpshooting.durabilityMultiplier( Dungeon.hero );
-		
+
 		//at 100 uses, items just last forever.
 		if (usages >= 100f) return 0;
-		
+
+		usages = Math.round(usages);
+
 		//add a tiny amount to account for rounding error for calculations like 1/3
 		return (MAX_DURABILITY/usages) + 0.001f;
 	}
-	
+
 	protected void decrementDurability(){
 		//if this weapon was thrown from a source stack, degrade that stack.
 		//unless a weapon is about to break, then break the one being thrown
@@ -263,27 +304,30 @@ abstract public class MissileWeapon extends Weapon {
 			}
 		}
 	}
-	
+
 	@Override
 	public int damageRoll(Char owner) {
 		int damage = augment.damageFactor(super.damageRoll( owner ));
-		
+
 		if (owner instanceof Hero) {
 			int exStr = ((Hero)owner).STR() - STRReq();
 			if (exStr > 0) {
 				damage += Random.IntRange( 0, exStr );
 			}
+			if (owner.buff(Momentum.class) != null && owner.buff(Momentum.class).freerunning()) {
+				damage = Math.round(damage * (1f + 0.1f * ((Hero) owner).pointsInTalent(Talent.PROJECTILE_MOMENTUM)));
+			}
 		}
-		
+
 		return damage;
 	}
-	
+
 	@Override
 	public void reset() {
 		super.reset();
 		durability = MAX_DURABILITY;
 	}
-	
+
 	@Override
 	public Item merge(Item other) {
 		super.merge(other);
@@ -297,13 +341,13 @@ abstract public class MissileWeapon extends Weapon {
 		}
 		return this;
 	}
-	
+
 	@Override
 	public Item split(int amount) {
 		bundleRestoring = true;
 		Item split = super.split(amount);
 		bundleRestoring = false;
-		
+
 		//unless the thrown weapon will break, split off a max durability item and
 		//have it reduce the durability of the main stack. Cleaner to the player this way
 		if (split != null){
@@ -311,26 +355,26 @@ abstract public class MissileWeapon extends Weapon {
 			m.durability = MAX_DURABILITY;
 			m.parent = this;
 		}
-		
+
 		return split;
 	}
-	
+
 	@Override
 	public boolean doPickUp(Hero hero) {
 		parent = null;
 		return super.doPickUp(hero);
 	}
-	
+
 	@Override
 	public boolean isIdentified() {
 		return true;
 	}
-	
+
 	@Override
 	public String info() {
 
 		String info = desc();
-		
+
 		info += "\n\n" + Messages.get( MissileWeapon.class, "stats",
 				tier,
 				Math.round(augment.damageFactor(min())),
@@ -357,9 +401,9 @@ abstract public class MissileWeapon extends Weapon {
 		}
 
 		info += "\n\n" + Messages.get(MissileWeapon.class, "distance");
-		
+
 		info += "\n\n" + Messages.get(this, "durability");
-		
+
 		if (durabilityPerUse() > 0){
 			info += " " + Messages.get(this, "uses_left",
 					(int)Math.ceil(durability/durabilityPerUse()),
@@ -367,26 +411,26 @@ abstract public class MissileWeapon extends Weapon {
 		} else {
 			info += " " + Messages.get(this, "unlimited_uses");
 		}
-		
-		
+
+
 		return info;
 	}
-	
+
 	@Override
 	public int value() {
 		return 6 * tier * quantity * (level() + 1);
 	}
-	
+
 	private static final String DURABILITY = "durability";
-	
+
 	@Override
 	public void storeInBundle(Bundle bundle) {
 		super.storeInBundle(bundle);
 		bundle.put(DURABILITY, durability);
 	}
-	
+
 	private static boolean bundleRestoring = false;
-	
+
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		bundleRestoring = true;

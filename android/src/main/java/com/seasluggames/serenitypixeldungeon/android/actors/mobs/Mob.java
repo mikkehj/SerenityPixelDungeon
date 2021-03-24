@@ -54,6 +54,8 @@ import com.seasluggames.serenitypixeldungeon.android.items.Gold;
 import com.seasluggames.serenitypixeldungeon.android.items.Item;
 import com.seasluggames.serenitypixeldungeon.android.items.artifacts.DriedRose;
 import com.seasluggames.serenitypixeldungeon.android.items.artifacts.TimekeepersHourglass;
+import com.seasluggames.serenitypixeldungeon.android.items.potions.PotionOfHealing;
+import com.seasluggames.serenitypixeldungeon.android.items.potions.PotionOfStrength;
 import com.seasluggames.serenitypixeldungeon.android.items.rings.Ring;
 import com.seasluggames.serenitypixeldungeon.android.items.rings.RingOfWealth;
 import com.seasluggames.serenitypixeldungeon.android.items.stones.StoneOfAggression;
@@ -662,12 +664,7 @@ public abstract class Mob extends Char {
 				} else {
 					Dungeon.hero.sprite.showStatus(CharSprite.POSITIVE, Messages.get(this, "exp", exp));
 				}
-				/*
-				if (exp > 0) {
-					Dungeon.hero.sprite.showStatus(CharSprite.POSITIVE, Messages.get(this, "exp", exp));
-				}
 
-				 */
 				Dungeon.hero.earnExp(exp, getClass());
 			}
 		}
@@ -758,6 +755,54 @@ public abstract class Mob extends Char {
 		//blessing of wealth talent
 		if (Dungeon.hero.hasTalent(Talent.BLESSING_OF_WEALTH)) {
 			Dungeon.level.drop(new Gold(5 * Dungeon.hero.pointsInTalent(Talent.BLESSING_OF_WEALTH)), pos).sprite.drop();
+		}
+
+		if (Dungeon.hero.hasTalent(Talent.BLESSING_OF_STRENGTH)) {
+			int chance = Random.NormalIntRange(1, 100);
+			Item pot = new PotionOfStrength();
+			pot.identify();
+
+			switch (Dungeon.hero.pointsInTalent(Talent.BLESSING_OF_STRENGTH)) {
+				case 1:
+					if (chance >= 90) {
+						Dungeon.level.drop(pot, pos);
+					}
+					break;
+				case 2:
+					if (chance >= 80) {
+						Dungeon.level.drop(pot, pos);
+					}
+					break;
+				case 3:
+					if (chance >= 70) {
+						Dungeon.level.drop(pot, pos);
+					}
+					break;
+			}
+		}
+
+		if (Dungeon.hero.hasTalent(Talent.BLESSING_OF_RESTORATION)) {
+			int chance = Random.NormalIntRange(1, 100);
+			Item pot = new PotionOfHealing();
+			pot.identify();
+
+			switch (Dungeon.hero.pointsInTalent(Talent.BLESSING_OF_RESTORATION)) {
+				case 1:
+					if (chance >= 90) {
+						Dungeon.level.drop(pot, pos);
+					}
+					break;
+				case 2:
+					if (chance >= 80) {
+						Dungeon.level.drop(pot, pos);
+					}
+					break;
+				case 3:
+					if (chance >= 70) {
+						Dungeon.level.drop(pot, pos);
+					}
+					break;
+			}
 		}
 
 	}

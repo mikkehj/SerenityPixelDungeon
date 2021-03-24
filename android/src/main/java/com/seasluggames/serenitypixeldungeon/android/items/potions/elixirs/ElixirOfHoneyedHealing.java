@@ -80,7 +80,7 @@ public class ElixirOfHoneyedHealing extends Elixir {
 	public static class Recipe extends com.seasluggames.serenitypixeldungeon.android.items.Recipe.SimpleRecipe {
 		
 		{
-			inputs =  new Class[]{PotionOfHealing.class, Honeypot.SerenityPot.class};
+			inputs =  new Class[]{PotionOfHealing.class, Honeypot.ShatteredPot.class};
 			inQuantity = new int[]{1, 1};
 			
 			cost = 4;

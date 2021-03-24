@@ -46,7 +46,7 @@ public class SecretHoneypotRoom extends SecretRoom {
 		brokenPotPos.x = (brokenPotPos.x + entrance().x) / 2;
 		brokenPotPos.y = (brokenPotPos.y + entrance().y) / 2;
 		
-		Honeypot.SerenityPot pot = new Honeypot.SerenityPot();
+		Honeypot.ShatteredPot pot = new Honeypot.ShatteredPot();
 		level.drop(pot, level.pointToCell(brokenPotPos));
 		
 		Bee bee = new Bee();

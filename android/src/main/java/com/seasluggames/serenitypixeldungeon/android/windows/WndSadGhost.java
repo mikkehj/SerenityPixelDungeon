@@ -54,13 +54,13 @@ public class WndSadGhost extends Window {
 	private static final int GAP		= 2;
 
 	Ghost ghost;
-	
+
 	public WndSadGhost( final Ghost ghost, final int type ) {
-		
+
 		super();
 
 		this.ghost = ghost;
-		
+
 		IconTitle titlebar = new IconTitle();
 		RenderedTextBlock message;
 		switch (type){
@@ -99,11 +99,11 @@ public class WndSadGhost extends Window {
 
 		resize(WIDTH, (int) btnArmor.bottom() + BTN_GAP);
 	}
-	
+
 	private void selectReward( Item reward ) {
-		
+
 		hide();
-		
+
 		if (reward == null) return;
 
 		if (reward instanceof Weapon && Ghost.Quest.enchant != null){
@@ -111,21 +111,21 @@ public class WndSadGhost extends Window {
 		} else if (reward instanceof Armor && Ghost.Quest.glyph != null){
 			((Armor) reward).inscribe(Ghost.Quest.glyph);
 		}
-		
+
 		reward.identify();
 		if (reward.doPickUp( Dungeon.hero )) {
 			GLog.i( Messages.get(Dungeon.hero, "you_now_have", reward.name()) );
 		} else {
 			Dungeon.level.drop( reward, ghost.pos ).sprite.drop();
 		}
-		
+
 		ghost.yell( Messages.get(this, "farewell") );
 		ghost.die( null );
-		
+
 		Ghost.Quest.complete();
 	}
 
-	public class RewardButton extends Component {
+	private class RewardButton extends Component {
 
 		protected NinePatch bg;
 		protected ItemSlot slot;
@@ -164,7 +164,7 @@ public class WndSadGhost extends Window {
 		}
 	}
 
-	public class RewardWindow extends WndInfoItem {
+	private class RewardWindow extends WndInfoItem {
 
 		public RewardWindow( Item item ) {
 			super(item);

@@ -37,7 +37,7 @@ import com.watabou.utils.SparseArray;
 import java.util.HashSet;
 
 public abstract class Actor implements Bundlable {
-	
+
 	public static final float TICK	= 1f;
 
 	private float time;
@@ -58,7 +58,7 @@ public abstract class Actor implements Bundlable {
 	protected int actPriority = DEFAULT;
 
 	protected abstract boolean act();
-	
+
 	protected void spend( float time ) {
 		this.time += time;
 		//if time is very close to a whole number, round to a whole number to fix errors
@@ -71,7 +71,7 @@ public abstract class Actor implements Bundlable {
 	public void spendToWhole(){
 		time = (float)Math.ceil(time);
 	}
-	
+
 	protected void postpone( float time ) {
 		if (this.time < now + time) {
 			this.time = now + time;
@@ -82,17 +82,17 @@ public abstract class Actor implements Bundlable {
 			}
 		}
 	}
-	
+
 	public float cooldown() {
 		return time - now;
 	}
-	
+
 	protected void deactivate() {
 		time = Float.MAX_VALUE;
 	}
-	
+
 	protected void onAdd() {}
-	
+
 	protected void onRemove() {}
 
 	private static final String TIME    = "time";
@@ -127,21 +127,21 @@ public abstract class Actor implements Bundlable {
 	// **********************
 	// *** Static members ***
 	// **********************
-	
+
 	private static HashSet<Actor> all = new HashSet<>();
-	private static HashSet<com.seasluggames.serenitypixeldungeon.android.actors.Char> chars = new HashSet<>();
+	private static HashSet<Char> chars = new HashSet<>();
 	private static volatile Actor current;
 
 	private static SparseArray<Actor> ids = new SparseArray<>();
 
 	private static float now = 0;
-	
+
 	public static float now(){
 		return now;
 	}
-	
+
 	public static synchronized void clear() {
-		
+
 		now = 0;
 
 		all.clear();
@@ -151,9 +151,9 @@ public abstract class Actor implements Bundlable {
 	}
 
 	public static synchronized void fixTime() {
-		
+
 		if (all.isEmpty()) return;
-		
+
 		float min = Float.MAX_VALUE;
 		for (Actor a : all) {
 			if (a.time < min) {
@@ -173,19 +173,19 @@ public abstract class Actor implements Bundlable {
 		}
 		now -= min;
 	}
-	
+
 	public static void init() {
-		
+
 		add( Dungeon.hero );
-		
+
 		for (Mob mob : Dungeon.level.mobs) {
 			add( mob );
 		}
-		
+
 		for (Blob blob : Dungeon.level.blobs.values()) {
 			add( blob );
 		}
-		
+
 		current = null;
 	}
 
@@ -216,29 +216,29 @@ public abstract class Actor implements Bundlable {
 	public static int curActorPriority() {
 		return current != null ? current.actPriority : DEFAULT;
 	}
-	
+
 	public static boolean keepActorThreadAlive = true;
-	
+
 	public static void process() {
-		
+
 		boolean doNext;
 		boolean interrupted = false;
 
 		do {
-			
+
 			current = null;
 			if (!interrupted) {
 				float earliest = Float.MAX_VALUE;
 
 				for (Actor actor : all) {
-					
+
 					//some actors will always go before others if time is equal.
 					if (actor.time < earliest ||
 							actor.time == earliest && (current == null || actor.actPriority > current.actPriority)) {
 						earliest = actor.time;
 						current = actor;
 					}
-					
+
 				}
 			}
 
@@ -247,22 +247,22 @@ public abstract class Actor implements Bundlable {
 				now = current.time;
 				Actor acting = current;
 
-				if (acting instanceof com.seasluggames.serenitypixeldungeon.android.actors.Char && ((com.seasluggames.serenitypixeldungeon.android.actors.Char) acting).sprite != null) {
+				if (acting instanceof Char && ((Char) acting).sprite != null) {
 					// If it's character's turn to act, but its sprite
 					// is moving, wait till the movement is over
 					try {
-						synchronized (((com.seasluggames.serenitypixeldungeon.android.actors.Char)acting).sprite) {
-							if (((com.seasluggames.serenitypixeldungeon.android.actors.Char)acting).sprite.isMoving) {
-								((com.seasluggames.serenitypixeldungeon.android.actors.Char) acting).sprite.wait();
+						synchronized (((Char)acting).sprite) {
+							if (((Char)acting).sprite.isMoving) {
+								((Char) acting).sprite.wait();
 							}
 						}
 					} catch (InterruptedException e) {
 						interrupted = true;
 					}
 				}
-				
+
 				interrupted = interrupted || Thread.interrupted();
-				
+
 				if (interrupted){
 					doNext = false;
 					current = null;
@@ -279,19 +279,19 @@ public abstract class Actor implements Bundlable {
 
 			if (!doNext){
 				synchronized (Thread.currentThread()) {
-					
+
 					interrupted = interrupted || Thread.interrupted();
-					
+
 					if (interrupted){
 						current = null;
 						interrupted = false;
 					}
-					
+
 					synchronized (GameScene.class){
 						//signals to the gamescene that actor processing is finished for now
 						GameScene.class.notify();
 					}
-					
+
 					try {
 						Thread.currentThread().wait();
 					} catch (InterruptedException e) {
@@ -302,17 +302,17 @@ public abstract class Actor implements Bundlable {
 
 		} while (keepActorThreadAlive);
 	}
-	
+
 	public static void add( Actor actor ) {
 		add( actor, now );
 	}
-	
+
 	public static void addDelayed( Actor actor, float delay ) {
 		add( actor, now + delay );
 	}
-	
+
 	private static synchronized void add( Actor actor, float time ) {
-		
+
 		if (all.contains( actor )) {
 			return;
 		}
@@ -322,19 +322,18 @@ public abstract class Actor implements Bundlable {
 		all.add( actor );
 		actor.time += time;
 		actor.onAdd();
-		
-		if (actor instanceof com.seasluggames.serenitypixeldungeon.android.actors.Char) {
-			com.seasluggames.serenitypixeldungeon.android.actors.Char ch = (com.seasluggames.serenitypixeldungeon.android.actors.Char)actor;
+
+		if (actor instanceof Char) {
+			Char ch = (Char)actor;
 			chars.add( ch );
 			for (Buff buff : ch.buffs()) {
-				all.add( buff );
-				buff.onAdd();
+				add(buff);
 			}
 		}
 	}
-	
+
 	public static synchronized void remove( Actor actor ) {
-		
+
 		if (actor != null) {
 			all.remove( actor );
 			chars.remove( actor );
@@ -345,9 +344,9 @@ public abstract class Actor implements Bundlable {
 			}
 		}
 	}
-	
-	public static synchronized com.seasluggames.serenitypixeldungeon.android.actors.Char findChar(int pos ) {
-		for (com.seasluggames.serenitypixeldungeon.android.actors.Char ch : chars){
+
+	public static synchronized Char findChar( int pos ) {
+		for (Char ch : chars){
 			if (ch.pos == pos)
 				return ch;
 		}
@@ -362,5 +361,5 @@ public abstract class Actor implements Bundlable {
 		return new HashSet<>(all);
 	}
 
-	public static synchronized HashSet<com.seasluggames.serenitypixeldungeon.android.actors.Char> chars() { return new HashSet<>(chars); }
+	public static synchronized HashSet<Char> chars() { return new HashSet<>(chars); }
 }

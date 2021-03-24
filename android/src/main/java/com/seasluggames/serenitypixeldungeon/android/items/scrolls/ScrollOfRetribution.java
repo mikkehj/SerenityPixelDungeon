@@ -39,18 +39,18 @@ public class ScrollOfRetribution extends Scroll {
 	{
 		icon = ItemSpriteSheet.Icons.SCROLL_RETRIB;
 	}
-	
+
 	@Override
 	public void doRead() {
-		
-		GameScene.flash( 0xFFFFFF );
-		
+
+		GameScene.flash( 0x80FFFFFF );
+
 		//scales from 0x to 1x power, maxing at ~10% HP
 		float hpPercent = (curUser.HT - curUser.HP)/(float)(curUser.HT);
 		float power = Math.min( 4f, 4.45f*hpPercent);
-		
+
 		Sample.INSTANCE.play( Assets.Sounds.BLAST );
-		
+
 		for (Mob mob : Dungeon.level.mobs.toArray( new Mob[0] )) {
 			if (Dungeon.level.heroFOV[mob.pos]) {
 				//deals 10%HT, plus 0-90%HP based on scaling
@@ -60,17 +60,17 @@ public class ScrollOfRetribution extends Scroll {
 				}
 			}
 		}
-		
+
 		Buff.prolong(curUser, Weakness.class, Weakness.DURATION);
 		Buff.prolong(curUser, Blindness.class, Blindness.DURATION);
 		Dungeon.observe();
 
 		identify();
-		
+
 		readAnimation();
-		
+
 	}
-	
+
 	@Override
 	public int value() {
 		return isKnown() ? 40 * quantity : super.value();

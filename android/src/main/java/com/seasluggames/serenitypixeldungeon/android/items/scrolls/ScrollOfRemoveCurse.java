@@ -45,7 +45,7 @@ public class ScrollOfRemoveCurse extends InventoryScroll {
 		icon = ItemSpriteSheet.Icons.SCROLL_REMCURSE;
 		mode = WndBag.Mode.UNCURSABLE;
 	}
-	
+
 	@Override
 	protected void onItemSelected(Item item) {
 		new Flare( 6, 32 ).show( curUser.sprite, 2f ) ;
@@ -62,7 +62,7 @@ public class ScrollOfRemoveCurse extends InventoryScroll {
 	}
 
 	public static boolean uncurse( Hero hero, Item... items ) {
-		
+
 		boolean procced = false;
 		for (Item item : items) {
 			if (item != null) {
@@ -90,20 +90,20 @@ public class ScrollOfRemoveCurse extends InventoryScroll {
 				((Wand) item).updateLevel();
 			}
 		}
-		
+
 		if (procced && hero != null) {
 			hero.sprite.emitter().start( ShadowParticle.UP, 0.05f, 10 );
 			hero.updateHT( false ); //for ring of might
 			updateQuickslot();
 		}
-		
+
 		return procced;
 	}
-	
+
 	public static boolean uncursable( Item item ){
 		if (item.isEquipped(Dungeon.hero) && Dungeon.hero.buff(Degrade.class) != null) {
 			return true;
-		} if ((item instanceof EquipableItem || item instanceof Wand) && (!item.isIdentified() || item.cursed)){
+		} if ((item instanceof EquipableItem || item instanceof Wand) && ((!item.isIdentified() && !item.cursedKnown) || item.cursed)){
 			return true;
 		} else if (item instanceof Weapon){
 			return ((Weapon)item).hasCurseEnchant();
@@ -115,7 +115,7 @@ public class ScrollOfRemoveCurse extends InventoryScroll {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public int value() {
 		return isKnown() ? 30 * quantity : super.value();

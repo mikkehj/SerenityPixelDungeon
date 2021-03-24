@@ -48,6 +48,9 @@ import com.watabou.utils.DeviceCompat;
 
 public class TitleScene extends PixelScene {
 
+    StyledButton btnSignIn;
+    StyledButton btnSignOut;
+
     @Override
     public void create() {
 
@@ -119,7 +122,9 @@ public class TitleScene extends PixelScene {
             }
         };
         btnPlay.icon(Icons.get(Icons.ENTER));
-        add(btnPlay);
+        if (!AndroidLauncher.isSignedIn()) {
+            add(btnPlay);
+        }
 
         StyledButton btnRankings = new StyledButton(GREY_TR, Messages.get(this, "rankings")) {
             @Override
@@ -151,6 +156,27 @@ public class TitleScene extends PixelScene {
         btnAbout.icon(Icons.get(Icons.SSG));
         add(btnAbout);
 
+        btnSignIn = new StyledButton(GREY_TR, Messages.get(this, "signin")) {
+            @Override
+            protected void onClick() {
+                //AndroidLauncher.runOnUI(() -> AndroidLauncher.doThis());
+            AndroidLauncher.runSignIn(AndroidLauncher::signIn);
+            removeBtnSignIn();
+            }
+        };
+
+        add(btnSignIn);
+
+        btnSignOut = new StyledButton(GREY_TR, Messages.get(this, "signout")) {
+            @Override
+            protected void onClick() {
+                //AndroidLauncher.runOnUI(() -> AndroidLauncher.doThis());
+                AndroidLauncher.runSignIn(AndroidLauncher::signOut);
+                removeBtnSignOut();
+            }
+        };
+        //add(btnSignOut);
+
         final int BTN_HEIGHT = 20;
         int GAP = (int) (h - topRegion - (landscape() ? 3 : 4) * BTN_HEIGHT) / 3;
         GAP /= landscape() ? 3 : 5;
@@ -166,6 +192,8 @@ public class TitleScene extends PixelScene {
         //btnChanges.setRect(btnNews.right() + 2, btnNews.top(), btnNews.width(), BTN_HEIGHT);
         btnSettings.setRect(btnRankings.left(), btnRankings.bottom() + GAP, btnRankings.width(), BTN_HEIGHT);
         btnAbout.setRect(btnSettings.right() + 2, btnSettings.top(), btnSettings.width(), BTN_HEIGHT);
+        btnSignIn.setRect(title.x, btnSettings.bottom() + GAP, title.width(), BTN_HEIGHT);
+        btnSignOut.setRect(title.x, btnSettings.bottom() + GAP, title.width(), BTN_HEIGHT);
 
         BitmapText version = new BitmapText("v" + Game.version, pixelFont);
         version.measure();
@@ -175,6 +203,8 @@ public class TitleScene extends PixelScene {
         add(version);
 
         fadeIn();
+
+        AndroidLauncher.runSignIn(AndroidLauncher::checkLogIn);
     }
 
     private static class SettingsButton extends StyledButton {
@@ -205,5 +235,15 @@ public class TitleScene extends PixelScene {
             }
             SPDMain.scene().add(new WndSettings());
         }
+    }
+
+    public void removeBtnSignIn() {
+        //remove(btnSignIn);
+        btnSignIn.destroy();
+    }
+
+    private void removeBtnSignOut() {
+        remove(btnSignOut);
+        add(btnSignIn);
     }
 }

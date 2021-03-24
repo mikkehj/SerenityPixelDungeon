@@ -24,31 +24,44 @@
 
 package com.seasluggames.serenitypixeldungeon.android.windows;
 
+import com.seasluggames.serenitypixeldungeon.android.Assets;
+import com.seasluggames.serenitypixeldungeon.android.Chrome;
 import com.seasluggames.serenitypixeldungeon.android.Dungeon;
+import com.seasluggames.serenitypixeldungeon.android.SPDMain;
 import com.seasluggames.serenitypixeldungeon.android.actors.mobs.npcs.Wandmaker;
 import com.seasluggames.serenitypixeldungeon.android.items.Item;
 import com.seasluggames.serenitypixeldungeon.android.items.quest.CorpseDust;
 import com.seasluggames.serenitypixeldungeon.android.items.quest.Embers;
-import com.seasluggames.serenitypixeldungeon.android.items.wands.Wand;
 import com.seasluggames.serenitypixeldungeon.android.messages.Messages;
 import com.seasluggames.serenitypixeldungeon.android.plants.Rotberry;
 import com.seasluggames.serenitypixeldungeon.android.scenes.PixelScene;
 import com.seasluggames.serenitypixeldungeon.android.sprites.ItemSprite;
+import com.seasluggames.serenitypixeldungeon.android.ui.ItemSlot;
 import com.seasluggames.serenitypixeldungeon.android.ui.PurpleButton;
 import com.seasluggames.serenitypixeldungeon.android.ui.RenderedTextBlock;
 import com.seasluggames.serenitypixeldungeon.android.ui.Window;
 import com.seasluggames.serenitypixeldungeon.android.utils.GLog;
+import com.watabou.noosa.NinePatch;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.noosa.ui.Component;
 
 public class WndWandmaker extends Window {
 
 	private static final int WIDTH		= 120;
-	private static final int BTN_HEIGHT	= 20;
-	private static final float GAP		= 2;
-	
+	private static final int BTN_SIZE	= 32;
+	private static final int BTN_GAP	= 5;
+	private static final int GAP		= 2;
+
+	Wandmaker wandmaker;
+	Item item;
+
 	public WndWandmaker( final Wandmaker wandmaker, final Item item ) {
-		
+
 		super();
-		
+
+		this.wandmaker = wandmaker;
+		this.item = item;
+
 		IconTitle titlebar = new IconTitle();
 		titlebar.icon(new ItemSprite(item.image(), null));
 		titlebar.label(Messages.titleCase(item.name()));
@@ -68,29 +81,19 @@ public class WndWandmaker extends Window {
 		message.maxWidth(WIDTH);
 		message.setPos(0, titlebar.bottom() + GAP);
 		add( message );
-		
-		PurpleButton btnWand1 = new PurpleButton( Messages.titleCase(Wandmaker.Quest.wand1.name()) ) {
-			@Override
-			protected void onClick() {
-				selectReward( wandmaker, item, Wandmaker.Quest.wand1 );
-			}
-		};
-		btnWand1.setRect(0, message.top() + message.height() + GAP, WIDTH, BTN_HEIGHT);
+
+		RewardButton btnWand1 = new RewardButton( Wandmaker.Quest.wand1 );
+		btnWand1.setRect( (WIDTH - BTN_GAP) / 2 - BTN_SIZE, message.top() + message.height() + BTN_GAP, BTN_SIZE, BTN_SIZE );
 		add( btnWand1 );
-		
-		PurpleButton btnWand2 = new PurpleButton( Messages.titleCase(Wandmaker.Quest.wand2.name()) ) {
-			@Override
-			protected void onClick() {
-				selectReward( wandmaker, item, Wandmaker.Quest.wand2 );
-			}
-		};
-		btnWand2.setRect(0, btnWand1.bottom() + GAP, WIDTH, BTN_HEIGHT);
-		add( btnWand2 );
-		
+
+		RewardButton btnWand2 = new RewardButton( Wandmaker.Quest.wand2 );
+		btnWand2.setRect( btnWand1.right() + BTN_GAP, btnWand1.top(), BTN_SIZE, BTN_SIZE );
+		add(btnWand2);
+
 		resize(WIDTH, (int) btnWand2.bottom());
 	}
-	
-	private void selectReward( Wandmaker wandmaker, Item item, Wand reward ) {
+
+	private void selectReward( Item reward ) {
 
 		if (reward == null){
 			return;
@@ -106,12 +109,81 @@ public class WndWandmaker extends Window {
 		} else {
 			Dungeon.level.drop( reward, wandmaker.pos ).sprite.drop();
 		}
-		
+
 		wandmaker.yell( Messages.get(this, "farewell", Dungeon.hero.name()) );
 		wandmaker.destroy();
-		
+
 		wandmaker.sprite.die();
-		
+
 		Wandmaker.Quest.complete();
 	}
+
+	public class RewardButton extends Component {
+
+		protected NinePatch bg;
+		protected ItemSlot slot;
+
+		public RewardButton( Item item ){
+			bg = Chrome.get( Chrome.Type.PURPLE_BUTTON);
+			add( bg );
+
+			slot = new ItemSlot( item ){
+				@Override
+				protected void onPointerDown() {
+					bg.brightness( 1.2f );
+					Sample.INSTANCE.play( Assets.Sounds.CLICK );
+				}
+				@Override
+				protected void onPointerUp() {
+					bg.resetColor();
+				}
+				@Override
+				protected void onClick() {
+					SPDMain.scene().addToFront(new RewardWindow(item));
+				}
+			};
+			add(slot);
+		}
+
+		@Override
+		protected void layout() {
+			super.layout();
+
+			bg.x = x;
+			bg.y = y;
+			bg.size( width, height );
+
+			slot.setRect( x + 2, y + 2, width - 4, height - 4 );
+		}
+	}
+
+	private class RewardWindow extends WndInfoItem {
+
+		public RewardWindow( Item item ) {
+			super(item);
+
+			PurpleButton btnConfirm = new PurpleButton(Messages.get(WndSadGhost.class, "confirm")){
+				@Override
+				protected void onClick() {
+					RewardWindow.this.hide();
+
+					selectReward( item );
+				}
+			};
+			btnConfirm.setRect(0, height+2, width/2-1, 16);
+			add(btnConfirm);
+
+			PurpleButton btnCancel = new PurpleButton(Messages.get(WndSadGhost.class, "cancel")){
+				@Override
+				protected void onClick() {
+					hide();
+				}
+			};
+			btnCancel.setRect(btnConfirm.right()+2, height+2, btnConfirm.width(), 16);
+			add(btnCancel);
+
+			resize(width, (int)btnCancel.bottom());
+		}
+	}
+
 }

@@ -31,7 +31,7 @@ import com.watabou.noosa.Game;
 
 //TODO migrate to platformSupport class
 public class DeviceCompat {
-	
+
 	public static boolean supportsFullScreen(){
 		switch (Gdx.app.getType()){
 			case Android:
@@ -42,7 +42,7 @@ public class DeviceCompat {
 				return true;
 		}
 	}
-	
+
 	public static boolean isDesktop(){
 		return Gdx.app.getType() == Application.ApplicationType.Desktop;
 	}
@@ -50,7 +50,7 @@ public class DeviceCompat {
 	public static boolean hasHardKeyboard(){
 		return Gdx.input.isPeripheralAvailable(Input.Peripheral.HardwareKeyboard);
 	}
-	
+
 	public static boolean legacyDevice(){
 		switch (Gdx.app.getType()){
 			case Android:
@@ -61,15 +61,15 @@ public class DeviceCompat {
 				return false;
 		}
 	}
-	
+
 	public static boolean isDebug(){
 		return Game.version.contains("INDEV");
 	}
-	
+
 	public static void openURI( String URI ){
-		Gdx.net.openURI( URI );
+		Game.platform.openURI(URI);
 	}
-	
+
 	public static void log( String tag, String message ){
 		Gdx.app.log( tag, message );
 	}

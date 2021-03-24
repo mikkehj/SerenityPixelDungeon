@@ -10,8 +10,8 @@
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 3,
-      "versionName": "0.0.3a",
+      "versionCode": 5,
+      "versionName": "0.0.5b",
       "outputFile": "resources-release-stripped.ap_"
     }
   ]

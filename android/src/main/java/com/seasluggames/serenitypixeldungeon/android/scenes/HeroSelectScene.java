@@ -425,6 +425,12 @@ public class HeroSelectScene extends PixelScene {
 							new ItemSprite(ItemSpriteSheet.GLOVES, null)
 					};
 					break;
+				case CLERIC:
+					tabIcons = new Image[]{
+							new ItemSprite(ItemSpriteSheet.ANKH, null),
+							new ItemSprite(ItemSpriteSheet.GLOVES, null)
+					};
+					break;
 			}
 
 			tab = new IconTab( tabIcons[0] ){

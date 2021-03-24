@@ -84,16 +84,12 @@ public class Combo extends Buff implements ActionIndicator.Action {
 		return Messages.get(this, "name");
 	}
 
-	public void miss ( Char enemy ) {
-
-	}
-
 	public void hit( Char enemy ) {
 
 		count++;
 		comboTime = 5f;
 
-		//TODO this won't count a kill on an enemy that gets corruped by corrupting I think?
+		//TODO this won't count a kill on an enemy that gets corrupted by corrupting I think?
 		if (!enemy.isAlive() || enemy.buff(Corruption.class) != null){
 			comboTime = Math.max(comboTime, 10*((Hero)target).pointsInTalent(Talent.CLEAVE));
 		}
@@ -111,6 +107,10 @@ public class Combo extends Buff implements ActionIndicator.Action {
 
 		BuffIndicator.refreshHero(); //refresh the buff visually on-hit
 
+	}
+
+	public void miss ( Char enemy ) {
+		count = 0;
 	}
 
 	@Override

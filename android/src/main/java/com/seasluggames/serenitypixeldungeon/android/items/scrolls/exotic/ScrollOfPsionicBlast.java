@@ -37,18 +37,18 @@ import com.seasluggames.serenitypixeldungeon.android.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 
 public class ScrollOfPsionicBlast extends ExoticScroll {
-	
+
 	{
 		icon = ItemSpriteSheet.Icons.SCROLL_PSIBLAST;
 	}
-	
+
 	@Override
 	public void doRead() {
-		
-		GameScene.flash( 0xFFFFFF );
-		
+
+		GameScene.flash( 0x80FFFFFF );
+
 		Sample.INSTANCE.play( Assets.Sounds.BLAST );
-		
+
 		int targets = 0;
 		for (Mob mob : Dungeon.level.mobs.toArray( new Mob[0] )) {
 			if (Dungeon.level.heroFOV[mob.pos]) {
@@ -59,7 +59,7 @@ public class ScrollOfPsionicBlast extends ExoticScroll {
 				}
 			}
 		}
-		
+
 		curUser.damage(Math.max(0, Math.round(curUser.HT*(0.5f * (float)Math.pow(0.9, targets)))), this);
 		if (curUser.isAlive()) {
 			Buff.prolong(curUser, Blindness.class, Blindness.DURATION);
@@ -72,7 +72,7 @@ public class ScrollOfPsionicBlast extends ExoticScroll {
 		}
 
 		identify();
-		
-	
+
+
 	}
 }

@@ -47,7 +47,6 @@ import com.seasluggames.serenitypixeldungeon.android.items.Item;
 import com.seasluggames.serenitypixeldungeon.android.items.armor.Armor;
 import com.seasluggames.serenitypixeldungeon.android.items.artifacts.CloakOfShadows;
 import com.seasluggames.serenitypixeldungeon.android.items.artifacts.HornOfPlenty;
-import com.seasluggames.serenitypixeldungeon.android.items.potions.PotionOfStrength;
 import com.seasluggames.serenitypixeldungeon.android.items.rings.Ring;
 import com.seasluggames.serenitypixeldungeon.android.items.scrolls.ScrollOfRecharging;
 import com.seasluggames.serenitypixeldungeon.android.items.wands.Wand;
@@ -120,11 +119,11 @@ public enum Talent {
 	//Cleric T2
 	BLESSING_OF_DEXTERITY(97), BLESSING_OF_WIND(97), BLESSING_OF_LIFE(97), BLESSING_OF_LUCK(97),  BLESSING_OF_WEALTH(97),
 	//Cleric T3
-	CLERIC_10(97, 3), CLERIC_11(97, 3),
+	BLESSING_OF_REGENERATION(97, 3), BLESSING_OF_PROTECTION(97, 3),
 	//Priest T3
-	HOLY_BLESSING(97, 3), REJUVENATING_UPGRADE(97, 3), PRIEST_3(97, 3),
+	BLESSING_OF_POWER(97, 3), REJUVENATING_UPGRADE(97, 3), BLESSING_OF_RESTORATION(97, 3),
 	//Monk T3
-	POWER_BLESSING(97, 3), MONK_2(97, 3), MONK_3(97, 3);
+	BLESSING_OF_STRENGTH(97, 3), EMPOWER(97, 3), STEEL_SKIN(97, 3);
 
 	public static class ImprovisedProjectileCooldown extends FlavourBuff{};
 	public static class LethalMomentumTracker extends FlavourBuff{};
@@ -361,32 +360,6 @@ public enum Talent {
 		if (hero.pointsInTalent(THIEFS_INTUITION) == 2){
 			if (item instanceof Ring) ((Ring) item).setKnown();
 		}
-
-		if (hero.pointsInTalent(POWER_BLESSING) > 0) {
-			int chance = Random.NormalIntRange(1, 100);
-			Item pot = new PotionOfStrength();
-
-			switch (hero.pointsInTalent(POWER_BLESSING)) {
-				case 1:
-					if (chance >= 90) {
-						pot.identify();
-						pot.collect();
-					}
-					break;
-				case 2:
-					if (chance >= 80) {
-						pot.identify();
-						pot.collect();
-					}
-					break;
-				case 3:
-					if (chance >= 70) {
-						pot.identify();
-						pot.collect();
-					}
-					break;
-			}
-		}
 	}
 
 	//note that IDing can happen in alchemy scene, so be careful with VFX here
@@ -412,12 +385,17 @@ public enum Talent {
 			Buff.affect(enemy, SuckerPunchTracker.class);
 		}
 
-		if (hero.hasTalent(Talent.HOLY_BLESSING)
+		if (hero.hasTalent(Talent.BLESSING_OF_POWER)
 				&& enemy instanceof Mob){
-			dmg += hero.pointsInTalent(Talent.HOLY_BLESSING);
-			if (hero.HP <= (hero.HT - hero.pointsInTalent(Talent.HOLY_BLESSING))) {
-				hero.HP += hero.pointsInTalent(Talent.HOLY_BLESSING);
+			dmg += hero.pointsInTalent(Talent.BLESSING_OF_POWER);
+			if (hero.HP <= (hero.HT - hero.pointsInTalent(Talent.BLESSING_OF_POWER))) {
+				hero.HP += hero.pointsInTalent(Talent.BLESSING_OF_POWER);
 			}
+		}
+
+		if (hero.hasTalent(Talent.EMPOWER)
+				&& enemy instanceof Mob){
+			dmg += hero.pointsInTalent(Talent.EMPOWER) * 2;
 		}
 
 		if (hero.hasTalent(Talent.FOLLOWUP_STRIKE)) {
@@ -512,7 +490,7 @@ public enum Talent {
 				Collections.addAll(tierTalents, POINT_BLANK, SEER_SHOT);
 				break;
 			case CLERIC:
-				Collections.addAll(tierTalents, POINT_BLANK, ENHANCED_RINGS);
+				Collections.addAll(tierTalents, BLESSING_OF_REGENERATION, BLESSING_OF_PROTECTION);
 				break;
 		}
 		for (Talent talent : tierTalents){
@@ -564,10 +542,10 @@ public enum Talent {
 				Collections.addAll(tierTalents, DURABLE_TIPS, BARKSKIN, SHIELDING_DEW);
 				break;
 			case PRIEST:
-				Collections.addAll(tierTalents, HOLY_BLESSING, BARKSKIN, SHARED_ENCHANTMENT);
+				Collections.addAll(tierTalents, BLESSING_OF_POWER, REJUVENATING_UPGRADE, BLESSING_OF_RESTORATION);
 				break;
 			case MONK:
-				Collections.addAll(tierTalents, POWER_BLESSING, SHARED_UPGRADES, SHIELDING_DEW);
+				Collections.addAll(tierTalents, BLESSING_OF_STRENGTH, EMPOWER, STEEL_SKIN);
 				break;
 		}
 		for (Talent talent : tierTalents){

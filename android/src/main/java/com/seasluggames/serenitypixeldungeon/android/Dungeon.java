@@ -24,7 +24,6 @@
 
 package com.seasluggames.serenitypixeldungeon.android;
 
-import com.seasluggames.serenitypixeldungeon.android.Statistics;
 import com.seasluggames.serenitypixeldungeon.android.actors.Actor;
 import com.seasluggames.serenitypixeldungeon.android.actors.Char;
 import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Amok;
@@ -45,6 +44,9 @@ import com.seasluggames.serenitypixeldungeon.android.items.artifacts.TalismanOfF
 import com.seasluggames.serenitypixeldungeon.android.items.potions.Potion;
 import com.seasluggames.serenitypixeldungeon.android.items.rings.Ring;
 import com.seasluggames.serenitypixeldungeon.android.items.scrolls.Scroll;
+import com.seasluggames.serenitypixeldungeon.android.journal.Catalog;
+import com.seasluggames.serenitypixeldungeon.android.journal.Document;
+import com.seasluggames.serenitypixeldungeon.android.journal.Journal;
 import com.seasluggames.serenitypixeldungeon.android.journal.Notes;
 import com.seasluggames.serenitypixeldungeon.android.levels.CavesLevel;
 import com.seasluggames.serenitypixeldungeon.android.levels.CityLevel;
@@ -508,6 +510,9 @@ public class Dungeon {
 			SecretRoom.storeRoomsInBundle( bundle );
 			
 			Statistics.storeInBundle( bundle );
+			Catalog.store( bundle );
+			Document.store( bundle );
+			Journal.saveGlobal();
 			Notes.storeInBundle( bundle );
 			Generator.storeInBundle( bundle );
 			
@@ -611,7 +616,10 @@ public class Dungeon {
 		} else {
 			Badges.reset();
 		}
-		
+
+		Catalog.restore( bundle );
+		Document.restore( bundle );
+		Journal.loadGlobal();
 		Notes.restoreFromBundle( bundle );
 		
 		hero = null;

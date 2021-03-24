@@ -500,6 +500,10 @@ public class Hero extends Char {
 		
 		Blocking.BlockBuff block = buff(Blocking.BlockBuff.class);
 		if (block != null)              dr += block.blockingRoll();
+
+		if (hasTalent(Talent.STEEL_SKIN)) {
+			dr += (pointsInTalent(Talent.STEEL_SKIN) * 4);
+		}
 		
 		return dr;
 	}
@@ -522,37 +526,28 @@ public class Hero extends Char {
 		
 		return buff( Fury.class ) != null ? (int)(dmg * 1.5f) : dmg;
 	}
-	
+
 	@Override
 	public float speed() {
 
 		float speed = super.speed();
 
 		speed *= RingOfHaste.speedMultiplier(this);
-		
+
 		if (belongings.armor != null) {
 			speed = belongings.armor.speedFactor(this, speed);
 		}
-		
+
 		Momentum momentum = buff(Momentum.class);
 		if (momentum != null){
-			((HeroSprite)sprite).sprint( 1f + 0.05f*momentum.momentumstacks());
+			((HeroSprite)sprite).sprint( momentum.freerunning() ? 1.5f : 1f );
 			speed *= momentum.speedMultiplier();
+		} else {
+			((HeroSprite)sprite).sprint( 1f );
 		}
 
-		if (hasTalent(Talent.BLESSING_OF_WIND)) {
-			switch (pointsInTalent(Talent.BLESSING_OF_WIND)) {
-				case 1:
-					((HeroSprite)sprite).sprint(1);
-					break;
-				case 2:
-					((HeroSprite)sprite).sprint(2);
-					break;
-			}
-		}
-		
 		return speed;
-		
+
 	}
 
 	public boolean canSurpriseAttack(){

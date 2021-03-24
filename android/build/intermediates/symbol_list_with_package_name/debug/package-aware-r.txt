@@ -3,6 +3,9 @@ attr adSize
 attr adSizes
 attr adUnitId
 attr alpha
+attr buttonSize
+attr circleCrop
+attr colorScheme
 attr coordinatorLayoutStyle
 attr font
 attr fontProviderAuthority
@@ -14,6 +17,8 @@ attr fontProviderQuery
 attr fontStyle
 attr fontVariationSettings
 attr fontWeight
+attr imageAspectRatio
+attr imageAspectRatioAdjust
 attr keylines
 attr layout_anchor
 attr layout_anchorGravity
@@ -21,6 +26,7 @@ attr layout_behavior
 attr layout_dodgeInsetEdges
 attr layout_insetEdge
 attr layout_keyline
+attr scopeUris
 attr statusBarBackground
 attr ttcIndex
 bool enable_system_alarm_service_default
@@ -30,6 +36,17 @@ color browser_actions_bg_grey
 color browser_actions_divider_color
 color browser_actions_text_color
 color browser_actions_title_color
+color common_google_signin_btn_text_dark
+color common_google_signin_btn_text_dark_default
+color common_google_signin_btn_text_dark_disabled
+color common_google_signin_btn_text_dark_focused
+color common_google_signin_btn_text_dark_pressed
+color common_google_signin_btn_text_light
+color common_google_signin_btn_text_light_default
+color common_google_signin_btn_text_light_disabled
+color common_google_signin_btn_text_light_focused
+color common_google_signin_btn_text_light_pressed
+color common_google_signin_btn_tint
 color notification_action_color_filter
 color notification_icon_bg_color
 color ripple_material_light
@@ -58,6 +75,27 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+drawable common_full_open_on_phone
+drawable common_google_signin_btn_icon_dark
+drawable common_google_signin_btn_icon_dark_focused
+drawable common_google_signin_btn_icon_dark_normal
+drawable common_google_signin_btn_icon_dark_normal_background
+drawable common_google_signin_btn_icon_disabled
+drawable common_google_signin_btn_icon_light
+drawable common_google_signin_btn_icon_light_focused
+drawable common_google_signin_btn_icon_light_normal
+drawable common_google_signin_btn_icon_light_normal_background
+drawable common_google_signin_btn_text_dark
+drawable common_google_signin_btn_text_dark_focused
+drawable common_google_signin_btn_text_dark_normal
+drawable common_google_signin_btn_text_dark_normal_background
+drawable common_google_signin_btn_text_disabled
+drawable common_google_signin_btn_text_light
+drawable common_google_signin_btn_text_light_focused
+drawable common_google_signin_btn_text_light_normal
+drawable common_google_signin_btn_text_light_normal_background
+drawable googleg_disabled_color_18
+drawable googleg_standard_color_18
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -108,8 +146,11 @@ id action_divider
 id action_image
 id action_text
 id actions
+id adjust_height
+id adjust_width
 id all
 id async
+id auto
 id blocking
 id bottom
 id browser_actions_header_text
@@ -123,6 +164,7 @@ id center_vertical
 id chronometer
 id clip_horizontal
 id clip_vertical
+id dark
 id dialog_button
 id end
 id fill
@@ -131,9 +173,11 @@ id fill_vertical
 id forever
 id icon
 id icon_group
+id icon_only
 id info
 id italic
 id left
+id light
 id line1
 id line3
 id none
@@ -144,6 +188,7 @@ id notification_main_column_container
 id right
 id right_icon
 id right_side
+id standard
 id start
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -158,6 +203,7 @@ id text2
 id time
 id title
 id top
+id wide
 integer google_play_services_version
 integer status_bar_notification_info_maxnum
 layout browser_actions_context_menu_page
@@ -174,13 +220,40 @@ mipmap ic_launcher1
 mipmap ic_launcher_background
 mipmap ic_launcher_foreground
 mipmap ic_launcher_foreground1
+string achievement_enlightened
+string app_id
+string app_name
+string common_google_play_services_enable_button
+string common_google_play_services_enable_text
+string common_google_play_services_enable_title
+string common_google_play_services_install_button
+string common_google_play_services_install_text
+string common_google_play_services_install_title
+string common_google_play_services_notification_channel_name
+string common_google_play_services_notification_ticker
 string common_google_play_services_unknown_issue
+string common_google_play_services_unsupported_text
+string common_google_play_services_update_button
+string common_google_play_services_update_text
+string common_google_play_services_update_title
+string common_google_play_services_updating_text
+string common_google_play_services_wear_update_text
+string common_open_on_phone
+string common_signin_button_text
+string common_signin_button_text_long
 string default_web_client_id
 string gcm_defaultSenderId
 string google_api_key
 string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
+string leaderboard_total_golds_earned
+string leaderboard_total_monsters_slain
+string leaderboard_total_wins
+string loading_from_cloud
+string menu_save
+string menu_select
+string menu_sync
 string offline_notification_text
 string offline_notification_title
 string offline_opt_in_confirm
@@ -188,6 +261,8 @@ string offline_opt_in_confirmation
 string offline_opt_in_decline
 string offline_opt_in_message
 string offline_opt_in_title
+string package_name
+string please_sign_in
 string project_id
 string s1
 string s2
@@ -196,7 +271,13 @@ string s4
 string s5
 string s6
 string s7
+string sign_in_explanation
+string sign_out
+string signin_other_error
 string status_bar_notification_info_overflow
+string title_load_game
+string title_saved_games
+string you_are_signed_in
 style TextAppearance_Compat_Notification
 style TextAppearance_Compat_Notification_Info
 style TextAppearance_Compat_Notification_Line2
@@ -214,3 +295,5 @@ styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFetchSt
 styleable FontFamilyFont android_font android_fontWeight android_fontStyle android_ttcIndex android_fontVariationSettings font fontStyle fontVariationSettings fontWeight ttcIndex
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
+styleable LoadingImageView circleCrop imageAspectRatio imageAspectRatioAdjust
+styleable SignInButton buttonSize colorScheme scopeUris

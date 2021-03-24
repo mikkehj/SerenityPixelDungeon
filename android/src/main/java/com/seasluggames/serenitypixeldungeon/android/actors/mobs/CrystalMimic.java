@@ -168,8 +168,8 @@ public class CrystalMimic extends Mimic {
 				item.detach( hero.belongings.backpack );
 			} else {
 				items.add(item.detach( hero.belongings.backpack ));
-				if ( item instanceof Honeypot.SerenityPot)
-					((Honeypot.SerenityPot)item).pickupPot(this);
+				if ( item instanceof Honeypot.ShatteredPot)
+					((Honeypot.ShatteredPot)item).pickupPot(this);
 			}
 
 		}

@@ -30,6 +30,7 @@ import com.seasluggames.serenitypixeldungeon.android.actors.Char;
 import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Buff;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.HeroSubClass;
+import com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent;
 import com.seasluggames.serenitypixeldungeon.android.items.armor.Armor;
 import com.seasluggames.serenitypixeldungeon.android.items.armor.Armor.Glyph;
 import com.seasluggames.serenitypixeldungeon.android.items.weapon.missiles.MissileWeapon;
@@ -42,9 +43,9 @@ import com.seasluggames.serenitypixeldungeon.android.utils.GLog;
 import com.watabou.utils.Bundle;
 
 public class Viscosity extends Glyph {
-	
+
 	private static ItemSprite.Glowing PURPLE = new ItemSprite.Glowing( 0x8844CC );
-	
+
 	@Override
 	public int proc( Armor armor, Char attacker, Char defender, int damage ) {
 
@@ -52,6 +53,12 @@ public class Viscosity extends Glyph {
 		//should build in functionality for that, but this works for now
 		int realDamage = damage - defender.drRoll();
 
+		//account for icon stomach (just skip the glyph)
+		if (defender.buff(Talent.WarriorFoodImmunity.class) != null){
+			return damage;
+		}
+
+		//account for huntress armor piercing
 		if (attacker instanceof Hero
 				&& ((Hero) attacker).belongings.weapon instanceof MissileWeapon
 				&& ((Hero) attacker).subClass == HeroSubClass.SNIPER
@@ -64,47 +71,47 @@ public class Viscosity extends Glyph {
 		}
 
 		int level = Math.max( 0, armor.buffedLvl() );
-		
+
 		float percent = (level+1)/(float)(level+6);
 		int amount = (int)Math.ceil(realDamage * percent);
 
 		DeferedDamage deferred = Buff.affect( defender, DeferedDamage.class );
 		deferred.prolong( amount );
-		
+
 		defender.sprite.showStatus( CharSprite.WARNING, Messages.get(this, "deferred", amount) );
-		
+
 		return damage - amount;
-		
+
 	}
 
 	@Override
 	public Glowing glowing() {
 		return PURPLE;
 	}
-	
+
 	public static class DeferedDamage extends Buff {
-		
+
 		{
 			type = buffType.NEGATIVE;
 		}
-		
+
 		protected int damage = 0;
-		
+
 		private static final String DAMAGE	= "damage";
-		
+
 		@Override
 		public void storeInBundle( Bundle bundle ) {
 			super.storeInBundle( bundle );
 			bundle.put( DAMAGE, damage );
-			
+
 		}
-		
+
 		@Override
 		public void restoreFromBundle( Bundle bundle ) {
 			super.restoreFromBundle( bundle );
 			damage = bundle.getInt( DAMAGE );
 		}
-		
+
 		@Override
 		public boolean attachTo( Char target ) {
 			if (super.attachTo( target )) {
@@ -114,21 +121,21 @@ public class Viscosity extends Glyph {
 				return false;
 			}
 		}
-		
+
 		public void prolong( int damage ) {
 			this.damage += damage;
 		}
-		
+
 		@Override
 		public int icon() {
 			return BuffIndicator.DEFERRED;
 		}
-		
+
 		@Override
 		public String toString() {
 			return Messages.get(this, "name");
 		}
-		
+
 		@Override
 		public boolean act() {
 			if (target.isAlive()) {
@@ -148,13 +155,13 @@ public class Viscosity extends Glyph {
 				if (damage <= 0) {
 					detach();
 				}
-				
+
 			} else {
-				
+
 				detach();
-				
+
 			}
-			
+
 			return true;
 		}
 

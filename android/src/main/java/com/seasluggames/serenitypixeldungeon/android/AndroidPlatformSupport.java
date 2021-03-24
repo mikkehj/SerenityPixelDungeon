@@ -25,23 +25,28 @@
 package com.seasluggames.serenitypixeldungeon.android;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.view.View;
 import android.view.WindowManager;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidGraphics;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.PixmapPacker;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
-import com.seasluggames.serenitypixeldungeon.android.windows.WndAndroidTextInput;
 import com.seasluggames.serenitypixeldungeon.android.scenes.PixelScene;
+import com.seasluggames.serenitypixeldungeon.android.windows.WndAndroidTextInput;
 import com.watabou.noosa.Game;
 import com.watabou.utils.Callback;
 import com.watabou.utils.PlatformSupport;
@@ -50,7 +55,7 @@ import java.util.HashMap;
 import java.util.regex.Pattern;
 
 public class AndroidPlatformSupport extends PlatformSupport {
-	
+
 	public void updateDisplaySize(){
 		if (SPDSettings.landscape() != null) {
 			AndroidGame.instance.setRequestedOrientation( SPDSettings.landscape() ?
@@ -59,10 +64,10 @@ public class AndroidPlatformSupport extends PlatformSupport {
 		}
 
 		GLSurfaceView view = (GLSurfaceView) ((AndroidGraphics)Gdx.graphics).getView();
-		
+
 		if (view.getMeasuredWidth() == 0 || view.getMeasuredHeight() == 0)
 			return;
-		
+
 		Game.dispWidth = view.getMeasuredWidth();
 		Game.dispHeight = view.getMeasuredHeight();
 
@@ -75,40 +80,40 @@ public class AndroidPlatformSupport extends PlatformSupport {
 			Game.dispWidth = Game.dispHeight;
 			Game.dispHeight = tmp;
 		}
-		
+
 		float dispRatio = Game.dispWidth / (float)Game.dispHeight;
-		
+
 		float renderWidth = dispRatio > 1 ? PixelScene.MIN_WIDTH_L : PixelScene.MIN_WIDTH_P;
 		float renderHeight = dispRatio > 1 ? PixelScene.MIN_HEIGHT_L : PixelScene.MIN_HEIGHT_P;
-		
+
 		//force power saver in this case as all devices must run at at least 2x scale.
 		if (Game.dispWidth < renderWidth*2 || Game.dispHeight < renderHeight*2)
 			SPDSettings.put( SPDSettings.KEY_POWER_SAVER, true );
-		
+
 		if (SPDSettings.powerSaver() && fullscreen){
-			
+
 			int maxZoom = (int)Math.min(Game.dispWidth/renderWidth, Game.dispHeight/renderHeight);
-			
+
 			renderWidth *= Math.max( 2, Math.round(1f + maxZoom*0.4f));
 			renderHeight *= Math.max( 2, Math.round(1f + maxZoom*0.4f));
-			
+
 			if (dispRatio > renderWidth / renderHeight){
 				renderWidth = renderHeight * dispRatio;
 			} else {
 				renderHeight = renderWidth / dispRatio;
 			}
-			
+
 			final int finalW = Math.round(renderWidth);
 			final int finalH = Math.round(renderHeight);
 			if (finalW != Game.width || finalH != Game.height){
-				
+
 				AndroidGame.instance.runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
 						view.getHolder().setFixedSize(finalW, finalH);
 					}
 				});
-				
+
 			}
 		} else {
 			AndroidGame.instance.runOnUiThread(new Runnable() {
@@ -119,16 +124,16 @@ public class AndroidPlatformSupport extends PlatformSupport {
 			});
 		}
 	}
-	
+
 	public void updateSystemUI() {
-		
+
 		AndroidGame.instance.runOnUiThread(new Runnable() {
 			@SuppressLint("NewApi")
 			@Override
 			public void run() {
 				boolean fullscreen = Build.VERSION.SDK_INT < Build.VERSION_CODES.N
 						|| !AndroidGame.instance.isInMultiWindowMode();
-				
+
 				if (fullscreen){
 					AndroidGame.instance.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 							WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
@@ -136,7 +141,7 @@ public class AndroidPlatformSupport extends PlatformSupport {
 					AndroidGame.instance.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
 							WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 				}
-				
+
 				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
 					if (SPDSettings.fullscreen()) {
 						AndroidGame.instance.getWindow().getDecorView().setSystemUiVisibility(
@@ -150,9 +155,9 @@ public class AndroidPlatformSupport extends PlatformSupport {
 				}
 			}
 		});
-		
+
 	}
-	
+
 	@Override
 	@SuppressWarnings("deprecation")
 	public boolean connectedToUnmeteredNetwork() {
@@ -164,55 +169,72 @@ public class AndroidPlatformSupport extends PlatformSupport {
 			NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 			return activeNetwork != null && activeNetwork.isConnectedOrConnecting() &&
 					(activeNetwork.getType() == ConnectivityManager.TYPE_WIFI
-					|| activeNetwork.getType() == ConnectivityManager.TYPE_WIMAX
-					|| activeNetwork.getType() == ConnectivityManager.TYPE_BLUETOOTH
-					|| activeNetwork.getType() == ConnectivityManager.TYPE_ETHERNET);
+							|| activeNetwork.getType() == ConnectivityManager.TYPE_WIMAX
+							|| activeNetwork.getType() == ConnectivityManager.TYPE_BLUETOOTH
+							|| activeNetwork.getType() == ConnectivityManager.TYPE_ETHERNET);
+		}
+	}
+
+	@Override
+	public boolean openURI(String URI) {
+		//copied from LibGDX 1.9.14 source
+		final Uri uri = Uri.parse(URI);
+		try {
+			Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+			// LiveWallpaper and Daydream applications need this flag
+			if (!(((AndroidApplication)Gdx.app).getContext() instanceof Activity)) {
+				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			}
+			((AndroidApplication)Gdx.app).startActivity(intent);
+			return true;
+		} catch (ActivityNotFoundException e) {
+			return false;
 		}
 	}
 
 	@Override
 	public void promptTextInput(final String title, final String hintText, final int maxLen, final boolean multiLine, final String posTxt, final String negTxt, final TextCallback callback) {
 		Game.runOnRenderThread( new Callback() {
-					@Override
-					public void call() {
-						Game.scene().addToFront(new WndAndroidTextInput(title, hintText, maxLen, multiLine, posTxt, negTxt) {
-							@Override
-							protected void onSelect(boolean positive) {
-								callback.onSelect(positive, getText());
-							}
-						});
-					}
-				}
+									@Override
+									public void call() {
+										Game.scene().addToFront(new WndAndroidTextInput(title, hintText, maxLen, multiLine, posTxt, negTxt) {
+											@Override
+											protected void onSelect(boolean positive) {
+												callback.onSelect(positive, getText());
+											}
+										});
+									}
+								}
 		);
 	}
-	
+
 	/* FONT SUPPORT */
-	
+
 	private int pageSize;
 	private PixmapPacker packer;
 	private boolean systemfont;
-	
+
 	//droid sans / roboto, or a custom pixel font, for use with Latin and Cyrillic languages
 	private static FreeTypeFontGenerator basicFontGenerator;
 	private static HashMap<Integer, BitmapFont> basicFonts = new HashMap<>();
-	
+
 	//droid sans / nanum gothic / noto sans, for use with Korean
 	private static FreeTypeFontGenerator KRFontGenerator;
 	private static HashMap<Integer, BitmapFont> KRFonts = new HashMap<>();
-	
+
 	//droid sans / noto sans, for use with Simplified Chinese
 	private static FreeTypeFontGenerator SCFontGenerator;
 	private static HashMap<Integer, BitmapFont> SCFonts = new HashMap<>();
-	
+
 	//droid sans / noto sans, for use with Japanese
 	private static FreeTypeFontGenerator JPFontGenerator;
 	private static HashMap<Integer, BitmapFont> JPFonts = new HashMap<>();
-	
+
 	private static HashMap<FreeTypeFontGenerator, HashMap<Integer, BitmapFont>> fonts;
-	
+
 	//special logic for handling korean android 6.0 font oddities
 	private static boolean koreanAndroid6OTF = false;
-	
+
 	@Override
 	public void setupFontGenerators(int pageSize, boolean systemfont) {
 		//don't bother doing anything if nothing has changed
@@ -221,7 +243,7 @@ public class AndroidPlatformSupport extends PlatformSupport {
 		}
 		this.pageSize = pageSize;
 		this.systemfont = systemfont;
-		
+
 		if (fonts != null){
 			for (FreeTypeFontGenerator generator : fonts.keySet()){
 				for (BitmapFont f : fonts.get(generator).values()){
@@ -240,7 +262,7 @@ public class AndroidPlatformSupport extends PlatformSupport {
 		}
 		fonts = new HashMap<>();
 		basicFontGenerator = KRFontGenerator = SCFontGenerator = JPFontGenerator = null;
-		
+
 		if (systemfont && Gdx.files.absolute("/system/fonts/Roboto-Regular.ttf").exists()) {
 			basicFontGenerator = new FreeTypeFontGenerator(Gdx.files.absolute("/system/fonts/Roboto-Regular.ttf"));
 		} else if (systemfont && Gdx.files.absolute("/system/fonts/DroidSans.ttf").exists()){
@@ -248,7 +270,7 @@ public class AndroidPlatformSupport extends PlatformSupport {
 		} else {
 			basicFontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/pixel_font.ttf"));
 		}
-		
+
 		//android 7.0+. all asian fonts are nicely contained in one spot
 		if (Gdx.files.absolute("/system/fonts/NotoSansCJK-Regular.ttc").exists()) {
 			//typefaces are 0-JP, 1-KR, 2-SC, 3-TC.
@@ -265,10 +287,10 @@ public class AndroidPlatformSupport extends PlatformSupport {
 					typeFace = 2;
 			}
 			KRFontGenerator = SCFontGenerator = JPFontGenerator = new FreeTypeFontGenerator(Gdx.files.absolute("/system/fonts/NotoSansCJK-Regular.ttc"), typeFace);
-			
-		//otherwise we have to go over a few possibilities.
+
+			//otherwise we have to go over a few possibilities.
 		} else {
-			
+
 			//Korean font generators
 			if (Gdx.files.absolute("/system/fonts/NanumGothic.ttf").exists()){
 				KRFontGenerator = new FreeTypeFontGenerator(Gdx.files.absolute("/system/fonts/NanumGothic.ttf"));
@@ -276,19 +298,19 @@ public class AndroidPlatformSupport extends PlatformSupport {
 				KRFontGenerator = new FreeTypeFontGenerator(Gdx.files.absolute("/system/fonts/NotoSansKR-Regular.otf"));
 				koreanAndroid6OTF = true;
 			}
-			
+
 			//Chinese font generators
 			if (Gdx.files.absolute("/system/fonts/NotoSansSC-Regular.otf").exists()){
 				SCFontGenerator = new FreeTypeFontGenerator(Gdx.files.absolute("/system/fonts/NotoSansSC-Regular.otf"));
 			} else if (Gdx.files.absolute("/system/fonts/NotoSansHans-Regular.otf").exists()){
 				SCFontGenerator = new FreeTypeFontGenerator(Gdx.files.absolute("/system/fonts/NotoSansHans-Regular.otf"));
 			}
-			
+
 			//Japaneses font generators
 			if (Gdx.files.absolute("/system/fonts/NotoSansJP-Regular.otf").exists()){
 				JPFontGenerator = new FreeTypeFontGenerator(Gdx.files.absolute("/system/fonts/NotoSansJP-Regular.otf"));
 			}
-			
+
 			//set up a fallback generator for any remaining fonts
 			FreeTypeFontGenerator fallbackGenerator;
 			if (Gdx.files.absolute("/system/fonts/DroidSansFallback.ttf").exists()){
@@ -297,22 +319,22 @@ public class AndroidPlatformSupport extends PlatformSupport {
 				//no fallback font, just set to null =/
 				fallbackGenerator = null;
 			}
-			
+
 			if (KRFontGenerator == null) KRFontGenerator = fallbackGenerator;
 			if (SCFontGenerator == null) SCFontGenerator = fallbackGenerator;
 			if (JPFontGenerator == null) JPFontGenerator = fallbackGenerator;
-			
+
 		}
-		
+
 		if (basicFontGenerator != null) fonts.put(basicFontGenerator, basicFonts);
 		if (KRFontGenerator != null) fonts.put(KRFontGenerator, KRFonts);
 		if (SCFontGenerator != null) fonts.put(SCFontGenerator, SCFonts);
 		if (JPFontGenerator != null) fonts.put(JPFontGenerator, JPFonts);
-		
+
 		//would be nice to use RGBA4444 to save memory, but this causes problems on some gpus =S
 		packer = new PixmapPacker(pageSize, pageSize, Pixmap.Format.RGBA8888, 1, false);
 	}
-	
+
 	@Override
 	public void resetGenerators() {
 		if (fonts != null) {
@@ -358,7 +380,7 @@ public class AndroidPlatformSupport extends PlatformSupport {
 	private static Pattern KRMatcher = Pattern.compile("\\p{InHangul_Syllables}");
 	private static Pattern SCMatcher = Pattern.compile("\\p{InCJK_Unified_Ideographs}|\\p{InCJK_Symbols_and_Punctuation}|\\p{InHalfwidth_and_Fullwidth_Forms}");
 	private static Pattern JPMatcher = Pattern.compile("\\p{InHiragana}|\\p{InKatakana}");
-	
+
 	private static FreeTypeFontGenerator getGeneratorForString( String input ){
 		if (KRMatcher.matcher(input).find()){
 			return KRFontGenerator;
@@ -370,15 +392,15 @@ public class AndroidPlatformSupport extends PlatformSupport {
 			return basicFontGenerator;
 		}
 	}
-	
+
 	@Override
 	public BitmapFont getFont(int size, String text) {
 		FreeTypeFontGenerator generator = getGeneratorForString(text);
-		
+
 		if (generator == null){
 			return null;
 		}
-		
+
 		if (!fonts.get(generator).containsKey(size)) {
 			FreeTypeFontGenerator.FreeTypeFontParameter parameters = new FreeTypeFontGenerator.FreeTypeFontParameter();
 			parameters.size = size;
@@ -400,7 +422,7 @@ public class AndroidPlatformSupport extends PlatformSupport {
 				parameters.characters = "�";
 			}
 			parameters.packer = packer;
-			
+
 			try {
 				BitmapFont font = generator.generateFont(parameters);
 				font.getData().missingGlyph = font.getData().getGlyph('�');
@@ -410,10 +432,10 @@ public class AndroidPlatformSupport extends PlatformSupport {
 				return null;
 			}
 		}
-		
+
 		return fonts.get(generator).get(size);
 	}
-	
+
 	//splits on newlines, underscores, and chinese/japaneses characters
 	private Pattern regularsplitter = Pattern.compile(
 			"(?<=\n)|(?=\n)|(?<=_)|(?=_)|" +
@@ -422,7 +444,7 @@ public class AndroidPlatformSupport extends PlatformSupport {
 					"(?<=\\p{InCJK_Unified_Ideographs})|(?=\\p{InCJK_Unified_Ideographs})|" +
 					"(?<=\\p{InCJK_Symbols_and_Punctuation})|(?=\\p{InCJK_Symbols_and_Punctuation})|" +
 					"(?<=\\p{InHalfwidth_and_Fullwidth_Forms})|(?=\\p{InHalfwidth_and_Fullwidth_Forms})");
-	
+
 	//additionally splits on words, so that each word can be arranged individually
 	private Pattern regularsplitterMultiline = Pattern.compile(
 			"(?<= )|(?= )|(?<=\n)|(?=\n)|(?<=_)|(?=_)|" +
@@ -431,12 +453,12 @@ public class AndroidPlatformSupport extends PlatformSupport {
 					"(?<=\\p{InCJK_Unified_Ideographs})|(?=\\p{InCJK_Unified_Ideographs})|" +
 					"(?<=\\p{InCJK_Symbols_and_Punctuation})|(?=\\p{InCJK_Symbols_and_Punctuation})|" +
 					"(?<=\\p{InHalfwidth_and_Fullwidth_Forms})|(?=\\p{InHalfwidth_and_Fullwidth_Forms})");
-	
+
 	//splits on each non-hangul character. Needed for weird android 6.0 font files
 	private Pattern android6KRSplitter = Pattern.compile(
 			"(?<= )|(?= )|(?<=\n)|(?=\n)|(?<=_)|(?=_)|" +
 					"(?!\\p{InHangul_Syllables})|(?<!\\p{InHangul_Syllables})");
-	
+
 	@Override
 	public String[] splitforTextBlock(String text, boolean multiline) {
 		if (koreanAndroid6OTF && getGeneratorForString(text) == KRFontGenerator){
@@ -447,5 +469,5 @@ public class AndroidPlatformSupport extends PlatformSupport {
 			return regularsplitter.split(text);
 		}
 	}
-	
+
 }

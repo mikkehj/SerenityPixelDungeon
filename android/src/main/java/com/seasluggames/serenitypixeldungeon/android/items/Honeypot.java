@@ -75,8 +75,8 @@ public class Honeypot extends Item {
 			Item item = shatter( hero, hero.pos );
 			if (!item.collect()){
 				Dungeon.level.drop(item, hero.pos);
-				if (item instanceof SerenityPot){
-					((SerenityPot) item).dropPot(hero, hero.pos);
+				if (item instanceof ShatteredPot){
+					((ShatteredPot) item).dropPot(hero, hero.pos);
 				}
 			}
 
@@ -129,7 +129,7 @@ public class Honeypot extends Item {
 			bee.sprite.parent.add( new AlphaTweener( bee.sprite, 1, 0.15f ) );
 			
 			Sample.INSTANCE.play( Assets.Sounds.BEE );
-			return new SerenityPot();
+			return new ShatteredPot();
 		} else {
 			return this;
 		}
@@ -151,7 +151,7 @@ public class Honeypot extends Item {
 	}
 
 	//The bee's broken 'home', all this item does is let its bee know where it is, and who owns it (if anyone).
-	public static class SerenityPot extends Item {
+	public static class ShatteredPot extends Item {
 
 		{
 			image = ItemSpriteSheet.SHATTPOT;

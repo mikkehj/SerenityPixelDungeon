@@ -183,6 +183,18 @@ public class WndSettings extends WndTabbed {
                 add(chkSaver);
             }
 
+            if (!DeviceCompat.isDesktop()) {
+                btnOrientation = new PurpleButton(PixelScene.landscape() ?
+                        Messages.get(this, "portrait")
+                        : Messages.get(this, "landscape")) {
+                    @Override
+                    protected void onClick() {
+                        SPDSettings.landscape(!PixelScene.landscape());
+                    }
+                };
+                add(btnOrientation);
+            }
+
             if ((int) Math.ceil(2 * Game.density) < PixelScene.maxDefaultZoom) {
                 optScale = new OptionSlider(Messages.get(this, "scale"),
                         (int) Math.ceil(2 * Game.density) + "X",

@@ -26,13 +26,16 @@ package com.seasluggames.serenitypixeldungeon.android;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.Gravity;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.badlogic.gdx.graphics.g2d.freetype.FreeType;
 import com.badlogic.gdx.utils.GdxNativesLoader;
@@ -46,6 +49,24 @@ import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdCallback;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.games.AchievementsClient;
+import com.google.android.gms.games.Games;
+import com.google.android.gms.games.Player;
+import com.google.android.gms.games.PlayersClient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 
 import androidx.annotation.NonNull;
 
@@ -56,8 +77,32 @@ public class AndroidLauncher extends Activity {
 
     private final String TAG = "AndroidGame";
     public static Handler UIHandler;
-    public static Activity admobActivity;
+    public static Handler signInHandler;
+    public static Activity myActivity;
     public static boolean watchedAD = false;
+
+    // Request code used to invoke sign in user interactions.
+    private static final int RC_SIGN_IN = 9001;
+    private static final int RC_UNUSED = 5001;
+
+    // Client variables
+    private AchievementsClient mAchievementsClient;
+    private PlayersClient mPlayersClient;
+
+    // The diplay name of the signed in user.
+    private String mDisplayName = "";
+
+    // Client used to sign in with Google APIs
+    private static GoogleSignInClient mGoogleSignInClient;
+    private static FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener authStateListener;
+
+    FirebaseAuth mAuth;
+
+    // achievements and scores we're pending to push to the cloud
+    // (waiting for the user to sign in, for instance)
+    private final AccomplishmentsOutbox mOutbox = new AccomplishmentsOutbox();
+
 
     static {
         UIHandler = new Handler(Looper.getMainLooper());
@@ -68,28 +113,28 @@ public class AndroidLauncher extends Activity {
 
     }
 
+    static {
+        signInHandler = new Handler(Looper.getMainLooper());
+    }
+
+    public static void runSignIn(Runnable runnable) {
+        signInHandler.post(runnable);
+
+    }
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        admobActivity = this;
+        myActivity = this;
+        mDisplayName = "";
 
-        /*
-        // TEST ID
-        MobileAds.initialize(this,
-                "ca-app-pub-3940256099942544~3347511713");
-
-         */
         MobileAds.initialize(this,
                 "ca-app-pub-8412258401353384~2614412636");
 
         myThis = new InterstitialAd(this);
-        /*
-        // TEST ID
-        myThis.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
 
-         */
         myThis.setAdUnitId("ca-app-pub-8412258401353384/4072347428");
         reloadThis();
 
@@ -100,12 +145,7 @@ public class AndroidLauncher extends Activity {
             }
         });
 
-        /*
-        // TEST ID
-        myThat = new RewardedAd(this,
-                "ca-app-pub-3940256099942544/5224354917");
 
-         */
         myThat = new RewardedAd(this,
                 "ca-app-pub-8412258401353384/2891127693");
 
@@ -130,6 +170,174 @@ public class AndroidLauncher extends Activity {
             text.setGravity(Gravity.CENTER_VERTICAL);
             text.setPadding(10, 10, 10, 10);
             setContentView(text);
+        }
+
+        mAuth = FirebaseAuth.getInstance();
+        firebaseAuth = com.google.firebase.auth.FirebaseAuth.getInstance();
+        authStateListener = firebaseAuth -> {
+            // Get signedIn user
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+
+            //if user is signed in, we call a helper method to save the user details to Firebase
+            if (user != null) {
+                Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+            } else {
+                // User is signed out
+                Log.d(TAG, "onAuthStateChanged:signed_out");
+            }
+        };
+
+        configureGoogleClient();
+
+    }
+
+    public PlayersClient getPlayersClient() {
+        return mPlayersClient;
+    }
+
+    private class AccomplishmentsOutbox {
+        boolean mEnlightened = false;
+
+
+        boolean isEmpty() {
+            return !mEnlightened;
+        }
+
+    }
+
+    private void onConnected(GoogleSignInAccount googleSignInAccount) {
+        Log.d(TAG, "onConnected(): connected to Google APIs");
+
+        mAchievementsClient = Games.getAchievementsClient(myActivity, googleSignInAccount);
+
+        // Set the greeting appropriately on main menu
+        mPlayersClient.getCurrentPlayer()
+                .addOnCompleteListener(new OnCompleteListener<Player>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Player> task) {
+                        String displayName;
+                        if (task.isSuccessful()) {
+                            displayName = task.getResult().getDisplayName();
+                        } else {
+                            Exception e = task.getException();
+                            displayName = "???";
+
+                        }
+                        mDisplayName = displayName;
+                    }
+                });
+
+
+        // if we have accomplishments to push, push them
+        if (!mOutbox.isEmpty()) {
+            pushAccomplishments();
+            Toast.makeText(myActivity, "Congratulations!", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void pushAccomplishments() {
+        if (!isSignedIn()) {
+            // can't push to the cloud, try again later
+            return;
+        }
+        if (mOutbox.mEnlightened) {
+            mAchievementsClient.unlock(getString(R.string.achievement_enlightened));
+            mOutbox.mEnlightened = false;
+        }
+    }
+
+    private void configureGoogleClient() {
+        // Configure Google Sign In
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                // for the requestIdToken, this is in the values.xml file that
+                // is generated from your google-services.json
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        // Build a GoogleSignInClient with the options specified by gso.
+        mGoogleSignInClient = GoogleSignIn.getClient(myActivity, gso);
+
+        // Initialize Firebase Auth
+        firebaseAuth = FirebaseAuth.getInstance();
+    }
+
+    public static void signIn() {
+        myActivity.startActivityForResult(mGoogleSignInClient.getSignInIntent(), RC_SIGN_IN);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        if (requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task =
+                    GoogleSignIn.getSignedInAccountFromIntent(intent);
+
+            try {
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                onConnected(account);
+            } catch (ApiException apiException) {
+                String message = apiException.getMessage();
+                if (message == null || message.isEmpty()) {
+                    message = getString(R.string.signin_other_error);
+                }
+
+                new AlertDialog.Builder(myActivity)
+                        .setMessage(message)
+                        .setNeutralButton(android.R.string.ok, null)
+                        .show();
+            }
+        }
+    }
+
+    private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
+        Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
+        AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+        firebaseAuth.signInWithCredential(credential)
+                .addOnCompleteListener(myActivity, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            FirebaseUser user = firebaseAuth.getCurrentUser();
+                            Log.d(TAG, "signInWithCredential:success: currentUser: " + user.getEmail());
+                            Toast.makeText(myActivity, "Firebase auth success", Toast.LENGTH_SHORT).show();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            Toast.makeText(myActivity, "Firebase auth fail", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    public static void signOut() {
+        mGoogleSignInClient.signOut().addOnCompleteListener(myActivity,
+                task -> {
+
+                    if (task.isSuccessful()) {
+                        Toast.makeText(myActivity,"Signed out", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    public static boolean isSignedIn() {
+        return GoogleSignIn.getLastSignedInAccount(myActivity) != null;
+    }
+
+    public static void checkLogIn() {
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+
+        //if user is signed in, we call a helper method to save the user details to Firebase
+        if (user != null) {
+            Toast.makeText(myActivity, "You are logged in",
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            /*
+            Toast.makeText(myActivity, "You are not logged in",
+                    Toast.LENGTH_SHORT).show();
+
+             */
         }
     }
 
@@ -188,7 +396,7 @@ public class AndroidLauncher extends Activity {
                     reloadThat();
                 }
             };
-            myThat.show(admobActivity, adCallback);
+            myThat.show(myActivity, adCallback);
         } else {
             reloadThat();
         }

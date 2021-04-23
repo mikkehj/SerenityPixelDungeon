@@ -110,7 +110,7 @@ public class Combo extends Buff implements ActionIndicator.Action {
 	}
 
 	public void miss ( Char enemy ) {
-		count = 0;
+		count = count;
 	}
 
 	@Override

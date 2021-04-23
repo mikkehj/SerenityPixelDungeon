@@ -406,7 +406,7 @@ public class MagesStaff extends MeleeWeapon {
 					}
 
 					GameScene.show(
-							new WndOptions("",
+							new WndOptions("warning",
 									bodyText,
 									Messages.get(MagesStaff.class, "yes"),
 									Messages.get(MagesStaff.class, "no")) {

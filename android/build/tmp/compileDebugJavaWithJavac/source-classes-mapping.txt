@@ -1953,8 +1953,6 @@ com/seasluggames/serenitypixeldungeon/android/scenes/TitleScene.java
  com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$3
  com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$4
  com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$5
- com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$6
- com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$7
  com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$SettingsButton
 com/seasluggames/serenitypixeldungeon/android/actors/mobs/Thief.java
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.Thief

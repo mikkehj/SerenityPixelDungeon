@@ -1335,6 +1335,7 @@ com.google.android.gms.tasks.zzu:
     public final com.google.android.gms.tasks.Task addOnSuccessListener(com.google.android.gms.tasks.OnSuccessListener)
     public final com.google.android.gms.tasks.Task addOnSuccessListener(android.app.Activity,com.google.android.gms.tasks.OnSuccessListener)
     public final com.google.android.gms.tasks.Task addOnFailureListener(android.app.Activity,com.google.android.gms.tasks.OnFailureListener)
+    public final com.google.android.gms.tasks.Task addOnCompleteListener(android.app.Activity,com.google.android.gms.tasks.OnCompleteListener)
     public final com.google.android.gms.tasks.Task continueWith(com.google.android.gms.tasks.Continuation)
     public final com.google.android.gms.tasks.Task continueWithTask(com.google.android.gms.tasks.Continuation)
     public final com.google.android.gms.tasks.Task addOnCanceledListener(com.google.android.gms.tasks.OnCanceledListener)
@@ -1764,6 +1765,7 @@ com.google.android.gms.tasks.Task:
     public abstract com.google.android.gms.tasks.Task addOnSuccessListener(com.google.android.gms.tasks.OnSuccessListener)
     public abstract com.google.android.gms.tasks.Task addOnSuccessListener(android.app.Activity,com.google.android.gms.tasks.OnSuccessListener)
     public abstract com.google.android.gms.tasks.Task addOnFailureListener(android.app.Activity,com.google.android.gms.tasks.OnFailureListener)
+    public com.google.android.gms.tasks.Task addOnCompleteListener(android.app.Activity,com.google.android.gms.tasks.OnCompleteListener)
     public com.google.android.gms.tasks.Task addOnCanceledListener(com.google.android.gms.tasks.OnCanceledListener)
     public com.google.android.gms.tasks.Task addOnCanceledListener(android.app.Activity,com.google.android.gms.tasks.OnCanceledListener)
     public com.google.android.gms.tasks.Task continueWith(com.google.android.gms.tasks.Continuation)
@@ -2992,6 +2994,8 @@ com.seasluggames.serenitypixeldungeon.android.items.wands.Wand$Charger:
     private static final float CHARGE_BUFF_BONUS
 com.google.android.gms.common.api.internal.BasePendingResult$CallbackHandler:
     public void <init>()
+com.google.android.gms.tasks.zzr:
+    public abstract void zza()
 com.badlogic.gdx.Application:
     public abstract com.badlogic.gdx.Audio getAudio()
     public abstract com.badlogic.gdx.Input getInput()
@@ -3889,6 +3893,7 @@ androidx.room.EntityDeletionOrUpdateAdapter
 com.google.android.gms.games.leaderboard.LeaderboardBuffer
 androidx.viewpager.widget.ViewPager$2
 com.badlogic.gdx.assets.loaders.MusicLoader
+com.google.android.gms.tasks.zzu$zza
 com.seasluggames.serenitypixeldungeon.android.sprites.MirrorSprite:
     private static final int FRAME_WIDTH
     private static final int FRAME_HEIGHT
@@ -4067,6 +4072,11 @@ com.google.android.gms.common.util.Clock:
     public abstract long currentThreadTimeMillis()
 com.google.android.gms.internal.firebase-auth-api.zztp:
     public static boolean zza()
+com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene:
+    private void removeBtnSignOut()
+    public void removeBtnSignIn()
+    com.seasluggames.serenitypixeldungeon.android.ui.StyledButton btnSignIn
+    com.seasluggames.serenitypixeldungeon.android.ui.StyledButton btnSignOut
 com.google.firebase.installations.FirebaseInstallations$2
 com.badlogic.gdx.utils.compression.rangecoder.Encoder
 com.google.android.gms.ads.mediation.customevent.CustomEventExtras:
@@ -7823,6 +7833,8 @@ com.google.android.gms.auth.api.signin.GoogleSignInAccount:
 com.google.android.gms.common.internal.ResourceUtils
 com.google.android.gms.common.images.ImageManager$OnImageLoadedListener
 androidx.core.graphics.drawable.RoundedBitmapDrawableFactory$DefaultRoundedBitmapDrawable
+com.google.android.gms.auth.api.signin.GoogleSignInClient$zzc:
+    public static int[] zzm()
 com.google.android.gms.ads.appopen.AppOpenAd$AppOpenAdLoadCallback
 com.google.android.gms.internal.firebase-auth-api.zzga:
     private void <init>()
@@ -8155,6 +8167,9 @@ com.google.android.gms.common.api.internal.zaq
 com.google.android.gms.internal.auth.zzi
 com.google.android.gms.drive.zzj
 com.google.android.gms.internal.drive.zzhu
+com.google.android.gms.auth.api.signin.zzc:
+    static void <clinit>()
+    static final synthetic int[] zzbu
 com.google.android.gms.internal.firebase-auth-api.zzyx:
     private void <init>()
 com.google.android.gms.internal.games.zzbc
@@ -8414,6 +8429,7 @@ com.google.android.gms.internal.firebase-auth-api.zzuk:
     public final synthetic bridge com.google.android.gms.internal.firebase-auth-api.zzqa zza()
 com.badlogic.gdx.scenes.scene2d.actions.RunnableAction
 com.google.android.gms.auth.api.signin.GoogleSignInClient:
+    public android.content.Intent getSignInIntent()
     public com.google.android.gms.tasks.Task silentSignIn()
 com.badlogic.gdx.scenes.scene2d.actions.Actions
 androidx.room.R$string
@@ -9036,6 +9052,8 @@ com.badlogic.gdx.Preferences:
     public abstract void clear()
     public abstract void remove(java.lang.String)
 com.google.android.gms.common.server.response.zan
+com.google.android.gms.tasks.zzc:
+    public final void zza()
 com.badlogic.gdx.scenes.scene2d.ui.Slider
 com.google.android.gms.internal.games.zzdk
 com.seasluggames.serenitypixeldungeon.android.items.potions.brews.Brew:
@@ -9878,7 +9896,10 @@ com.google.android.gms.internal.firebase-auth-api.zzjf:
     private void <init>()
 com.google.android.gms.internal.drive.zzfv
 com.seasluggames.serenitypixeldungeon.android.AndroidLauncher:
+    public static void signIn()
     private void firebaseAuthWithGoogle(com.google.android.gms.auth.api.signin.GoogleSignInAccount)
+    public static void signOut()
+    private static synthetic void lambda$signOut$1(com.google.android.gms.tasks.Task)
     static synthetic com.google.firebase.auth.FirebaseAuth access$200()
     public com.google.android.gms.games.PlayersClient getPlayersClient()
     private static final int RC_SIGN_IN
@@ -11838,6 +11859,8 @@ com.google.android.gms.internal.games.zzdq:
 androidx.viewpager.widget.ViewPager$OnPageChangeListener
 com.google.android.gms.common.api.internal.zabx
 androidx.core.view.MenuCompat
+com.google.android.gms.tasks.zzm:
+    public final void zza()
 com.seasluggames.serenitypixeldungeon.android.items.bags.Bag:
     public static final java.lang.String AC_OPEN
     private static final java.lang.String ITEMS
@@ -12684,6 +12707,8 @@ com.google.android.gms.internal.firebase-auth-api.zzud:
     public final void zzE(com.google.android.gms.internal.firebase-auth-api.zznr,com.google.android.gms.internal.firebase-auth-api.zzuc)
     public final void zzF(com.google.android.gms.internal.firebase-auth-api.zzmh,com.google.android.gms.internal.firebase-auth-api.zzuc)
     public final void zzG(com.google.android.gms.internal.firebase-auth-api.zzob,com.google.android.gms.internal.firebase-auth-api.zzuc)
+com.google.android.gms.tasks.zzl:
+    public final void zza()
 com.google.android.gms.common.util.Clock$$CC
 androidx.core.view.InputDeviceCompat
 com.badlogic.gdx.graphics.g2d.Animation$PlayMode
@@ -13189,6 +13214,9 @@ com.seasluggames.serenitypixeldungeon.android.windows.IconTitle:
 androidx.drawerlayout.R$color
 androidx.core.text.TextDirectionHeuristicsCompat$TextDirectionHeuristicImpl
 com.google.android.gms.auth.api.signin.internal.zzi:
+    public static android.content.Intent zzc(android.content.Context,com.google.android.gms.auth.api.signin.GoogleSignInOptions)
+    public static android.content.Intent zzd(android.content.Context,com.google.android.gms.auth.api.signin.GoogleSignInOptions)
+    public static android.content.Intent zze(android.content.Context,com.google.android.gms.auth.api.signin.GoogleSignInOptions)
     public static com.google.android.gms.common.api.OptionalPendingResult zzc(com.google.android.gms.common.api.GoogleApiClient,android.content.Context,com.google.android.gms.auth.api.signin.GoogleSignInOptions,boolean)
 com.google.firebase.components.ComponentDiscovery:
     public java.util.List discover()
@@ -14019,6 +14047,8 @@ androidx.asynclayoutinflater.R
 com.google.android.gms.internal.auth-api.zzi
 com.badlogic.gdx.graphics.g3d.decals.DecalBatch
 com.badlogic.gdx.backends.android.AndroidInput$3$3$1
+com.google.android.gms.tasks.zzi:
+    public final void zza()
 com.seasluggames.serenitypixeldungeon.android.levels.rooms.special.AltarRoom
 com.google.android.gms.internal.firebase-auth-api.zzeq:
     private void <init>()
@@ -14479,6 +14509,8 @@ com.google.android.gms.internal.drive.zzde
 com.google.firebase.analytics.FirebaseAnalytics$ConsentType
 com.google.android.gms.common.api.internal.zak:
     protected void <init>(com.google.android.gms.common.api.internal.LifecycleFragment)
+com.google.android.gms.tasks.zzh:
+    public final void zza()
 androidx.browser.R$string
 androidx.arch.core.executor.TaskExecutor:
     public void executeOnMainThread(java.lang.Runnable)
@@ -15132,6 +15164,7 @@ com.google.android.gms.internal.ads.zzehu:
 com.google.android.gms.internal.firebase-auth-api.zzaam:
     public static final com.google.android.gms.internal.firebase-auth-api.zzaan zza
 com.google.android.gms.internal.ads.zzux
+com.google.android.gms.internal.ads.zzbuj
 com.google.android.gms.internal.ads.zzddm:
     public static com.google.android.gms.internal.ads.zzddm zzaw(com.google.android.gms.internal.ads.zzeqo,com.google.android.gms.internal.ads.zzeqo)
 com.google.firebase.auth.PhoneAuthProvider$OnVerificationStateChangedCallbacks
@@ -16185,7 +16218,6 @@ com.google.android.gms.tasks.zzu:
     public final com.google.android.gms.tasks.Task addOnFailureListener(com.google.android.gms.tasks.OnFailureListener)
     public final com.google.android.gms.tasks.Task addOnCompleteListener(com.google.android.gms.tasks.OnCompleteListener)
     public final com.google.android.gms.tasks.Task addOnCompleteListener(java.util.concurrent.Executor,com.google.android.gms.tasks.OnCompleteListener)
-    public final com.google.android.gms.tasks.Task addOnCompleteListener(android.app.Activity,com.google.android.gms.tasks.OnCompleteListener)
     public final com.google.android.gms.tasks.Task continueWith(java.util.concurrent.Executor,com.google.android.gms.internal.ads.zzdsz)
     public final com.google.android.gms.tasks.Task addOnCanceledListener(java.util.concurrent.Executor,com.google.android.gms.tasks.OnCanceledListener)
     public final boolean zzb(java.lang.Object)
@@ -16599,7 +16631,6 @@ com.google.android.gms.internal.ads.zzehv:
 com.google.android.gms.internal.ads.zzdop:
     public final synchronized void zza(java.util.HashSet)
 com.seasluggames.serenitypixeldungeon.android.journal.Notes
-com.google.android.gms.internal.ads.zzbum
 com.google.android.gms.internal.ads.zzqj:
     public static synthetic com.google.android.gms.internal.ads.zzqk zza(com.google.android.gms.internal.ads.zzqj)
     public final void zza(com.google.android.gms.internal.ads.zzjm)
@@ -16658,7 +16689,6 @@ com.google.android.gms.tasks.Task:
     public abstract com.google.android.gms.tasks.Task addOnFailureListener(com.google.android.gms.tasks.OnFailureListener)
     public abstract com.google.android.gms.tasks.Task addOnCompleteListener(com.google.android.gms.tasks.OnCompleteListener)
     public abstract com.google.android.gms.tasks.Task addOnCompleteListener(java.util.concurrent.Executor,com.google.android.gms.tasks.OnCompleteListener)
-    public abstract com.google.android.gms.tasks.Task addOnCompleteListener(android.app.Activity,com.google.android.gms.tasks.OnCompleteListener)
     public abstract com.google.android.gms.tasks.Task addOnCanceledListener(java.util.concurrent.Executor,com.google.android.gms.tasks.OnCanceledListener)
     public abstract com.google.android.gms.tasks.Task continueWith(java.util.concurrent.Executor,com.google.android.gms.internal.ads.zzdsz)
 com.google.android.gms.internal.ads.zzdrs:
@@ -16849,6 +16879,7 @@ com.google.android.gms.internal.ads.zzeeg:
     public final void zzs(com.google.android.gms.internal.ads.zzejr)
 com.google.android.gms.internal.firebase-auth-api.zzrm:
     public final synthetic void zzd(com.google.android.gms.internal.firebase-auth-api.zztr,com.google.android.gms.tasks.TaskCompletionSource)
+com.google.android.gms.internal.ads.zzbug
 com.google.android.gms.internal.measurement.zzez
 com.badlogic.gdx.graphics.GL30
 com.google.android.gms.internal.ads.zzcxj:
@@ -17420,6 +17451,7 @@ com.google.android.gms.internal.ads.zzdsu:
     public final com.google.android.gms.internal.ads.zzeqo zzewf
 com.seasluggames.serenitypixeldungeon.android.levels.rooms.standard.StandardRoom$SizeCategory:
     public int connectionWeight()
+com.google.android.gms.internal.ads.zzcyl
 com.badlogic.gdx.graphics.g2d.BitmapFont$Glyph:
     public int getKerning(char)
     public boolean fixedWidth
@@ -17885,6 +17917,7 @@ com.badlogic.gdx.math.WindowedMean:
     public boolean hasEnoughData()
     public void clear()
     public void addValue(float)
+com.google.android.gms.internal.ads.zzcyo
 com.google.android.gms.internal.ads.zzatl
 com.google.android.gms.internal.firebase-auth-api.zzyc:
     public static void <clinit>()
@@ -17960,7 +17993,6 @@ com.seasluggames.serenitypixeldungeon.android.items.wands.Wand$Charger:
     public com.seasluggames.serenitypixeldungeon.android.items.wands.Wand wand()
     public final void recharge()
     public final void setScaleFactor(float)
-com.google.android.gms.internal.ads.zzbui
 com.google.android.gms.common.api.internal.BasePendingResult$CallbackHandler:
     public final void zaa(com.google.android.gms.common.api.ResultCallback,com.google.android.gms.common.api.Result)
 com.google.android.gms.internal.ads.zzcml:
@@ -18693,6 +18725,7 @@ com.google.android.gms.internal.ads.zzbxr:
 com.google.android.gms.internal.ads.zzzo:
     public void <init>(android.content.Context,com.google.android.gms.internal.ads.zzvq)
     public final boolean isLoaded()
+    public final void zza(com.google.android.gms.internal.ads.zzzk)
     public final void setAdListener(com.google.android.gms.ads.AdListener)
     public final void setAdUnitId(java.lang.String)
     public final void setAdMetadataListener(com.google.android.gms.ads.reward.AdMetadataListener)
@@ -18998,7 +19031,6 @@ com.google.android.gms.internal.drive.zzmm:
     public static synthetic java.util.Iterator zzey()
 com.badlogic.gdx.files.FileHandle$1
 androidx.core.util.DebugUtils
-com.google.android.gms.internal.ads.zzbut
 com.google.android.gms.internal.ads.zzk:
     public abstract com.google.android.gms.internal.ads.zzn zzb(java.lang.String)
     public abstract void zza(java.lang.String,com.google.android.gms.internal.ads.zzn)
@@ -19132,6 +19164,7 @@ com.google.android.gms.common.internal.zzq:
     public final void zzc(com.google.android.gms.common.internal.zzm,android.content.ServiceConnection,java.lang.String)
 com.google.android.gms.internal.ads.zzbgk:
     public final com.google.android.gms.internal.ads.zzbgb zzewc
+com.google.android.gms.internal.ads.zzdln
 com.seasluggames.serenitypixeldungeon.android.sprites.HeroSprite:
     public void read()
     public void sprint(float)
@@ -19218,9 +19251,6 @@ com.google.android.gms.internal.ads.zzace:
     public final void recordClick()
     public final void recordImpression()
 com.google.android.gms.internal.ads.zzchh
-com.google.android.gms.tasks.zzu$zza:
-    public static com.google.android.gms.tasks.zzu$zza zza(android.app.Activity)
-    public final void zza(com.google.android.gms.tasks.zzr)
 com.google.android.gms.internal.ads.zzdvk
 com.google.firebase.components.LazySet:
     public static com.google.firebase.components.LazySet fromCollection(java.util.Collection)
@@ -19383,10 +19413,6 @@ com.google.android.gms.internal.ads.zzbly:
     public abstract com.google.android.gms.internal.ads.zzcws zzahq()
 androidx.sqlite.db.SupportSQLiteOpenHelper$Configuration$Builder
 com.google.android.gms.internal.firebase-auth-api.zztp
-com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene:
-    public static void access$000(com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene)
-    public void removeBtnSignIn()
-    public final void removeBtnSignOut()
 com.google.android.gms.internal.measurement.zzcw:
     public final com.google.android.gms.internal.measurement.zzcw zza(int)
     public final com.google.android.gms.internal.measurement.zzcw zzb(com.google.android.gms.internal.measurement.zzdp)
@@ -19505,7 +19531,6 @@ com.google.firebase.installations.remote.RequestLimiter:
     public final synchronized long getBackoffDuration(int)
 androidx.core.app.NotificationBuilderWithBuilderAccessor
 com.google.android.gms.internal.firebase-auth-api.zzvv
-com.google.android.gms.internal.ads.zzbus
 com.google.android.gms.internal.ads.zzepa$zzb$zze$zza$zza:
     public void <init>()
 com.google.android.gms.auth.api.Auth:
@@ -19634,6 +19659,7 @@ com.google.android.gms.internal.ads.zzdwm:
     public final boolean zzhwa
 com.google.android.gms.internal.measurement.zzig:
     public static final com.google.android.gms.internal.measurement.zzih zza
+com.google.android.gms.internal.ads.zzdlm
 com.google.android.gms.internal.ads.zzbgj:
     public final com.google.android.gms.internal.ads.zzeqo zzewf
 com.google.android.gms.internal.ads.zzdam:
@@ -20009,7 +20035,6 @@ com.google.android.gms.internal.ads.zzags:
 com.seasluggames.serenitypixeldungeon.android.items.TomeOfMastery$1
 com.google.android.gms.internal.drive.zzmk
 com.google.android.gms.internal.ads.zzdzy
-com.google.android.gms.internal.ads.zzbuv
 androidx.room.IMultiInstanceInvalidationCallback$Stub:
     public void <init>()
     public android.os.IBinder asBinder()
@@ -20384,6 +20409,7 @@ com.google.android.gms.common.internal.zaj:
 com.google.android.gms.internal.ads.zzbfj
 com.google.android.gms.internal.ads.zzug$zzk$zza:
     public void <init>()
+com.google.android.gms.internal.ads.zzdlp
 com.google.android.gms.internal.ads.zzsz:
     public static synthetic void zzb(com.google.android.gms.internal.ads.zzsz)
     public static synthetic java.lang.Object zzc(com.google.android.gms.internal.ads.zzsz)
@@ -20763,6 +20789,7 @@ com.google.android.gms.internal.firebase-auth-api.zzaax:
     public final boolean zze()
 com.google.android.gms.internal.ads.zzddx:
     public final com.google.android.gms.internal.ads.zzddu zzatj()
+com.google.android.gms.internal.ads.zzcxx
 androidx.work.OneTimeWorkRequest$Builder:
     public androidx.work.OneTimeWorkRequest buildInternal()
     public androidx.work.OneTimeWorkRequest$Builder getThis()
@@ -20829,6 +20856,7 @@ com.google.android.gms.internal.ads.zzcf$zzb$zza:
     public void <init>()
 com.google.android.gms.internal.ads.zzbgl:
     public final com.google.android.gms.internal.ads.zzbgb zzewc
+com.google.android.gms.internal.ads.zzdlo
 androidx.loader.app.LoaderManager:
     public abstract androidx.loader.content.Loader initLoader(int,android.os.Bundle,androidx.loader.app.LoaderManager$LoaderCallbacks)
     public abstract void markForRedelivery()
@@ -21011,6 +21039,7 @@ com.google.android.gms.internal.ads.zzdwi
 com.google.android.gms.internal.ads.zzlj:
     public void <init>(long,int)
     public final long zzaym
+com.google.android.gms.internal.ads.zzdli
 com.google.android.gms.internal.ads.zzbgf:
     public final com.google.android.gms.internal.ads.zzbgb zzewc
 com.google.android.gms.internal.measurement.zzmy:
@@ -21281,6 +21310,8 @@ com.google.android.gms.internal.measurement.zzil:
     public static com.google.android.gms.internal.measurement.zzil zzd()
 com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo$ParryTracker:
     public boolean parried
+com.google.android.gms.tasks.OnCompleteListener:
+    public abstract void onComplete(com.google.android.gms.tasks.Task)
 com.google.android.gms.common.api.internal.zzb:
     public static com.google.android.gms.common.api.internal.zzb zza(android.app.Activity)
     public static synthetic int zzb(com.google.android.gms.common.api.internal.zzb)
@@ -22220,7 +22251,6 @@ com.seasluggames.serenitypixeldungeon.android.actors.buffs.Paralysis$ParalysisRe
     public static synthetic int access$002(com.seasluggames.serenitypixeldungeon.android.actors.buffs.Paralysis$ParalysisResist,int)
 com.google.android.gms.internal.ads.zzekl$zzb:
     public final void zzk(byte[],int,int)
-    public final void zzg(com.google.android.gms.internal.ads.zzemo)
     public final int offset
 com.google.android.gms.internal.ads.zzke:
     public final boolean zzb(com.google.android.gms.internal.ads.zzmh)
@@ -22661,6 +22691,7 @@ com.google.android.gms.ads.internal.util.zza:
     public static synthetic java.lang.Thread zza(com.google.android.gms.ads.internal.util.zza,java.lang.Thread)
     public volatile java.lang.Thread thread
     public boolean zzedl
+com.google.android.gms.internal.ads.zzdll
 com.google.android.gms.internal.ads.zzbgi:
     public final com.google.android.gms.internal.ads.zzbgb zzewc
 com.google.android.gms.internal.firebase-auth-api.zzgf
@@ -23323,6 +23354,7 @@ androidx.work.impl.model.SystemIdInfoDao_Impl$2:
     public final synthetic androidx.work.impl.model.SystemIdInfoDao_Impl this$0
 com.google.android.gms.internal.ads.zzja:
     public final void zzb(int[])
+com.google.android.gms.internal.ads.zzdlk
 com.seasluggames.serenitypixeldungeon.android.items.Heap:
     public static void evaporateFX(int)
     public void open(com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero)
@@ -23673,7 +23705,6 @@ com.google.android.gms.auth.api.signin.internal.Storage:
     public void clear()
     public final com.google.android.gms.auth.api.signin.GoogleSignInAccount zaa(java.lang.String)
     public final com.google.android.gms.auth.api.signin.GoogleSignInOptions zab(java.lang.String)
-com.google.android.gms.internal.ads.zzdim
 com.watabou.noosa.audio.Sample$DelayedSoundEffect:
     public void <init>(com.watabou.noosa.audio.Sample)
     public final synthetic com.watabou.noosa.audio.Sample this$0
@@ -23858,6 +23889,7 @@ androidx.work.impl.WorkerWrapper:
     public final boolean trySetRunning()
     public final void setSucceededAndResolve()
     public final java.lang.String createWorkDescription(java.util.List)
+com.google.android.gms.internal.ads.zzcya
 com.badlogic.gdx.Audio:
     public abstract com.badlogic.gdx.audio.Sound newSound(com.badlogic.gdx.files.FileHandle)
     public abstract com.badlogic.gdx.audio.Music newMusic(com.badlogic.gdx.files.FileHandle)
@@ -24109,7 +24141,6 @@ com.google.android.gms.internal.ads.zzekl:
     public static int zzd()
     public static int zzbs()
     public static int zzhb(int)
-    public static int zza(com.google.android.gms.internal.ads.zzelt)
     public static int zzw(byte[])
     public static int zzh(com.google.android.gms.internal.ads.zzemo)
     public static int zzi(com.google.android.gms.internal.ads.zzemo)
@@ -24174,12 +24205,7 @@ com.google.android.gms.common.api.internal.zam:
     public final com.google.android.gms.common.ConnectionResult zab()
 com.google.android.gms.internal.ads.zzbq:
     public static com.google.android.gms.internal.ads.zzept zzdc
-com.google.android.gms.auth.api.signin.GoogleSignInClient$zzc:
-    public static int[] zzm()
-    public static final enum int zzbx
-    public static final enum int zzby
-    public static final enum int zzbz
-    public static final enum int zzca
+com.google.android.gms.auth.api.signin.GoogleSignInClient$zzc
 com.seasluggames.serenitypixeldungeon.android.windows.WndBlacksmith:
     public static synthetic com.seasluggames.serenitypixeldungeon.android.windows.WndBlacksmith$ItemButton access$002(com.seasluggames.serenitypixeldungeon.android.windows.WndBlacksmith,com.seasluggames.serenitypixeldungeon.android.windows.WndBlacksmith$ItemButton)
     public static synthetic com.seasluggames.serenitypixeldungeon.android.windows.WndBlacksmith$ItemButton access$100(com.seasluggames.serenitypixeldungeon.android.windows.WndBlacksmith)
@@ -24378,6 +24404,7 @@ com.google.android.gms.internal.ads.zzdwx
 com.google.android.gms.internal.firebase-auth-api.zzar:
     public final java.lang.Class zza()
 androidx.core.app.ActivityCompat
+com.google.android.gms.internal.ads.zzdlx
 com.watabou.noosa.MovieClip:
     public boolean looping()
     public synchronized void updateAnimation()
@@ -24549,10 +24576,10 @@ com.google.android.gms.internal.ads.zzdto:
 com.google.android.gms.internal.ads.zzbzl:
     public static com.google.android.gms.internal.ads.zzbzl zza(com.google.android.gms.internal.ads.zzbyz,com.google.android.gms.internal.ads.zzeqo,com.google.android.gms.internal.ads.zzeqo)
     public final com.google.android.gms.internal.ads.zzbyz zzgbk
+com.google.android.gms.auth.api.signin.zzc
 com.seasluggames.serenitypixeldungeon.android.windows.WndBlacksmith$ItemButton:
     public void item(com.seasluggames.serenitypixeldungeon.android.items.Item)
 com.google.android.gms.internal.firebase-auth-api.zzyx
-com.google.android.gms.internal.ads.zzdio
 com.google.android.gms.internal.ads.zzepa$zzb$zzi$zza:
     public final com.google.android.gms.internal.ads.zzepa$zzb$zzi$zza zzim(java.lang.String)
     public final com.google.android.gms.internal.ads.zzepa$zzb$zzi$zza zzfs(long)
@@ -24710,6 +24737,7 @@ com.seasluggames.serenitypixeldungeon.android.actors.mobs.DwarfKing:
 androidx.work.impl.background.systemalarm.WorkTimer:
     public void onDestroy()
 com.google.firebase.auth.zzd
+com.google.android.gms.internal.ads.zzcyc
 com.google.android.gms.internal.ads.zzccc:
     public final synchronized void zza(com.google.android.gms.internal.ads.zzaem)
 com.google.android.gms.internal.ads.zzcnc:
@@ -24767,7 +24795,7 @@ com.google.android.gms.internal.firebase-auth-api.zzuk:
     public final com.google.android.gms.internal.firebase-auth-api.zzuk zzc()
 com.google.android.gms.auth.api.signin.GoogleSignInClient:
     public static void <clinit>()
-    public android.content.Intent getSignInIntent()
+    public com.google.android.gms.tasks.Task signOut()
     public com.google.android.gms.tasks.Task revokeAccess()
     public static final com.google.android.gms.auth.api.signin.GoogleSignInClient$zzd zzbv
 com.google.android.gms.measurement.internal.zzam:
@@ -24837,6 +24865,7 @@ com.google.android.gms.internal.ads.zzje:
     public final void zzx(int)
     public final void zzek()
     public final void zzc(int,long,long)
+com.google.android.gms.internal.ads.zzdlw
 com.google.android.gms.internal.measurement.zzkt:
     public static boolean zzb()
     public final com.google.android.gms.internal.measurement.zzku zzc()
@@ -25088,7 +25117,6 @@ com.seasluggames.serenitypixeldungeon.android.scenes.SurfaceScene$Cloud:
 com.google.android.gms.internal.ads.zzbzk:
     public static com.google.android.gms.internal.ads.zzbzk zzd(com.google.android.gms.internal.ads.zzbyz,com.google.android.gms.internal.ads.zzeqo)
     public final com.google.android.gms.internal.ads.zzbyz zzgbk
-com.google.android.gms.internal.ads.zzdin
 com.google.android.gms.internal.ads.zzegp$zza:
     public final com.google.android.gms.internal.ads.zzegp$zza zzfp()
     public final com.google.android.gms.internal.ads.zzegp$zza zzb(com.google.android.gms.internal.ads.zzegs)
@@ -25288,6 +25316,7 @@ com.google.android.gms.games.internal.zze:
 com.google.android.gms.ads.doubleclick.CustomRenderedAd
 com.google.android.gms.internal.auth-api-phone.zzz:
     public final void zza(com.google.android.gms.common.api.Status)
+com.google.android.gms.internal.ads.zzcyb
 com.google.android.gms.internal.ads.zzccb:
     public static com.google.android.gms.internal.ads.zzccb zzz(com.google.android.gms.internal.ads.zzeqo)
 com.google.android.gms.internal.ads.zzegl$zza:
@@ -25616,6 +25645,7 @@ com.seasluggames.serenitypixeldungeon.android.actors.mobs.Bee:
     public int potHolderID()
 com.google.android.gms.internal.ads.zzbgo:
     public final com.google.android.gms.internal.ads.zzeqo zzewf
+com.google.android.gms.internal.ads.zzdlr
 com.seasluggames.serenitypixeldungeon.android.items.spells.TargetedSpell:
     public static synthetic com.seasluggames.serenitypixeldungeon.android.items.Item access$000()
     public static synthetic com.seasluggames.serenitypixeldungeon.android.items.Item access$100()
@@ -25690,6 +25720,7 @@ com.google.android.gms.internal.ads.zzbzf:
     public final com.google.android.gms.internal.ads.zzbyz zzgbk
 com.google.android.gms.common.api.internal.LifecycleCallback:
     public static com.google.android.gms.common.api.internal.LifecycleFragment getFragment(com.google.android.gms.common.api.internal.LifecycleActivity)
+    public static com.google.android.gms.common.api.internal.LifecycleFragment getFragment(android.app.Activity)
     public void onDestroy()
 com.seasluggames.serenitypixeldungeon.android.effects.MagicMissile$SlowParticle:
     public void reset(float,float,com.watabou.noosa.particles.Emitter)
@@ -25929,6 +25960,7 @@ com.google.android.gms.internal.ads.zzddz:
 com.google.android.gms.internal.ads.zzeew:
     public final void setVersion(int)
     public final void zzs(com.google.android.gms.internal.ads.zzejr)
+com.google.android.gms.internal.ads.zzcxz
 com.google.firebase.components.CycleDetector$Dep:
     public void <init>(java.lang.Class,boolean)
     public static synthetic boolean access$100(com.google.firebase.components.CycleDetector$Dep)
@@ -26079,12 +26111,10 @@ com.google.android.gms.internal.ads.zzcsk:
 com.seasluggames.serenitypixeldungeon.android.AndroidLauncher:
     public static void runOnUI(java.lang.Runnable)
     public static void runSignIn(java.lang.Runnable)
-    public static void signIn()
-    public static void signOut()
+    public static boolean isSignedIn()
     public static void checkLogIn()
     public static void doThis()
     public static void doThat()
-    public static synthetic void lambda$signOut$1(com.google.android.gms.tasks.Task)
     private void lambda$onCreate$0(com.google.firebase.auth.FirebaseAuth)
     public static synthetic java.lang.String access$102(com.seasluggames.serenitypixeldungeon.android.AndroidLauncher,java.lang.String)
     public void lambda$onCreate$0$AndroidLauncher(com.google.firebase.auth.FirebaseAuth)
@@ -26095,6 +26125,7 @@ com.seasluggames.serenitypixeldungeon.android.AndroidLauncher:
     public java.lang.String mDisplayName
     public com.google.firebase.auth.FirebaseAuth$AuthStateListener authStateListener
     public com.google.firebase.auth.FirebaseAuth mAuth
+    public static com.google.android.gms.auth.api.signin.GoogleSignInClient mGoogleSignInClient
 com.google.android.gms.internal.firebase-auth-api.zzuf:
     public abstract void zzc(com.google.android.gms.internal.firebase-auth-api.zznh,com.google.android.gms.internal.firebase-auth-api.zzuc)
     public abstract void zze(com.google.android.gms.internal.firebase-auth-api.zznz,com.google.android.gms.internal.firebase-auth-api.zzuc)
@@ -26618,6 +26649,7 @@ com.seasluggames.serenitypixeldungeon.android.actors.mobs.Piranha$Hunting:
     public void <init>(com.seasluggames.serenitypixeldungeon.android.actors.mobs.Piranha)
 com.google.android.gms.internal.ads.zzefd$zza:
     public void <init>()
+com.google.android.gms.internal.ads.zzdlt
 com.badlogic.gdx.graphics.glutils.MipMapGenerator:
     public static void generateMipMapGLES20(int,com.badlogic.gdx.graphics.Pixmap)
     public static void generateMipMapDesktop(int,com.badlogic.gdx.graphics.Pixmap,int,int)
@@ -27737,7 +27769,6 @@ com.watabou.noosa.SkinnedBlock:
     public void scale(float,float)
 com.google.android.gms.internal.ads.zzdei:
     public static com.google.android.gms.internal.ads.zzdei zzaq(com.google.android.gms.internal.ads.zzeqo)
-com.google.android.gms.internal.ads.zzcyi
 com.google.android.gms.internal.measurement.zzmd:
     public static boolean zzb()
     public final com.google.android.gms.internal.measurement.zzme zzc()
@@ -28147,7 +28178,6 @@ com.google.android.gms.internal.ads.zzdsq:
     public static java.util.List zza(int,java.util.List)
     public static java.lang.String zzhb(java.lang.String)
     public final java.util.List zza(com.google.android.gms.internal.ads.zzdmw,java.util.List,com.google.android.gms.internal.ads.zzauk)
-com.google.android.gms.internal.ads.zzcyh
 com.google.android.gms.internal.drive.zzky:
     public void <init>()
     public static final com.google.android.gms.internal.drive.zzkz zztl
@@ -28601,6 +28631,7 @@ com.google.android.gms.internal.ads.zzdek:
 com.google.android.gms.internal.ads.zzath:
     public abstract com.google.android.gms.internal.ads.zzatd zza(com.google.android.gms.internal.ads.zzatb)
     public abstract void zza(com.google.android.gms.internal.ads.zzatb,com.google.android.gms.internal.ads.zzati)
+com.google.android.gms.internal.ads.zzcyk
 com.google.android.gms.internal.firebase-auth-api.zze
 com.google.android.gms.internal.drive.zzkv:
     public void <init>(java.util.Map$Entry)
@@ -28686,6 +28717,7 @@ com.google.android.gms.internal.ads.zzcxh:
     public final void zzgn(java.lang.String)
 com.seasluggames.serenitypixeldungeon.android.windows.WndJournal$ListItem:
     public void <init>(com.watabou.noosa.Image,java.lang.String)
+com.google.android.gms.internal.ads.zzdmb
 com.google.android.gms.internal.games.zzdq
 com.google.android.gms.tasks.zzm:
     public static synthetic java.lang.Object zza(com.google.android.gms.tasks.zzm)
@@ -29578,6 +29610,7 @@ com.google.android.gms.internal.ads.zzbgw:
     public final com.google.android.gms.internal.ads.zzaxb zzaga()
     public final com.google.android.gms.internal.ads.zzarz zzagb()
     public final com.google.android.gms.internal.ads.zzacv zzagc()
+com.google.android.gms.internal.ads.zzdlz
 com.seasluggames.serenitypixeldungeon.android.items.stones.StoneOfIntuition$WndGuess$2:
     public final synthetic com.seasluggames.serenitypixeldungeon.android.items.stones.StoneOfIntuition val$this$0
     public final synthetic com.seasluggames.serenitypixeldungeon.android.items.stones.StoneOfIntuition$WndGuess this$1
@@ -29861,8 +29894,6 @@ com.google.android.gms.internal.ads.zzdfh:
     public static final enum int zzhdi
     public static final enum int zzhdj
 com.google.android.gms.auth.api.signin.internal.zzi:
-    public static android.content.Intent zzd(android.content.Context,com.google.android.gms.auth.api.signin.GoogleSignInOptions)
-    public static android.content.Intent zze(android.content.Context,com.google.android.gms.auth.api.signin.GoogleSignInOptions)
     public static com.google.android.gms.common.api.PendingResult zzc(com.google.android.gms.common.api.GoogleApiClient,android.content.Context,boolean)
     public static com.google.android.gms.common.api.PendingResult zzd(com.google.android.gms.common.api.GoogleApiClient,android.content.Context,boolean)
     public static com.google.android.gms.auth.api.signin.GoogleSignInResult getSignInResultFromIntent(android.content.Intent)
@@ -30112,6 +30143,7 @@ com.google.android.gms.internal.ads.zzug$zzo$zzb:
     public final com.google.android.gms.internal.ads.zzug$zzo$zzb zzca(java.lang.String)
     public final com.google.android.gms.internal.ads.zzug$zzo$zzb zzcb(java.lang.String)
     public final com.google.android.gms.internal.ads.zzug$zzo$zzb zzet(long)
+com.google.android.gms.internal.ads.zzdly
 com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo$1:
     public final synthetic com.seasluggames.serenitypixeldungeon.android.actors.buffs.Combo this$0
 com.google.android.gms.internal.measurement.zzcj:
@@ -30385,7 +30417,6 @@ com.google.android.gms.internal.ads.zzdyk$zzb:
     public void <init>()
 com.google.android.gms.internal.ads.zzbzm:
     public static com.google.android.gms.internal.ads.zzbzm zze(com.google.android.gms.internal.ads.zzbyz,com.google.android.gms.internal.ads.zzeqo)
-com.google.android.gms.internal.ads.zzdip
 com.google.android.gms.internal.ads.zzcdg:
     public final void zza(com.google.android.gms.internal.ads.zzagm)
     public final com.google.android.gms.internal.ads.zzagm zzapd()
@@ -30458,6 +30489,7 @@ com.seasluggames.serenitypixeldungeon.android.ui.Archs$2:
 com.google.android.gms.internal.firebase-auth-api.zzdm:
     public static final com.google.android.gms.internal.firebase-auth-api.zzih zzb
     public static final com.google.android.gms.internal.firebase-auth-api.zzih zzc
+com.google.android.gms.internal.ads.zzcyd
 com.google.android.gms.internal.measurement.zzgv
 com.google.android.gms.internal.ads.zzccd:
     public static com.google.android.gms.internal.ads.zzccd zza(com.google.android.gms.internal.ads.zzans)
@@ -31530,7 +31562,6 @@ com.google.android.gms.internal.ads.zzcpl:
     public static com.google.android.gms.internal.ads.zzcpl zzarr()
 com.seasluggames.serenitypixeldungeon.android.tiles.CustomTilemap:
     public void pos(int,int)
-com.google.android.gms.internal.ads.zzcyf
 com.google.android.gms.internal.ads.zzatc
 com.google.firebase.auth.internal.zzf
 androidx.work.impl.constraints.WorkConstraintsTracker:

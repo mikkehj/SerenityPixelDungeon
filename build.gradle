@@ -15,8 +15,8 @@ allprojects {
         appName = 'Serenity Pixel Dungeon'
         appPackageName = 'com.seasluggames.serenitypixeldungeon'
 
-        appVersionCode = 6
-        appVersionName = '0.0.6b'
+        appVersionCode = 8
+        appVersionName = '0.0.8b'
 
         appJavaCompatibility = JavaVersion.VERSION_1_8
 

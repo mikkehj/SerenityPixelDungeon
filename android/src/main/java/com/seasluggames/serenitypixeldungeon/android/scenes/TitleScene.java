@@ -122,9 +122,7 @@ public class TitleScene extends PixelScene {
             }
         };
         btnPlay.icon(Icons.get(Icons.ENTER));
-        if (!AndroidLauncher.isSignedIn()) {
-            add(btnPlay);
-        }
+        add(btnPlay);
 
         StyledButton btnRankings = new StyledButton(GREY_TR, Messages.get(this, "rankings")) {
             @Override
@@ -156,6 +154,7 @@ public class TitleScene extends PixelScene {
         btnAbout.icon(Icons.get(Icons.SSG));
         add(btnAbout);
 
+        /*
         btnSignIn = new StyledButton(GREY_TR, Messages.get(this, "signin")) {
             @Override
             protected void onClick() {
@@ -177,6 +176,8 @@ public class TitleScene extends PixelScene {
         };
         //add(btnSignOut);
 
+         */
+
         final int BTN_HEIGHT = 20;
         int GAP = (int) (h - topRegion - (landscape() ? 3 : 4) * BTN_HEIGHT) / 3;
         GAP /= landscape() ? 3 : 5;
@@ -184,16 +185,12 @@ public class TitleScene extends PixelScene {
 
         btnPlay.setRect(title.x, topRegion + GAP, title.width(), BTN_HEIGHT);
         align(btnPlay);
-        //btnSupport.setRect(btnPlay.left(), btnPlay.bottom()+ GAP, btnPlay.width(), BTN_HEIGHT);
-        //btnRankings.setRect(btnPlay.left(), btnSupport.bottom()+ GAP, (btnPlay.width()/2)-1, BTN_HEIGHT);
         btnRankings.setRect(btnPlay.left(), btnPlay.bottom() + GAP, (btnPlay.width() / 2) - 1, BTN_HEIGHT);
         btnBadges.setRect(btnRankings.right() + 2, btnRankings.top(), btnRankings.width(), BTN_HEIGHT);
-        //btnNews.setRect(btnRankings.left(), btnRankings.bottom() + GAP, btnRankings.width(), BTN_HEIGHT);
-        //btnChanges.setRect(btnNews.right() + 2, btnNews.top(), btnNews.width(), BTN_HEIGHT);
         btnSettings.setRect(btnRankings.left(), btnRankings.bottom() + GAP, btnRankings.width(), BTN_HEIGHT);
         btnAbout.setRect(btnSettings.right() + 2, btnSettings.top(), btnSettings.width(), BTN_HEIGHT);
-        btnSignIn.setRect(title.x, btnSettings.bottom() + GAP, title.width(), BTN_HEIGHT);
-        btnSignOut.setRect(title.x, btnSettings.bottom() + GAP, title.width(), BTN_HEIGHT);
+        //btnSignIn.setRect(title.x, btnSettings.bottom() + GAP, title.width(), BTN_HEIGHT);
+        //btnSignOut.setRect(title.x, btnSettings.bottom() + GAP, title.width(), BTN_HEIGHT);
 
         BitmapText version = new BitmapText("v" + Game.version, pixelFont);
         version.measure();

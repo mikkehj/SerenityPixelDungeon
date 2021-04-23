@@ -740,12 +740,13 @@ public class Badges {
     }
 
     public static void clericSecret() {
-        Badge badge = null;
+        loadGlobal();
 
-        if (!local.contains(Badge.UNLOCK_CLERIC)) {
-            badge = Badge.UNLOCK_CLERIC;
-            local.add(badge);
+        Badge badge = Badge.UNLOCK_CLERIC;
+        if (!global.contains(badge)) {
+            global.add(badge);
             displayBadge(badge);
+            saveGlobal();
         }
     }
 

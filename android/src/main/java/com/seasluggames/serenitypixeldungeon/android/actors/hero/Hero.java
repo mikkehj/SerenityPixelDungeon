@@ -1636,6 +1636,7 @@ public class Hero extends Char {
 
 		if (ankh == null) {
 			if (hasTalent(Talent.BLESSING_OF_LIFE)) {
+				/*
 				int chance = Random.NormalIntRange(1, 100);
 				switch (pointsInTalent(Talent.BLESSING_OF_LIFE)) {
 					case 1:
@@ -1656,6 +1657,16 @@ public class Hero extends Char {
 							reallyDie( cause );
 						}
 						break;
+				}
+
+				 */
+
+				if (Dungeon.hero.lvl >= 10) {
+					Dungeon.hero.lvl = (Dungeon.hero.lvl - 3) + pointsInTalent(Talent.BLESSING_OF_LIFE);
+					InterlevelScene.mode = InterlevelScene.Mode.RESURRECTBLESSING;
+					Game.switchScene( InterlevelScene.class );
+				} else {
+					reallyDie( cause );
 				}
 			} else {
 				reallyDie( cause );

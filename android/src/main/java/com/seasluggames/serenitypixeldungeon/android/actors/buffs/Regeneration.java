@@ -46,7 +46,19 @@ public class Regeneration extends Buff {
 
             if (!((Hero) target).isStarving()) {
                 if (Dungeon.hero.hasTalent(Talent.BLESSING_OF_PROTECTION)) {
-                    int shield = Dungeon.hero.pointsInTalent(Talent.BLESSING_OF_PROTECTION);
+                    double shield = 0;
+
+                    switch (Dungeon.hero.pointsInTalent(Talent.BLESSING_OF_PROTECTION)) {
+                        case 1:
+                            shield = Math.round(Dungeon.hero.HT * 0.1);
+                            break;
+                        case 2:
+                            shield = Math.round(Dungeon.hero.HT * 0.15);
+                            break;
+                        case 3:
+                            shield = Math.round(Dungeon.hero.HT * 0.20);
+                            break;
+                    }
                     int curShield = 0;
                     if (Dungeon.hero.buff(Barrier.class) != null) curShield = Dungeon.hero.buff(Barrier.class).shielding();
 
@@ -62,7 +74,8 @@ public class Regeneration extends Buff {
                     } else {
                         if (target.HP < (regencap() + shield)) {
                             if (curShield <= 0) {
-                                Buff.affect(Dungeon.hero, Barrier.class).incShield(shield);
+                                int shieldValue = (int) shield;
+                                Buff.affect(Dungeon.hero, Barrier.class).incShield(shieldValue);
                             }
                         } else {
                             ((Hero) target).resting = false;

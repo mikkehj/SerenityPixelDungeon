@@ -69,6 +69,7 @@
   <androidx.recommendation/>
   <androidx.recyclerview/>
   <androidx.remotecallback/>
+  <androidx.resourceinspection/>
   <androidx.room/>
   <androidx.savedstate/>
   <androidx.security/>
@@ -95,12 +96,14 @@
   <androidx.viewpager/>
   <androidx.viewpager2/>
   <androidx.wear/>
+  <androidx.wear.tiles/>
   <androidx.webkit/>
   <androidx.window/>
   <androidx.work/>
   <com.android/>
   <com.android.application/>
   <com.android.asset-pack/>
+  <com.android.asset-pack-bundle/>
   <com.android.billingclient/>
   <com.android.databinding/>
   <com.android.dynamic-feature/>
@@ -140,10 +143,13 @@
   <com.crashlytics.sdk.android/>
   <com.google.ads.afsn/>
   <com.google.ads.interactivemedia.v3/>
+  <com.google.ads.mediation/>
   <com.google.android.ads/>
   <com.google.android.ads.consent/>
   <com.google.android.apps.common.testing.accessibility.framework/>
   <com.google.android.datatransport/>
+  <com.google.android.enterprise.connectedapps/>
+  <com.google.android.exoplayer/>
   <com.google.android.fhir/>
   <com.google.android.games/>
   <com.google.android.gms/>

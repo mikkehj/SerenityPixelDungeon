@@ -216,6 +216,14 @@ public enum HeroClass {
 		PotionOfHealing pot = new PotionOfHealing();
 		pot.collect();
 
+/*
+		TomeOfMastery t = new TomeOfMastery();
+		t.collect();
+
+ */
+
+
+
 		Dungeon.quickslot.setSlot(0, bow);
 		Dungeon.quickslot.setSlot(3, pot);
 

@@ -23621,8 +23621,6 @@ com.seasluggames.serenitypixeldungeon.android.items.armor.ClericArmor:
 com.google.android.gms.internal.ads.zzug$zzm:
     public final void zza(com.google.android.gms.internal.ads.zzug$zzm$zzc)
     public final void zza(com.google.android.gms.internal.ads.zzug$zzm$zza)
-com.seasluggames.serenitypixeldungeon.android.actors.buffs.WellFed:
-    public void reset()
 com.google.android.gms.internal.ads.zzdjp:
     public final com.google.android.gms.internal.ads.zzdjm zzhgs
 com.google.android.gms.internal.ads.zzabj
@@ -25186,12 +25184,12 @@ androidx.core.graphics.drawable.IconCompat:
     public int getType()
     public void onPreParceling(boolean)
     public void onPostParceling()
-com.google.android.gms.internal.ads.zzcf$zzd$zza:
-    public void <init>()
 com.google.android.gms.internal.ads.zzcr:
     public static com.google.android.gms.internal.ads.zzcr zzo(int)
     public static com.google.android.gms.internal.ads.zzeli zzw()
     public static final com.google.android.gms.internal.ads.zzelf zzes
+com.google.android.gms.internal.ads.zzcf$zzd$zza:
+    public void <init>()
 com.google.android.gms.internal.firebase-auth-api.zzace:
     public static com.google.android.gms.internal.firebase-auth-api.zzace zza()
     public static com.google.android.gms.internal.firebase-auth-api.zzace zzc(com.google.android.gms.internal.firebase-auth-api.zzace,com.google.android.gms.internal.firebase-auth-api.zzace)

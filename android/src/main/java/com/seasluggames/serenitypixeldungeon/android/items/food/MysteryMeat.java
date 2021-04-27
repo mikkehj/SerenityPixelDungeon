@@ -25,11 +25,8 @@
 package com.seasluggames.serenitypixeldungeon.android.items.food;
 
 import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Buff;
-import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Burning;
 import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Hunger;
-import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Poison;
-import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Roots;
-import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Slow;
+import com.seasluggames.serenitypixeldungeon.android.actors.buffs.WellFed;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero;
 import com.seasluggames.serenitypixeldungeon.android.items.Item;
 import com.seasluggames.serenitypixeldungeon.android.messages.Messages;
@@ -55,6 +52,7 @@ public class MysteryMeat extends Food {
 	}
 
 	public static void effect(Hero hero){
+		/*
 		switch (Random.Int( 5 )) {
 			case 0:
 				GLog.w( Messages.get(MysteryMeat.class, "hot") );
@@ -72,6 +70,11 @@ public class MysteryMeat extends Food {
 				GLog.w( Messages.get(MysteryMeat.class, "stuffed") );
 				Buff.prolong( hero, Slow.class, Slow.DURATION );
 				break;
+		}
+		 */
+		if (Random.Int(4) == 1) {
+			GLog.w( Messages.get(MysteryMeat.class, "well_fed") );
+			Buff.affect(hero, WellFed.class).reset();
 		}
 	}
 	

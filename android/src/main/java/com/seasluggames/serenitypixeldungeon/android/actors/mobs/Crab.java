@@ -47,12 +47,12 @@ public class Crab extends Mob {
 	
 	@Override
 	public int damageRoll() {
-		return Random.NormalIntRange( 1, 7 );
+		return Random.NormalIntRange( 1, 6 );
 	}
 	
 	@Override
 	public int attackSkill( Char target ) {
-		return 12;
+		return 11;
 	}
 	
 	@Override

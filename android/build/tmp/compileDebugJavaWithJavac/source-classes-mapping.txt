@@ -605,13 +605,18 @@ com/seasluggames/serenitypixeldungeon/android/items/weapon/melee/MeleeWeapon.jav
 com/seasluggames/serenitypixeldungeon/android/items/Stylus.java
  com.seasluggames.serenitypixeldungeon.android.items.Stylus
  com.seasluggames.serenitypixeldungeon.android.items.Stylus$1
-com/seasluggames/serenitypixeldungeon/android/scenes/AboutScene.java
- com.seasluggames.serenitypixeldungeon.android.scenes.AboutScene
- com.seasluggames.serenitypixeldungeon.android.scenes.AboutScene$1
- com.seasluggames.serenitypixeldungeon.android.scenes.AboutScene$CreditsBlock
- com.seasluggames.serenitypixeldungeon.android.scenes.AboutScene$CreditsBlock$1
- com.seasluggames.serenitypixeldungeon.android.scenes.AboutScene$SSGBlock
- com.seasluggames.serenitypixeldungeon.android.scenes.AboutScene$SSGBlock$1
+com/seasluggames/serenitypixeldungeon/android/windows/WndStartGame.java
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$1
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$2
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$2$1
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$3
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroBtn
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$1
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$2
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$3
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$4
 com/seasluggames/serenitypixeldungeon/android/items/quest/RatSkull.java
  com.seasluggames.serenitypixeldungeon.android.items.quest.RatSkull
 com/seasluggames/serenitypixeldungeon/android/actors/buffs/Bless.java
@@ -1946,14 +1951,10 @@ com/seasluggames/serenitypixeldungeon/android/levels/traps/GuardianTrap.java
  com.seasluggames.serenitypixeldungeon.android.levels.traps.GuardianTrap
  com.seasluggames.serenitypixeldungeon.android.levels.traps.GuardianTrap$Guardian
  com.seasluggames.serenitypixeldungeon.android.levels.traps.GuardianTrap$GuardianSprite
-com/seasluggames/serenitypixeldungeon/android/scenes/TitleScene.java
- com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene
- com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$1
- com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$2
- com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$3
- com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$4
- com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$5
- com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$SettingsButton
+com/seasluggames/serenitypixeldungeon/android/scenes/AmuletScene.java
+ com.seasluggames.serenitypixeldungeon.android.scenes.AmuletScene
+ com.seasluggames.serenitypixeldungeon.android.scenes.AmuletScene$1
+ com.seasluggames.serenitypixeldungeon.android.scenes.AmuletScene$2
 com/seasluggames/serenitypixeldungeon/android/actors/mobs/Thief.java
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.Thief
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.Thief$1
@@ -2694,19 +2695,18 @@ com/seasluggames/serenitypixeldungeon/android/actors/mobs/Piranha.java
 com/seasluggames/serenitypixeldungeon/android/items/rings/RingOfHaste.java
  com.seasluggames.serenitypixeldungeon.android.items.rings.RingOfHaste
  com.seasluggames.serenitypixeldungeon.android.items.rings.RingOfHaste$Haste
-com/seasluggames/serenitypixeldungeon/android/scenes/AmuletScene.java
- com.seasluggames.serenitypixeldungeon.android.scenes.AmuletScene
- com.seasluggames.serenitypixeldungeon.android.scenes.AmuletScene$1
- com.seasluggames.serenitypixeldungeon.android.scenes.AmuletScene$2
-com/seasluggames/serenitypixeldungeon/android/windows/WndStartGame.java
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$1
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$2
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$2$1
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$3
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroBtn
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$1
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$2
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$3
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$4
+com/seasluggames/serenitypixeldungeon/android/scenes/AboutScene.java
+ com.seasluggames.serenitypixeldungeon.android.scenes.AboutScene
+ com.seasluggames.serenitypixeldungeon.android.scenes.AboutScene$1
+ com.seasluggames.serenitypixeldungeon.android.scenes.AboutScene$CreditsBlock
+ com.seasluggames.serenitypixeldungeon.android.scenes.AboutScene$CreditsBlock$1
+ com.seasluggames.serenitypixeldungeon.android.scenes.AboutScene$SSGBlock
+ com.seasluggames.serenitypixeldungeon.android.scenes.AboutScene$SSGBlock$1
+com/seasluggames/serenitypixeldungeon/android/scenes/TitleScene.java
+ com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene
+ com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$1
+ com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$2
+ com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$3
+ com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$4
+ com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$5
+ com.seasluggames.serenitypixeldungeon.android.scenes.TitleScene$SettingsButton

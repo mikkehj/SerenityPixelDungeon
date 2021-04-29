@@ -25,7 +25,6 @@
 package com.seasluggames.serenitypixeldungeon.android.items.scrolls;
 
 import com.seasluggames.serenitypixeldungeon.android.Badges;
-import com.seasluggames.serenitypixeldungeon.android.Dungeon;
 import com.seasluggames.serenitypixeldungeon.android.Statistics;
 import com.seasluggames.serenitypixeldungeon.android.actors.buffs.Degrade;
 import com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero;
@@ -41,6 +40,10 @@ import com.seasluggames.serenitypixeldungeon.android.messages.Messages;
 import com.seasluggames.serenitypixeldungeon.android.sprites.ItemSpriteSheet;
 import com.seasluggames.serenitypixeldungeon.android.utils.GLog;
 import com.seasluggames.serenitypixeldungeon.android.windows.WndBag;
+import com.watabou.utils.Random;
+
+import static com.seasluggames.serenitypixeldungeon.android.Dungeon.hero;
+import static com.seasluggames.serenitypixeldungeon.android.actors.hero.Talent.RISKY_UPGRADE;
 
 public class ScrollOfUpgrade extends InventoryScroll {
 	
@@ -66,12 +69,24 @@ public class ScrollOfUpgrade extends InventoryScroll {
 			boolean hadCursedEnchant = w.hasCurseEnchant();
 			boolean hadGoodEnchant = w.hasGoodEnchant();
 
-			w.upgrade();
+			if (hero.hasTalent(RISKY_UPGRADE)) {
+				int dice = Random.Int(0, 9);
+
+				if ((dice + hero.pointsInTalent(RISKY_UPGRADE) >= 4)) {
+					//60% rank 1, 70% rank 2
+					w.upgrade(1 + hero.pointsInTalent(RISKY_UPGRADE));
+				} else {
+					//40% rank 1, 30% rank 2
+					w.degrade(10);
+				}
+			} else {
+				w.upgrade();
+			}
 
 			if (w.cursedKnown && hadCursedEnchant && !w.hasCurseEnchant()){
-				removeCurse( Dungeon.hero );
+				removeCurse( hero );
 			} else if (w.cursedKnown && wasCursed && !w.cursed){
-				weakenCurse( Dungeon.hero );
+				weakenCurse( hero );
 			}
 			if (hadGoodEnchant && !w.hasGoodEnchant()){
 				GLog.w( Messages.get(Weapon.class, "incompatible") );
@@ -83,12 +98,24 @@ public class ScrollOfUpgrade extends InventoryScroll {
 			boolean hadCursedGlyph = a.hasCurseGlyph();
 			boolean hadGoodGlyph = a.hasGoodGlyph();
 
-			a.upgrade();
+			if (hero.hasTalent(RISKY_UPGRADE)) {
+				int dice = Random.Int(0, 9);
+
+				if ((dice + hero.pointsInTalent(RISKY_UPGRADE) >= 4)) {
+					//60% rank 1, 70% rank 2
+					a.upgrade(1 + hero.pointsInTalent(RISKY_UPGRADE));
+				} else {
+					//40% rank 1, 30% rank 2
+					a.degrade(10);
+				}
+			} else {
+				a.upgrade();
+			}
 
 			if (a.cursedKnown && hadCursedGlyph && !a.hasCurseGlyph()){
-				removeCurse( Dungeon.hero );
+				removeCurse( hero );
 			} else if (a.cursedKnown && wasCursed && !a.cursed){
-				weakenCurse( Dungeon.hero );
+				weakenCurse( hero );
 			}
 			if (hadGoodGlyph && !a.hasGoodGlyph()){
 				GLog.w( Messages.get(Armor.class, "incompatible") );
@@ -97,17 +124,41 @@ public class ScrollOfUpgrade extends InventoryScroll {
 		} else if (item instanceof Wand || item instanceof Ring) {
 			boolean wasCursed = item.cursed;
 
-			item.upgrade();
+			if (hero.hasTalent(RISKY_UPGRADE)) {
+				int dice = Random.Int(0, 9);
+
+				if ((dice + hero.pointsInTalent(RISKY_UPGRADE) >= 4)) {
+					//60% rank 1, 70% rank 2
+					item.upgrade(1 + hero.pointsInTalent(RISKY_UPGRADE));
+				} else {
+					//40% rank 1, 30% rank 2
+					item.degrade(10);
+				}
+			} else {
+				item.upgrade();
+			}
 
 			if (wasCursed && !item.cursed){
-				removeCurse( Dungeon.hero );
+				removeCurse( hero );
 			}
 
 		} else {
-			item.upgrade();
+			if (hero.hasTalent(RISKY_UPGRADE)) {
+				int dice = Random.Int(0, 9);
+
+				if ((dice + hero.pointsInTalent(RISKY_UPGRADE) >= 4)) {
+					//60% rank 1, 70% rank 2
+					item.upgrade(1 + hero.pointsInTalent(RISKY_UPGRADE));
+				} else {
+					//40% rank 1, 30% rank 2
+					item.degrade(10);
+				}
+			} else {
+				item.upgrade();
+			}
 		}
 
-		Talent.onUpgradeScrollUsed( Dungeon.hero );
+		Talent.onUpgradeScrollUsed( hero );
 		
 		Badges.validateItemLevelAquired( item );
 		Statistics.upgradesUsed++;

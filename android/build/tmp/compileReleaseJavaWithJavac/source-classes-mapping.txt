@@ -68,10 +68,8 @@ com/seasluggames/serenitypixeldungeon/android/items/weapon/enchantments/Grim.jav
 com/seasluggames/serenitypixeldungeon/android/items/spells/Recycle.java
  com.seasluggames.serenitypixeldungeon.android.items.spells.Recycle
  com.seasluggames.serenitypixeldungeon.android.items.spells.Recycle$Recipe
-com/seasluggames/serenitypixeldungeon/android/scenes/AmuletScene.java
- com.seasluggames.serenitypixeldungeon.android.scenes.AmuletScene
- com.seasluggames.serenitypixeldungeon.android.scenes.AmuletScene$1
- com.seasluggames.serenitypixeldungeon.android.scenes.AmuletScene$2
+com/seasluggames/serenitypixeldungeon/android/actors/buffs/Burning.java
+ com.seasluggames.serenitypixeldungeon.android.actors.buffs.Burning
 com/seasluggames/serenitypixeldungeon/android/items/rings/RingOfAccuracy.java
  com.seasluggames.serenitypixeldungeon.android.items.rings.RingOfAccuracy
  com.seasluggames.serenitypixeldungeon.android.items.rings.RingOfAccuracy$Accuracy
@@ -189,18 +187,8 @@ com/seasluggames/serenitypixeldungeon/android/plants/Swiftthistle.java
  com.seasluggames.serenitypixeldungeon.android.plants.Swiftthistle$TimeBubble
 com/seasluggames/serenitypixeldungeon/android/actors/buffs/Slow.java
  com.seasluggames.serenitypixeldungeon.android.actors.buffs.Slow
-com/seasluggames/serenitypixeldungeon/android/windows/WndStartGame.java
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$1
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$2
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$2$1
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$3
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroBtn
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$1
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$2
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$3
- com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$4
+com/seasluggames/serenitypixeldungeon/android/actors/mobs/GnollTrickster.java
+ com.seasluggames.serenitypixeldungeon.android.actors.mobs.GnollTrickster
 com/seasluggames/serenitypixeldungeon/android/levels/SewerLevel.java
  com.seasluggames.serenitypixeldungeon.android.levels.SewerLevel
  com.seasluggames.serenitypixeldungeon.android.levels.SewerLevel$Sink
@@ -379,9 +367,9 @@ com/seasluggames/serenitypixeldungeon/android/actors/mobs/Elemental.java
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.Elemental$ShockElemental
 com/seasluggames/serenitypixeldungeon/android/items/armor/glyphs/Swiftness.java
  com.seasluggames.serenitypixeldungeon.android.items.armor.glyphs.Swiftness
-com/seasluggames/serenitypixeldungeon/android/actors/mobs/DM100.java
- com.seasluggames.serenitypixeldungeon.android.actors.mobs.DM100
- com.seasluggames.serenitypixeldungeon.android.actors.mobs.DM100$LightningBolt
+com/seasluggames/serenitypixeldungeon/android/items/food/MeatPie.java
+ com.seasluggames.serenitypixeldungeon.android.items.food.MeatPie
+ com.seasluggames.serenitypixeldungeon.android.items.food.MeatPie$Recipe
 com/seasluggames/serenitypixeldungeon/android/levels/rooms/Room.java
  com.seasluggames.serenitypixeldungeon.android.levels.rooms.Room
  com.seasluggames.serenitypixeldungeon.android.levels.rooms.Room$Door
@@ -432,15 +420,17 @@ com/seasluggames/serenitypixeldungeon/android/items/weapon/missiles/darts/Healin
  com.seasluggames.serenitypixeldungeon.android.items.weapon.missiles.darts.HealingDart
 com/seasluggames/serenitypixeldungeon/android/levels/traps/BurningTrap.java
  com.seasluggames.serenitypixeldungeon.android.levels.traps.BurningTrap
-com/seasluggames/serenitypixeldungeon/android/sprites/SuccubusSprite.java
- com.seasluggames.serenitypixeldungeon.android.sprites.SuccubusSprite
+com/seasluggames/serenitypixeldungeon/android/items/food/StewedMeat.java
+ com.seasluggames.serenitypixeldungeon.android.items.food.StewedMeat
+ com.seasluggames.serenitypixeldungeon.android.items.food.StewedMeat$oneMeat
+ com.seasluggames.serenitypixeldungeon.android.items.food.StewedMeat$threeMeat
+ com.seasluggames.serenitypixeldungeon.android.items.food.StewedMeat$twoMeat
 com/seasluggames/serenitypixeldungeon/android/sprites/DiscardedItemSprite.java
  com.seasluggames.serenitypixeldungeon.android.sprites.DiscardedItemSprite
-com/seasluggames/serenitypixeldungeon/android/actors/mobs/npcs/Imp.java
- com.seasluggames.serenitypixeldungeon.android.actors.mobs.npcs.Imp
- com.seasluggames.serenitypixeldungeon.android.actors.mobs.npcs.Imp$1
- com.seasluggames.serenitypixeldungeon.android.actors.mobs.npcs.Imp$2
- com.seasluggames.serenitypixeldungeon.android.actors.mobs.npcs.Imp$Quest
+com/seasluggames/serenitypixeldungeon/android/items/Generator.java
+ com.seasluggames.serenitypixeldungeon.android.items.Generator
+ com.seasluggames.serenitypixeldungeon.android.items.Generator$1
+ com.seasluggames.serenitypixeldungeon.android.items.Generator$Category
 com/seasluggames/serenitypixeldungeon/android/actors/mobs/npcs/NPC.java
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.npcs.NPC
 com/seasluggames/serenitypixeldungeon/android/levels/rooms/connection/RingTunnelRoom.java
@@ -506,8 +496,10 @@ com/seasluggames/serenitypixeldungeon/android/levels/NewCityBossLevel.java
  com.seasluggames.serenitypixeldungeon.android.levels.NewCityBossLevel
  com.seasluggames.serenitypixeldungeon.android.levels.NewCityBossLevel$CustomGroundVisuals
  com.seasluggames.serenitypixeldungeon.android.levels.NewCityBossLevel$CustomWallVisuals
-com/seasluggames/serenitypixeldungeon/android/items/food/SmallRation.java
- com.seasluggames.serenitypixeldungeon.android.items.food.SmallRation
+com/seasluggames/serenitypixeldungeon/android/actors/mobs/Spinner.java
+ com.seasluggames.serenitypixeldungeon.android.actors.mobs.Spinner
+ com.seasluggames.serenitypixeldungeon.android.actors.mobs.Spinner$1
+ com.seasluggames.serenitypixeldungeon.android.actors.mobs.Spinner$Fleeing
 com/seasluggames/serenitypixeldungeon/android/actors/mobs/Bandit.java
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.Bandit
 com/seasluggames/serenitypixeldungeon/android/items/armor/ClericArmor.java
@@ -630,9 +622,13 @@ com/seasluggames/serenitypixeldungeon/android/items/weapon/missiles/Trident.java
  com.seasluggames.serenitypixeldungeon.android.items.weapon.missiles.Trident
 com/seasluggames/serenitypixeldungeon/android/items/bags/ScrollHolder.java
  com.seasluggames.serenitypixeldungeon.android.items.bags.ScrollHolder
-com/seasluggames/serenitypixeldungeon/android/items/bombs/Noisemaker.java
- com.seasluggames.serenitypixeldungeon.android.items.bombs.Noisemaker
- com.seasluggames.serenitypixeldungeon.android.items.bombs.Noisemaker$Trigger
+com/seasluggames/serenitypixeldungeon/android/ui/QuickRecipe.java
+ com.seasluggames.serenitypixeldungeon.android.ui.QuickRecipe
+ com.seasluggames.serenitypixeldungeon.android.ui.QuickRecipe$1
+ com.seasluggames.serenitypixeldungeon.android.ui.QuickRecipe$2
+ com.seasluggames.serenitypixeldungeon.android.ui.QuickRecipe$3
+ com.seasluggames.serenitypixeldungeon.android.ui.QuickRecipe$4
+ com.seasluggames.serenitypixeldungeon.android.ui.QuickRecipe$arrow
 com/seasluggames/serenitypixeldungeon/android/actors/mobs/CausticSlime.java
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.CausticSlime
 com/seasluggames/serenitypixeldungeon/android/items/potions/brews/CausticBrew.java
@@ -929,8 +925,10 @@ com/seasluggames/serenitypixeldungeon/android/windows/WndSadGhost.java
  com.seasluggames.serenitypixeldungeon.android.windows.WndSadGhost$RewardWindow
  com.seasluggames.serenitypixeldungeon.android.windows.WndSadGhost$RewardWindow$1
  com.seasluggames.serenitypixeldungeon.android.windows.WndSadGhost$RewardWindow$2
-com/seasluggames/serenitypixeldungeon/android/levels/rooms/secret/SecretSummoningRoom.java
- com.seasluggames.serenitypixeldungeon.android.levels.rooms.secret.SecretSummoningRoom
+com/seasluggames/serenitypixeldungeon/android/items/Heap.java
+ com.seasluggames.serenitypixeldungeon.android.items.Heap
+ com.seasluggames.serenitypixeldungeon.android.items.Heap$1
+ com.seasluggames.serenitypixeldungeon.android.items.Heap$Type
 com/seasluggames/serenitypixeldungeon/android/items/armor/glyphs/Affection.java
  com.seasluggames.serenitypixeldungeon.android.items.armor.glyphs.Affection
 com/seasluggames/serenitypixeldungeon/android/items/stones/StoneOfDeepenedSleep.java
@@ -1503,9 +1501,8 @@ com/seasluggames/serenitypixeldungeon/android/windows/WndRanking.java
  com.seasluggames.serenitypixeldungeon.android.windows.WndRanking$StatsTab$2
 com/seasluggames/serenitypixeldungeon/android/levels/traps/ConfusionTrap.java
  com.seasluggames.serenitypixeldungeon.android.levels.traps.ConfusionTrap
-com/seasluggames/serenitypixeldungeon/android/items/rings/RingOfHaste.java
- com.seasluggames.serenitypixeldungeon.android.items.rings.RingOfHaste
- com.seasluggames.serenitypixeldungeon.android.items.rings.RingOfHaste$Haste
+com/seasluggames/serenitypixeldungeon/android/actors/buffs/Frost.java
+ com.seasluggames.serenitypixeldungeon.android.actors.buffs.Frost
 com/seasluggames/serenitypixeldungeon/android/items/armor/glyphs/Brimstone.java
  com.seasluggames.serenitypixeldungeon.android.items.armor.glyphs.Brimstone
 com/seasluggames/serenitypixeldungeon/android/items/weapon/missiles/ThrowingStone.java
@@ -1723,8 +1720,8 @@ com/seasluggames/serenitypixeldungeon/android/actors/mobs/Warlock.java
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.Warlock$DarkBolt
 com/seasluggames/serenitypixeldungeon/android/actors/mobs/Snake.java
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.Snake
-com/seasluggames/serenitypixeldungeon/android/items/weapon/melee/Mace.java
- com.seasluggames.serenitypixeldungeon.android.items.weapon.melee.Mace
+com/seasluggames/serenitypixeldungeon/android/items/food/FrozenCarpaccio.java
+ com.seasluggames.serenitypixeldungeon.android.items.food.FrozenCarpaccio
 com/seasluggames/serenitypixeldungeon/android/ui/TalentButton.java
  com.seasluggames.serenitypixeldungeon.android.ui.TalentButton
  com.seasluggames.serenitypixeldungeon.android.ui.TalentButton$1
@@ -1815,8 +1812,8 @@ com/seasluggames/serenitypixeldungeon/android/items/weapon/missiles/darts/HolyDa
 com/seasluggames/serenitypixeldungeon/android/items/weapon/missiles/darts/SleepDart.java
  com.seasluggames.serenitypixeldungeon.android.items.weapon.missiles.darts.SleepDart
  com.seasluggames.serenitypixeldungeon.android.items.weapon.missiles.darts.SleepDart$1
-com/seasluggames/serenitypixeldungeon/android/items/weapon/missiles/ForceCube.java
- com.seasluggames.serenitypixeldungeon.android.items.weapon.missiles.ForceCube
+com/seasluggames/serenitypixeldungeon/android/actors/mobs/GreatCrab.java
+ com.seasluggames.serenitypixeldungeon.android.actors.mobs.GreatCrab
 com/seasluggames/serenitypixeldungeon/android/levels/traps/TeleportationTrap.java
  com.seasluggames.serenitypixeldungeon.android.levels.traps.TeleportationTrap
 com/seasluggames/serenitypixeldungeon/android/actors/buffs/SnipersMark.java
@@ -2235,10 +2232,10 @@ com/seasluggames/serenitypixeldungeon/android/ui/TalentsPane.java
  com.seasluggames.serenitypixeldungeon.android.ui.TalentsPane
  com.seasluggames.serenitypixeldungeon.android.ui.TalentsPane$TalentTierPane
  com.seasluggames.serenitypixeldungeon.android.ui.TalentsPane$TalentTierPane$1
-com/seasluggames/serenitypixeldungeon/android/sprites/ImpSprite.java
- com.seasluggames.serenitypixeldungeon.android.sprites.ImpSprite
-com/seasluggames/serenitypixeldungeon/android/levels/traps/ExplosiveTrap.java
- com.seasluggames.serenitypixeldungeon.android.levels.traps.ExplosiveTrap
+com/seasluggames/serenitypixeldungeon/android/actors/mobs/Bestiary.java
+ com.seasluggames.serenitypixeldungeon.android.actors.mobs.Bestiary
+com/seasluggames/serenitypixeldungeon/android/actors/mobs/Crab.java
+ com.seasluggames.serenitypixeldungeon.android.actors.mobs.Crab
 com/seasluggames/serenitypixeldungeon/android/actors/buffs/Doom.java
  com.seasluggames.serenitypixeldungeon.android.actors.buffs.Doom
 com/seasluggames/serenitypixeldungeon/android/levels/NewPrisonBossLevel.java
@@ -2261,8 +2258,8 @@ com/seasluggames/serenitypixeldungeon/android/effects/Fireball.java
  com.seasluggames.serenitypixeldungeon.android.effects.Fireball$Flame
 com/seasluggames/serenitypixeldungeon/android/sprites/GnollSprite.java
  com.seasluggames.serenitypixeldungeon.android.sprites.GnollSprite
-com/seasluggames/serenitypixeldungeon/android/items/weapon/missiles/Kunai.java
- com.seasluggames.serenitypixeldungeon.android.items.weapon.missiles.Kunai
+com/seasluggames/serenitypixeldungeon/android/actors/mobs/Albino.java
+ com.seasluggames.serenitypixeldungeon.android.actors.mobs.Albino
 com/seasluggames/serenitypixeldungeon/android/levels/rooms/special/DemonSpawnerRoom.java
  com.seasluggames.serenitypixeldungeon.android.levels.rooms.special.DemonSpawnerRoom
  com.seasluggames.serenitypixeldungeon.android.levels.rooms.special.DemonSpawnerRoom$CustomFloor
@@ -2428,8 +2425,8 @@ com/seasluggames/serenitypixeldungeon/android/items/scrolls/exotic/ScrollOfPassa
  com.seasluggames.serenitypixeldungeon.android.items.scrolls.exotic.ScrollOfPassage
 com/seasluggames/serenitypixeldungeon/android/levels/rooms/secret/SecretLarderRoom.java
  com.seasluggames.serenitypixeldungeon.android.levels.rooms.secret.SecretLarderRoom
-com/seasluggames/serenitypixeldungeon/android/items/bags/VelvetPouch.java
- com.seasluggames.serenitypixeldungeon.android.items.bags.VelvetPouch
+com/seasluggames/serenitypixeldungeon/android/actors/mobs/Gnoll.java
+ com.seasluggames.serenitypixeldungeon.android.actors.mobs.Gnoll
 com/seasluggames/serenitypixeldungeon/android/items/scrolls/ScrollOfUpgrade.java
  com.seasluggames.serenitypixeldungeon.android.items.scrolls.ScrollOfUpgrade
 com/seasluggames/serenitypixeldungeon/android/actors/buffs/Invisibility.java
@@ -2618,8 +2615,9 @@ com/seasluggames/serenitypixeldungeon/android/actors/mobs/DwarfKing.java
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.DwarfKing$Summoning
 com/seasluggames/serenitypixeldungeon/android/sprites/SheepSprite.java
  com.seasluggames.serenitypixeldungeon.android.sprites.SheepSprite
-com/seasluggames/serenitypixeldungeon/android/effects/CircleArc.java
- com.seasluggames.serenitypixeldungeon.android.effects.CircleArc
+com/seasluggames/serenitypixeldungeon/android/items/food/MysteryMeat.java
+ com.seasluggames.serenitypixeldungeon.android.items.food.MysteryMeat
+ com.seasluggames.serenitypixeldungeon.android.items.food.MysteryMeat$PlaceHolder
 com/seasluggames/serenitypixeldungeon/android/sprites/BeeSprite.java
  com.seasluggames.serenitypixeldungeon.android.sprites.BeeSprite
 com/seasluggames/serenitypixeldungeon/android/sprites/EarthGuardianSprite.java
@@ -2656,57 +2654,59 @@ com/seasluggames/serenitypixeldungeon/android/actors/blobs/Inferno.java
  com.seasluggames.serenitypixeldungeon.android.actors.blobs.Inferno
 com/seasluggames/serenitypixeldungeon/android/actors/buffs/Chill.java
  com.seasluggames.serenitypixeldungeon.android.actors.buffs.Chill
-com/seasluggames/serenitypixeldungeon/android/actors/mobs/GnollTrickster.java
- com.seasluggames.serenitypixeldungeon.android.actors.mobs.GnollTrickster
-com/seasluggames/serenitypixeldungeon/android/actors/buffs/Burning.java
- com.seasluggames.serenitypixeldungeon.android.actors.buffs.Burning
-com/seasluggames/serenitypixeldungeon/android/actors/buffs/Frost.java
- com.seasluggames.serenitypixeldungeon.android.actors.buffs.Frost
-com/seasluggames/serenitypixeldungeon/android/items/Heap.java
- com.seasluggames.serenitypixeldungeon.android.items.Heap
- com.seasluggames.serenitypixeldungeon.android.items.Heap$1
- com.seasluggames.serenitypixeldungeon.android.items.Heap$Type
-com/seasluggames/serenitypixeldungeon/android/actors/mobs/Gnoll.java
- com.seasluggames.serenitypixeldungeon.android.actors.mobs.Gnoll
-com/seasluggames/serenitypixeldungeon/android/items/food/MeatPie.java
- com.seasluggames.serenitypixeldungeon.android.items.food.MeatPie
- com.seasluggames.serenitypixeldungeon.android.items.food.MeatPie$Recipe
-com/seasluggames/serenitypixeldungeon/android/actors/mobs/Albino.java
- com.seasluggames.serenitypixeldungeon.android.actors.mobs.Albino
-com/seasluggames/serenitypixeldungeon/android/ui/QuickRecipe.java
- com.seasluggames.serenitypixeldungeon.android.ui.QuickRecipe
- com.seasluggames.serenitypixeldungeon.android.ui.QuickRecipe$1
- com.seasluggames.serenitypixeldungeon.android.ui.QuickRecipe$2
- com.seasluggames.serenitypixeldungeon.android.ui.QuickRecipe$3
- com.seasluggames.serenitypixeldungeon.android.ui.QuickRecipe$4
- com.seasluggames.serenitypixeldungeon.android.ui.QuickRecipe$arrow
-com/seasluggames/serenitypixeldungeon/android/items/food/MysteryMeat.java
- com.seasluggames.serenitypixeldungeon.android.items.food.MysteryMeat
- com.seasluggames.serenitypixeldungeon.android.items.food.MysteryMeat$PlaceHolder
-com/seasluggames/serenitypixeldungeon/android/actors/mobs/GreatCrab.java
- com.seasluggames.serenitypixeldungeon.android.actors.mobs.GreatCrab
-com/seasluggames/serenitypixeldungeon/android/actors/mobs/Spinner.java
- com.seasluggames.serenitypixeldungeon.android.actors.mobs.Spinner
- com.seasluggames.serenitypixeldungeon.android.actors.mobs.Spinner$1
- com.seasluggames.serenitypixeldungeon.android.actors.mobs.Spinner$Fleeing
-com/seasluggames/serenitypixeldungeon/android/items/food/StewedMeat.java
- com.seasluggames.serenitypixeldungeon.android.items.food.StewedMeat
- com.seasluggames.serenitypixeldungeon.android.items.food.StewedMeat$oneMeat
- com.seasluggames.serenitypixeldungeon.android.items.food.StewedMeat$threeMeat
- com.seasluggames.serenitypixeldungeon.android.items.food.StewedMeat$twoMeat
-com/seasluggames/serenitypixeldungeon/android/items/Generator.java
- com.seasluggames.serenitypixeldungeon.android.items.Generator
- com.seasluggames.serenitypixeldungeon.android.items.Generator$1
- com.seasluggames.serenitypixeldungeon.android.items.Generator$Category
-com/seasluggames/serenitypixeldungeon/android/items/food/FrozenCarpaccio.java
- com.seasluggames.serenitypixeldungeon.android.items.food.FrozenCarpaccio
+com/seasluggames/serenitypixeldungeon/android/levels/traps/ExplosiveTrap.java
+ com.seasluggames.serenitypixeldungeon.android.levels.traps.ExplosiveTrap
+com/seasluggames/serenitypixeldungeon/android/sprites/ImpSprite.java
+ com.seasluggames.serenitypixeldungeon.android.sprites.ImpSprite
+com/seasluggames/serenitypixeldungeon/android/levels/rooms/secret/SecretSummoningRoom.java
+ com.seasluggames.serenitypixeldungeon.android.levels.rooms.secret.SecretSummoningRoom
+com/seasluggames/serenitypixeldungeon/android/items/weapon/melee/Mace.java
+ com.seasluggames.serenitypixeldungeon.android.items.weapon.melee.Mace
+com/seasluggames/serenitypixeldungeon/android/actors/mobs/npcs/Imp.java
+ com.seasluggames.serenitypixeldungeon.android.actors.mobs.npcs.Imp
+ com.seasluggames.serenitypixeldungeon.android.actors.mobs.npcs.Imp$1
+ com.seasluggames.serenitypixeldungeon.android.actors.mobs.npcs.Imp$2
+ com.seasluggames.serenitypixeldungeon.android.actors.mobs.npcs.Imp$Quest
+com/seasluggames/serenitypixeldungeon/android/sprites/SuccubusSprite.java
+ com.seasluggames.serenitypixeldungeon.android.sprites.SuccubusSprite
+com/seasluggames/serenitypixeldungeon/android/items/food/SmallRation.java
+ com.seasluggames.serenitypixeldungeon.android.items.food.SmallRation
+com/seasluggames/serenitypixeldungeon/android/items/weapon/missiles/ForceCube.java
+ com.seasluggames.serenitypixeldungeon.android.items.weapon.missiles.ForceCube
+com/seasluggames/serenitypixeldungeon/android/effects/CircleArc.java
+ com.seasluggames.serenitypixeldungeon.android.effects.CircleArc
+com/seasluggames/serenitypixeldungeon/android/items/bombs/Noisemaker.java
+ com.seasluggames.serenitypixeldungeon.android.items.bombs.Noisemaker
+ com.seasluggames.serenitypixeldungeon.android.items.bombs.Noisemaker$Trigger
+com/seasluggames/serenitypixeldungeon/android/items/weapon/missiles/Kunai.java
+ com.seasluggames.serenitypixeldungeon.android.items.weapon.missiles.Kunai
+com/seasluggames/serenitypixeldungeon/android/actors/mobs/DM100.java
+ com.seasluggames.serenitypixeldungeon.android.actors.mobs.DM100
+ com.seasluggames.serenitypixeldungeon.android.actors.mobs.DM100$LightningBolt
+com/seasluggames/serenitypixeldungeon/android/items/bags/VelvetPouch.java
+ com.seasluggames.serenitypixeldungeon.android.items.bags.VelvetPouch
 com/seasluggames/serenitypixeldungeon/android/actors/mobs/Piranha.java
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.Piranha
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.Piranha$1
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.Piranha$Hunting
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.Piranha$Sleeping
  com.seasluggames.serenitypixeldungeon.android.actors.mobs.Piranha$Wandering
-com/seasluggames/serenitypixeldungeon/android/actors/mobs/Bestiary.java
- com.seasluggames.serenitypixeldungeon.android.actors.mobs.Bestiary
-com/seasluggames/serenitypixeldungeon/android/actors/mobs/Crab.java
- com.seasluggames.serenitypixeldungeon.android.actors.mobs.Crab
+com/seasluggames/serenitypixeldungeon/android/items/rings/RingOfHaste.java
+ com.seasluggames.serenitypixeldungeon.android.items.rings.RingOfHaste
+ com.seasluggames.serenitypixeldungeon.android.items.rings.RingOfHaste$Haste
+com/seasluggames/serenitypixeldungeon/android/scenes/AmuletScene.java
+ com.seasluggames.serenitypixeldungeon.android.scenes.AmuletScene
+ com.seasluggames.serenitypixeldungeon.android.scenes.AmuletScene$1
+ com.seasluggames.serenitypixeldungeon.android.scenes.AmuletScene$2
+com/seasluggames/serenitypixeldungeon/android/windows/WndStartGame.java
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$1
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$2
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$2$1
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$3
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroBtn
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$1
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$2
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$3
+ com.seasluggames.serenitypixeldungeon.android.windows.WndStartGame$HeroPane$4

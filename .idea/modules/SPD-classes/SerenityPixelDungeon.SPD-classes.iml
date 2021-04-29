@@ -26,6 +26,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="Gradle: SerenityPixelDungeon.SPD-classes.SPD-classes-0.0.12b" level="project" />
     <orderEntry type="module-library">
       <library name="Gradle: com.badlogicgames.gdx:gdx-controllers:1.9.10">
         <CLASSES>

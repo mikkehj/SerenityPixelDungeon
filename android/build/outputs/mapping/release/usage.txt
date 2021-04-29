@@ -8154,6 +8154,7 @@ com.google.firebase.provider.FirebaseInitProvider:
     private static final java.lang.String TAG
     static final java.lang.String EMPTY_APPLICATION_ID_PROVIDER_AUTHORITY
 com.seasluggames.serenitypixeldungeon.android.actors.hero.HeroClass:
+    private static void initGambler(com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero)
     public com.seasluggames.serenitypixeldungeon.android.Badges$Badge masteryBadge()
     public java.lang.String[] perks()
     private static final java.lang.String CLASS
@@ -24535,6 +24536,7 @@ com.seasluggames.serenitypixeldungeon.android.actors.hero.HeroClass:
     public static void initCleric(com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero)
     public void initHero(com.seasluggames.serenitypixeldungeon.android.actors.hero.Hero)
     public com.seasluggames.serenitypixeldungeon.android.actors.hero.HeroSubClass[] subClasses()
+    public java.lang.String splashArt()
     public java.lang.String unlockMsg()
     public void storeInBundle(com.watabou.utils.Bundle)
 com.google.android.gms.internal.firebase-auth-api.zzcx:
@@ -25184,12 +25186,12 @@ androidx.core.graphics.drawable.IconCompat:
     public int getType()
     public void onPreParceling(boolean)
     public void onPostParceling()
+com.google.android.gms.internal.ads.zzcf$zzd$zza:
+    public void <init>()
 com.google.android.gms.internal.ads.zzcr:
     public static com.google.android.gms.internal.ads.zzcr zzo(int)
     public static com.google.android.gms.internal.ads.zzeli zzw()
     public static final com.google.android.gms.internal.ads.zzelf zzes
-com.google.android.gms.internal.ads.zzcf$zzd$zza:
-    public void <init>()
 com.google.android.gms.internal.firebase-auth-api.zzace:
     public static com.google.android.gms.internal.firebase-auth-api.zzace zza()
     public static com.google.android.gms.internal.firebase-auth-api.zzace zzc(com.google.android.gms.internal.firebase-auth-api.zzace,com.google.android.gms.internal.firebase-auth-api.zzace)

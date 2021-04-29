@@ -7,6 +7,6 @@ public final class BuildConfig {
   public static final boolean DEBUG = Boolean.parseBoolean("true");
   public static final String APPLICATION_ID = "com.seasluggames.serenitypixeldungeon";
   public static final String BUILD_TYPE = "debug";
-  public static final int VERSION_CODE = 9;
-  public static final String VERSION_NAME = "0.0.9b";
+  public static final int VERSION_CODE = 12;
+  public static final String VERSION_NAME = "0.0.12b";
 }

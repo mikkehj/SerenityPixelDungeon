@@ -61,13 +61,13 @@ public class AboutScene extends PixelScene {
 
 		//*** Serenity Pixel Dungeon Credits ***
 
-		String ssgLink = "https://www.facebook.com/seasluggames";
+		String ssgLink = "https://linktr.ee/seasluggames";
 
 		SSGBlock ssg = new SSGBlock(true, Window.SSG_COLOR,
 				"Serenity Pixel Dungeon",
 				Icons.SSG.get(),
-				"Developed by: _Mikael Hjønnevåg_\nBased on Shattered Pixel Dungeon's open source",
-				"FB.Com/SeaSlugGames",
+				"Developed by: _Mikael Hjønnevåg_\nBased on Shattered Pixel Dungeon's open source\n\n_Credits:_\nØmicrónrg9 - Icon design\nTrashbox Bobylev - Cleric line talent icons\n",
+				"Linktr.ee/SeaSlugGames",
 				ssgLink);
 		ssg.setRect((w - fullWidth)/2f, 6, 120, 0);
 		content.add(ssg);

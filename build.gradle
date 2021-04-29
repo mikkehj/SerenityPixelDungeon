@@ -12,11 +12,11 @@ buildscript {
 allprojects {
 
     ext {
-        appName = 'Serenity Pixel Dungeon'
+        appName = 'Serenity PD'
         appPackageName = 'com.seasluggames.serenitypixeldungeon'
 
-        appVersionCode = 11
-        appVersionName = '0.0.11b'
+        appVersionCode = 12
+        appVersionName = '0.0.12b'
 
         appJavaCompatibility = JavaVersion.VERSION_1_8
 

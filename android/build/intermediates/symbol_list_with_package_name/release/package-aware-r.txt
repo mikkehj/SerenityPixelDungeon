@@ -216,10 +216,8 @@ layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
 mipmap ic_launcher
-mipmap ic_launcher1
 mipmap ic_launcher_background
 mipmap ic_launcher_foreground
-mipmap ic_launcher_foreground1
 string achievement_enlightened
 string app_id
 string app_name

@@ -65,6 +65,7 @@ public enum HeroClass {
 	ROGUE( "rogue", HeroSubClass.ASSASSIN, HeroSubClass.FREERUNNER ),
 	HUNTRESS( "huntress", HeroSubClass.SNIPER, HeroSubClass.WARDEN ),
 	CLERIC("cleric", HeroSubClass.PRIEST, HeroSubClass.MONK);
+	//GAMBLER("gambler");
 
 	private String title;
 	private HeroSubClass[] subClasses;
@@ -215,14 +216,10 @@ public enum HeroClass {
 
 		PotionOfHealing pot = new PotionOfHealing();
 		pot.collect();
-
-/*
-		TomeOfMastery t = new TomeOfMastery();
-		t.collect();
-
- */
-
-
+		/*
+		ScrollOfUpgrade sou = new ScrollOfUpgrade();
+		sou.quantity(50).collect();
+		 */
 
 		Dungeon.quickslot.setSlot(0, bow);
 		Dungeon.quickslot.setSlot(3, pot);
@@ -232,6 +229,10 @@ public enum HeroClass {
 
 		new PotionOfHealing().identify();
 		new ScrollOfUpgrade().identify();
+	}
+
+	private static void initGambler( Hero hero) {
+
 	}
 
 	public String title() {
@@ -254,11 +255,17 @@ public enum HeroClass {
 				return Assets.Sprites.HUNTRESS;
 			case CLERIC:
 				return Assets.Sprites.MAGE;
+				/*
+			case GAMBLER:
+				return Assets.Sprites.ROGUE;
+
+				 */
 
 		}
 	}
 
 	public String splashArt(){
+		/*
 		switch (this) {
 			case WARRIOR: default:
 				return Assets.Splashes.WARRIOR;
@@ -272,6 +279,9 @@ public enum HeroClass {
 				return Assets.Splashes.CLERIC;
 
 		}
+
+		 */
+		return Assets.Splashes.CLERIC;
 	}
 	
 	public String[] perks() {

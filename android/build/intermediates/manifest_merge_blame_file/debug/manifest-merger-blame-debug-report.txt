@@ -4,8 +4,8 @@
 4    package="com.seasluggames.serenitypixeldungeon"
 5    android:installLocation="auto"
 6    android:targetSandboxVersion="2"
-7    android:versionCode="9"
-8    android:versionName="0.0.9b" >
+7    android:versionCode="12"
+8    android:versionName="0.0.12b" >
 9
 10    <uses-sdk
 11        android:minSdkVersion="16"
@@ -98,7 +98,7 @@
 60-->C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:29:3-32
 61        android:icon="@mipmap/ic_launcher"
 61-->C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:24:3-37
-62        android:label="Serenity Pixel Dungeon"
+62        android:label="Serenity PD"
 62-->C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:25:3-29
 63        android:resizeableActivity="true"
 63-->C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:27:3-36
@@ -108,7 +108,7 @@
 66        <activity
 67            android:name="com.seasluggames.serenitypixeldungeon.android.AndroidLauncher"
 67-->C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:33:4-80
-68            android:label="Serenity Pixel Dungeon" >
+68            android:label="Serenity PD" >
 68-->C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:32:4-30
 69            <intent-filter>
 69-->C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:34:4-37:20
@@ -126,7 +126,7 @@
 76-->C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:41:4-76
 77            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
 77-->C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:43:4-106
-78            android:label="Serenity Pixel Dungeon"
+78            android:label="Serenity PD"
 78-->C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:40:4-30
 79            android:screenOrientation="nosensor" >
 79-->C:\Users\Mikael\Documents\.Android Studio Projects\SerenityPixelDungeon\android\src\main\AndroidManifest.xml:42:4-40
